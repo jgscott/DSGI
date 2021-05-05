@@ -1,9 +1,12 @@
 bookdown::gitbook:
   css: style.css
+  toc_depth: 3
   config:
     toc:
+      collapse: section
+      scroll_highlight: yes
       before: |
-        <li><a href="./">Data Science: A Gentle Introduction</a></li>
+        <li><a href="./">Data Science in R: A Gentle Introduction</a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
     edit: https://github.com/jgscott/DSGI/edit/master/%s

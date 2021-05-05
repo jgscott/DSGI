@@ -1,0 +1,241 @@
+# Counting {#contingency_tables}
+
+Counting is one of the simplest you can do with a data set.  But it can you get you surprisingly far.  I've heard it said that data science is mostly plotting and counting things.  After all, "How many?" is the [most basic quantitative question](https://www.youtube.com/watch?v=0Zi8KbgVhFc&ab_channel=SesameStreet) we can ask about the world.  Moreover, from counts, we can get proportions, and from proportions we can estimate probabilities---like, for example, one of the probabilities we'll estimate below: how likely is a band to play at Austin City Limits Music Festival, given that it played at Lollapalooza earlier that same year?  
+
+This lesson is about getting R to do the work of counting for us, so that we can focus on the questions we care about and not the tedious mechanical details of how to answer them.  You'll learn to:  
+
+- make tables of counts with `xtabs`.  
+- use `prop.table` to turn tables of counts into tables of proportions.    
+- use those tables to estimate simple probabilities (including conditional and joint probabilities).  
+- use the pipe operator (`%>%`) as a way of chaining together computations.      
+
+For this lesson, you'll need to download [aclfest.csv](http://jgscott.github.io/teaching/data/aclfest.csv), which contains data on some bands that played at several major U.S. music festivals (including our own ACL Fest here in Austin).  You'll also want to create a new R script and name it something (e.g. `lesson_tables.R`).  That way, you can practice the advice from an earlier lesson on [Scripts]: write statements in scripts, not directly in the console.
+
+## Getting started: ACL Fest
+
+First load the [tidyverse library](https://www.tidyverse.org/), which we'll need for just about every R lesson in this book.  
+
+```{r, message=FALSE}
+library(tidyverse)
+```
+
+Next, use the `Import Dataset` button to read in `aclfest.csv`.  If you need a reminder on how to accomplish these two key steps, see the previous lessons: [Loading a library] and [Importing a data set].  
+
+```{r, echo=FALSE, message=FALSE}
+aclfest = read.csv('data/aclfest.csv')
+```
+
+If you've imported the data correctly, you can use the `head` function to get the first six lines of the file.  You should see the following result:
+
+```{r}
+head(aclfest)
+```
+
+Each entry is either a 1 or a 0, meaning "yes" and "no", respectively.  So, for example, on the 6th line we see an entry of 1 for Radiohead under the `lollapalooza` column, which means that Radiohead played at Lollapalooza that year.  
+
+Let's make a few simple tables with this data.  This will allow us to estimate probabilities like:  
+
+1. How likely is a band in this sample to play Lollapalooza?  
+2. How like is a band to play both ACL Fest _and_ Lollapalooza?
+3. How likely is a band to play ACL Fest, given that they played Lollapalooza?  
+
+
+## Simple probabilities {#simple_probabilities}
+
+### Using xtabs alone {-}
+
+What is P(played Lollapalooza) for a randomly selected band in this sample?  To answer this, we'll use R's `xtabs` function to tabulate (i.e. count) the data according to whether a band played Lollapalooza (1) or not (0).  
+
+```{r}
+xtabs(~lollapalooza, data=aclfest)
+```
+
+You might be curious about the little tilde (`~`) symbol in front of `lollapalooza`.  Roughly speaking, `~` means "by" or "according to"---as in, "cross-tabulate BY the `lollapalooza` variable."
+
+Remember that, in our table, 1 means yes and 0 means no.  So of the 1238 bands (800 + 438) in this sample, 438 of them played Lollapalooza.  We can now use R as a calculator to get this proportion:
+
+```{r}
+438/(800 + 438)
+```
+
+So about 0.35 (35%).  This is a simple illustration of what you might call the "plug-in principle": if you want to estimate a probability, plug in the corresponding frequency from your data set.
+
+### Using prop.table {-}
+
+Simple enough, right?  But we can also get R to turn those counts into proportions for us, using the `prop.table` function.  In general, the more work we can get R to do for us, the better.  
+
+To do so, we'll make the same table as before, except that now we'll save the result in an object whose name we get to choose.  (Remember our lesson on [Objects].)  We'll call it `t1` in the code below, although you could call it something more imaginative, like `my_great_lollapalooza_table`, if you wanted to.  
+
+```{r}
+t1 = xtabs(~lollapalooza, data=aclfest)
+```
+
+Notice that nothing gets printed to the screen when you execute this command.  But if you ask R what `t1` is, it will show you the same table as before:
+```{r}
+t1
+```
+
+OK, so why did we bother to store this table in something called `t1`?  Well, remember the core ideas in data science:
+
+> We manage complexity by breaking down complex tasks into simpler tasks, and then linking those simpler tasks together.
+
+That's exactly what we're doing here: we'll take this `t1` object we've created (the first link our chain) and pass it into the `prop.table` function (the second link in our chain).  This function turns a table of counts (like `t1`) into a table of proportions, like this:
+
+```{r}
+prop.table(t1)
+```
+
+Of course, the answer we get, P(plays Lollapalooza) = 0.354, is the same one we got when we did the division "by hand" (i.e. treating R as a calculator to calculate 438/1238 using numbers we manually peeled off the table created by `xtabs`).  
+
+### Using pipes {-}
+
+The above way of doing things---using `xtabs` creating an "intermediate" object called `t1` and then passing `t1` into the `prop.table` function---works just fine.  Lots of people write R code this way.
+
+But it turns out there's a nicer way to accomplish the same task, using a "pipe" (`%>%`).  Pipes allow us to combine multiple operations in a single "pipeline": that is, a sequential chain of operations, with the result of one operation feeding into the next one.  
+
+Here's an example of a pipeline with just two steps:
+```{r}
+xtabs(~lollapalooza, data=aclfest) %>%
+  prop.table
+```
+
+I tend to think of the pipe symbol (`%>%`) as meaning "then."  So in English, this code block says: 
+
+- make a table of counts of the `lollapalooza` variable in the `aclfest` data set...
+- _then_ (`%>%`) hand off this table of counts to `prop.table` in order to make a table of proportions.  
+
+Pipes make your code easier to easier to write, read, and modify.  For a simple calculation like this involving only two steps, the difference is minimal.  But for the more complex kinds of calculations we'll see later in the course, the difference can be substantial.
+
+Piping makes it _especially_ easy to add steps in your pipeline.  For example, suppose we wanted to round all numbers to 3 decimal places.  This is easily done by adding one more pipe:
+```{r}
+xtabs(~lollapalooza, data=aclfest) %>%
+  prop.table %>%
+  round(3)
+```
+
+Or in English:  
+
+- make a table of counts...
+- _then_ (`%>%`) turn this into a table of proportions...
+- _then_ (`%>%`) round the result to 3 decimal places.  
+
+I hope you agree that the rounded table looks nicer.  (After all, there are only about 1000 bands in the data set, so proportions beyond the thousandths place are [spuriously](http://www.fallacyfiles.org/fakeprec.html) [precise.](https://allthetropes.fandom.com/wiki/Ludicrous_Precision))
+
+We'll use pipes a lot in the lessons to come.  I like them because they give a very transparent view of the logical flow of steps in a data analysis.
+
+Of course, if you take things to an extreme and try to write __everything__ in your scripts as one long sequence of pipes, it can start to be self-defeating, and your code will be _less_ readable as a result.  But for calculations involving somewhere between, say, 2 and 10 steps, pipes are hard to beat from a readability perspective.    
+
+One final nice feature of pipes is that, rather than printing the result of a pipeline directly to the screen, you can store the result in an object.  Suppose, for example, that we wanted to store our rounded table of probabilities in an object called `t2`.  We'd proceed like this:  
+
+
+```{r}
+t2 = xtabs(~lollapalooza, data=aclfest) %>%
+  prop.table %>%
+  round(3)
+```
+
+Nothing gets printed when you run this code chunk. However, just as with any user-defined object, `t2` is sitting there in memory, waiting to be called upon:  
+
+```{r}
+t2
+```
+
+## Joint probabilities
+
+Let's now look at a second question: how likely is a band to play both ACL Fest _and_ Lollapalooza?  You might recognize that kind of question as asking for a _joint probability_.   
+
+We'll start off by tabulating the bands according to both of the relevant variables: whether they played at ACL (0 or 1), and whether they played at Lollapalooza (0 or 1).  This works as follows:
+
+```{r}
+xtabs(~acl + lollapalooza, data=aclfest)
+```
+
+Here you should interpret the `+` sign as meaning "and", not in terms of arithmetic.  So in English, the code is saying: "cross-tabulate the aclfest data by the `acl` AND `lollapalooza` variables."  
+
+The result of calling `xtabs` gives us some numbers that represent joint frequencies.  Remember, for the row and column labels, 1 means yes and 0 means no.  So to be specific, the output is telling us that, of the 1238 bands in the data set:  
+
+- 719 played at neither ACL nor Lollapalooza.  
+- 81 played at ACL but not Lollapalooza.
+- 361 played at Lollapalooza but not ACL.  
+- 77 played at both ACL and Lollapalooza.  
+
+From here, we could actually stop and use use a calculator (or use R _as_ a calculator) to work out the relevant joint probability.  But as you'll see, it's less labor-intensive if we get R to do some of that work for us.  
+
+So instead, let's use `prop.table` again, to turn those counts into proportions.  As with the first example above, we'll do this using a pipe:  
+```{r}
+xtabs(~acl + lollapalooza, data=aclfest) %>%
+  prop.table %>%
+  round(3)
+```
+
+These numbers now represent __proportions__, not counts.  Therefore, all the entries in the table sum to 1, rather than to 1238.  So to be specific, the table is telling us that:
+
+- P(not ACL, not Lollapalooza) = 0.581.   
+- P(not ACL, Lollapalooza) = 0.292
+- P(ACL, not Lollapalooza) = 0.065
+- P(ACL, Lollapalooza) = 0.062
+
+And this last number, of course, is the answer to the question we set out to answer: P(ACL, Lollapalooza) = 0.062.  
+
+
+## Conditional probabilities
+
+Let turn to our final question: what is P(played ACL | played Lollapalooza)?  Or said in English, what is the conditional probability that a band played ACL, given that they played Lollapalooza?  You might remember the following rule for conditional probabilities:
+
+$$
+P(A \mid B) = \frac{P(A,B)}{P(B)}
+$$
+
+In frequency terms, we can interpret this formula as saying: how often do $A$ and $B$ happen together, as a fraction of how often $B$ happens overall?  To estimate this probability using the data, we'll again tabulate the bands by both the `acl` and `lollapalooza` variables:
+
+```{r}
+xtabs(~acl + lollapalooza, data=aclfest)
+```
+
+From this table of counts, we can reason as follows:
+
+- There were 361 + 77 = 438 bands that played at Lollapalooza.  
+- Of those 438 bands, 77 played at ACL.  
+- Therefore, P(played ACL | played Lollapalooza) = 77/438.
+
+Let's use R as a calculator to express this as a decimal number:  
+  
+  ```{r}
+77/438
+```
+
+So about 0.176.
+
+#### Using `margin` {-}
+
+But as with the previous two examples, it's much more satisfying to get R to do the work for us.  We'll do this using `prop.table` again---but this time, with a twist.  Pay close attention to the middle line, where we call `prop.table`:
+
+```{r}
+xtabs(~acl + lollapalooza, data=aclfest) %>%
+  prop.table(margin=2) %>%
+  round(3)
+```
+
+Notice how we added `margin=2` inside parentheses in the `prop.table()` step.  What `margin=2` does is to tell `prop.table` that it should calculate proportions __conditional on the second variable__ we named, which was `lollapalooza`.  (Hence `margin=2`; if you wanted to condition on the first variable you named, which here is `acl`, you'd type `margin=1` instead.)  
+
+So having specified that we want to condition on the `lollapalooza` variable, now we can read off the relevant conditional probabilities directly from the table---no calculator required.  Let's focus on the `lollapalooza = 1` column, since this is what we want to condition on (i.e. that a band played Lollapalooza).  The numbers in that column tell us that:  
+
+- P(didn't play ACL | played Lollapalooza) = 0.824  
+- P(played ACL | played Lollapalooza) = 0.176  
+
+And that second number is just the answer we were going for.   
+
+
+## Study questions {#study_tables}
+
+1. Use the "aclfest.csv" data set to answer the following questions.  
+
+    A. What is the joint probability that a band played both Outside Lands _and_ Bonnaroo?   
+    B. What is the conditional probability that a band played Coachella, given that they played ACL Fest?  Use pipes (`%>%`), and write out in English what each line of your code chunk is doing.   
+
+2. Download [plays_top50.csv](data/plays_top50.csv).  This file has data on 15,000 users of a music streaming service.  The first column is a unique numerical identifier for the user.  The remaining columns are for the top 50 artists most frequently streamed by this particular subset of users.  The entries in the data frame represent "did play" (1) and "did not play" (0), with 1 meaning that a given user streamed a given artist at least once during the data-collection period.   Use this data to answer the following questions:  
+
+   A. For a randomly selected user, what are P(plays Franz Ferdinand) and P(plays Franz Ferdinand | plays the Killers)?    
+   B. What are P(plays Bob Dylan) and P(plays Bob Dylan | plays the Beatles)?  
+   C. What are P(plays Rihanna) and P(plays Rihanna | plays Kanye West)?  
+   D. What is P(plays Queen or plays David Bowie)?  Hint: for this one you'll need to know the addition rule, $P(A \mbox{ or } B) = P(A) + P(B) - P(A,B)$.  

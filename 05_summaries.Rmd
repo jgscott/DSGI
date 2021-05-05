@@ -1,0 +1,184 @@
+# Summaries
+
+In this lesson, you'll learn to calculate basic summary statistics, including:  
+
+- means and medians to measure the typical value in a data set.  
+- standard deviations and IQRs to measure variation from the typical value.   
+- min, max, and, and quantiles to measure the extremes.   
+
+
+To get started, create a fresh new script, and then load the `tidyverse` library by placing the following two line at the top of your script and running it in the console:
+
+```{r, message=FALSE}
+library(tidyverse)
+```  
+
+Please also import the [rapidcity.csv](data/rapidcity.csv) data set, which you saw in the previous lesson, and which contains daily average temperatures in Fahrenheit (the `Temp` column) in Rapid City, SD over many years.  My code below assumes that you've imported the data set into an object called `rapidcity`, which will be the default object name if you used the `Import Dataset` button.  If you need a refresher on importing data, see [here](#importing_data).
+
+```{r, echo=FALSE}
+rapidcity = read.csv('data/rapidcity.csv', header=TRUE)
+```
+
+The `Temp` column, measured in degrees F, shows the average daily temperature, which is the midpoint between that day's high and low temps.  Let's begin by re-examining the histogram of daily temperatures that we saw in a prior lesson.   
+
+```{r, out.width = "90%"}
+ggplot(rapidcity) + 
+  geom_histogram(aes(x=Temp), binwidth=2)
+```
+
+[Brrr!](https://www.fodors.com/wp-content/uploads/2019/09/RapidCityWinter__HERO_shutterstock_1164246820.jpg)
+
+Statistical summaries entail distilling a complex data distribution like this one into a few simple numbers that answer questions like these.    
+
+- _the typical value_:  what's the temperature on a typical day in Rapid City? (`mean` and `median`)     
+- _the variation_: how much do the individual days vary from a "typical" day?  (`sd` and `IQR`)
+- _the extremes_: what temperatures should we expect on days that are unusually hot or unusually cold (at least, for Rapid City)? (`min`, `max`, and `quantile`)  
+
+We'll step through the Rapid City temperature data one summary at a time, building up a list of statistics bit by bit.  
+
+## The typical value 
+
+Two conventional ways to measure the typical value in a data set are the [mean and the median](https://www.statisticshowto.com/probability-and-statistics/statistics-definitions/mean-median-mode/).
+
+There are many ways we can calculate a mean in R.  The way I'm going to show isn't actually the most concise, at least for a simple summary like the mean.  But it _is_ very transparent, and it also has the virtue of generalizing much more readily to situations where we want to calculate more complex summaries.  
+
+Here's my preferred way in R to calculate a mean.  This uses pipes (`%>%`); if you need a refresher on pipes, revisit [this lesson](#simple_probabilities).
+
+```{r}
+rapidcity %>%
+  summarize(avg_temp = mean(Temp))
+```
+
+So about 47.3 degrees F.  Let's look at this statement piece by piece:  
+
+- we start by piping (`%>%`) the `rapidcity` data set into the `summarize` function, which---as its name suggests---is the function in R for computing data summaries.  
+- inside the parentheses of the `summarize` function, we have an assignment statement, `avg_temp = mean(Temp)`...  
+   - The right-hand side of this statement, `mean(Temp)`, tells R what summary statistic to calculate.  Here we calculate the mean of the `Temp` variable.  
+   - The left-hand side of the statement, `avg_temp`, is what _name_ we want to give this summary.  
+
+We can calculate the median, or the middle value in a sample, in a very similar way.  Let's augment our summary pipeline to calculate both the mean and median, so we can compare them:  
+
+```{r}
+rapidcity %>%
+  summarize(avg_temp = mean(Temp),
+            median_temp = median(Temp))
+```
+
+As you can see from this example, the `summarize` function lets you calculate as many summaries as you want, separated by commas.  You don't have to put each summary on a separate line the way I have, nor do you need to indent them so that they all line up.  But I find that doing so makes for more readable code.^[Good coders use a combination of strategies to make their code more readable, including line breaks, indentation, informative object names, and commenting.]  Here the mean and median are pretty similar.  This will generally be the case when data distribution isn't too [skewed](https://www.statisticshowto.com/probability-and-statistics/skewed-distribution/), i.e. unbalanced to the left or right.
+
+On the other hand, for distributions that are highly skewed one way or another, or that contain large outliers, the mean and median can be quite different.  In those situations, the median is generally considered a more representative measure of what's "typical," because it is less affected by heavy tails and outliers.
+
+Consider, for example, the distribution of U.S. household income in 2010, which is heavily skewed to the right:
+
+```{r, echo=FALSE, fig.align='center', out.width="100%"}
+knitr::include_graphics('images/income_census_2014.png')
+```
+
+The median of this distribution is about \$50,000: half of U.S. households earned more, and half earned less.  But the mean is much higher---nearly \$100,000---owing both to the overall skewness as well as the long upper tail of the distribution, consisting of a small number of very high earners (the ["one percent,"](https://review.chicagobooth.edu/economics/2017/article/never-mind-1-percent-lets-talk-about-001-percent) or, at least in this figure, the four percent shown at the far right).  Because income distributions tend to be highly skewed and contain huge outliers (like Jeff Bezos or Bill Gates), most economists prefer the median to the mean as a way to measure the "typical" household income.  
+
+## Variation 
+
+Another important question is, "How spread out are the data points from the typical value?"  As we discussed in the lesson on [Plots], this variation _around_ the average is usually at least as interesting as the average itself.  In fact, I'd encourage you imagine that this full spectrum of variation _is_ the underlying reality, and that any notion of a "typical" or "average" data value---like the notion of an "average American," with 12.2 years of schooling, 0.9 cars, 0.99 testicles, and 1.01 ovaries---is just an abstraction of that reality.^[The "average American" has more ovaries than testicles because there are slighty more females than males.  That's because females live a bit longer than males, on average.]  
+
+In our example, a "typical day" in Rapid City is about 47.3 degrees.  But this typical day is actually quite atypical. Some days are much hotter than average; some are much colder; some are _about_ average, but not quite.  The number of days that are _exactly_ average is basically zero.  __Temperature varies__.   If we want to understand reality, we need the measure that variation.  We'll look at two ways to do this: the __standard deviation__ and the __inter-quartile range__.  
+One common way to measure variation is with the __standard deviation__.  The standard deviation answers the question: "by how much do the _actual_ data points tend to deviate from the notionally _typical_ data point?"  The higher the number, the more spread out the data points are around their average.  
+
+Let's add the standard deviation to our list of summary statistics that we want to calculate.  To do so we use the `sd` function, like this:
+
+```{r}
+rapidcity %>%
+  summarize(avg_temp = mean(Temp),
+            median_temp = median(Temp),
+            sd_temp = sd(Temp))
+```
+
+In words: the actual days in Rapid City vary from the typical day by about 20 degrees, on average.
+
+To give you a sense of what the standard deviation represents, consider the following table.  This shows ten randomly sampled rows of our data set, along with a new column called `Temp_deviation`.  In this column, I've calculated the daily deviation: that is, the _difference_ between each day's actual temperature and the overall average temperature of 47.3 degrees.
+
+```{r, echo=FALSE, cache=TRUE}
+ind = c(547, 698, 1434, 1814, 2449, 3111, 4462, 4516, 5166, 5852)
+getter = function(x, ind) return(x[ind,])
+rapidcity %>% 
+  mutate(Temp_deviation = round(Temp - mean(Temp), 1)) %>%
+  getter(ind) %>%
+#rapidcity[ind,] %>%
+  arrange(Year, Month, Day) %>%
+  knitr::kable()
+```
+
+For example:  
+
+- The first row (30 June 1996) shows a temperature of 68.2 degrees F.  This is 20.9 degrees above average, and so the `Temp_deviation` column shows 20.9.     
+- The second row (30 November 1997) shows a temperature of 28.4 degrees F.  This is 18.9 degrees below average, and so the `Temp_deviation` column shows -18.9.    
+- And so on for the remaining rows.  
+
+Some of these deviations are positive, some are negative; some are large, some are small.  What the standard deviation measures is, essentially, the average _magnitude_ of these deviations---not just for these 10 rows, but for all 6159 rows of the data set. Said another way, it measures the typical deviation from the average!^[This is not quite mathematically precise.  The trick in defining the standard deviation is how you ensure the negative and positive deviations don't cancel each other out in calculating the average. For the formal definition, see pretty much any [online tutorial](https://www.mathsisfun.com/data/standard-deviation-formulas.html) on the [concept.](https://www.investopedia.com/terms/s/standarddeviation.asp)]  
+
+A second conventional measure of variation is called the __inter-quartile range__, or IQR.  This measures the range spanned by the middle half of a data distribution---that is, from the 25th to the 75th percentiles.  Let's add the IQR to our summary table:
+
+```{r}
+rapidcity %>%
+  summarize(avg_temp = mean(Temp),
+            median_temp = median(Temp),
+            sd_temp = sd(Temp),
+            iqr_temp = IQR(Temp))
+```
+
+So in Rapid City, the range from the 25th to the 75th percentile of temperature spans about 31 degrees F.  
+
+__Some simple advice.__ Like the median, the IQR is more robust to outliers and heavily skewed data distributions.  That's because it depends only on the middle half of the data, and not what happens in the top or bottom quartile.  (If you take a room of 100 school teachers and add Jeff Bezos, the mean and standard deviation of income will change a lot, but the median and IQR won't change at all.)  So if your data distribution is highly skewed or has big outliers in it, you're usually better off summarizing it with the median and IQR.  If not, you're usually better off with the mean and standard deviation.  
+
+## Extremes and quantiles 
+
+Another conventional way to summarize a data distribution is to look at the extremes.  This is common, for example, in the insurance industry, where they ask questions like, "what's the worst flood or worst earthquake we might see in a 100-year period?"
+
+The simplest measures of the extremes are the minimum and maximum values we've seen before.  Let's add the calculation of these numbers to our summary pipeline, using `min` and `max`:  
+
+```{r}
+rapidcity %>%
+  summarize(avg_temp = mean(Temp),
+            median_temp = median(Temp),
+            sd_temp = sd(Temp),
+            iqr_temp = IQR(Temp),
+            min_temp = min(Temp),
+            max_temp = max(Temp))
+```
+
+ Minus 19F!  Yikes.
+
+Of course, we might think that the `min` and `max` are _too_ extreme, to the point of being unrepresentative of the underlying data distribution.  I'll give you an example.  By 2021, I'd spent over 15 years of my life in Austin, Texas, and the coldest temperature I'd encountered there was 18 degrees F---until one day in February 2021, when the overnight temperature hit 6 F, shattering both my own personal record low _and_ the state's [power grid](https://www.texasmonthly.com/news-politics/responsible-texas-blackouts/).  So now when out-of-towners ask me, "What's the coldest it gets in Austin?" I guess I have to say, "6 degrees."^[And about 40 degrees inside without power for a few days.]  But that figure is actually quite unrepresentative of even the _very cold_ days in an Austin winter---which, as a native Texan, I'd peg at 30 or maybe 35 degrees F, to the derision of my northern friends.   
+
+So instead of calculating the min and max temperatures, we might instead want to ask questions about the extremes, but not the _very_ extremes.  These kinds of questions are naturally phrased in terms of percentiles.  For example:    
+
+- What's the 5th percentile of temperatures?  That is, what's a temperature so cold that only 5% of days in Rapid City are colder?  
+- What's the 95th percentile of temperatures? That is, what's a temperature so hot that 95% of days in Rapid City are colder---or equivalently, only 5% of days are warmer?  
+
+To do this, we use the `quantile` function in R.  By convention, __quantiles__ are percentiles expressed on a 0-to-1 scale, so the 5th and 95th percentiles correspond to 0.05 and 0.95 quantiles, respectively.  Let's add these quantiles to our summary pipeline.  We'll also add a step in our pipeline to round these numbers to one decimal place, since this table is getting kinda wide:  
+
+```{r}
+rapidcity %>%
+  summarize(avg_temp = mean(Temp),
+            median_temp = median(Temp),
+            sd_temp = sd(Temp),
+            iqr_temp = IQR(Temp),
+            min_temp = min(Temp),
+            max_temp = max(Temp),
+            q05_temp = quantile(Temp, 0.05),
+            q95_temp = quantile(Temp, 0.95)) %>%
+  round(1)
+```
+
+So the 5th percentile of temperature in Rapid City is 12.9F, while the 95th percentile is 77.2 F.  
+
+We can ask R for any quantiles we want.  For example, here are the 25th and 75th percentiles of temperatures in Rapid City, juxtaposed with the inter-quartile range:
+
+```{r}
+rapidcity %>%
+  summarize(iqr_temp = IQR(Temp),
+            q25_temp = quantile(Temp, 0.25),
+            q75_temp = quantile(Temp, 0.75))
+```
+
+Remember that the IQR is precisely the difference between the 75th and 25th percentiles: IQR = 63.95 - 33.3 = 30.65.
+

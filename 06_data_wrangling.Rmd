@@ -1,0 +1,419 @@
+# Data wrangling
+
+__Data wrangling__ refers to the process of getting your data into a useful form for visualization, summary, and modeling.  Wrangling is an important part of data science, because data rarely comes in _precisely_ the form that suits some particular analysis.  For example, you might want to focus only on specific rows or columns of your data, or calculate summary statistics only for specific subgroups.   Maybe you want to create a new variable derived from existing ones.  Or else you just want to sort the rows according to some variable, to make a table a little easier to read.  All of these tasks involve wrangling your data.  
+
+Luckily, R---or more specifically, the `tidyverse` library---comes equipped with several handy data verbs that streamline these wrangling tasks.   In this lesson, you'll learn to:  
+
+- use six key data verbs (`summarize`, `group_by`, `mutate`, `filter`, `select`, and `arrange`) to transform your data into a more convenient form.   
+- calculate complex summary statistics for arbitrary subsets of your data and combinations of variables.  
+
+This covers just the very basics of data wrangling in R.  For a more advanced treatment, I recommend [R for Data Science](https://r4ds.had.co.nz/index.html), by Hadley Wickham and Garrett Grolemund.  ([Wickham](https://twitter.com/hadleywickham) is the author of many popular R libraries, including the `tidyverse`.)
+
+For this lesson, create a fresh new script, and then load the `tidyverse` library by placing the following line at the top of your script and running it in the console:
+
+```{r, message=FALSE}
+library(tidyverse)
+```  
+
+Let's get wranglin'!  
+
+## Key data verbs
+
+```{r, echo=FALSE}
+rapidcity = read.csv('data/rapidcity.csv', header=TRUE)
+```
+
+You've already learned one important data verb: `summarize`.  Now, we'll learn five new verbs:
+
+- `group_by`, for splitting a data set into groups.  
+- `filter`, for looking at specific rows (cases).  
+- `select`, for looking at specific columns (variables).  
+- `mutate`, for defining new variables from old ones.  
+- `arrange`, for sorting a data frame according some specific variable.  
+
+In the examples to follow, we'll again work with the [rapidcity.csv](data/rapidcity.csv) data set that we used in the previous lesson on [Summaries].  Go ahead and get this data set imported into RStudio.  
+
+### `group_by` {-}
+
+A nice feature of R is that we can calculate any common summary statistic _grouped_ according to the value of some other variable.  For example, take (a simplified version of) our summary pipeline from the lesson on [Summaries], where we calculated summary statistics for temperatures in Rapid City:  
+
+```{r}
+rapidcity %>%
+  summarize(avg_temp = mean(Temp),
+            sd_temp = sd(Temp),
+            q05_temp = quantile(Temp, 0.05),
+            q95_temp = quantile(Temp, 0.95)) %>%
+  round(1)
+```
+
+These summary statistics tell us what's happening across the entire year.  But what if we wanted to calculate these statistics separately for each month?  After all, as a simple boxplot confirms, Rapid City has a lot of seasonal variation in temperature.  In the summer months, temperatures are higher, but also less variable:
+
+```{r}
+ggplot(rapidcity) + 
+  geom_boxplot(aes(x=factor(Month), y=Temp))
+```
+
+To calculate our summaries by month, we insert a `group_by` statement before `summarize`, like in the code block below:
+
+```{r}
+rapidcity %>%
+  group_by(Month) %>%
+  summarize(avg_temp = mean(Temp),
+            sd_temp = sd(Temp),
+            q05_temp = quantile(Temp, 0.05),
+            q95_temp = quantile(Temp, 0.95)) %>%
+  round(1)
+```
+
+The result is a table of summary statistics with one row per month. In English, this code block reads as follows:  
+
+- start with the `rapidcity` data set...  
+- _then_ group the observations by the `Month` variable...  
+- _then_ calculate summary statistics separately for each month...  
+- _then_ round the numbers to the first decimal place.  
+
+It's important that `group_by` precede `summarize` in our code block, because that reflects the logical order of operations.  If we called `summarize` first, we'd be summarizing the _full_ data set, not the subgroups defined by the different months.  
+
+We can perform the same grouping trick with most common summary statistics.  You'll see several other examples below; for a full list, type `?summarize` into your console.
+
+### `filter` {-}
+
+The verb `filter` is how we look at specific rows our data frame.  Suppose, for example, that we didn't care about calculating our monthly temperature statistics in every year---just, for some odd reason, in 2009.  We can `filter` the data set to include only the 2009 data, like this.
+
+```{r}
+# create a 2009-only subset
+rapidcity2009 = rapidcity %>%
+  filter(Year == 2009)
+```
+
+You might be confused by the two different types of equal signs here.  The double-equals sign (`==`) inside `filter` is used to _test for equality_.  That is, we are filtering the data frame to include only those cases where the `Year` variable is equal to 2009.  The single equals sign, `=`, is used for _object assignment._  The assignment, although it comes first in our sequence of commands, actually doesn't happen until the very end.  So in English, this code block says:  
+
+- start with the `rapidcity` data frame...
+- _then_ filter down to only those rows where `Year == 2009`.  
+- _and finally_ store the resulting filtered data frame in an object called `rapidcity2009`.  
+
+We can verify that this worked as expected by peeking at the first six lines of our filtered data frame.  
+
+```{r}
+head(rapidcity2009)
+```
+
+We can use any of the following logical tests in our `filter` statements:  
+
+- `==` for exact equality, e.g. `Month == 3` for March.  Note that if our variable is a text string, we need to surround it with quotation marks.  So if the months were encoded using English names rather than letters, we'd need `Month == "March"` instead.  You'll see examples of this soon.  
+- `<` and `<=` for "less than" and "less than or equal to," respectively.  For example, `Temp <= 50` will include only those days where the `Temp` variable is less than or equal to 50 degrees.  Similarly, `>` and `>=` mean "greater than" and "greater than or equal to," respectively.  
+- `|` for "or" statements.  E.g. `Month == 1 | Month == 2` will get you all rows from January and February across all years.  
+- `&` for "and" statements.  E.g. `Month == 1 & Year == 2009` will get you all rows specifically from January 2009.   
+
+Finally, we can combine `filter` with other verbs---like in the code block below, where we calculate monthly summary statistics for a subset of the data that spans 2006--09:  
+
+```{r}
+rapidcity %>%
+  filter(Year >= 2006 & Year <= 2009) %>%
+  group_by(Month) %>%
+  summarize(avg_temp = mean(Temp),
+            sd_temp = sd(Temp)) %>%
+  round(1)
+```
+
+In English, this code block says:  
+
+- start with the `rapidcity` data...  
+- _then_ filter down to cases from 2006 to 2009 (inclusive)...   
+- _then_ group those cases by month...  
+- _then_ calculate summary statistics...  
+- _then_ round the numbers to the first decimal place.  
+
+### `select` {-}
+
+The verb `select`, meanwhile, is used to select specific columns (variables) in your data set.  I find this particularly useful for removing superfluous detail and de-cluttering output tables.  For example, in our `rapidcity2009` data frame, we might feel that the `Year` column is now unnecessary, since every data point is from 2009.  We can use `select` to pick only the variables we want to retain, separating those variable names by commas:   
+
+```{r}
+rapidcity2009 %>%
+  select(Month, Day, Temp) %>%
+  head
+```
+
+The `Year` column no longer appears in our data frame.  Note that we could have accomplished the same task by saying `select(-Year)`, like this:
+
+```{r}
+rapidcity2009 %>%
+  select(-Year) %>%
+  head
+```
+
+This code chunk selects all columns _except_ `Year` and prints the first six lines of the filtered data frame.    
+
+### `mutate` {-}
+
+Use `mutate` to define new variables from old ones.  For example, suppose we wanted to augment our `rapidcity` data frame with a new variable, `Summer`, telling us whether a specific row was in June, July, or August.  We'd accomplish this as follows:  
+
+```{r}
+rapidcity_augmented = rapidcity %>%
+  mutate(Summer = ifelse(Month == 6 | Month == 7 | Month == 8,
+                         yes="summer", no="not_summer"))
+```
+
+In English, this code block says:  
+
+- Start with the `rapidcity` data frame.
+- _Then_ add a variable called `Summer`, defined as follows:  
+   - if the `Month` variable is either 6, 7, or 8, set `Summer` to have the value `summer`.  
+   - if not, set `Summer` to have the value `not_summer`.  
+- _Then_ store the result in a data frame called `rapidcity_augmented`.  
+
+Let's verify that this worked as intended:  
+
+```{r}
+head(rapidcity_augmented)
+```
+
+Looks good!  
+
+We can now use the `Summer` variable just like any of our original variables. For example, here we are showing a faceted histogram of temperatures by summer status:  
+
+```{r}
+ggplot(rapidcity_augmented) +
+  geom_histogram(aes(x=Temp), binwidth=2) + 
+  facet_wrap(~Summer, nrow=2)
+```
+
+
+### `arrange` {-}
+
+Use `arrange` for sorting on specific variables.  This is useful on a raw data frame if you wanted to see the "Top-N" cases according to some measure.  It's also useful on tables of summary statistics, as we'll see below.  
+
+As an example, let's find the ten coldest days in Rapid City over the sample period:  
+
+```{r}
+rapidcity %>%
+  arrange(Temp) %>%
+  head(10)
+```
+
+If we wanted the ten hottest days, we'd have to arrange in _descending_ order of `Temp` using `desc`, like this:  
+
+```{r}
+rapidcity %>%
+  arrange(desc(Temp)) %>%
+  head(10)
+```
+
+
+## Complex summaries
+
+In this section we'll see some examples of how we can combine data verbs to perform complex tasks very concisely.  
+
+### Example 1: the five coldest months {-}  
+
+For our first example, we'll find the five coldest individual months in our data set on Rapid City, which spans the seventeen years from 1995 to 2011.
+
+Anytime you're faced with a complex data-analysis task like this, I'd encourage you to remember our basic mantra of data science that we introduced all the way [back here](#sec_objects):
+
+> Manage complexity by breaking complex tasks down into simple tasks, and then stitching the simple tasks together.  
+
+For this analysis, our simple tasks look something like the following:  
+
+- Import the data set (we've done this already).  
+- Split the data set into individual months in individual years: January 1995, February 1995, March 1995, and so on, all the way through December 2011.  
+- For each individual month, calculate the average of the `Temp` variable (along with any other summaries we might find interesting).    
+- Sort the individual months according to their average temperatures.  
+- Make a table of the five coldest months.  
+
+Our pipeline for this analysis, shown below, reflects this logical structure.  It uses a combination of `group_by`, `summarize`, and `arrange`, before piping the results into `head` and `round` (which truncate the table and round the numbers):  
+
+```{r, message=FALSE}
+rapidcity %>%
+  group_by(Year, Month) %>%
+  summarize(avg_temp = mean(Temp),
+            coldest_day = min(Temp),
+            warmest_day = max(Temp)) %>%
+  arrange(avg_temp) %>%
+  head(5) %>%
+  round(1)
+```
+
+It seems January of 1996 was very cold.  
+
+Notice how we can group by multiple variables---in this case, both `Year` and `Month`.  When we call `group_by` with multiple variables, it groups the data according to all possible combinations of those variables.  So to be concrete, because there are 17 distinct years and 12 distinct months, this `group_by` statement splits the data set into $17 \times 12 = 204$ groups:
+
+- Group 1: `Year = 1995`, `Month = 1`  
+- Group 2: `Year = 1995`, `Month = 2`
+- ...
+- Group 203: `Year = 2011`, `Month = 11`
+- Group 204: `Year = 2011`, `Month = 12`
+
+With the data grouped in this fashion, my code chunk then computes the requested summary measure separately for each group (in this case, the mean temperature and the min/max daily temperatures),  and then sorts the groups by `avg_temp`.  
+
+The other thing to notice is that variables and summaries defined earlier in the pipeline become available to be used by later steps in the pipeline.  In this example, the summary measure `avg_temp` is _created_ by `summarize` on the 3rd line, and then subsequently _used_ as a basis for sorting on the 4th line, via `arrange(avg_temp)`.  
+
+But the ordering of the steps here is crucial.  Your pipeline can only use variables and summaries from the "pipeline past," not the "pipeline future."  This is one of those times where it's informative to see what happens if we make a mistake.  If we'd switched the order of `summarize` and `arrange`, we'd get a cryptic error message, rather than a table of really cold months:
+
+```{r, error=TRUE}
+rapidcity %>%
+  group_by(Year, Month) %>%
+  arrange(avg_temp) %>%
+  summarize(avg_temp = mean(Temp))
+```
+
+The core of this error is `object 'avg_temp' not found`.  Basically, R is telling us that it can't arrange the data frame according to `avg_temp` because the `avg_temp` summary has not yet been defined.  In fact, it was supposed to be defined in the next step of our ill-fated pipeline---by which point R had already choked and thrown the error.
+
+Sometimes refining data is like [refining oil](https://www.eia.gov/energyexplained/oil-and-petroleum-products/refining-crude-oil-the-refining-process.php): when it comes to pipelines, the order in which you perform the steps really matters.  
+
+
+### Example 2: survival on the Titanic {-}  
+
+```{r, echo=FALSE, message=FALSE}
+titanic = read.csv('data/titanic.csv')
+```
+
+For this example, you'll need the data in [titanic.csv](data/titanic.csv).  Go ahead and import the data set into R, calling the imported object `titanic` (which, once again, will be the default if you use the `Import Dataset` button).  
+
+If you take a quick peek at the first 6 lines...
+
+```{r}
+head(titanic)
+```
+
+...you'll see that each row is a person: specifically, a passenger on the Titanic when it sank on April 15, 1912.  Each column contains details about that passenger, including their sex, age, class of travel, and whether they survived the sinking of the ship.  
+
+For this example, we'll answer the question: how did survival among adult passengers vary by sex and cabin class?  Again, remember the basic mantra of data science:
+
+> Manage complexity by breaking down complex tasks into simpler tasks and then stitching those simple tasks together.  
+
+Here our simple tasks look something like this:   
+
+- create a new variable, which we'll call `Adult`, that determines whether a passenger is at least 18 years old.  
+- filter the data set down to adults only.  
+- group the filtered data set by sex and cabin class (2 sexes $\times$ 3 classes = 6 groups).  
+- calculate the survival percentage for each group.  
+
+To do all this, we'll use a combination of `mutate`, `filter`, `group_by`, and `summarize`.  We'll then pass the resulting summary table into `ggplot` to make a bar plot, adding a little visual pizzazz to what might otherwise be a dry table.  
+
+We'll actually break our sequence of tasks down into two parts.  Here's part 1, where we create a table called `surv_adults`:  
+
+```{r, message=FALSE}
+surv_adults = titanic %>%
+  mutate(age_bracket = ifelse(age >= 18,
+                              yes="adult", no="child")) %>%
+  filter(age_bracket == "adult") %>%
+  group_by(sex, passengerClass) %>%
+  summarize(total_count = n(),
+            surv_count = sum(survived == 'yes'),
+            surv_pct = surv_count/total_count)
+```
+
+Remember, `=` is for assigning values to objects, while `==` is for testing equality.  Notice that in the `filter` step, we had to put quotation marks around `adult`, since `age_bracket` is a categorical variable rather than a number.
+
+The only other unfamiliar part of this pipeline might be in the details of the `summarize` step.  Here we created three summary variables:  
+
+- `total_count` is created by the handy function `n()`, which counts the total number of cases in each group.  `n()` behaves a bit like `xtabs` does, but it's used inside pipelines.  
+- `surv_count` calculates the number of people that survived in each group, by summing up the cases where the `survived` variable is `yes`.  This is done via `sum(survived == 'yes')`
+- `surv_pct` is then calculated as the ratio of of these two numbers: `surv_count/total_count`.  
+
+The result is a table of our requested summary statistics for each combination of sex and passenger class:
+
+```{r}
+surv_adults
+```
+
+This is fine as a table, but you might want to make it more visually appealing.  So in part 2, let's feed this table into `ggplot` to create a faceted bar plot, comparing survival percentages by sex across all three passenger classes:
+
+```{r}
+ggplot(surv_adults) + 
+  geom_col(aes(x=sex, y=surv_pct)) + 
+  facet_wrap(~passengerClass, nrow=1)
+```
+
+### Example 3: toy imports {-}
+
+```{r, echo=FALSE}
+toyimports = read.csv('data/toyimports.csv', header=TRUE)
+```
+
+
+For our final example, we'll look at the data in [toyimports.csv](data/toyimports.csv), which tracks imports of toys to the United States from 129 countries over the period 1996--2005.  Here's a random sample of 10 rows from this data set.  
+
+```{r, echo=FALSE, message=FALSE, cache=TRUE}
+mosaic::sample(toyimports, 10, orig.id=FALSE) %>%
+  arrange(year, partner) %>%
+  select(-partner, -pop2000, -region) %>%
+  knitr::kable() %>%
+  kableExtra::kable_styling(font_size = 12)
+```
+
+Every row shows the total dollar value of toys imported to the U.S. (`US_report_import`, in multiples of \$1,000) in a specific product category from a specific country in a specific year.  The product categories have unique numerical codes (`product`) as well as product names exciting enough to quicken the heart of any toy-loving child ("Parts and accessories :– Other", "Toys representing animal or non-human figures", and so on).  
+
+Our goal for this data analysis is simple: make a line graph showing total toy imports over time across all categories, separately for each trading partner---but only for the top 5 partners by total dollar value of toys imported.
+
+Let's break this down into simpler tasks.  Our first task is to actually find the top 5 partners by total dollar value.  This task itself can be broken down into simpler sub-tasks:  
+
+- Group all the observations by trading partner (the `partner_name` variable).  
+- For each partner, calculate total dollar value by summing toy imports (`US_report_import`) across all categories and years.  
+- Arrange the partners by total dollar value.  
+
+Let's see how to accomplish this using a combination of `group_by`, `summarize`, and `arrange`:
+
+```{r}
+country_totals = toyimports %>%
+  group_by(partner_name) %>%
+  summarize(total_dollar_value = sum(US_report_import)) %>%
+  arrange(desc(total_dollar_value))
+```
+
+Now we can look at the top 5 trading partners:
+
+```{r}
+head(country_totals, 5)
+```
+
+And we can even peel off the names of the countries using `select`:
+
+```{r}
+top_5_country_names = country_totals %>%
+  head(5) %>%
+  select(partner_name)
+top_5_country_names
+```
+
+This list of names will be useful when we turn to our second main task: calculate toy imports over time across all categories, separately for each of these five trading partners.  Again, this task also breaks down into simpler subtasks:  
+
+- filter the data set so that it includes only data points from the top 5 trading partners.  
+- group the data points by trading partner and year  
+- for each group, sum toy imports across all categories (i.e. lumping together everything from dolls to trains)  
+
+We can accomplish this using `filter`, `group_by`, and `summarize`, storing the result in a summary table that we'll call `top5_byyear`:    
+
+```{r, message=FALSE}
+top5_byyear = toyimports %>%
+  filter(partner_name %in% top_5_country_names) %>%
+  group_by(partner_name, year) %>%
+  summarize(yearly_dollar_value = sum(US_report_import))
+```
+
+
+<!-- # Let's look at three countries -->
+<!-- country_list = c('China', 'Korea, Rep.', 'United Kingdom') -->
+
+<!-- combined_toys = toyimports %>% -->
+<!--   filter(partner_name %in% country_list) %>% -->
+<!--   group_by(year, partner_name) %>% -->
+<!--   summarize(toys = sum(US_report_import)) -->
+
+<!-- combined_toys -->
+
+
+<!-- # Plot all three as line graphs -->
+<!-- ggplot(combined_toys) +  -->
+<!--   geom_line(aes(x=year, y=toys, color=partner_name)) + -->
+<!--   scale_x_continuous(breaks = 1996:2005) -->
+
+<!-- # this plot fails because the three time series are on a -->
+<!-- # a very different scale. -->
+<!-- # The solution: a logarithmic scale for the y axis -->
+<!-- ggplot(combined_toys) +  -->
+<!--   geom_line(aes(x=year, y=toys, color=partner_name)) + -->
+<!--   scale_x_continuous(breaks = 1996:2005) + -->
+<!--   scale_y_log10() -->
+<!-- ``` -->
+

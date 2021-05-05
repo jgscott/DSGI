@@ -1,7 +1,157 @@
-# Data
+# Data {#lesson_data}
 
-## Importing a data set
+R is all about data.  So let's look at some!  In this lesson, you'll learn to:  
 
+- Import and view a data set.  
+- Understand the basic vocabulary of data.  
+- Conduct a short but complete data analysis by compute simple statistics and making a plot.  
 
+To start, open RStudio and create a new script for this lesson (calling it, e.g., `lesson_data.R`, or whatever you want).  You'll use this script to type out some code chunks and see what results they produce.    
 
+Then place the following line at the top of your R script, and run it in the console.  This will load the tidyverse library, just like we covered in the [Libraries] lesson:
 
+```{r, message=FALSE}
+library(tidyverse)
+```
+
+This will make all the functionality of the `tidyverse` library available when we need it down below.  
+
+## Importing a data set {#importing_data}
+
+```{r, echo=FALSE, message=FALSE}
+tvshows = read.csv('data/tvshows.csv')
+```
+
+Let's see how to import a data set into R.  The way I'm going to describe here is very beginner friendly; another (totally optional and more advanced) way is described in "[Importing data from the command line]."
+
+Download the data set [tvshows.csv](data/tvshows.csv), which contains data on 40 shows that aired on major U.S. television networks.  A .csv file, like this one, is a common way of encoding tabular data in a way that can be easily shared across platforms.   
+
+> __Important public-service announcement__: don't open that .csv file with Excel first!  I see folks do this from time to time in my classes at UT-Austin, and it can produce bizarre errors.  Basically, if you open a .csv file with Excel and then hit `Control-S` to save (or let it auto-save), Excel might decide to barf under the rug in your file.  This effect will remain insidiously invisible within Excel itself, but can potentially render the file unreadable to RStudio.  If you've already done this, don't worry --- just delete the file and download a fresh copy.^[In my experience this behavior seems to depend on your platform and version of Excel.  It _is possible_ to safely open and edit .csv files within Excel, but then you have to _re-export_ them as .csv files again if you want to use them in RStudio.]
+
+[This video](https://www.youtube.com/watch?v=DuQSQQa6Ssw&t=431s&ab_channel=JamesScott) shows how import a data set into RStudio.  But we'll cover the steps here, too:    
+
+1. Go to the `Environment` tab in RStudio's top-right panel.  
+2. Click the `Import Dataset` button.  You'll see a pop-up menu.  Choose the first option: `From Text (base)...`.  
+3. A standard file-browser window should pop up.  Use it to navigate to wherever you saved the `tvshows.csv` file.  When you find it, click `Open`.  
+
+At this point, a new window should pop up that looks something like this.  I've labeled several parts of this screen shot in red, so that I can refer to them below.  
+
+```{r, echo=FALSE, out.width="100%"}
+knitr::include_graphics("images/import_dataset.png")
+```
+
+Let's take those four red boxes in turn:  
+
+1. This is what the raw .csv looks like.  It's just what you'd see if you opened the file in a plain text editor.  
+2. This is the name of the __object__ in R that will be created in order to hold the data set.  It's how you'll refer to the data set when you want to do something with it later.  R infers a default name from the file itself; you can change it if you want, but there's usually no good reason to do so.  
+3. This tells R whether the data set has a header row---that is, whether the first row contains the _names of the columns._  Usually R is pretty good at inferring whether your data has a header row or not.  But it's always a good idea to double-check: click `Yes` if there's a header row (like there is here), and `No` if there isn't.  
+4. This little window shows how the imported data set will appear to R.  It's a useful sanity check.  If you've told R (or R has inferred) that your data set has a header row, the first row will appear in bold here.
+
+Now click `Import`.  The imported data set should pop up in a Viewer window, like this:
+
+```{r, echo=FALSE, out.width="100%"}
+knitr::include_graphics("images/import_dataset2.png")
+```
+
+Note that you can't actually edit the data set in this window---only view it.  You may also notice that `tvshows` is now listed under the `Environment` tab in the top-right panel.  This tab keeps track of all the objects you've created.  
+
+The Viewer window is a perfectly fine way to look at your data.  I find it especially nice for giving me a "birds-eye" view of an unfamiliar data set.  If you've closed the Viewer window, you can always conjure it back into existence using the `view` function, like this:
+
+```
+view(tvshows)
+```
+
+Another handy "data viewing" command in R is called `head`.  This command will print out the first six of a data set in the console, like this:
+
+```{r}
+head(tvshows)
+```
+
+I use this one all the time to get a quick peek at the data, but don't want the pop-up viewer window to take me away from my script---like, for example, when I need to remind myself what the columns are called.    
+
+## The vocabulary of data  
+
+Let's talk about the structure of this `tvshows` data set, as a way of introducing some important vocabulary terms.  
+
+- The typical way R stores data is in a tabular format called a __data frame.__
+- Each row of the data frame is called an __example__, a __case__, or an __observation__.  These three words can be used interchangeably.  Here, each example is a TV show.  
+- A collection of examples is called a __sample__, and the number of examples is called the __sample size__, usually denoted by the letter $n$.  Here our sample size is $n=40$.  
+- Each column of the data frame is called a __feature__ (or sometimes a __variable__).  Each feature conveys a specific piece of information about the examples.  
+- The first feature, `Show`, tells us which TV show we're talking about.  This type of feature is called a __unique identifier__, or just an __ID__.  
+- Some features in the data set are actual numbers; appropriately enough, these are called __numerical features__.  The numerical features in this data set are `Duration`, `GRP` (["gross rating points"](https://marketing-dictionary.org/g/gross-rating-point/), a measure of audience size), and  `PE` (which stands for ["predicted engagement"](https://affect.media.mit.edu/pdfs/13.Hernandez.et_al.pdf) and measures whether the audience is actually paying attention to the show).  
+- Other features in the data set can only take on a limited number of possible values, just like the answer to a multiple-choice question.  The categorical features in this data set are __categorical features.__  The categorical features in this data set are `Network` and `Genre`.^[You could also argue that `Duration`, despite being a number, should really be considered a categorical feature, since it only takes on a set of specific values like 30 and 60.]  
+
+So, for example, a data set with 500 examples and 10 features would be stored in a data frame with 500 rows and 10 columns.  
+
+## A short, simple data analysis {#sec_example_analysis}
+
+Once you've imported a data set and comprehended its basic structure (using, e.g., `view` or `head`), the next step is to try to learn something from the data by actually analyzing it.  We'll see many ways to do this in the lessons to come!  But for now, here's a quick preview of the two simplest ways: calculating summary statistics and making plots.  
+
+A __statistic__ is any numerical summary of a data set.  Statistics are answers to questions like: How many reality shows in the sample are 60 minutes long?  Or: What is the average audience size, as measured by GRP, for comedies?  
+
+A __plot__, meanwhile, is exactly what it sounds like: per [Wikipedia](https://en.wikipedia.org/wiki/Plot_(graphics)), a "graphical technique for representing a data set, usually as a graph showing the relationship between two or more variables."  Plots can help us answer questions like: What is the nature of the the relationship between audience size (`GRP`) and audience engagement (`PE`)?  
+
+Let's see some examples, on a "mimic first, understand later" basis.  Just type out the code chunks into your `lesson_data.R` script and run them in the console, making sure that you can reproduce the results you see below.  
+
+Our first question is: how many reality shows in the sample are 60 minutes long, versus 30?  As we'll learn in the upcoming lesson on [Counting](#contingency_tables), the `xtabs` function gets R to count for us:  
+
+```{r}
+xtabs(~Genre + Duration, data=tvshows)
+```
+
+It looks like 8 reality shows are 60 minutes long (versus 9 that are 30 minutes long).  
+
+Let's answer a second question: what is the average audience size for comedies, as measured by `GRP`?  Calculating this summary actually requires multiple lines of R code chained together, and it relies upon functions defined in `tidyverse`, so it won't work if you haven't already loaded that library.  You might be able to guess what this code chunk is doing, but we'll understand it in detail in the upcoming lesson on [Summaries].    
+
+```{r}
+tvshows %>%
+  group_by(Genre) %>%
+  summarize(mean_GRP = mean(GRP))
+```
+
+The result is a summary table with one column, called `mean_GRP`.  It looks like comedies tend to have middle-sized audiences: an average GRP of about 630, versus 401 for reality shows and 1243 for drama/adventure shows.  
+
+Finally, let's make a plot to understand the relationship between audience size (`GRP`) and audience engagement (`PE`).  We'll make this plot using a function called `ggplot`, which is made available by loading the `tidyverse`.  Again, don't sweat the details; we'll cover `ggplot` in detail in the upcoming [Plots] lesson.  Just copy/paste the statements into your script, run them, and observe the result:  
+
+```{r first-example-plot, out.width="100%", fig.align='center'}
+ggplot(tvshows) + 
+  geom_point(aes(x=GRP, y=PE, color=Genre))
+```
+
+We've learned from this plot that shows with _bigger_ audiences (high GRP) also tend to have more _engaged_ audiences (higher PE), a fact that isn't necessarily obvious (at least to me) until you actually look at the data.  If you wanted to save this plot (say, for including in a report or a homework submission), you could click the `Export` button right above the plot itself and save it in a format of your choosing.  You can also click the `Zoom` button to make the plot pop out in a resizeable window.
+
+Note: this plot above actually isn't great, because the red and green can look nearly identical to color-blind viewers.  I'm especially sensitive to that issue, since I'm red-green colorblind myself.
+
+```{r, echo=FALSE, out.width="50%", fig.align="center"}
+knitr::include_graphics("images/colorblind.png")
+```
+
+We'll clean up that problem in a later lesson, when we learn more about plots.  But for now, focus on your victory!  You've now conducted your first data analysis---a small one, to be sure, but a "complete" one, in the sense that it has all the major elements involved in _any_ data analysis using R:   
+
+- import a data set from an external file.  
+- decide what questions you want to ask about the data.  
+- write a script that answers those questions by running an analysis (calculating statistics and making plots).  
+- run the script to see the results.  
+
+In the lessons to come, we're going to focus heavily on the "analysis" part of this pipeline, addressing questions like: what analyses might I consider running for a given data set?  How do I write statements in R to run those analyses?  And how do I interpret the results?
+
+## Importing data from the command line
+
+This section is totally optional.  If you're an R beginner, or you're happy with the `Import Dataset` button for reading in data sets, you can safely skip this section and move on to the next lesson.
+
+If, on the other hand, you have a bit more advanced knowledge of computers and are familiar with the concepts of [pathnames](https://en.wikipedia.org/wiki/Path_(computing)) and [absolute vs. relative paths](https://www.geeksforgeeks.org/absolute-relative-pathnames-unix/), you might prefer to read in data from the command line, rather than the point-and-click interface of the `Import Dataset` button.  I personally prefer the command-line way of doing things, because it makes every aspect of a script (including the data-import step) fully reproducible.  The downside is that it's less beginner-friendly.
+
+Let's see an example.  To read in the tvshows.csv file from the command line in R, I put the following statement at the top of my script:
+
+```{r}
+tvshows = read.csv('data/tvshows.csv', header=TRUE)
+```
+
+This statement reads the "tvshows.csv" file off my hard drive and stores it in on object called `tvshows`.  Let's break it down:  
+
+- `read.csv` is the command that reads .csv files.  It expects the path to a file as its first input.  
+- `'data/tvshows.csv'` is the path to the "tvshows.csv" file on my computer.  In this case it's a relative path (i.e. relative to the directory on my computer containing the R file from where the command was executed).  But you could provide an absolute path or a url instead.  
+- `header=TRUE` tells R that the first row of the input file is a header, i.e. a list of column names.  
+- `tvshows` is the name of the object we're creating with the call to `read.csv`. It's how we'll refer to the data set in subsequent statements.  
+
+R has a whole family of `read` functions for various data types, and they all follow more or less this structure.  I won't list them all here; [this overview](https://cran.r-project.org/doc/manuals/r-release/R-data.html) is terse but authoritative, while [this one](https://www.datacamp.com/community/tutorials/r-data-import-tutorial) is a bit friendlier-looking.   

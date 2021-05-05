@@ -1,0 +1,682 @@
+# Plots
+
+If you start reading deeply on the topic of [data visualization](https://en.wikipedia.org/wiki/Data_visualization), you'll encounter dozens, if not hundreds, of [different](https://plotly.com/ggplot2/geom_violin/) [types](https://plotly.com/ggplot2/geom_contour/) of [statistical plots](https://plotly.com/ggplot2/geom_tile/).   But in my opinion, there are only five basic plots that are truly _essential_ for a beginner to know: scatter plots,  line graphs, histograms, boxplots, and bar plots.  Collectively, these five basic plots cover a very broad range of data-science situations. 
+
+In this lesson, you'll learn to:  
+
+- understand the grammar of graphics. 
+- create five basic plots:  
+    1. Scatter plots, to show relationships among numerical variables.   
+    2. Line graphs, to show change over time.  
+    3. Histograms, to show data distributions.  
+    4. Boxplots, to show between-group and within-group variation.  
+    5. Bar plots, to show summary statistics (like counts, means, or proportions).  
+ 
+- use faceting and aesthetic variation (e.g. color) to encode multivariate information.  
+- customize plots by exercising finer, more advanced control over their visual details.  
+
+## The grammar of graphics
+
+Plots are like sentences: 
+
+- we use them to tell stories.  
+- it's easy to make basic ones, but it takes work to make really good ones.    
+- most of the work in making really good ones lies not in creating but in _editing_: sharpening your meaning; adding important details while removing what's extraneous or distracting; and adding those little grace notes that elevate your creation from functional to beautiful.  
+
+And there's one more unexpected way that plots are like sentences: they follow a __grammar__, which you might call the "grammar of graphics."  This grammar forms the foundation of some of the best plotting software out there, including [Plotly](https://plotly.com/), [Tableau](https://www.tableau.com/)---and [ggplot2](https://ggplot2.tidyverse.org/), the R library that we'll use in this lesson (and the lessons to come).  The grammar of graphics is much simpler than the grammar of a natural language, like English, but it's still a grammar.^[Technically the grammar of graphics is what's known to logicians as a [formal grammar.](https://en.wikipedia.org/wiki/Formal_grammar)  While the term "formal grammar" might connote unpleasant images of Teacher Thistlebottom scolding pupils for their split infinitives, formal grammars are typically much simpler than the grammars used by native speakers of natural languages.]
+
+In fact, to make the analogy more explicit, consider a simplified version of English that I'll call "learner English."  Toddlers, for example, often say things like "Squirrel climbs tree" or "Jimmy eats apple" as they're learning to talk.  These sentences may lack the articles, prepositions, and other adornments of textbook English sentences.  But they're still comprehensible because they obey a simple, consistent grammar with these three elements: 
+
+- a __subject__ that performs an action (squirrel, Jimmy).   
+- an __object__ that receives the action (tree, apple).  
+- a __verb__, i.e. the action itself (climbs, eats).    
+
+Statistical plots also obey a simple, consistent grammar.  Like "learner English," this grammar also has three basic elements:  
+
+- __variables__ in a data set (like the weight or engine size of a vehicle).  These are like the subject of a sentence.  
+- __objects__: specifically, geometric objects (like dot or lines or bars).  These are like the object of a sentence.  
+- __mappings__ from the data variables to aesthetic properties of the geometric objects (like their size, location, or color).  These are like the verb in a sentence.  
+
+If you swap out different subjects/objects/verbs in our basic "learner English" grammar, you can generate lots of different sentences whose basic structure is familiar to any parent of a toddler ("I throw Cheerios," "Daddy needs sleep," and so on).  Similarly, if you swap out different variables/geometric objects/mappings in the same _graphical_ grammar, you can generate lots of different plots.
+
+#### An example {-}
+
+Here's an example to make this idea explicit.   Below you see the first several rows of a data set on median hourly demand for bike-share rentals in Washington, DC's Capital Bikeshare program, stratified by whether it's a working day (1) or not (0):
+
+```{r, echo=FALSE, message=FALSE}
+library(tidyverse)
+bikeshare = read.csv('data/bikeshare.csv')
+bike_summary = bikeshare %>%
+  group_by(hr, workingday) %>%
+  summarize(median_rentals = median(total))
+bike_summary %>% round(0) %>% head(6) %>% knitr::kable()
+```
+
+So, for example, during the 2 AM hour on working days, the median demand was 7 bikes, whereas during that same hour on weekends and holidays, the median demand was 54 bikes.
+
+Now let's visualize this data using a specific type of plot, called a __line graph__: 
+
+```{r bike-lines, echo=FALSE,  out.width="85%", fig.align='center', message=FALSE, fig.cap = 'A line graph.', fig.asp = 0.5}
+ggplot(bike_summary, aes(x=hr, y=median_rentals, color=factor(workingday))) + 
+  geom_line() + geom_point() + 
+  labs(x="Hour of day (0 = midnight)", y="Median bike rentals",
+       title="Bike-share rentals in Washington, DC (2011-12)") + 
+  scale_x_continuous(breaks=0:23) + 
+  scale_color_discrete(name = "Working day?", labels = c("No", "Yes"))
+```
+
+Remember, a plot tells a story.  The story here is fairly intuitive: working days show sharp peaks in bike-rental demand during morning and evening rush hours, while non-working days have a broader plateau across the middle of the day, along with notably higher demand [during the wee hours](https://www.washingtonpost.com/news/tripping/wp/2017/04/12/dont-drink-and-walk-or-bike/).
+
+Let's unpack the grammatical elements of this plot.
+
+- The __variables__ are the hour of the day, the median bike rentals for that hour, and whether the data point in question falls on a working day.  
+- The __geometric objects__ are the dots, as well as the lines that connect those dots. 
+- The __aesthetic mappings__ are what connect, or "map," the variables to visual properties of the geometric objects, as follows:   
+   - the hour of the day (`hr`) is mapped to the horizontal (x) location of each dot.   
+   - the median demand for that hour (`median_rentals`) is mapped to the vertical (y) location of each dot.
+   - the categorical variable `workingday` is mapped to the color of each dot, as well as the color of the lines that connect those dots.  
+
+
+Let's try one more plot, where we use the same variables, but change the geometric objects and the aesthetic mappings.  The result is an entirely different plot of the same basic data, called a __bar plot__.  This bar plot happens to have two different _facets_ or panels:  
+
+```{r bike-bars, echo=FALSE, out.width="85%", fig.align='center', message=FALSE, fig.asp = 0.5, fig.cap = 'A faceted bar plot.'}
+ggplot(bike_summary, aes(x=hr, y=median_rentals)) + 
+  geom_col() + facet_wrap(~workingday, labeller = label_both) + 
+  labs(x="Hour of day (0 = midnight)", y="Median bike rentals",
+       title="Bike-share rentals in Washington, DC (2011-12)") + 
+  scale_x_continuous(breaks=0:23) + theme_bw(base_size=9)
+```
+
+Let's unpack the grammatical elements of this new plot.
+
+- The __variables__ are unchanged: hour of the day, median rentals, and whether it's a working day.  
+- The __geometric objects__ are the bars within each facet, as well as the facets themselves (left vs. right).  
+- The __aesthetic mappings__ are as follows:
+   -  `workingday` is mapped to the two facets of the plot, left for 0 (no) and right for 1 (yes).    
+   - the hour of the day (`hr`) is mapped to the horizontal (x) location of bar.    
+   - the median demand for that hour (`median_rentals`) is mapped to the height of each bar.  
+   
+
+So there you have it: same grammar, but different combinations of the basic grammatical elements, and therefore different plots.
+
+The rest of this lesson is about how to use R to make plots like these, and many more.  As you might guess from the "gg" in its from its name, `ggplot2` (the R library we'll use) relies heavily on the grammar of graphics.  
+
+
+## The five basic plots
+
+Start by loading the `tidyverse`, which will load the `ggplot2` library automatically behind the scenes:  
+
+```{r, message=FALSE}
+library(tidyverse)  
+```
+
+You'll also want to download several data sets:  
+
+- [tvshows.csv](data/tvshows.csv), which contains data on 40 television shows, and which you already saw in our lesson on [Importing a data set].  
+- [power_christmas2015.csv](data/power_christmas2015.csv), hourly data on electricity consumption in Texas on December 25, 2015.    
+- [rapidcity.csv](data/rapidcity.csv), daily average temperatures in Rapid City, South Dakota from 1995 to 2011.  
+- [kroger.csv](data/kroger.csv), data on sales of packaged, sliced [American cheese](https://www.seriouseats.com/2016/07/whats-really-in-american-cheese.html) at Kroger's grocery stores in 11 different cities.  
+- [car_class_summaries.csv](data/car_class_summaries.csv), summary statistics on six different classes of vehicle (sedans, SUVs, etc).  
+
+
+### Scatter plots {-}
+
+```{r, echo=FALSE, message=FALSE}
+tvshows = read.csv('data/tvshows.csv', header=TRUE)
+```
+
+__Scatter plots__ are built out of the simplest geometric object of all: points.  They're great for __visualizing the relationship between two numerical variables.__ 
+
+Let's see an example, revisiting the [tvshows](data/tvshows.csv) data you saw in [this example analysis](#sec_example_analysis) awhile ago.  The two variables we'll plot are each TV show's `GRP`, which measures ratings/audience size, and its `PE`, which stands for "predicted engagement" and which measures how closely viewers are paying attention to the show.  Here's the basic `ggplot2` code for a scatter plot of these two variables.  
+
+```{r tvshows-basic-plot,  out.width="85%", fig.align='center'}
+ggplot(tvshows) + 
+  geom_point(aes(x=GRP, y=PE))
+```
+
+It seems that shows with larger audiences also tend to have more _engaged_ audiences, on average.  
+
+Let's go line by line to understand what's happening in this code block.  Here's the code again, without the plot, so you don't have to keep scrolling back up:
+
+```{r, eval=FALSE}
+ggplot(tvshows) + 
+  geom_point(aes(x=GRP, y=PE))
+```
+
+The first line, `ggplot(tvshows)`, tells R that you're going to be plotting data from the `tvshows` data set.  All plots in these lessons will begin with a similar line: `ggplot(name_of_data_set)`.
+
+The second line, `geom_point(aes(x=GRP, y=PE))`, is our first actual "sentence" in the grammar of graphics, and it's where the real action is.  `geom_point` means that the type of __geometric objects__ we're using in our plot are __points__ (where each point is a TV show).  Inside the parentheses of `geom_point`, `aes` specifies the __mapping__ between data __variables__ and aesthetic properties of the __points__, as follows:   
+
+   - a TV show's `GRP` gets mapped to the $x$ coordinate of that show's corresponding point.  
+   - a TV show's `PE` gets mapped to the $y$ coordinate of the point.  
+
+Notice that the two lines are separated by a `+` symbol.  Don't think of this as mathematical addition, but rather as a punctuation mark in the grammar of graphics that means "add a layer."  All plots in ggplot are built up in layers using `+`, just like paragraphs are built up in sentences.  The base layer is always the data set itself, here constructed via `ggplot(tvshows)`.
+
+
+#### Beyond two variables: color, shape, etc. {-}
+
+To build your intuition about aesthetic mappings, let's try adding some further detail to this scatter plot.  Specifically, we'll add a third aesthetic mapping, from a show's `Genre` to the color of the point.   This is just one of several techniques we can employ to encode more than two variables within the constraints of a flat screen or page:
+
+```{r tvshows-plot-color,  out.width="85%", fig.align='center'}
+ggplot(tvshows) + 
+  geom_point(aes(x=GRP, y=PE, color=Genre))
+```
+
+You've actually [seen this plot before](#sec_example_analysis), in "mimic first, understand later" mode---and we're now in a position to understand the code that produced it.  It's still a scatter plot (hence `geom_point`), but the aesthetic mapping now involves three variables:  
+
+   - `GRP` gets mapped to the $x$ coordinate of the point.  
+   - `PE` gets mapped to the $y$ coordinate of the point.  
+   - `Genre` gets mapped to the color of the point.  
+
+It turns out that `color` isn't our only option for encoding the information in the `Genre` variable.  For example, here we map `Genre` to the shape of each point:  
+
+```{r tvshows-plot-shape, out.width="85%", fig.align='center'}
+ggplot(tvshows) + 
+  geom_point(aes(x=GRP, y=PE, shape=Genre))
+```
+
+Do you find this easier or harder to interpret than the color-based plot?  
+
+There are still more options beyond `color` and `shape.`  Try, for example, mapping the `Genre` variable to one of these:
+
+- `size`
+- `alpha` (transparency)
+
+These are less successful for encoding the information in a discrete variable like `Genre`.  But they might be really useful for encoding the information in a continuous numerical variable, like a TV show's production budget or its critical rating on [IMDb](https://www.imdb.com/chart/toptv/).  
+
+
+#### Beyond two variables: faceting {-}
+
+Let's briefly discuss the concept of __faceting__, which is another effective strategy for showing more than two variables on a flat screen or page.  Faceting means constructing multiple plots of the same fundamental type, with the same axes and scale, with each individual plot, called a _facet_, corresponding to some subset of the data.  (You already saw an example of a faceted bar plot in Figure \@ref(fig:bike-bars).)
+
+Let's now see how the code works, continuing with our data set on TV shows:
+
+```{r tvshows-plot-facet, out.width="100%", fig.asp = 0.4, fig.align='center'}
+ggplot(tvshows) + 
+  geom_point(aes(x=GRP, y=PE)) + 
+  facet_wrap(~Genre)
+```
+
+As you can see, this plot contains three distinct scatter plots of `PE` versus `GRP`, one plot per genre.  The individual plots are referred to as _facets_; `Genre`, which defines the subsets of the data used for constructing the facets, is called the _faceting variable_. Faceting variables are always categorical (although you can also facet on a numerical variable if you discretize it first).  
+
+Let's understand each element of the code block in terms of the grammar of graphics.  Here's the code block once more, so you don't have to scroll back up:
+
+```{r, eval=FALSE}
+ggplot(tvshows) + 
+  geom_point(aes(x=GRP, y=PE)) + 
+  facet_wrap(~Genre)
+```
+
+The first two lines will look familiar, but we'll cover them anyway for the sake of completeness.  
+
+- The first line, `ggplot(tvshows)`, is the base or data layer.  It tells R where to look for the variables you'll be naming on subsequent lines.  
+- The second line, `geom_point(aes(x=GRP, y=PE))`, tells R to make a scatter plot with each point as a TV show, with the following aesthetic mappings:  
+   - `GRP` gets mapped to the $x$ coordinate.  
+   - `PE` gets mapped to the $y$ coordinate.  
+- The third line, `facet_wrap(~Genre)`, tells R to add a faceting layer to the plot, mapping the variable `Genre` to the individual facets. The tilde symbol (`~`) here means "by," as in "facet by genre."  (If you don't include the tilde in your command, you'll get an error.)
+
+Faceting is a very general strategy, and it works for pretty much any kind of plot.  Below we'll see several examples of this strategy in action.  
+
+
+### Line graphs  {-} 
+
+If you connect points, you get lines, the second most basic geometric object.  The resulting plot is called a __line graph.__  Line graphs are useful for __showing change over time__, or more generally for showing change in a numerical variable ($y$) as a function of some sequentially ordered explanatory variable ($x$).  To make a line graph, you play "connect the dots"---that is, you connect the $(x,y)$ coordinates of your data points sequentially, in order of the $x$ variable.  
+
+Begin by importing [power_christmas.csv](data/power_christmas.csv) into RStudio.  This data shows hourly electricity demand in Texas on December 25, 2015.  The two columns are:  
+
+- `hour`, marking the beginning of a one-hour period, with 0 meaning midnight and 23 meaning 11:00 PM.  
+- `ERCOT`, the peak instantaneous demand for electricity (in megawatts) on the Texas power grid during that one-hour period.  
+
+```{r, echo=FALSE, message=FALSE}
+power_christmas2015 = read.csv('data/power_christmas2015.csv', header=TRUE)
+```
+
+Here's how to make a line graph of electricity demand over the course of that particular Christmas day.  The code is almost the same as that for a scatter plot, except that we substitute `geom_line` for `geom_point`:  
+
+```{r}
+ggplot(power_christmas2015) + 
+  geom_line(aes(x=hour, y=ERCOT))
+```
+
+Is that dip in power demand from 1 PM to 5 PM a result of millions of Texans turning off their TVs, dimming the lights, and gathering around the table for a mid-afternoon holiday meal?  Maybe, maybe not; below we'll examine how this data compares to data in other years and on other days, to see if this "dinner dip" is a consistent pattern unique to Christmas day, or whether it's something that happens on other days, too.  
+
+Before we add complexity, however, let's interpret each bit of this basic code block through the grammar of graphics:
+
+- `ggplot(power_christmas2015)` tells R that you're going to be plotting data from the `power_christmas2015` data set.  
+- `+` means add a layer.  
+- `geom_line` means that the type of __geometric objects__ we're using in our plot are __lines__.   
+- `aes` specifies the __mapping__ between data __variables__ and aesthetic properties of the __lines__, as follows:   
+   - `hour` gets mapped to the $x$ coordinate.     
+   - `ERCOT` gets mapped to the $y$ coordinate.  
+   
+As you can see, both scatter plots (`geom_point`) and line graphs (`geom_line`) are built out of the $(x,y)$ coordinates of data points.  Scatter plots show those $(x,y)$ coordinates as points, whereas line graphs connect the points in the order of the $x$ variable.  If you ever find yourself in doubt about whether a scatter plot or a line graph is more appropriate, ask yourself a simple question:
+
+> Does my $x$ variable have an inherent progression or sequential ordering, like the hours of the day?  
+
+If the answer is no, a line graph almost certainly doesn't make sense; you're better off with a scatter plot.  But if the answer is yes, a line graph might be worth trying, to emphasize the sequential nature of the data.  
+
+
+### Histograms {-}
+
+```{r, echo=FALSE, message=FALSE}
+rapidcity = read.csv('data/rapidcity.csv', header=TRUE)
+```
+
+A __histogram__ is used to __visualize the distribution__ of a single numerical variable ($x$).  Let's jump right in, using the [rapidcity.csv](data/rapidcity.csv) data, which you should import into RStudio.  The first six lines of the data set should look like this.  The `Temp` column, measured in degrees F, shows the average daily temperature, which is the midpoint between that day's high and low temps:
+
+```{r}
+head(rapidcity)
+```
+
+The plot below shows a histogram of the `Temp` variable:  
+
+```{r hist-rapidcity1, message=FALSE, echo=FALSE, fig.cap="A histogram of daily average temperatures in Rapid City, SD."}
+ggplot(rapidcity) + 
+  geom_histogram(aes(x=Temp), binwidth=10, center=25, color='white') + 
+  scale_x_continuous(breaks = seq(-30, 100, by=10))
+```
+
+A histogram like this is constructed by first chopping up the range of the $x$ variable (here, `Temp`) into a set of non-overlapping intervals, or __bins__, where each bin represents a specific range of values.  Then for each bin, we __count__ the number of data points within that bin's range, and we draw a bar whose height ($y$ position) marks the corresponding count.  
+
+In the plot above, the bins are 10 degrees in width: 
+
+- The height of the bar between 10 and 20 is about 300.  So there were about 300 days in the data set with temperatures between 10 and 20 degrees.  
+- The height of the bar between 20 and 30 is about 600.  So there were about 600 days in the data set with temperatures between 20 and 30 degrees.  
+- And so on.  
+
+The resulting plot is useful for answering high-level questions about a data distribution, such as:  Where is the center of the distribution?   How spread out are the data points?   Does the data show "heavy tails", with a small number of data points very far from the center?  Is the distribution skewed?  In other words, does it fall off more quickly to one side of its peak than the other?  (The distribution above looks mildly skewed left, since it falls off less quickly on the left-hand side of the plot.)
+
+The code to make a basic histogram in `ggplot2` looks like this, with just a single aesthetic mapping:
+
+```{r, message=FALSE}
+ggplot(rapidcity) + 
+  geom_histogram(aes(x=Temp))
+```
+
+The $y$ aesthetic, the height of the bars, gets calculated automatically.  If we don't specify _how_ we want R to bin up the data, it will choose on its own, usually aiming for about 30 bins overall.  But we can also exercise finer control over the bin width, like this:
+
+```{r}
+ggplot(rapidcity) + 
+  geom_histogram(aes(x=Temp), binwidth=1)
+```
+
+This tells R to pick bins of width 1 (so 49-50 degrees, 50-51 degrees, and so on).  Compare this with the [first histogram above](fig:hist-rapidcity1), which had bins of width 10.  Or even this one, with extra-wide 20-degree bins:
+
+```{r}
+ggplot(rapidcity) + 
+  geom_histogram(aes(x=Temp), binwidth=20)
+```
+
+As you can see, the bin width has a dramatic effect on the overall look of a histogram.  Narrower bins show fine-scale detail, but also look spikier and noisier.  Wider bins obscure fine-scale detail, but generally look smoother.  There's no single best choice for all purposes.  I generally play around with the bin width until I find one that looks like a nice compromise between the extremes of "not showing enough relevant detail" and "overwhelming the viewer with superfluous detail."  This often entails drawing on prior knowledge of the problem.  On a data set like this, I might reason as follows.  
+
+- Would I notice a temperature swing of 1 degree F?  I'm not a meteorologist or a [goldfish](https://www.jstor.org/stable/2458687), so I doubt it; 1-degree bins are probably needlessly narrow.  
+- Would I notice a temperature swing of 10 degrees F?  Heck yes!  So 10-degree bins might be too coarse.  They'd obscure some relevant detail.  
+- Would I notice a temperature swing of 2 or 3 degrees F?  Probably, but I'm actually not sure!  So a bin width of roughly 2 or 3 degrees seems pretty reasonable.  It's not obscuring big 10-degree differences in temperature within a single bin.  But it's also not making distinctions so needlessly fine that they don't actually matter to a person who just wants to know whether they need a t-shirt, a sweater, or a plane ticket to Texas.  
+
+Let's try it:
+
+```{r}
+ggplot(rapidcity) + 
+  geom_histogram(aes(x=Temp), binwidth=3)
+```
+
+This bin width seems like a nice middle ground.   
+
+
+#### A faceted histogram {-}
+
+We can also use the same strategy of faceting if we wish to plot multiple histograms, each corresponding to some subset of the data.  As above, this is easily accomplished by adding a `facet_wrap` layer to the base plot.  Here's a histogram of daily average temperatures in Rapid City, faceted by the `Month` variable:   
+
+```{r, eval=FALSE}
+ggplot(rapidcity) + 
+  geom_histogram(aes(x=Temp), binwidth=3) + 
+  facet_wrap(~Month)
+```
+
+
+```{r, echo=FALSE}
+ggplot(rapidcity) + 
+  geom_histogram(aes(x=Temp), binwidth=3) + 
+  facet_wrap(~Month) + 
+  theme(panel.spacing.x = unit(1.25, "lines"))
+```
+
+
+You can also tell R how how many rows you want in your faceted plot.  So, for example, if you wanted a really tall and skinny plot that lined up all the months vertically, you could create it with the following code block.  This is kind of a neat way to see seasonal changes in temperature:  
+
+```{r, eval=FALSE}
+ggplot(rapidcity) + 
+  geom_histogram(aes(x=Temp), binwidth=3) + 
+  facet_wrap(~Month, nrow=12) 
+```
+
+
+```{r, echo=FALSE, fig.asp = 2.5, out.width="35%", fig.align = "center"}
+ggplot(rapidcity) + 
+  geom_histogram(aes(x=Temp), binwidth=3) + 
+  facet_wrap(~Month, nrow=12)  + 
+  theme_grey(base_size = 16)
+```
+
+
+
+### Boxplots {-}
+
+A __boxplot__, sometimes called a "box and whisker plot," is used for __comparing distributions.__  Specifically, it allows us to visualize the distribution of a numerical variable, stratified according to the values of a second categorical variable. In that sense, it plays a role very similar to that of a faceted histogram.  The difference between a boxplot and a histogram is that, while a histogram tries to show the full shape of a data distribution, a boxplot shows only a _summary_ of that distribution, in the form of a little cartoon with a box and whiskers.  
+
+Let's see an example, using the [data on weekly cheese sales](data/kroger.csv) across 68 weeks at 11 different Kroger grocery stores.  Here are the first six lines of the file, via `head(kroger)`:  
+
+```{r, echo=FALSE, message=FALSE}
+kroger = read.csv('data/kroger.csv')
+head(kroger)
+```
+
+Each row shows the sales volume (`vol`) at a Kroger store in a particular city over a particular week. Our goal is to examine the distribution of weekly sales volume, both within individual cities and across the different cities.  The boxplot below allows us to do just this:  
+
+```{r, eval=FALSE}
+ggplot(kroger) + 
+  geom_boxplot(aes(x = city, y = vol))
+```
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", fig.align="center", fig.asp = 0.5}
+ggplot(kroger) + 
+  geom_boxplot(aes(x = city, y = vol)) + 
+  theme_grey(base_size = 10) + ylim(0, 15000)
+```
+
+Each box represents the distribution of weekly cheese sales at Kroger store within a single city.  Since there are 11 different boxes, we're looking at 11 different data distributions, one distribution per city.  Each box encodes a five-number summary for that particular Kroger's sales volume.  Let's focus on Columbus as an example.  The data distribution of weekly sales volume in Columbus has the following properties:  
+
+- Minimum: 2149 packages of cheese
+- First quartile (25th percentile): 2958 packages
+- Median (50th percentile): 3670 packages
+- Third quartile (75th percentile): 5105 packages
+- Maximum: 13588 packages
+
+Now let's see how this information is encoded in the box for Columbus.
+
+```{r, echo=FALSE, out.width="75%", fig.align='center'}
+knitr::include_graphics("images/boxplot_annotated.png")
+```
+
+As you can see, the box spans the middle 50% of the data distribution, while the whiskers show what happens in the top and bottom quartiles.  The whiskers, however, don't necessarily go all the way to the minimum and maximum values.  By default, they extend only 1.5 times the height of the box itself, with points falling outside this range shown individually as dots.  (There's a temptation to refer to these points as "outliers," but that's a loaded term, so we'll avoid it for now.)
+
+With one box, we can ask questions like: where is the data distribution centered?  How spread out is it around that center?  With multiple boxes, we can compare the groups, asking questions like: how far apart are the group averages (medians)?  How do these between-group differences compare in magnitude to the within-group variation (that is, the spread of the individual boxes themselves)?  In fact, that's the most common use case for a box plot: to understand between-group differences placed in the context of the within-group variation.  
+
+To illustrate this idea, here's the boxplot again:
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", fig.align="center", fig.asp = 0.5}
+ggplot(kroger) + 
+  geom_boxplot(aes(x = city, y = vol)) + 
+  theme_grey(base_size = 10) + ylim(0, 15000)
+```
+
+We can use this plot to make a few example statements about within-group and between-group variation:
+
+- Columbus has higher average weekly sales than Dallas.  But in context, that difference looks pretty small: the difference in their averages looks much smaller than the typical week-to-week variation in sales within either city individually.   Said another way, the difference between a bad sales week (25th percentile) and a good sales week (75th percentile) in Dallas is _much larger_ than the difference between an average sales week in Columbus and an average sales week in Dallas.  
+- Houston has higher average weekly sales than Detroit.  Moreover, in context, this difference looks pretty large: in fact, the difference in their averages looks larger than the typical week-to-week variation in sales within either city individually.  Said another way, the difference between a bad sales week (25th percentile) and a good sales week (75th percentile) in Detroit is _much smaller_ than than the difference between an average sales week in Detroit and an average sales week in Houston.    
+- Nashville has higher average weekly sales than Louisville.  This difference between their averages looks to be about the same size as the typical week-to-week variation in either Louisville or Nashville.  Said another way, the difference between a bad sales week (25th percentile) and a good sales week (75th percentile) in Louisville is _about the same size_ as the difference between an average sales week in Louisville and an average sales week in Nashville.  
+
+The basic principle is: _within-group variation_ is a really valuable yardstick for reasoning about the magnitude of group differences.  Boxplots make both the within-group variation and the between-group differences readily apparent.  
+
+A boxplot always has a numerical $y$ variable (here, sales volume) and a categorical $x$ variable (here, city).  I suppose you could make a boxplot with just one group (and therefore no $x$ variable), but in that case, you're probably better off with a histogram.
+
+Let's look once again at the code to make a boxplot, so we can unpack it piece by piece:
+
+```{r, eval=FALSE}
+ggplot(kroger) + 
+  geom_boxplot(aes(x = city, y = vol))
+```
+
+This code says that:  
+
+- the geometric objects in our plot are boxes with whiskers.  
+- the `city` variable gets mapped to the location of the box itself, along the $x$ axis  
+- the `vol` variable gets used to calculate summary statistics (medians/quartiles/min/max), which are mapped to the $y$-axis heights of each box (and whiskers).   
+
+You might ask: when is it reasonable to use a faceted histogram versus a boxplot?  To some extent this is a matter of preference, but here's the guideline I generally follow.  I tend to use faceted histograms when I want to compare distributions for a small number of groups, because histograms offer more high-resolution detail.  On the other hand, I tend to use boxplots when I want to compare distributions for a large number of groups, where too much detail about each individual distribution might be overwhelming.  
+
+For example, here's a boxplot of cheese sales from a much larger data set encompassing 88 different stores, arranged top to bottom by median sales.  You might argue that this is too much information in a single plot.  Maybe so! The point is, using a faceted histogram here would _certainly_ be too much.  
+
+```{r, echo=FALSE, message=FALSE, out.width="65%", fig.asp = 2, fig.align='center'}
+cheese= read.csv('data/cheese.csv', header=TRUE)
+cheese = mutate(cheese, store = stringr::str_to_title(store))
+
+ggplot(cheese) + 
+  geom_boxplot(aes(x=reorder(store, vol, FUN = 'median'), y=vol)) + 
+  scale_y_log10() + 
+  labs(y = "Sales volume (log scale)", x = "Store") + 
+  coord_flip() 
+```
+
+### Bar plots {-}
+
+__Bar plots__ are typically used to __visualize group-level summary statistics__, like counts, averages, or proportions.  Thus unlike any of our previous plots, the typical workflow to make a bar plot actually has two distinct stages:  
+
+(1) __Summary stage__: split your data set into subgroups and calculate summary statistics for each subgroup.  
+(2) __Plotting stage__: make a bar plot of those summary statistics, one bar per group.  
+
+```{r, echo=FALSE, message=FALSE}
+car_class_summaries = read.csv("data/car_class_summaries.csv", header=TRUE)
+```
+
+In this section, we're going to assume that stage 1 (calculating summary statistics), has already been accomplished, and that you're starting from stage 2 (plotting).  In a later series of lessons, we'll show how to deal with stage 1 itself.  
+
+To illustrate, we'll use [car_class_summaries.csv](data/car_class_summaries.csv), which contain simple summary statistics on seven different classes of vehicle.  Go ahead and import this data set into RStudio, making sure that R is aware that the file has a header row.  Here it is:  
+
+```{r}
+car_class_summaries
+```
+
+This data set has only seven lines in it---remember, it's a set of summary statistics about entire _classes_ of vehicle, rather than data on individual vehicles.  The four variables are:  
+
+- `class`: the class of vehicle  
+- `n`: the number of vehicles in that class in the original data set from which these summary statistics were derived  
+- `average_cty`: the average city gas mileage (miles per gallon) of cars within that class  
+- `prop_4cyl`: the proportion of cars within that class having a four-cylinder engine.  (Four-cylinder engines are generally smaller engines, with larger vehicles often having six- or even eight-cylinder engines.)  
+
+To make a bar plot in R, we use `geom_col`, as follows.  Here's a bar plot of average city gas mileage across vehicle classes:
+
+```{r}
+ggplot(car_class_summaries) + 
+  geom_col(aes(x=class, y=average_cty))
+```
+
+We see seven bars/columns, one per vehicle class.  The `average_cty` variable for that class is mapped to the height ($y$) of the bar.  
+
+Let's see a second example, where we plot the proportion of four-cylinder engines in each vehicle class.  This entails changing the aesthetic mapping to use `prop_4cyl` for the $y$ variable:
+
+```{r}
+ggplot(car_class_summaries) + 
+  geom_col(aes(x=class, y=prop_4cyl))
+```
+
+In both of these examples, the group-level summaries were "pre-computed" in the table we imported, in `car_class_summaries.csv`.  Later on, in the lesson on [Data Wrangling], we'll see how to start from a "raw" data set and calculate these summary statistics ourselves.  
+
+
+#### What about `geom_bar`? {-}
+
+We've seen how to make bar plots using `geom_col`, assuming we have a table of pre-computed summary statistics, one row per group.  Confusingly, there's also a function in `ggplot2` called `geom_bar`.  It sounds like _that_ should be for a bar plot, right?  So what's the difference?  
+
+It's actually pretty simple:
+
+- If you want to make a bar plot of counts, __and__ you need R to do the counting for you, use `geom_bar`.  
+- For pretty much any other bar plot, use `geom_col`.  
+
+To illustrate, consider the `mpg` data set that comes pre-packaged with the `tidyverse`.  Assuming you've already loaded the tidyverse, you can load this data set using the `data` command, like this:
+
+```{r}
+data(mpg)
+```
+
+Let's look at a random sample of ten lines of this data set:
+
+```{r, echo=FALSE, message=FALSE}
+mosaic::sample(mpg, 10, orig.id=FALSE) %>%
+  knitr::kable() %>%
+  kableExtra::kable_styling(bootstrap_options = "striped", font_size = 8)
+```
+
+As you can see, each row is a vehicle, and one of the variables is `class`.  In fact, this was the original _vehicle-level_ data set from which the _class-level_ summary statistics I gave you in `car_class_summaries.csv` were derived.  (Again, we'll see how that process works in the lesson on [Data Wrangling].)
+
+We can now compare `geom_col` with `geom_bar`.  Here is bar plot of class counts, based on the "derived" or summary variable `n` in `car_class_summaries`:
+
+```{r}
+ggplot(car_class_summaries) + 
+  geom_col(aes(x=class, y=n))
+```
+
+This tells you have many vehicles were in each class, by explicitly mapping the summary variable `n` to the height of the bars ($y$).
+
+Now here's the _exact same bar plot_, but based on the original `mpg` data set:
+
+```{r}
+ggplot(mpg) + 
+  geom_bar(aes(x=class))
+```
+
+Notice that we use the `mpg` data, and that there's no $y$ aesthetic.  This example illustrates the difference between `geom_col` and `geom_bar`:  
+
+- with `geom_col`, you need to supply a $y$ aesthetic for the heights of the bars.  This is usually derived from a table of summary statistics. It could be a count, a mean, a proportion---anything.   
+- with `geom_bar`, you don't supply a $y$ aesthetic for the heights of the bars.  R calculates this for you, by counting how many cases fall into each group.  
+
+As you can see, `geom_bar` only makes sense if you want a quick bar plot of how many cases fall into each class.  Virtually all other use cases for bar plots require `geom_col`, which is much more generally useful.   Personally, I use `geom_col` approximately 100% of the time.  Depending on the data sets you work with, your mileage may vary.  
+
+## Customizing plots  
+
+`ggplot2` offers near infinite possibilities for customizing your plots.  If you can Google it, you can probably make it happen in ggplot, but I can't promise the code will be pretty!  (Unfortunately, with great power comes great complexity.)  In this section, we'll discuss a few of the most basic and important customization options. 
+
+In the beginning, these options may have the feel of mystical incantations you have to utter to get your plots to behave the right way.  That's OK, even normal; eventually you'll start to build muscle memory for `ggplot2`.  My advice is not to try to memorize anything.  If you want to customize a plot, just start from the code blocks below as templates, and copy and paste the relevant bits of customization code into your plot, changing the names of the data and variables as appropriate. 
+
+
+### Changing titles and labels {-}  
+
+It's easy to customize the title and axis labels of a plot.  You do this by adding a `labs` layer to an existing plot.  To illustrate, let's go back to the data on weekly cheese sales in Kroger stores:
+
+Here was our basic box plot, with default axis labels and no title:
+
+```{r}
+ggplot(kroger) + 
+  geom_boxplot(aes(x = city, y = vol))
+```
+
+And here's the same plot, but with some nicer labels:  
+
+```{r}
+ggplot(kroger) + 
+  geom_boxplot(aes(x = city, y = vol)) + 
+  labs(x="Location of store",
+       y="Weekly sales volume (packages sold)",
+       title="Weekly cheese sales at 11 U.S. Kroger stores")
+```
+
+
+### Color scales {-}
+
+Color is a fascinating, rich topic at the intersection of physics, neuroscience, and art. We can't hope to cover even a tiny fraction of what there is to say about color here.  Suffice it to say that in R, you can [geek out as much as you want](https://github.com/karthik/wesanderson) with custom color palettes for your plots.
+
+The one color-related topic we'll discuss seriously is the creation of color-blind friendly plots.  Take, for example, this plot from above:
+
+```{r,  out.width="85%", fig.asp = 0.6, fig.align='center'}
+ggplot(tvshows) + 
+  geom_point(aes(x=GRP, y=PE, color=Genre))
+```
+
+Not so great for color-blind viewers, for whom reds and greens can be challenging.  But this next version is much friendlier.
+
+```{r,  out.width="85%", fig.asp = 0.6, fig.align='center'}
+ggplot(tvshows) + 
+  geom_point(aes(x=GRP, y=PE, color=Genre)) + 
+  scale_color_brewer(type="qual")
+```
+
+This adds a "color-scale" layer to the basic scatter plot, thereby changing how R encodes each genre in a color.  Specifically, these are [Color Brewer](https://colorbrewer2.org/#type=qualitative&scheme=Accent&n=3) colors, a palette put together by an [expert in visibility and color theory named Cynthia Brewer.](https://en.wikipedia.org/wiki/Cynthia_Brewer)   Our command is telling R that the type of color scale we want (`qual`) is one appropriate for qualitative (that is, categorical) variables.  
+
+Another option is to install `viridis`, [another library of color palettes](https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html) that are specifically designed to be easier to read by those with colorblindness.  (They also print well in grayscale.)
+
+```{r,   out.width="85%", fig.asp = 0.6, fig.align='center', message=FALSE}
+library(viridis)  
+
+ggplot(tvshows) + 
+  geom_point(aes(x=GRP, y=PE, color=Genre)) + 
+  scale_color_viridis(discrete=TRUE)
+```
+
+The layer `scale_color_viridis(discrete=TRUE)` tells R to use the `viridis` color scale for showing the individual genres (which is a discrete categorical variable, hence `discrete=TRUE`).  This is another good, research-backed  option when you want to use color to encode multivariate information in a plot and want to maximize accessibility.  
+
+
+
+### Font size {-}
+
+It's a little bit tedious to change font sizes in `ggplot2`.  But this is something we probably want to do in our boxplot above, because the names of the stores are running together along the $x$ axis.  
+
+In `ggplot2`, font sizes are governed by adding a `theme` layer.  Here we are making the font smaller, to avoid overlapping text.
+
+```{r}
+ggplot(kroger) + 
+  geom_boxplot(aes(x = city, y = vol)) + 
+  labs(x="Location of Kroger store",
+       y="Weekly sales volume (packages sold)",
+       title="Weekly cheese sales at 11 U.S. Kroger stores") + 
+  theme(axis.text = element_text(size = 8)) 
+```
+
+`theme(axis.text = element_text(size = 8))` is not the prettiest or most intuitive command in the world, but it works.  You can also change font sizes for other aspects of the plot, including axis labels and titles.  [This reference](https://statisticsglobe.com/change-font-size-of-ggplot2-plot-in-r-axis-text-main-title-legend) shows a lot of these other customization options, which follow a very similar template to the example above.    
+
+
+### Flipping the $x$ and $y$ axes {-}
+
+You can flip the coordinate axes in any `ggplot` using `coord_flip`:
+
+```{r}
+ggplot(kroger) + 
+  geom_boxplot(aes(x = city, y = vol)) + 
+  labs(x="Location of Kroger store",
+       y="Weekly sales volume (packages sold)",
+       title="Weekly cheese sales at 11 U.S. Kroger stores") + 
+  coord_flip()
+```
+
+This is a perfectly fine solution to the problem of overlapping text in our previous boxplot, but for some data sets you might prefer horizontal boxes/bars/whatever for their own sake.  Here's a second example, based on our bar plot of vehicle mileage vs. class:  
+
+```{r}
+ggplot(car_class_summaries) + 
+  geom_col(aes(x=class, y=average_cty)) + 
+  coord_flip()
+```
+
+
+
+## Plotting cheat sheet {-}
+
+In the table below, $x$ refers to an explanatory variable and $y$ refers to a response variable (i.e. the variable whose behavior is being "explained" by $x$).  
+
+| If you have...      | Consider a... |
+| :----------- | :----------- |
+| Numerical $y$ and numerical $x$      | Scatter plot of $y$ vs $x$      |
+| Numerical $y$ and sequential $x$      | Line graph of $y$ vs $x$|
+| Numerical $y$ alone (no $x$)    | Histogram of $x$ |
+| Numerical $y$ and categorical $x$   | Boxplot or faceted histogram of $y$ vs $x$       |
+| Summary statistics by group   | Bar plot        |
+| More than two explanatory variables   | Plot that uses faceting or additional aesthetic mappings (color/shape/etc.)        |
+| A plot that encodes information via color  | Colorblind-friendly color scale        |
+
+
+
+## Study questions {-}
+
+1. Subjects, objects, and verbs are three key elements in the grammar of English.  What are the three key elements in the grammar of graphics?  
+
+2. In the section on "[The grammar of graphics]", you saw two examples of a plots: a line graph and a bar plot.  Both were plots of the same data, and both had the same goal: to compare bike-rental demand across the day and for working vs. non-working days.  Do you think one plot is more effective than the other at making that comparison.  Or do you think they're about equally effective?  Explain your reasoning.
+
+3. Recall this code block, that created a scatter plot of `PE` vs. `GRP` for television shows:
+
+    ```
+      ggplot(tvshows) + 
+         geom_point(aes(x=GRP, y=PE))
+    ```
+Now download the [gapminder2007](data/gapminder2007.csv) data, originally from [www.gapminder.org](https://www.gapminder.org/), which contains human development data on 142 countries in 2007.   
+   (A) Start from the code block above as a template.  Modify the code to produce a scatter plot of a country's life expectancy (`lifeExp`, $y$ variable) versus its per-capita GDP (`gdpPercap`, $x$ variable).  This should entail changing the data set name and the variable names, leaving the other elements of the code block as-is.  
+   (B) Starting from the plot in (A), modify your scatter plot of `lifeExp` vs. `gdpPercap` so that the `continent` variable gets mapped to the color of each point.   
+   (C) Starting from the plot in (B), modify your plot so that the population variable (`pop`) gets mapped to the size of each point.   Your points now encode four pieces of information about each country: GDP, life expectancy, continent, and population.  Can you guess which points correspond to China, India, and the United States?   
+
+4. Something here,.

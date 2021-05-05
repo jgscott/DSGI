@@ -4,20 +4,20 @@ In this very first lesson, you'll learn how to:
 
 - get R up and running on your computer.  
 - interact with R by typing statements into the console and seeing the results of those statements.    
-- use R as a calculator.  
 - define your own objects and use those objects in subsequent statements.    
 - create a new script and run some statements from that script.  
-- install a library from within RStudio.   
+- get help with R.  
+- install and load libraries.  
+
 
 ## Download R and RStudio 
 
 To begin using R, you'll need to download two pieces of software:
 
-1. Head to [cloud.r-project.org](cloud.r-project.org) to download and install the version of R appropriate for your computer (Windows, Mac, or Linux).  
-2. Head to [www.rstudio.com](www.rstudio.com) and download RStudio.  If the `Download` link there asks you to choose your version, you'll want "RStudio Desktop," which is free and, like R, available for Windows, Mac, and Linux.
+1. Head to [cloud.r-project.org](http://cloud.r-project.org) to download and install the version of R appropriate for your computer (Windows, Mac, or Linux).  
+2. Head to [www.rstudio.com](http://www.rstudio.com) and download RStudio.  If the `Download` link there asks you to choose your version, you'll want "RStudio Desktop," which is free and, like R, available for Windows, Mac, and Linux.
 
 Why two programs?  Well, R is the program that does most of the raw computational work, while RStudio is a graphical front end for R (called an "integrated development environment," or IDE) that offers a lot of creature comforts.  You'll work entirely within RStudio; meanwhile, RStudio will interface with R behind the scenes, without your ever needing to open the R program itself.  Loosely speaking, if you imagine that analyzing data is like driving a car, then RStudio is the steering wheel and the pedals, while R is the engine.^[This car analogy isn't quite right.  Strictly speaking, RStudio is optional, and you _could_ opt to use base R (i.e. only the "engine").  But RStudio is both free and great. I _highly_ recommend using it; it's really helpful for beginners, but it also has many wonderful features that cater to advanced users and that you might explore as your R skills mature.  From here on out, I'll assume you're using RStudio rather than base R.  On a practical level, this means that you'll start your R sessions by double-clicking the RStudio icon on your computer, rather than the R icon.]  That's why you need to install R in order for RStudio to work: if you try to drive a car without an engine, you're not going to get very far.  
-
 
 
 ## First steps
@@ -64,11 +64,11 @@ This example, while simple, illustrates the basic idea of interacting with R:
 - You write __statements__ (also known as __commands__ or __lines of code__), and __run__ those statements in the console.  
 - R __evaluates__ those statements and does something---for example, printing out the result of a calculation or making a plot.  
 
-Some statements, like `2 + 3`, are simple.  Other statements, like `log10(1000) + 4^2 - 15.85841`, a bit more complex.  (Try entering that one in the console.)^[You can probably guess what this statement does, but to be super explicit: it takes the base-10 logarithm of 1000, to that adds the quantity $4^2$ (i.e. $4 \cdot 4$), and from that subtracts 15.85841.  You might recognize the result.]  Soon, you'll start to chain multiple statements together to form a __program.__  But in the very beginning, learning R mostly means learning which statements do which things!  
+Some statements, like `2 + 3`, are simple.  Other statements, like `log10(1000) + 4^2 - 15.85841`, are a bit more complex.  (Try that one in the console.)^[You can probably guess what this statement does, but to be super explicit: it takes the base-10 logarithm of 1000, to that adds the quantity $4^2$ (i.e. $4 \cdot 4$), and from that subtracts 15.85841.  You might recognize the result.]  Soon, you'll start to chain multiple statements together to form a __program.__  But in the very beginning, learning R mostly means learning which statements do which things!  
 
 ### How you'll get feedback {-}
 
-Every lesson in this book depends on getting __immediate feedback__: I'll show you what R statements you need to write in order to accomplish a given task, and I'll also show you what you should expect to see on your screen as a result of executing those statements.  This is the best way I know to help you learn how to write statements that do useful things.  
+Every lesson in this book depends on getting __immediate feedback__: I'll show you what R statements you need to write in order to accomplish a given task, together with what you should expect to see as a result of executing those statements.  In my experience, this is the best way learn R (or any programming language).  
 
 Above, I provided this feedback via screen shot.  This worked OK.  But screen shots aren't really the best way to give you the feedback you need.  Not only are they tedious for me, but they're also inefficient for you: they show a bunch of extraneous information, with the relevant feedback buried in a corner somewhere, perhaps with a silly red circle drawn around it.
 
@@ -78,7 +78,7 @@ So from here on, we'll adopt the following convention.   Whenever you're suppose
 2+3
 ```
 
-The first box shows what you're supposed to type.  Immediately below that, the second box shows what the result should be, whether it's something printed to console (like we see here) or a plot (like you'll see below).  Note that you won't actually see the little `##` symbols printed in your console.  Those `##` symbols are there so that you can distinguish _intended input_ (first box, no `##`s) from _expected output_ (second box, with `##`s) at a quick glance.
+The first box shows what you're supposed to type.  Immediately below that, the second box shows what the result should be, whether it's something printed to console (like we see here) or a plot (like you'll see below).  Note that you won't actually see the little `##` symbols printed in your console.  Those `##` symbols are there so that you can distinguish _intended input_ (first box, no `##`) from _expected output_ (second box, with `##`) at a quick glance.
 
 Let's see one more explicit example of this convention in action.  We'll add 1 and 4, and then multiply the result by 3:
 
@@ -90,24 +90,33 @@ The two blocks above are telling you: 1) that you should type in `3*(1+4)` and t
 
 I'll mostly stick with this convention for providing feedback, saving screen shots only for when they're necessary.
 
-### Practice with R as a calculator {-}
+### R as a calculator {-}
 
-You probably got the sense from the examples above you can treat R as a simple calculator.  Indeed, R works exactly as you'd expect it to in this regard: it obeys the normal order of operations that you learned in grade school (like in `3*(1+4)`), and it also knows all the important functions like logarithms and cosines and exponentials that you learned in high school.
+You probably got the sense from the examples above you can treat R as a simple calculator.  Indeed, R works exactly as you'd expect it to in this regard: it obeys the standard order of operations that you learned in grade school, and it also knows all the important "fancy" functions like logarithms and cosines and exponentials that you learned in high school.  Here we'll calculate the base-10 logarithm of 1000:
 
-In fact, you can also treat R like a graphing calculator, using the `curve` function.  Try, for example, typing in the following statement:
+```{r}
+log10(1000)
+```
+
+You can also treat R like a graphing calculator, using the `curve` function.  Try, for example, typing in the following statement:
+
 ```{r}
 curve(x^2 - 3*x + 1, from=0, to=5)
 ```
 
-This statement plots the function $f(x) = x^2 - 3x + 1$ over the domain $0 \leq x \leq 5$.  When you evaluate the statement by hitting Enter, nothing gets printed to the console, but you should see the graph pop up automatically in the `Plots` tab, in the lower-right panel on your screen.  (Displaying plots is one of the main functions of that lower-right panel, although we'll cover a couple of others later.)  
+This statement plots the curve $f(x) = x^2 - 3x + 1$ over the domain $0 \leq x \leq 5$.  The three inputs to `curve` are called __arguments__:  
 
-If you want to get some practice, try any of the following example arithmetic and graphing statements, or else just make up your own.  
+- `x^2 - 3*x + 1` is the curve you want to plot.  
+- `from=0` and `to=5` says that you want to start the curve at $x=0$ and end it at $x=5$.  
+
+When you evaluate the statement by hitting Enter, nothing gets printed to the console, but you should see a graph pop up automatically in the `Plots` tab, in the lower-right panel on your screen.  (Displaying plots is one of the main uses of that lower-right panel, although we'll cover a couple of other uses later.)  
+
+If you want to get some practice, try any of the following examples, or else just make up your own.  
 
 ```
 30/10
-sqrt(9)
 5^2
-log10(100)
+sqrt(9)
 log(7.4)
 exp(2)
 curve(cos(x), from=0, to=4*pi)
@@ -118,32 +127,24 @@ Note that to R:
 - the four basic arithmetic operations are `+`, `-`, `*`, and `/`.   
 - `log` means natural log, while `log10` means the base-10 log.  
 - `x^a` means "raise x to the power a."  
-- But if you want to raise the mathematical constant $e = 2.718...$ to some power $a$, use `exp`.  
+- But if you want to raise the mathematical constant $e = 2.718...$ to some power $a$, use `exp(a)`.  
 - For trigonometric functions (like `cos`, `sin`, `tan`, etc.), angles are assumed to be in radians. 
 
-### A note about case {-}
+### R is case sensitive {-}
 
 Statements in R are case-sensitive.  If you use upper case where lower case is expected, or vice versa, you'll get an error.    So if, for example, you typed `Curve` rather than `curve`, you'd get an error telling you that there is no such thing as a function called `Curve`:
 
 ```{r, error=TRUE}
 Curve(x^2 - 3*x + 1, from=0, to=5)
 ```
- 
 
+Be aware of this case-sensitivity.  It's a common source of coding errors for beginners.  
 
-```{r include=FALSE}
-# automatically create a bib database for R packages
-knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown'
-), 'packages.bib')
-```
+## Objects {#sec_objects}
 
+We've seen that using R as a (graphing) calculator is pretty straightforward.  But to do anything more interesting than basic arithmetic, we need to learn how to assign __values__ to __objects__.^[Objects are sometimes called __variables__ in computer programming.  But we'll use the term __object__ to avoid confusion with the statistical concept of a variable.]
 
-
-
-## Objects
-
-So we've seen that using R as a (graphing) calculator is pretty straightforward.  But to do anything more interesting than basic arithmetic, we need to learn how to assign __values__ to __objects__.^[Objects are sometimes called __variables__ in computer programming.  But we'll use the term __object__ to avoid confusion with the statistical concept of a variable.]  In computer programming, an object is analogous to an envelope or a file folder: it's a place where information can be stored, given a label, and accessed later.
+In computer programming, an object is analogous to an envelope or a file folder.  It's a place where information can be stored, given a label, and accessed later.  Creating objects helps us break complex tasks down into a series of simpler tasks.
 
 Let's create your first object.  Run the following statement in the console:
 ```{r}
@@ -158,22 +159,37 @@ Let's unpack the statement `foo = 3` piece by piece.  All assignment statements 
 - `foo` is the name of the object.  In our file-folder analogy, this is like the label on the folder.  Here we called the object `foo`, but you can call objects in R pretty much anything you want, with a [handful of exceptions](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Reserved.html).  
 - `=` is called the "assignment operator."  It tells R to assign the value on the right (3) to the object on the left (`foo`).   
 
-The reason we might want to assign values to objects is so that we can use those objects in subsequent calculations---kind of like a souped-up version of the "memory" function on your calculator.   To illustrate this, let's create an object called `bar` that stores the results of the computation $4 + \log_{10}(100)$.  Since $\log_{10}(100) = 2$, this calculation should give us 6.    
+If we now ask R what `foo` is, it will tell us:  
+```{r}
+foo
+```
+
+The reason we assign values to objects is so that we can use those objects in subsequent calculations.  It's like a souped-up version of the "memory" function on your calculator.   To illustrate this, let's create an object called `bar` that stores the results of the computation $4 + \log_{10}(100)$.  Since $\log_{10}(100) = 2$, this calculation should give us 6.    
 ```{r}
 bar = 4 + log10(100)
 ```
 
-Nothing gets printed to the console when we create an object and assign it a value.  But once we've created an object, we can type its name into the console, and R will tell us what value is stored there:  
+Again, nothing gets printed to the console when we create an object and assign it a value.  But, remember, once we've created the object, we can type its name into the console, and R will tell us what value is stored there:  
 ```{r}
 bar
 ```
 
-And now we can use this object in a subsequent computation, just like we'd use any number:  
+More importantly, now we can use this object in a subsequent computation, just like we'd use any number:  
 ```{r}
 bar + 4
 ```
 
-This ability---to store the results of intermediate calculations in user-defined objects, and to re-use those objects in subsequent calculations---may not seem like a big deal now.  But as you'll soon learn, it's a source of immense power that allows us to write a complex data analysis as a sequence of many smaller, simpler steps.  
+Creating objects---that is, storing intermediate results in user-defined objects, and re-using those results in subsequent calculations---may not seem like a big deal now.  After all, we're just messing around with basic arithmetic.  But as you'll soon learn, the ability to create your own objects is a source of great power.  That's because it allows us to write a complex data analysis as a sequence of many smaller, simpler steps.  And that's the way we accomplish pretty much _anything_ complex in life, whether it's running a data analysis, auditing a bank, or building a house: 
+
+- break the complex task down into simpler tasks.  
+- accomplish each task in isolation, using the products of earlier tasks to help us with the next task. 
+- stitch the tasks together in the proper order to accomplish the overall goal.  
+
+We could summarize this "basic mantra of data science" as follows.
+
+> __The basic mantra of data science__: manage complexity by breaking complex tasks down into simple tasks, and then stitching the simple tasks together.  
+
+In the next section, we'll learn how __scripts__ can make this process a lot more manageable.  
 
 <!-- ### `=` versus `==` -->
 
@@ -188,78 +204,194 @@ This ability---to store the results of intermediate calculations in user-defined
 
 ## Scripts
 
-In our previous examples, you learned to interact with R by typing statements like `2+3` or `sqrt(9)` directly into the console, where you see the `>` prompt.  This works OK for simple statements, but it's actually not the best way to interact with R---especially when we starting chaining together complex statements to analyze data.
+In our previous examples, you learned to interact with R by typing statements like `2+3` or `sqrt(9)` directly into the console, where you see the `>` prompt.  This works OK for simple statements, but it's actually not the best way to interact with R---especially when we start chaining together complex statements to analyze data.
 
 Instead, you should learn to work with __scripts.__   A script is a file that collects multiple statements (i.e. lines of R code) in a single document, which always ends in a `.R` suffix. 
 
-Your basic workflow in RStudio should look like this:  
+Your basic workflow in RStudio should look like this. 
 
-- Create a __script__.  
-- Write __statements__ in your script.  
-- __Run__ those statements in the console.  
+- __Create__ a script with the goal of solving some specific tasks.  
+- __Write__ statements in your script, saving them for subsequent modification or re-use.  
+- __Run__ those statements in the console to produce the desired output or behavior.  
+- __View__ the results, usually either in the console or the `Plots` tab of RStudio's lower-right panel.   
 
-There are many advantages to working with scripts, as opposed to typing statements directly into the console.  Here are four big ones.  
-
-1. Scripts make it simple to save your work and pick up where you left off.  
-2. Scripts make it easy to modify a complex analysis by adding new steps in a long chain of statements.  
-3. Scripts make your analysis shareable: just save the .R file and post it to a site like [GitHub](www.github.com).  
-4. Scripts make your analysis reproducible, since anyone can read the script and see/repeat what you've done.  
-
-You should definitely get in the habit of working with scripts.  
-
+There are many advantages to working with scripts, which we'll discuss below.  For now let's focus on the "how" and "what" rather than the "why."
 
 ### Creating and running scripts {-}
 
-To create a new R script, go to the `File` Menu and choose `New File > R Script`.  You should now see something that looks like this:
+To create a new R script, go to the `File` Menu and choose `New File > R Script`.  Your screen should now look something like this:
 
 ```{r, echo=FALSE}
 knitr::include_graphics("images/rstudio_open.png")
 ```
 
-Before there were three panels; now there are four.  The bottom left panel is your old friend, the __console.__   But now there's a (new) top left panel called the __code editor__.  In the lessons to follow, this is where you'll do most of your actual work, by creating and editing scripts (.R files) that encode the steps in a data analysis.  R's code editor allows you to create, open, and edit R scripts.  When you opened the File menu and chose `New File > R script`, you conjured into existence a new, blank script whose default name was probably something like `Untitled1.R`.
+Before there were three panels; now there are four.  The bottom left panel is your old friend, the __console.__   But now there's a (new) top left panel called the __code editor__.   RStudio's code editor allows you to create, open, and edit R scripts.  When you opened the File menu and chose `New File > R script`, you conjured into existence a new, blank script whose default name is probably something like `Untitled1.R`.  In the lessons to follow, this panel is where you'll do most of your actual work, by creating and editing scripts (.R files) that encode the steps in a data analysis. 
 
+Go ahead and type the following two statements in the new script you just created.  __Do not__ type them directly in the console.  Put each statement on its own line in your script, and then save the script, giving it whatever name you want (e.g. `my_first_script.R`):  
 
-### Comments in scripts {-}
-
-Anything to the right of the `#` character in a script will be ignored by R.  This is useful for writing __comments__ in your scripts: that is, brief notes, explanations, or outlines.
-
-Take, for example, this block of code:
-```{r}
-# Create an object called foo
-foo = 3
-
-# Add the number 7 to foo
+```
+foo = 1 + 2
 foo + 7
 ```
+
+These statements: 1) create an object called `foo` that is assigned a specific value (i.e. 3, the result of `1 + 2`); and then 2) add 7 to `foo`.  We should get 10 as a result, right?   But when you type these statements in your script, nothing actually happens.  That's because you need to __run__ these statements in the console in order to get R to evaluate them.   
+
+The easiest way to run statements from your script is to <span style="color:blue">highlight</span> those statements with your mouse, and then use the keyboard shortcut `Control-Enter` (`Command-Enter` works too if you're on a Mac).   When you do this, you should see the statements themselves, followed by their result, appear in your console, like this:
+
+```{r}
+foo = 1 + 2
+foo + 7
+```
+
+And that's it---your first R script.  From here on, when I give you R commands to run, you should first write them in a script, and then run them in the console.  It might feel clunky at first, but you should practice this way of doing things, because it will indispensable when things get more complex.  
+
+Two further notes on running statements from a script:  
+
+- If you just want to run a single line from your script, you don't have to highlight it.  You can just click anywhere on that line and then hit `Control-Enter`.  
+- You can also run statements (either individually or as a block) using the `Run` button at the top of the code editor.  I personally find this less user-friendly, but your mileage may vary.  
+
+### A slightly more interesting script {-}
+
+OK, so that first script was a bit... basic.  Below, I've given you one that's slightly more interesting.  You can safely include the little notes after the `#` symbol, which are called "comments."  R ignores anything in a script the right of the `#` symbol, allowing you to write little explanations (for yourself or others) about what your code is doing.
+
+```
+# Load one of R's built-in data sets about cars
+data(mtcars)
+
+# Fit a straight line for mpg vs hp and plot the result.
+mpg_model = lm(mpg ~ hp, data=mtcars)
+plot(mtcars$hp, mtcars$mpg)
+abline(mpg_model)
+coef(mpg_model)
+```
+
+Create a new blank script, and then type^[You could just copy-paste, but I recommend actually typing it, to build "muscle memory" for what these commands are doing.] this entire chunk of R code, word for word, into your script.   Don't worry too much about the details of the individual statements; we'll cover those in later lessons.
+
+Now highlight everything in the script, and hit `Control-Enter` to run it.  You should see the plot below:
+
+```{r, echo=FALSE}
+data(mtcars)
+mpg_model = lm(mpg ~ hp, data=mtcars)
+plot(mtcars$hp, mtcars$mpg)
+abline(mpg_model)
+```
+
+And you should also see the following information printed in your console:
+
+```{r, echo=FALSE}
+coef(mpg_model)
+```
+
+Each dot in the plot represents a car.  The x coordinate of the dot represents the horsepower (`hp`) of that car's engine.  The y coordinate represents that car's gas mileage (`mpg`).  The line you see is the result of fitting a _linear regression model_ to estimate the systematic relationship between mileage and horsepower.   The two numbers printed in your console tell you the $y$-intercept and slope of the trend line.  Unsurprisingly, cars with more powerful engines tend to get lower gas mileage (hence the negative slope). 
+
+This code chunk exhibits two important ideas we've covered: 1) the use of `=` to __assign__ values to objects; and 2) the __re-use__ of those objects in subsequent statements.  For example, the statement `mpg_model = lm(mpg ~ hp, data=mtcars)` fits a straight line to mpg versus hp, storing the result in an object that I called `mpg_model`.  This `mpg_model` object is then re-used in two subsequent statements, `abline(mpg_model)` and `coef(mpg_model)`, which draw the line through the point cloud and print the intercept/slope to the console, respectively.
+
+So there you have it: you've run and visualized your first data analysis in R! I hope you're beginning to get a feel for the basic RStudio workflow.  You create a script organized around some specific task.  Then you:
+
+- __write__ statements in your script, saving them for subsequent modification or re-use.  
+- __run__ those statements in the console to produce the desired output or behavior.  
+- __view__ the results, usually either in the console or the `Plots` panel  
+
+In more complex data analyses, you will typically iterate these three steps, gradually building up complexity until you've accomplished what you set out to do.  
+
+Organizing your data analyses around scripts is probably the __single most important__ "best practice" of using R.  It's perfectly fine to type statements directly into the console every now and again, especially if you're in more of an "exploratory" mode.  But if you find yourself doing this repeatedly, _especially_ with complex statements that build on previous statements, you should probably stop and ask yourself: "Would I be better off writing these statements in a script instead, so that I can save, re-use, and modify them later?"  Usually the answer is yes!
+
+
+### Why can't I just point and click? {-}
+
+This way of interacting with R---writing statements in a script and then running those statements in the console---is called a "command-line interface" or a "REPL" (pronounced "reeple", for Read-Evaluate-Print Loop).  It may seem unfamiliar or even intimidating at first.  It's certainly different from popular programs you might be used to, where you do a lot of pointing and clicking.  To R beginners, the command-line interface can even feel like a step backward in time---sort of like you're interacting with a "dumb" computer from the 1970s rather than something "smart" from the 21st century, with a mouse or a touch screen.
+
+```{r, echo=FALSE, out.width="75%", fig.align='center'}
+knitr::include_graphics("images/old_terminal.png")
+```
+
+"Why do I have to type literally everything?" you might wonder.  "Why can't I click on menus and buttons that do this stuff for me?"
+
+I understand this reaction.  But let me try to convince you that the command-line interface is actually a __huge advantage__ for doing data science!  It's true that the learning curve is steeper than with more familiar "point and click" software packages.   But with R, the results of running a complex analysis don't require that you remember a long, detailed succession of clicks and menu options.  Instead, those results rely upon a series of written commands that _do exactly what they say._  So, for example, if you want to re-run your analysis on a new data set---perhaps because you collected some more data---you don't need have to remember which buttons you clicked or which menu options you chose in order to get your new results.  You just have to load the new data set and re-run your script from beginning to end---possibly tweaking it here and there, as required.  
+
+Here are five other advantages to this way of interacting with R, via scripts and the console:  
+
+1. Scripts make it simple to save your work and pick up where you left off, without having to remember what you've accomplished already.  
+2. Scripts make it easy to modify a complex analysis by adding or changing steps in the middle of a long chain of statements.  (No `Control-Z` required!)     
+3. Scripts make your analysis shareable: just save the .R file and post it to a site like [GitHub](http://www.github.com).  
+4. Scripts make your analysis reproducible, since anyone---including a future version of yourself---can read the script and see/repeat _exactly_ what you've done.  
+5. Scripts make it much easier to diagnose and correct errors in your analysis, because---unlike, say, in other [widely used data-analysis programs](https://www.businessinsider.com/reinhart-and-rogoff-admit-excel-blunder-2013-4)---an error __always__ arises from some specific statement that's written down in black and white for anyone to see.^[Rather than, for example, hidden in a formula associated with some specific cell of a spreadsheet.]  
+
+As I hope you'll come to appreciate over the lessons to come, these advantages far outweigh the familiar comforts of mice and menus.
+
+
+## Getting help {#sec_getting_help}
+
+Everyone needs help with R at some point or another.  In fact, the more you use R, the more you'll find yourself relying on various help resources.  In my life as a teacher and researcher, __I look for R help all the time,__ and you will, too.
+
+Here are your best bets.  
+
+1. Search the web.  There's a __huge__ and very active community of R users out there, and many of them like to post about their R problems, or their solutions to other people's R problems, online.  If in doubt, just Google your question, e.g. "[How do I find the maximum of two numbers in R?](https://www.google.com/search?q=how+do+I+find+the+max+of+two+numbers+in+R)"  Chances are very, very good that your question has been asked and answered before.    
+2. Search R's own help files.  For example, suppose you wanted to figure out how to calculate the median of a bunch of numbers in R.  You could go to the `Help` tab in the lower-right panel, and type `median` into the search bar.  You'd see several options pop up, one of which is the function called `median`.  Click on it, and the help page for that function will be displayed.  It will show you how to use the function, and even give you examples at the bottom of the help page.  
+
+3. If you want help on a specific function---say, for example, the function `log10`---you can type a question mark, followed by the function's name, into the console.  Try, for example, running this statement:
+```{r}
+?log10
+```
+
+Personally, I use option 1 about 70% of the time, option 3 about 30% of the time, and option 2 about 0% of the time (since all of R's help files are on the web anyway, and will come up in a web search if they're useful).
 
 
 
 ## Libraries {#sec_installing_library}
 
-A library is a piece of software that provides additional functionality to R, beyond what's contained in the basic R installation.  If R is like a smart phone, then a library is like an app for the phone.  And just like a phone app, a library is something you need to _install_ only once, but _load_ each time you want to use it.
+R has an [enormous](https://www.google.com/search?q=how+many+R+libraries+are+there) ecosystem of libraries, ranging from the simple to the very sophisticated.  A library is a piece of software that provides additional functionality to R, beyond what's contained in the basic R installation.  If R is like a smart phone, then a library is like an app for the phone.  And just like a phone app, a library is something you need to _install_ only once, but _load_ each time you want to use it.
 
-R has an enormous ecosystem of libraries (number in the tens of thousands) for various data-analysis tasks, ranging from the simple to the very sophisticated. Here we'll install two libraries that we'll use a lot in the lessons to follow: `tidyverse` and `mosaic`.  
+### Installing a library {-}
 
-The first minute of [this video](https://www.youtube.com/watch?v=u1r5XTqrCTQ) gives a walk-through (on an older version of RStudio, but the process is still the same).  But we'll explain the steps here, too.   Conveniently, libraries, also called "packages," are installed from within RStudio itself.
+Here we'll install two libraries that we'll use a lot in the lessons to follow: `tidyverse` and `mosaic`.
 
-Here are the steps to install `tidyverse`.  The same process works for any of the library:  
+The first minute of [this video](https://www.youtube.com/watch?v=u1r5XTqrCTQ) gives a walk-through of how to install a library. (It's with an older version of RStudio, thought the process is still the same).  But we'll explain the steps here, too.   Conveniently, libraries, also called "packages," are installed from within RStudio itself.
 
-1. In the lower right panel of RStudio, you'll see a tab called `Packages`.  Click on it.  
-2. Under the `Packages` tab, you'll see a button at the top left of the panel called `Install`.  Click on it.  
-3. In the window that pops up, type in the name of the package you want to install: `tidyverse`.  After a few letters, RStudio will start to auto-suggest options for you.  Just keep typing until you see `tidyverse` as the only option.  Then either click on it or hit `Tab` to auto-complete the full name of the library.  
-4. Click the `Install` button.  
+Here are the steps to install `tidyverse`.  The same process works for any library:
 
-In response, R should print out a very long and seemingly ponderous "progress report" into the console.  This "progress report" provides all kinds of interesting detail for R super-users, but it isn't all that helpful if you're a beginner---and because there's just so much darn red text, it can even seem intimidating!  But not to worry. R is just telling you, in its own long-winded way, that it's downloading and installing a bunch of `tidyverse`-related files behind the scenes.^[`tidyverse` is actually a suite of individual libraries, kind of like Microsoft Office is a suite of individual programs like Word, Excel, etc.  So it make take a minute or two to install.]   Eventually it should stop with some kind of `DONE` message in the console and give you another prompt (`>`), at which point the library is installed and ready to be used.  
+1. In the lower right panel of RStudio, you'll see a tab called `Packages`.  Click on it.
+2. Under the `Packages` tab, you'll see a button at the top left of the panel called `Install`.  Click on it.
+3. In the window that pops up, type in the name of the package you want to install: `tidyverse`.  After a few letters, RStudio will start to auto-suggest options for you.  Just keep typing until you see `tidyverse` as the only option.  Then either click on it or hit `Tab` to auto-complete the full name of the library.
+4. Click the `Install` button.
 
-Then repeat the whole process to install `mosaic`.  Most likely, you're done and ready to move on to the next lesson!
+In response, R should print out a very long and seemingly ponderous "progress report" into the console.  This "progress report" provides all kinds of interesting detail for R super-users, but it isn't all that helpful if you're a beginner---and because there's just so much darn red text, it can even seem intimidating!  But not to worry. R is just telling you, in its own long-winded way, that it's downloading and installing a bunch of `tidyverse`-related files behind the scenes.^[`tidyverse` is actually a suite of individual libraries, kind of like Microsoft Office is a suite of individual programs.  So it make take a minute or two to install.]   Eventually it should stop with some kind of `DONE` message in the console and give you another prompt (`>`), at which point the library is installed and ready to be used.
 
-### Strange installation errors {-}
+Then repeat the whole process to install `mosaic`.  If you got an error, see [Dealing with installation errors], below.
 
-If, however, R tells you that it had an `error` when installing, your first step is to try Googling the error message.  (If you're taking my class and show me the installation error message, that is precisely what I will do, unless it happens to be some particular error I've seen before.)  Installation errors are rare, but they can happen, and they're almost always due to some quirk of your particular computer (and therefore difficult to generalize about).  
+### Loading a library {-}
 
-The good news is whatever error you're experiencing is almost surely not unprecedented in the history of R.  In fact, the chances are very good that someone, somewhere, has figured out what the error means and how to fix it.
+Let's practice loading the `tidyverse` library, which we'll lean on heavily in most of these lessons.  In R, you load a library using the `library` command, like this:
 
-In my large classes at UT-Austin, the most common library installation error I've seen tends to occur on Windows machines, and it looks something like the following:
+```{r}
+library(tidyverse)
+```
+
+If you see a similar set of messages to what's shown above after the `##` symbols, you're good to go!  Feel free to move on to the next lesson.  
+
+But if you haven't installed the `tidyverse` library, executing this command will give you an error like this:
+
+  ```
+Error in library(tidyverse) : there is no package called ‘tidyverse’
+```
+
+To avoid the error, you'll first need to install `tidyverse` like we covered above.
+
+
+### Dealing with installation errors {-}
+
+R might issue a `warning` or tell you that it had a `conflict` when you installed these libraries.  Despite sounding scary, these notices are almost certainly innocuous and can be safely ignored.
+
+On the other hand, if R tells you that it had an `error` when installing, you'll need to address that error before you move on.  Luckily, most library installation errors are a result of having an old version of R, and therefore fixable with two simple steps:
+
+1. Install the latest version of R, from [cloud.r-project.org](http://cloud.r-project.org).
+2. Install the latest version of RStudio, from [www.rstudio.com](http://www.rstudio.com).
+
+Usually, it's that simple.
+
+If that doesn't fix the problem, however, your next step is to try Googling the error message.  (If you're taking my class and show me the installation error message, that is precisely what I will do, unless it happens to be some particular error I've seen before.)  Installation errors like this are rare, but they can happen, and they're almost always due to some quirk of your particular computer (and therefore difficult to generalize about).  The good news is whatever error you're experiencing is almost surely not unprecedented in the history of R.  In fact, the chances are good that someone, somewhere, has figured out what the error means and how to fix it.
+
+In my large classes at UT-Austin, the most common (but still quite rare) library installation error I've seen tends to occur on Windows machines, and it looks something like the following:
 
 ```
 The downloaded source packages are in
@@ -271,6 +403,8 @@ cannot create file
 'Permission denied'
 ```
 
-Yikes!  Basically, what's happening here is that you don't have permission to write files to the directory where R wants to write files. (Hence `'Permission denied'`!)  This is common if your computer is actually owned by someone else, e.g. your employer, but I've seen it happen out of the blue to students that own their computers fair and square.  Your best bet is to Google something like "Give permissions to files and folders in Windows" and follow whatever steps it suggests.  
+Yikes!  Basically, what's happening here is that you don't have permission to write files to the directory where R wants to write files. (Hence `'Permission denied'`!)  This can happen if your computer is actually owned by someone else, e.g. your employer, but I've also seen it happen out of the blue to students who own their computers fair and square.
+
+Fixing the error depends on which version of Windows you have, and so your best bet is to Google something like "Give permissions to files and folders in Windows" and follow whatever steps suggested by the collective wisdom of humanity.  
 
 
