@@ -81,6 +81,7 @@ The median of this distribution is about \$50,000: half of U.S. households earne
 Another important question is, "How spread out are the data points from the typical value?"  As we discussed in the lesson on [Plots], this variation _around_ the average is usually at least as interesting as the average itself.  In fact, I'd encourage you imagine that this full spectrum of variation _is_ the underlying reality, and that any notion of a "typical" or "average" data value---like the notion of an "average American," with 12.2 years of schooling, 0.9 cars, 0.99 testicles, and 1.01 ovaries---is just an abstraction of that reality.^[The "average American" has more ovaries than testicles because there are slighty more females than males.  That's because females live a bit longer than males, on average.]  
 
 In our example, a "typical day" in Rapid City is about 47.3 degrees.  But this typical day is actually quite atypical. Some days are much hotter than average; some are much colder; some are _about_ average, but not quite.  The number of days that are _exactly_ average is basically zero.  __Temperature varies__.   If we want to understand reality, we need the measure that variation.  We'll look at two ways to do this: the __standard deviation__ and the __inter-quartile range__.  
+
 One common way to measure variation is with the __standard deviation__.  The standard deviation answers the question: "by how much do the _actual_ data points tend to deviate from the notionally _typical_ data point?"  The higher the number, the more spread out the data points are around their average.  
 
 Let's add the standard deviation to our list of summary statistics that we want to calculate.  To do so we use the `sd` function, like this:
@@ -127,7 +128,7 @@ rapidcity %>%
 
 So in Rapid City, the range from the 25th to the 75th percentile of temperature spans about 31 degrees F.  
 
-__Some simple advice.__ Like the median, the IQR is more robust to outliers and heavily skewed data distributions.  That's because it depends only on the middle half of the data, and not what happens in the top or bottom quartile.  (If you take a room of 100 school teachers and add Jeff Bezos, the mean and standard deviation of income will change a lot, but the median and IQR won't change at all.)  So if your data distribution is highly skewed or has big outliers in it, you're usually better off summarizing it with the median and IQR.  If not, you're usually better off with the mean and standard deviation.  
+__Some simple advice.__ Like the median, the IQR is more robust to outliers and heavily skewed data distributions.  That's because it depends only on the middle half of the data, and not what happens in the top or bottom quartile.  (If you take a room of 100 school teachers and add Jeff Bezos, the mean and standard deviation of income will change a lot, but the median and IQR will hardly budge.)  So if your data distribution is highly skewed or has big outliers in it, you're usually better off summarizing it with the median and IQR.  If not, you're usually better off with the mean and standard deviation.  
 
 ## Extremes and quantiles 
 

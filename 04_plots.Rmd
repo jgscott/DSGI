@@ -15,6 +15,7 @@ In this lesson, you'll learn to:
 - use faceting and aesthetic variation (e.g. color) to encode multivariate information.  
 - customize plots by exercising finer, more advanced control over their visual details.  
 
+
 ## The grammar of graphics
 
 Plots are like sentences: 

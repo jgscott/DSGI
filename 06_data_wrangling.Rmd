@@ -76,6 +76,39 @@ It's important that `group_by` precede `summarize` in our code block, because th
 
 We can perform the same grouping trick with most common summary statistics.  You'll see several other examples below; for a full list, type `?summarize` into your console.
 
+#### Bar plots again {-}
+
+The combination of `group_by` and `summarize` is especially useful for making tables of group-level summary statistics to feed into bar plots. As we discussed in the lesson on [Plots], the typical workflow to make a bar plot actually has two distinct stages:  
+
+(1) __Summary stage__: split your data set into subgroups and calculate summary statistics for each subgroup.  
+(2) __Plotting stage__: make a bar plot of those summary statistics, one bar per group.  
+
+In the lesson on [Bar plots], I took care of stage 1 for you and just handed you a table of summary statistics.  But you're now in a position to undertake both stages yourself.  Let's see an example on our Rapid City data.  Below, we calculate two summary statistics for each month: the average temperature and the proportion of sub-freezing days.  We then store the result in an object called `rapidcity_summary`:
+
+```{r}
+rapidcity_summary = rapidcity %>%
+  group_by(Month) %>%
+  summarize(avg_temp = mean(Temp),
+            prop_freeze = sum(Temp <= 32)/n())
+```
+
+Now let's make bar plots for each of our two summary statistics.  First, average temperature:  
+
+```{r}
+ggplot(rapidcity_summary) + 
+  geom_col(aes(x=factor(Month), y=avg_temp))
+```
+
+Next, proportion of days that are sub-freezing, on average:
+
+```{r}
+ggplot(rapidcity_summary) + 
+  geom_col(aes(x=factor(Month), y=prop_freeze))
+```
+
+You might notice an oddity in this code: why `factor(Month)` rather than just `Month`?  The reason is that bar plots expect a _categorical_ $x$ variable to define the groups/bars.  But `Month` in our data set is actually a number: 1 for January, 2 for February and so on.  R will therefore treat it as a _numerical_ variable by default.  The command `factor` overrides this default behavior, telling R to treat the number as a label, not as a number with a meaningful magnitude.  
+
+
 ### `filter` {-}
 
 The verb `filter` is how we look at specific rows our data frame.  Suppose, for example, that we didn't care about calculating our monthly temperature statistics in every year---just, for some odd reason, in 2009.  We can `filter` the data set to include only the 2009 data, like this.
@@ -172,7 +205,7 @@ Looks good!
 
 We can now use the `Summer` variable just like any of our original variables. For example, here we are showing a faceted histogram of temperatures by summer status:  
 
-```{r}
+```{r rapidcity_augmented_histogram}
 ggplot(rapidcity_augmented) +
   geom_histogram(aes(x=Temp), binwidth=2) + 
   facet_wrap(~Summer, nrow=2)
@@ -202,17 +235,25 @@ rapidcity %>%
 
 ## Complex summaries
 
-In this section we'll see some examples of how we can combine data verbs to perform complex tasks very concisely.  
+In this section we'll see some examples of how we can combine data verbs to perform complex tasks very concisely.
 
-### Example 1: the five coldest months {-}  
-
-For our first example, we'll find the five coldest individual months in our data set on Rapid City, which spans the seventeen years from 1995 to 2011.
-
-Anytime you're faced with a complex data-analysis task like this, I'd encourage you to remember our basic mantra of data science that we introduced all the way [back here](#sec_objects):
+Anytime you're faced with complex data-analysis tasks like these, I'd encourage you to remember our basic mantra of data science that we introduced all the way [back here](#sec_objects):
 
 > Manage complexity by breaking complex tasks down into simple tasks, and then stitching the simple tasks together.  
 
-For this analysis, our simple tasks look something like the following:  
+Keep this mantra in mind at all times.  For each of these examples below, focus on three questions:  
+
+1) What are main high-level tasks that must be accomplished?
+2) How can those "main" tasks be broken down into a sequence of simpler subtasks?  (What are the tasks themselves, and how should they be sequenced)  
+3) How can those sub-tasks be translated into data verbs, like `group_by`, `summarize`, `filter`, etc.?
+
+
+
+### Example 1: the five coldest months {-}  
+
+For our first example, our main high-level task is to find the five coldest individual months in our data set on Rapid City, which spans the seventeen years from 1995 to 2011.
+
+This main task breaks down into simpler sub-tasks that look something like the following:  
 
 - Import the data set (we've done this already).  
 - Split the data set into individual months in individual years: January 1995, February 1995, March 1995, and so on, all the way through December 2011.  
@@ -258,7 +299,7 @@ rapidcity %>%
 
 The core of this error is `object 'avg_temp' not found`.  Basically, R is telling us that it can't arrange the data frame according to `avg_temp` because the `avg_temp` summary has not yet been defined.  In fact, it was supposed to be defined in the next step of our ill-fated pipeline---by which point R had already choked and thrown the error.
 
-Sometimes refining data is like [refining oil](https://www.eia.gov/energyexplained/oil-and-petroleum-products/refining-crude-oil-the-refining-process.php): when it comes to pipelines, the order in which you perform the steps really matters.  
+Refining data is like [refining oil](https://www.eia.gov/energyexplained/oil-and-petroleum-products/refining-crude-oil-the-refining-process.php): when it comes to pipelines, the order in which you perform the tasks really matters.  Breakdowns in code sometimes just reflect silly mistakes, like typos or missing commas.  But other times, breakdowns in code reflect much more fundamental breakdowns in _logic_.  The code block above is a good example of the latter.  
 
 
 ### Example 2: survival on the Titanic {-}  
@@ -331,7 +372,6 @@ ggplot(surv_adults) +
 toyimports = read.csv('data/toyimports.csv', header=TRUE)
 ```
 
-
 For our final example, we'll look at the data in [toyimports.csv](data/toyimports.csv), which tracks imports of toys to the United States from 129 countries over the period 1996--2005.  Here's a random sample of 10 rows from this data set.  
 
 ```{r, echo=FALSE, message=FALSE, cache=TRUE}
@@ -344,9 +384,9 @@ mosaic::sample(toyimports, 10, orig.id=FALSE) %>%
 
 Every row shows the total dollar value of toys imported to the U.S. (`US_report_import`, in multiples of \$1,000) in a specific product category from a specific country in a specific year.  The product categories have unique numerical codes (`product`) as well as product names exciting enough to quicken the heart of any toy-loving child ("Parts and accessories :– Other", "Toys representing animal or non-human figures", and so on).  
 
-Our goal for this data analysis is simple: make a line graph showing total toy imports over time across all categories, separately for each trading partner---but only for the top 5 partners by total dollar value of toys imported.
+Our goal for this data analysis is to make a line graph showing total toy imports over time, summed across all categories, for the U.S.'s top 3 trading partners by total dollar value of toys imported.
 
-Let's break this down into simpler tasks.  Our first task is to actually find the top 5 partners by total dollar value.  This task itself can be broken down into simpler sub-tasks:  
+Let's break this down into simpler tasks.  First, we need to find the top 3 partners by total dollar value.  This task itself can be broken down into simpler sub-tasks:  
 
 - Group all the observations by trading partner (the `partner_name` variable).  
 - For each partner, calculate total dollar value by summing toy imports (`US_report_import`) across all categories and years.  
@@ -361,36 +401,71 @@ country_totals = toyimports %>%
   arrange(desc(total_dollar_value))
 ```
 
-Now we can look at the top 5 trading partners:
+Now we can look at the top trading partners:
 
 ```{r}
 head(country_totals, 5)
 ```
 
-And we can even peel off the names of the countries using `select`:
+So the U.S.'s top 3 toy-trading partners were China, Denmark, and Canada.  Let's encode that information in a list:
 
 ```{r}
-top_5_country_names = country_totals %>%
-  head(5) %>%
-  select(partner_name)
-top_5_country_names
+top_3_partner_names = c('China', 'Denmark', 'Canada')
 ```
 
-This list of names will be useful when we turn to our second main task: calculate toy imports over time across all categories, separately for each of these five trading partners.  Again, this task also breaks down into simpler subtasks:  
+Here `c` means "combine", and it's how we create a list^[Technically it's a vector, if you want to get specific about R's internal data structures.] of multiple elements.  This list of names will be useful when we turn to our second main task: plotting toy imports over time for each categories, separately for each of these three trading partners.  
 
-- filter the data set so that it includes only data points from the top 5 trading partners.  
-- group the data points by trading partner and year  
-- for each group, sum toy imports across all categories (i.e. lumping together everything from dolls to trains)  
+This second main task also breaks down into sub-tasks:
 
-We can accomplish this using `filter`, `group_by`, and `summarize`, storing the result in a summary table that we'll call `top5_byyear`:    
+- Filter the data set so that it includes only data points from the top 3 trading partners.  
+- Group the data points by partner and year.  
+- Within each group, sum the toy imports across all categories.
+
+Here's how to translate this into R code, as well as the top 6 lines of the data frame created as a result:
 
 ```{r, message=FALSE}
-top5_byyear = toyimports %>%
-  filter(partner_name %in% top_5_country_names) %>%
+top3_byyear = toyimports %>%
+  filter(partner_name %in% top_3_partner_names) %>%
   group_by(partner_name, year) %>%
   summarize(yearly_dollar_value = sum(US_report_import))
+
+head(top3_byyear)
 ```
 
+Now we can make our line graph.  We'll color in each line according to trading partner:  
+
+```{r}
+ggplot(top3_byyear) +  
+  geom_line(aes(x=year, y=yearly_dollar_value, color=partner_name))
+```
+
+But this isn't great for two reasons:
+
+1) The color scale is unfriendly to those with colorblindness.  We'll fix this by using `scale_color_brewer`, as we learned in the lesson on [Customizing plots].  
+2) The lines for Denmark and Canada are dwarfed by the line for China.  We'll fix this by plotting the data on a logarithmic axis, which is a more natural way to compare quantities on very different scales.  
+
+We can do this as follows:  
+
+```{r}
+ggplot(top3_byyear) +  
+  geom_line(aes(x=year, y=yearly_dollar_value, color=partner_name)) +
+  scale_color_brewer(type='qual') + 
+  scale_y_log10()
+```
+
+The last, minor issue here is that `ggplot` has made a poor choice about where to place axis labels.  We can fix that easily, while also adding more informative axis labels:
+
+```{r}
+ggplot(top3_byyear) +  
+  geom_line(aes(x=year, y=yearly_dollar_value, color=partner_name)) +
+  scale_color_brewer(type='qual') + 
+  scale_y_log10() + 
+  scale_x_continuous(breaks = 1996:2005) + 
+  labs(x="Year", y = "Dollar value of imports (log scale)",
+       title="Toy imports from the U.S.'s top-3 partners, 1996-2005")
+```
+
+And we're done!  Now we can compare across countries, as well as examine change over time within countries.
 
 <!-- # Let's look at three countries -->
 <!-- country_list = c('China', 'Korea, Rep.', 'United Kingdom') -->
