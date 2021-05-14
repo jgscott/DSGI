@@ -1,3 +1,353 @@
 # Basic regression  
 
+In data science, the term "regression" means, roughly, "fitting an equation to describe relationships in data."  This is a _huge_ topic, and we'll cover it across multiple lessons.  This lesson is about the basics.  You'll learn:  
+
+- what a regression model is.  
+- how to fit a regression model in R.  
+- why regression models are useful.  
+
+
+## What is a regression model?  
+
+### Simple regression models {-}  
+
+Let's first see a simple example of the kind of thing I mean.  You may have heard the following rule from a website or an exercise guru: to estimate your maximum heart rate, subtract your age from 220.  This rule can be expressed as an equation:
+
+$$
+\mathrm{MHR} = 220 - \mathrm{Age} \, .
+$$
+
+This equation provides a mathematical description of a relationship in a data set: maximum heart rate (the _target_, or thing we want to predict) tends to get slower with age (the _feature_, or thing we know).  It also provides you with a way to make predictions.  For example, if you're 35 years old, you predict your maximum heart rate by "plugging in" Age = 35 to the equation, which yields MHR = 220 – 35, or 185 beats per minute.  
+
+A "linear regression model" is exactly like that: an equation that describes a linear relationship between input ($x$, the feature variable) and output ($y$, the target or "response" variable).  Once you've used a data set to find a good regression equation, then any time you encounter a new input, you can "plug it in" to predict the corresponding output---just like you can plug in your age to the equation $\mathrm{MHR} = 220 - \mathrm{Age}$ and read off a prediction for your maximum heart rate.  This particular equation has one __parameter__: the baseline value from which age is subtracted, which we chose, or __fit__, to be 220.
+
+So how would you actually come up with the number $220$ as your fitted parameter in this equation?  Basically, like this:
+
+1) Recruit a bunch of people of varying ages and give them heart rate monitors.
+2) Tell them to run really hard, ideally just short of vomiting, and record their maximum heart rate.  
+3) Fiddle with the parameter until the resulting equation predicts people's actual maximum heart rates as well as possible. 
+
+That last part is where we have to get specific.  In data science, the criterion for evaluating regression models is pretty simple: how big are the errors the model makes, on average?  No regression model can be perfect, mapping every input $x$ to exactly the right output $y$.  _All regression models make errors._  But the smaller the average error, the "better" the model, at least in this narrow mathematical sense.  In our equation $\mathrm{MHR} = 220 - \mathrm{Age}$, we could have chosen a baseline of 210, or 230, or anything.  But it turns out that the choice of 220 fits the data best.  It's the value that leads to the smallest average error when you compare the resulting age-based _predictions_ for MHR versus people's _actual_ MHR that they clocked on the treadmill.
+
+We can visualize the predictions of this equation in a scatter plot like the one below.  The points show the individual people in the study, while the grey line shows a graph of the equation $\mathrm{MHR} = 220 - \mathrm{Age}$:  
+
+```{r heart-rate-example, echo=FALSE, out.width="85%", fig.align='center', fig.cap="Heart rate versus age."}
+knitr::include_graphics("images/08_heart_rate.jpeg")
+```
+
+But as this also picture shows, there's actually a slightly more complex equation that fits the data even better: $\mathrm{MHR} = 208 - 0.7 \cdot \mathrm{Age}$.  In words, multiply your age by 0.7 and subtract the result from 208 to predict your maximum heart rate.  The original model had only one parameter, while this new model has two: the baseline of 208 and the "age multiplier" or "weight" of 0.7.  These values fit the data best, in the sense that, among all possible choices, they result in the smallest average prediction error.  
+
+In the picture above, you can probably just eyeball the difference between the grey and black line and conclude that the black line is  better: it visibly passes more through the middle of the point cloud.  But you could also conclude logically that the black line __must__ be better, because it allows us to fiddle with both the baseline _and_ the age multiplier to fit the data.  After all, given a free choice of both the baseline and the age multiplier, we _could_ have picked a baseline of 220 and a weight on age of 1, thereby matching the predictions of the original "baseline only" model.  But we didn't---those weren't the best choices!   We can therefore infer that the equation $\mathrm{MHR} = 208 - 0.7 \cdot \mathrm{Age}$ _must_ fit the data better than the first equation of $\mathrm{MHR} = 220 - \mathrm{Age}$.
+
+And that's a very general principle in regression: more complex models, with more parameters, can always be made to fit the observed data better.  (That _doesn't_ necessarily mean they'll generalize to future observations better; that's an entirely different and very important question, and one that we'll consider at length soon.)    
+
+So how do we actually _know_ that these fitted parameters of 208 and 0.7 are the best choices?  Well, you _could_ just guess and check until you're convinced you can't do any better.  (You can't.)   But modern computers do this for us in a much more intelligent fashion, finding the best-fitting parameters by cleverly exploiting matrix algebra and calculus in ways that, [while fascinating](https://math.mit.edu/icg/resources/teaching/18.085-spring2015/LeastSquares.pdf), aren't worth going into here.  If you major in math or statistics or computer science, or if you program statistical software for a living, those details are super important.  (I was a math major and I still remember sweating them out line by line.)  Most people, on the other hand, are safe in simply trusting that their software has done the calculations correctly.  
+
+
+### Multiple regression models {-}
+
+Now let's see what a regression model with three parameters looks like.  Suppose that you were a data scientist at Zillow, the online real-estate marketplace, and that you had to build a rule for predicting the price of a house.  You might start with two obvious features of a house, like the square footage and the number of bathrooms, together with weights for each feature.  For example:
+
+$$
+\mbox{Expected Price = 10,000 + 125 $\times$ (Square Footage) + 26,000 $\times$ (Num.!Bathrooms)}
+$$
+
+In words, this says that to predict the price of a house, you should follow three steps:
+
+1)	Multiply the square footage of the house by 125 (parameter 1).  
+2)	Multiply the number of bathrooms by 26,000 (parameter 2).
+3)	Add the results from A and B to 10,000 (the baseline parameter).  This yields the predicted price.
+
+This is called a _multiple regression model_, because it's an equation that uses multiple features (square footage, bathrooms) to predict price.  In real life, the weights or multipliers would be tuned to describe the prices in a particular housing market.  You'll always have one more parameter (here, 3) than you have features (here, 2): one parameter per feature, plus one extra parameter for the baseline.  
+
+Of course, we don't need to stop at two features!  Houses have lots of other features that affect their price—for example, the distance to the city center, the size of the yard, the age of the roof, and the number of fireplaces.  With modern software, we can easily fit an equation that incorporates all of these features, and hundreds more.  Every feature gets its own weight; more important features end up getting bigger weights, because the data show that they have a bigger effect on the price.  Now, if you try to write out such a model in words---"add this," "multiply this," like we did for the two-feature rule above---it starts to look like the IRS forms they hand out in Hell.   But as we'll see, R just churns through all the calculations with no problem, even for models with hundreds of parameters.  Moreover, whether a model has 1 feature or 101 features, the underlying principles are the same:
+
+1) A regression model is an equation that describes relationships in a data set.  
+2) Regression models have free parameters: the baseline value, and the weights on each feature.  
+3) We choose these parameters so that the regression model's predictions are as accurate as possible.  
+
+
+## Fitting regression models    
+
+In this lesson, we're going to focus on basic regression models with just one or two features.  In a later lesson, we'll learn about _multiple regression models_, which incorporate lots of features (like our imaginary Zillow example above). 
+
+First, a bit of notation.  The general form of a simple regression model with just one feature looks like this:  
+
+$$
+y_i = \beta_0 + \beta_1 x_i + e_i
+$$
+
+Each piece of this equation (a.k.a. "regression model") has a name:
+
+- $x$ and $y$: the feature (x) and target (y) variables.    
+- $\beta_0$ and $\beta_1$: the intercept and slope of the line (the _parameters_ or _weights_ of the model)  
+- $e$: the model error, also called the _residual_  
+- $i$: an index that lets us refer to individual data points ($i=1$ is the first data point, $i=2$ the second, and so on).   
+
+Given a data set with bunches of pairs $(x_i, y_i)$, we choose the intercept ($\beta_0$) and slope ($\beta_1$) to make the model errors ($e_i$) as small as we can, on average.  
+
+```{r, echo=FALSE, message=FALSE}
+heartrate = read.csv("data/heartrate.csv", header=TRUE)
+```
+
+Let's see an example in R.  First, load the `tidyverse` and mosaic libraries, which we pretty much always need:
+
+```{r, message=FALSE}
+library(tidyverse)
+library(mosaic)
+```
+
+Next, download the data in [heartrate.csv](data/heartrate.csv) shown in Figure \@ref(fig:heart-rate-example), and import it into RStudio as an object called `heartrate`.  Here are the first several lines of the file:
+
+```{r}
+head(heartrate)
+```
+
+This data is from an exercise study on maximum heart rates.  Each row is a person.  The two variables are the person's age in years and their maximum heart rate (`hrmax`) in beats per minute, as measured by a treadmill test.
+
+Let's fit a model for maximum heart rate versus age, and then ask R what the weights (or "coefficients") of the fitted model are:
+
+```{r}
+model_hr = lm(hrmax ~ age, data=heartrate)
+coef(model_hr)
+```
+
+And that's it---your first regression model!  Let's go line by line.  
+
+- The first line, `model_hr = lm(hrmax ~ age, data=heartrate)`, fits a regression model using the `lm` function, which stands for "linear model."  
+   - `hrmax` is the the target (or "response") variable in our regression. 
+   - `age` is the feature (or "predictor") variable.  
+   - `heartrate` is the data set where R can find these variables.
+   - the `~` symbol means "by", as in "model `hrmax` by `age`."  
+   - `model_hr` is the name of the object where information about the fitted model is stored.  (We get to choose this name.)  
+- The second line, `coef(model_hr)`, prints the weights ("coefficients") of the fitted model to the console.  
+
+The output is telling us that the baseline (or "intercept") in our fitted model is about 208, and the weight on age is about -0.7.  In other words, our fitted regression model is:
+
+$$
+\hat{y} = 208 - 0.7 x
+$$
+
+The notation $\hat{y}$, read aloud as "y-hat," is short for "predicted $y$".  It represents the _fitted value_ or _conditional expected value_: our best guess for the $y$ variable, given what we know about the $x$ variable. 
+
+## Using and interpreting regression models  
+
+There are four common use cases for regression models:
+
+1) Summarizing a relationship. 
+2) Making predictions.  
+3) Making fair comparisons.  
+4) Decomposing variation into predictable and unpredictable components.    
+
+Let's see each of these ideas in the context of our heart-rate data.  
+
+
+### Summarizing a relationship {-}  
+
+How does maximum heart rate change as we age?  Let's turn to our fitted regression model, which has these coefficients:
+
+```{r}
+coef(model_hr)
+```
+
+The weight on `age` of about -0.7 is particularly interesting.  Remember, it represents the slope of a line, and it therefore summarizes the overall or average relationship between max heart rate and age.  Specifically, it says that a one-year change in `age` is associated with a -0.7 beats-per-minute change in max heart rate, on average.  Of course, this isn't a guarantee that _your_ MHR will decline like this.  Virtually all of the points lie somewhere off the line!  The line just represents an average trend across lots of people.  
+
+What about the baseline or "intercept" of about 208?  Mathematically, this intercept is where the line crosses or "intercepts" the $y$-axis, which is an imaginary vertical line at $x=0$.  (See the cartoon below.)  So if you want to interpret this number of 208 literally, it would represent our "expected" maximum heart rate for someone with `age = 0`.  But this literal interpretation is just silly.   Newborns can't run on treadmills.  Moreover, the youngest person in our data set is 18, so using the fitted model to predict someone's max heart rate at age 0 represents a pretty major extrapolation from the observed data.   Therefore let's not take this interpretation too literally.
+
+```{r data-free-zone, echo=FALSE, out.width="100%", fig.align='center'}
+knitr::include_graphics("images/data_free_zone.png")
+```
+
+
+
+This example conveys a useful fact to keep in mind about the "intercept" or "baseline" in a regression model:  
+
+- By mathematical necessity, every model has an intercept.  A line's gotta cross the $y$ axis somewhere!  
+- Mathematically, this intercept represents the "expected outcome" ($\hat{y}$) when $x=0$.  
+- But only _sometimes_ does this intercept have a meaningful _substantive_ interpretation.  If you've never observed any data points near $x=0$, or if $x=0$ would be an absurd value, then the intercept doesn't really provide much useful information by itself.  It's only instrumentally useful for forming predictions at more sensible values of $x$.  
+
+### Making predictions {-}  
+
+This brings us to our second use case for regression: making predictions.  For example, suppose your friend Alice is 28 years old. What is her predicted max heart rate?
+
+Our equation gives the _conditional expected value_ of MHR, given someone's age.  So let's plug in `Age = 28` into our fitted equation:  
+
+$$
+\mbox{E(MHR | Age $=$ 28)} = 208 - 0.7 28 = 188.4
+$$
+
+This is our best guess for Alice's MHR, knowing her age, but without actually asking her to do the treadmill test.  Just remember: this is an informed guess, but it's still a guess!  If we were to run the treadmill test for real, Alice's _actual_ max heart rate will almost certainly be different than this.  
+
+Let's see how to use R to do the plugging-in for us, to generate predictions for many data points at once.  Please download and import the data in [heartrate_test.csv](dara/heartrate_test.csv).  This data file represents ten imaginary people whose heart rates we want to predict, and it has a single column called `age`:
+
+```{r, echo=FALSE, message=FALSE}
+heartrate_test = read.csv("data/heartrate_test.csv", header=TRUE)
+```
+
+```{r}
+heartrate_test
+```
+
+Let's now use the `predict` function in R to make predictions for these people's heart rates, based on the fitted model. 
+
+```{r}
+predict(model_hr, newdata=heartrate_test)
+```
+
+This output is telling us that:  
+
+- the first person in `heartrate_test` has a predicted MHR of about 160, based on their age of 69.  
+- the second person in has a predicted MHR of about 167, based on their age of 59.  
+- and so on.  
+
+The `predict` function expects two inputs: the fitted model (here `model_hr`), and the data for which we want predictions (here `heartrate_test`).  This `newdata` input must have a column in it that exactly matches the name of features used in your original fitted model.  Since our fitted model used a feature called `age`, our `newdata` input must also have a column called `age`.  
+
+The output above is perfectly readable, but I personally find it easier if I put these predictions side by side with the original $x$ values.  So I'll use `mutate` to add a new column to `heartrate_test`, consisting of the model predictions:  
+
+```{r}
+heartrate_test = heartrate_test %>%
+   mutate(hr_pred = predict(model_hr, newdata = .))
+```
+
+The dot (`.`) is just shorthand for "use the thing piped in as the new data."  Here the "thing piped in" is the `heartrate_test` data frame.  
+
+With this additional column, now we can see the ages and predictions side by side:
+
+```{r}
+heartrate_test
+```
+
+### Making fair comparisons {-}
+
+Regression models can also help us make fair comparisons that adjust for the systematic effect of some important variable.  To understand this idea, let's compare two hypothetical people whose max heart rates are measured using an actual treadmill test:  
+
+- Alice is 28 with a maximum heart rate of 185.  
+- Brianna is 55 with a maximum heart rate of 174.  
+
+Clearly Alice has the higher MHR, but let’s make things fair!  We know that max heart rate declines with age.  So the real question isn't "Who has a higher maximum heart rate?"  Rather, it's "Who has a higher maximum heart rate _for her age_?"
+
+The key insight is that a regression model allows us to make this idea of "for her age" explicit.   Alice's predicted heart rate, given her age of 28, is:  
+
+$$
+\hat{y} = 208 - 0.7 \cdot 28 = 188.4 \\
+$$
+
+Her actual heart rate is 185.  This is 3.4 BPM _below average_ for her age.  In regression modeling, this difference between actual and expected outcome is called the "residual" or "model error":
+
+$$
+\begin{aligned}
+\mbox{Residual} &= \mbox{Actual} - \mbox{Predicted} \\
+&= 185 - 188.4 \\
+& = -3.4
+\end{aligned}
+$$
+
+Brianna, on the other hand, is age 55.  Her predicted max heart rate, given her age, is:  
+$$
+\hat{y} = 208 - 0.7 \cdot 55 = 169.5 \\
+$$
+
+Her actual heart rate is 174.  This is 4.5 BPM _above average_ for her age:
+
+$$
+\begin{aligned}
+\mbox{Residual} &= \mbox{Actual} - \mbox{Predicted} \\
+&= 174 - 169.5 \\
+& = 4.5
+\end{aligned}
+$$
+
+So while Alice has the higher max heart rate in absolute terms, Brianna has the higher heart rate _for her age._
+
+This example illustrates how to use a regression model to make comparisons that adjust for the systematic effect of some variable (here, age).  Fair comparison just means _subtraction_: you take the difference between actual outcomes and expected outcomes, and then compare those differences, rather than the outcomes themselves.  In other words, __just compare the residuals__!
+
+Let's see how to do this in R.  The relevant function here is called `resid`, which calculates the residuals, or model errors, for a fitted regression model.  In the code block below, I extract the residuals from our fitted model, and then I use `mutate` to add them as a new column to the original `heartrate` data frame:  
+
+```{r}
+heartrate = heartrate %>%
+   mutate(hr_residual = resid(model_hr))
+```
+
+Now we can look at the newly augmented data frame:
+
+```{r}
+head(heartrate)
+```
+
+We see, for example, that of these 6 people, the 3rd person has the highest absolute `hrmax` (203), but the 6th person has the highest max heart rate for their age (11.6 BPM above their age-adjusted average).  
+
+We can also use `arrange` to sort the data set by residual value. Remember that `arrange`, by default, sorts things in ascending order.  So here are the bottom 5 folks in our data set, as measured by age-adjusted max heart rate:  
+
+```{r}
+heartrate %>% 
+   arrange(hr_residual) %>%
+   head(5)
+```
+
+And here are the top 5, based on sorting the residuals in _descending_ order: 
+
+```{r}
+heartrate %>% 
+   arrange(desc(hr_residual)) %>%
+   head(5)
+```
+
+### Decomposing variation {-}
+
+Consider the question posed by the following figure.  
+
+```{r, echo=FALSE, out.width = "100%"}
+knitr::include_graphics('images/green_beige_people.png')
+```
+
+Why, indeed?  Let's compare.  
+
+- The two dots circled in beige represent people whose max heart rates diff by 25 BPM.  This difference is _entirely predictable_: each has a max heart rate that is almost perfectly average for their age, but they differ in age by 36 years.  The difference of 25 BPM, in other words, is exactly what we'd expect based on their ages.  
+- The two dots circled in green _also_ represent people whose heart rates diff by 25 BPM.  But this difference is _entirely unpredictable_, because these two people are basically the same age.  Almost by definition, therefore, the difference in their maximum heart rates must have _nothing to do with_ their age. It must be down to something else.  
+
+Now, to make things more interesting, let's consider a third pair of points:
+
+```{r, echo=FALSE, out.width = "100%"}
+knitr::include_graphics('images/green_beige_people2.png')
+```
+
+Here's yet another pair of people in the study whose max heart rates differ by 25 BPM.  But this difference is clearly intermediate between the two extreme examples we saw in the previous figure:  
+
+- One person is 21 and the other 36.  This difference in age accounts for _some_ of the difference in their maximum heart rates.  To be specific, since the weight on age in our model is $-0.7$, age can account for a difference of $-0.7 \cdot (36-25) = -7.7$ BPM.  
+- But even once you account for age, there's still an unexplained difference: the 21-year-old has an _above-average_ MHR for their age, while the 36-year old has a _below-average_ MHR for their age.  So age predicts some, but not all, of the observed difference in their MHRs.  
+
+This example illustrates an important point.  Some variation is predictable.  Other variation is unpredictable.  Any _individual_ difference can be one or the other, but is usually a combination of both types. 
+
+And that brings us to our fourth use-case for regression: to decompose variation in predictable and unpredictable components.  Specifically, this is based on a comparison of the following quantities:
+
+- $s_{e}$, the standard deviation of the model errors $e$.  This represents _unpredictable_ variation in $y$.  
+- $s_{\hat{y}}$, the standard deviation of the model's predicted or fitted values $\hat{y}$.  This represents _predictable_ variation in $y$.  
+
+The obvious question is: which one is bigger, and by how much?  As a conventional way of answering this question, we often report the following quantity:
+
+$$
+R^2 = \frac{s_{\hat{y}}^2}{s_{\hat{y}}^2 + s_{e}^2} = \frac{PV}{TV}
+$$
+
+This number, pronounced "R-squared," measures how large the _predictable_ component of variation is, relative to the _total_ variation (i.e. the sum of both the predictable and unpredictable components).  Hence the mnemonic: $R^2 = PV/TV$.  
+
+In English, $R^2$ answers the question: what proportion of overall variation in the $y$ variable can be predicted using a linear regression on the $x$ variable? Some basic facts about $R^2$.  
+
+- It's always between 0 and 1.
+- 1 means that $y$ and $x$ are perfectly related: all variation in $y$ is predictable.  
+- 0 means no relationship: all variation in $y$ is unpredictable (at least, unpredictable using a linear function of $x$).
+- $R^2$ is independent of the units in which $x$ and $y$ are measured.  In other words, if you ran the regression using "beats per second" rather than "beats per minute", or using "age in days" rather than "age in years", $R^2$ would remain unchanged.  
+- $R^2$ does not have a causal interpretation.  It measures strength of linear association, not causation.  High values of $R^2$ do not imply that $x$ causes $y$.  
+- If the true relationship between $x$ and $y$ is nonlinear, $R^2$ doesn't really convey any useful information at all.  
+
+You stare at the definition above and ask: why do we square $s_{\hat{y}}$ and $s_e$ in the formula for $R^2$?  Great question!  There's actually a pretty deep mathematical answer---one that you'd learn in a mathematical statistics course, and that is, believe it or not, intimately connected to the Pythagorean theorem for right triangles.  But that takes us beyond the scope of these lessons.  If you'd like to read more, [the Wikipedia page for $R^2$](https://en.wikipedia.org/wiki/Coefficient_of_determination) goes into punishing levels of detail. 
+
+The easiest way to calculate $R^2$ in R is to use the `rsquared` function from the `mosaic` library:
+
+```{r, message=FALSE}
+rsquared(model_hr)
+```
+
+This number is telling us that about 52% of the variation in maximum heart rates is predictable by age.  The other 48% is unpredictable by age.  (Although it might be predictable by something else!)
+
 

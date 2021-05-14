@@ -1,4 +1,0 @@
-# Inference
-
-The term "inference" means reasoning from specific examples to general rules or principles.  
-

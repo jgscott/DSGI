@@ -5,9 +5,9 @@ In this lesson, you'll learn to calculate basic summary statistics, including:
 - means and medians to measure the typical value in a data set.  
 - standard deviations and IQRs to measure variation from the typical value.   
 - min, max, and, and quantiles to measure the extremes.   
+- $z$-scores, to make standardized comparisons of fundamentally different types of quantities.  
 
-
-To get started, create a fresh new script, and then load the `tidyverse` library by placing the following two line at the top of your script and running it in the console:
+To get started, create a fresh new script, and then load the `tidyverse` library by placing the following line at the top of your script and running it in the console:
 
 ```{r, message=FALSE}
 library(tidyverse)
@@ -183,3 +183,53 @@ rapidcity %>%
 
 Remember that the IQR is precisely the difference between the 75th and 25th percentiles: IQR = 63.95 - 33.3 = 30.65.
 
+
+## z-scores
+
+
+Which temperature is more extreme: 50 degrees in San Diego, or 10 degrees in Rapid City?  In an absolute sense, of course 10 degrees is a more extreme temperature.^[I mean compared to what's comfortable for a person.  Clearly if you interpret "absolute" as meaning "compared to the average temperature of the universe," (2.73 K or -454.76 F), then 50F is the more extreme temperature.]  But what about in a relative sense?  In other words, is a 10-degree day more extreme _for Rapid City_ than a 50-degree day is _for San Diego_?  This question could certainly be answered using quantiles, which you've already learned how to handle.  But let's discuss a second way: by calculating a z-score for each temperature.  
+
+The z-score of some numerical variable $x$ is the number of standard deviations by which $x$ is above its mean.   (If a z-score is negative, then the corresponding observation is below the mean.)
+
+To calculate a z-score for a number $x$, we subtract the corresponding mean $\mu$ and divide by the standard deviation $\sigma$:
+
+$$
+z = \frac{x - \mu}{\sigma} \, .
+$$
+
+It turns out that the average year-round temperature in San Diego is 63.1 degrees, with a standard deviation of 5.7 degrees.  So for a 50-degree day in San Diego, the $z$-score is:
+
+$$
+z = \frac{50 - 63.1}{5.7} \approx -2.3 \, .
+$$
+
+Or about 2.3 standard deviations below the mean.  On the other hand, Rapid City has a mean temperature of 47.3 degrees and a standard deviation of 20.1 degrees.  So for a 10-degree day in Rapid City, the z-score is
+
+$$
+z = \frac{10 - 47.3}{20.1} \approx -1.9 \, .
+$$
+
+Or about 1.9 standard deviations below the mean.  Thus a 50-degree day in San Diego is actually more extreme than a 10-degree day in Rapid City!  The reason is that temperatures in Rapid City are both colder on average (lower mean) and more variable (higher standard deviation) than temperatures in San Diego.
+
+As this example suggests, z-scores are useful for comparing numbers that come from different distributions, with different statistical properties. It tells you how extreme a number is, relative to other numbers from that same distribution.  
+
+Let's calculate z-scores for each day in Rapid City, using `mutate`.  Really, the worst part about this code is making sure that all the parentheses are balanced! Beyond that, it's just applying the formula for a $z$ score:  
+
+```{r}
+rapidcity = rapidcity %>%
+  mutate(z = (Temp - mean(Temp))/sd(Temp))
+```
+
+Now here are ten random rows of the data set after we've calculated the $z$ scores:
+
+```{r, echo=FALSE, message=FALSE}
+rapidcity %>% 
+  getter(ind) %>%
+  arrange(Year, Month, Day) %>%
+  knitr::kable()
+```
+
+In general, we think of $|z| \approx 2$ as the very lower limit of where a data point might be considered "unusual" or "surprising" relative to other numbers from the same distribution. That figure is based on the normal distribution: for normally distributed data, roughly 95% of the data points will fall within 2 standard deviations of the mean.  Of course, since most data sets aren't exactly or even approximately normal, this guideline is _very_ rough indeed.  But it at least gives you an order-of-magnitude sense for how to interpret a $z$-score.   A $z$-score of $\pm 1$, for example, is very typical and not at all surprising.  But a $z$ score of $\pm 10$ would be a _very_ unusual data point, pretty much no matter how the data are distributed.   
+
+
+## Study questions {-}  

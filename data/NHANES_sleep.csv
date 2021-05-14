@@ -1,0 +1,1992 @@
+SleepHrsNight,Gender,Age,Race_Ethnicity,HomeOwn,Depressed,Smoke100
+4,female,56,Black,Own,None,Yes
+7,male,34,White (NH),Rent,None,No
+7,male,27,White (NH),Rent,None,No
+9,male,50,White (NH),Own,None,No
+6,male,80,Black,Rent,None,No
+7,male,26,White (NH),Own,None,Yes
+6,male,58,White (NH),Rent,None,Yes
+7,female,71,White (NH),Own,None,Yes
+7,male,44,White (NH),Rent,None,Yes
+8,female,77,Black,Own,None,Yes
+7,male,43,White (NH),Own,None,No
+5,male,29,Hispanic/Latino,Own,None,Yes
+7,male,25,White (NH),Own,Several,No
+8,female,43,White (NH),Rent,None,No
+7,female,49,White (NH),Own,Most,Yes
+8,female,68,White (NH),Own,None,No
+8,male,25,White (NH),Own,None,No
+7,male,76,White (NH),Own,None,Yes
+7,male,62,White (NH),Own,None,Yes
+6,male,50,Hispanic/Latino,Rent,Most,Yes
+6,female,32,White (NH),Rent,None,No
+6,male,28,White (NH),Own,None,No
+8,female,80,Asian,Own,Several,No
+7,male,50,White (NH),Own,None,No
+7,female,47,White (NH),Own,None,Yes
+7,male,69,Hispanic/Latino,Own,None,No
+8,female,21,Black,Rent,Several,No
+7,female,78,White (NH),Rent,None,Yes
+4,male,49,White (NH),Rent,None,Yes
+6,female,24,White (NH),Own,None,No
+7,male,63,White (NH),Own,None,No
+8,female,56,Hispanic/Latino,Rent,None,No
+8,female,40,White (NH),Own,None,No
+7,female,75,White (NH),Own,Several,No
+6,female,31,Hispanic/Latino,Rent,Most,Yes
+4,male,35,White (NH),Rent,Several,No
+8,male,72,White (NH),Own,None,Yes
+8,male,53,White (NH),Rent,None,Yes
+7,male,24,White (NH),Own,None,No
+7,male,24,Black,Own,None,No
+6,female,80,Hispanic/Latino,Other,None,No
+7,male,26,Hispanic/Latino,Rent,None,Yes
+9,male,20,Hispanic/Latino,Rent,None,Yes
+7,female,56,White (NH),Own,None,No
+8,female,57,White (NH),Own,None,No
+7,male,39,White (NH),Own,None,No
+7,male,46,White (NH),Own,None,No
+6,female,56,White (NH),Own,None,No
+7,female,32,White (NH),Rent,None,Yes
+7,female,28,Hispanic/Latino,Rent,None,No
+9,female,35,White (NH),Rent,Several,Yes
+7,female,77,White (NH),Own,None,Yes
+7,male,26,White (NH),Rent,None,No
+9,female,80,White (NH),Own,Several,No
+6,male,60,White (NH),Own,None,No
+8,female,24,Black,Rent,Several,Yes
+5,male,60,White (NH),Own,Most,Yes
+7,female,70,White (NH),Own,None,No
+8,female,79,Hispanic/Latino,Own,None,No
+6,female,37,White (NH),Own,None,Yes
+8,female,63,White (NH),Own,None,Yes
+9,female,53,Black,Own,None,Yes
+8,male,27,White (NH),Rent,None,Yes
+7,female,80,White (NH),Own,None,No
+8,female,64,White (NH),Own,None,No
+8,male,57,White (NH),Own,None,Yes
+4,female,45,White (NH),Rent,None,Yes
+6,female,66,White (NH),Own,None,Yes
+6,female,56,Black,Own,None,No
+4,male,67,Black,Own,None,Yes
+8,male,56,Asian,Own,None,Yes
+6,female,61,Hispanic/Latino,Own,None,No
+8,female,59,Hispanic/Latino,Own,None,Yes
+4,male,49,White (NH),Rent,Several,Yes
+5,male,28,White (NH),Rent,None,Yes
+5,male,34,White (NH),Rent,None,Yes
+7,female,52,White (NH),Own,None,No
+7,female,59,White (NH),Rent,Several,Yes
+10,female,77,White (NH),Own,None,Yes
+7,female,54,White (NH),Own,None,No
+7,female,20,Hispanic/Latino,Own,None,No
+8,male,80,White (NH),Own,None,Yes
+8,male,29,Hispanic/Latino,Rent,None,No
+3,male,54,Black,Own,None,No
+8,female,66,Black,Own,None,Yes
+7,male,58,Hispanic/Latino,Rent,None,Yes
+8,female,36,Hispanic/Latino,Rent,None,No
+7,female,32,White (NH),Own,None,No
+6,male,41,White (NH),Own,None,No
+7,male,58,Other,Own,Several,No
+6,male,35,White (NH),Own,Several,Yes
+6,female,46,Black,Own,None,No
+7,female,63,White (NH),Own,None,No
+8,female,77,Asian,Rent,Several,No
+8,male,43,White (NH),Own,None,No
+7,male,33,White (NH),Own,None,No
+8,male,48,White (NH),Rent,Most,No
+6,male,57,White (NH),Own,None,Yes
+8,male,41,Hispanic/Latino,Other,Several,No
+7,female,53,White (NH),Own,None,No
+6,male,59,White (NH),Rent,Several,Yes
+8,female,79,Other,Own,None,Yes
+6,female,80,White (NH),Own,None,No
+8,female,71,White (NH),Own,Several,No
+7,female,29,Hispanic/Latino,Own,None,No
+10,female,71,White (NH),Own,None,Yes
+4,male,49,White (NH),Rent,Several,Yes
+7,male,77,White (NH),Own,None,Yes
+6,female,33,Black,Other,None,No
+9,male,70,White (NH),Own,None,Yes
+5,male,40,White (NH),Rent,Most,Yes
+5,male,69,White (NH),Own,None,Yes
+8,female,38,Hispanic/Latino,Rent,None,Yes
+6,female,47,White (NH),Rent,Most,Yes
+8,female,63,Hispanic/Latino,Rent,None,No
+8,female,43,White (NH),Own,None,No
+8,female,69,Hispanic/Latino,Rent,Several,No
+8,male,49,White (NH),Own,None,Yes
+8,female,59,White (NH),Own,None,Yes
+8,female,65,Hispanic/Latino,Own,None,No
+8,female,41,White (NH),Own,None,Yes
+6,female,48,Black,Rent,None,No
+8,female,43,White (NH),Own,None,No
+7,male,75,White (NH),Own,None,No
+7,male,59,White (NH),Own,None,Yes
+7,female,78,Hispanic/Latino,Other,None,Yes
+6,male,47,White (NH),Rent,None,No
+7,male,28,White (NH),Rent,None,No
+7,female,46,White (NH),Own,Most,Yes
+7,male,32,White (NH),Rent,None,No
+8,male,49,White (NH),Own,None,No
+6,male,59,White (NH),Rent,Several,Yes
+6,male,33,Black,Own,None,No
+8,female,55,White (NH),Other,Several,No
+6,male,39,White (NH),Own,None,No
+7,male,22,White (NH),Rent,None,Yes
+6,female,27,Hispanic/Latino,Own,Several,No
+6,male,44,White (NH),Own,Most,No
+6,male,21,White (NH),Rent,None,No
+6,female,58,Black,Own,None,No
+5,female,73,Black,Rent,Most,Yes
+7,female,50,White (NH),Own,None,Yes
+7,male,58,White (NH),Own,None,Yes
+8,male,59,White (NH),Rent,Several,Yes
+7,male,22,White (NH),Rent,None,Yes
+7,male,35,White (NH),Own,Several,No
+8,female,21,Black,Own,None,No
+7,male,49,White (NH),Own,None,No
+7,male,56,Other,Own,None,No
+6,female,29,Black,Rent,Most,No
+8,male,49,White (NH),Own,None,Yes
+6,male,37,Hispanic/Latino,Own,None,No
+6,female,21,Hispanic/Latino,Rent,Several,Yes
+7,female,80,White (NH),Own,None,Yes
+10,male,50,Black,Own,Several,Yes
+8,female,56,White (NH),Own,None,Yes
+8,female,28,Black,Own,None,No
+8,female,54,White (NH),Own,None,No
+8,female,79,White (NH),Own,Several,No
+6,female,51,White (NH),Rent,None,Yes
+6,male,38,Asian,Rent,None,No
+8,female,55,White (NH),Rent,Several,No
+6,male,50,White (NH),Own,Several,Yes
+7,female,80,White (NH),Own,None,No
+8,male,53,Black,Own,None,No
+4,male,20,White (NH),Own,None,No
+7,male,23,Asian,Rent,None,No
+7,female,64,White (NH),Own,None,No
+8,male,43,Other,Own,None,No
+5,female,50,White (NH),Rent,None,No
+7,male,54,White (NH),Own,None,Yes
+6,female,20,White (NH),Rent,None,No
+6,female,73,White (NH),Own,None,No
+8,female,65,White (NH),Own,None,Yes
+7,male,20,White (NH),Rent,None,Yes
+7,male,21,Hispanic/Latino,Own,None,No
+7,male,41,White (NH),Own,Several,Yes
+8,female,63,White (NH),Own,None,No
+4,female,44,White (NH),Rent,None,Yes
+8,female,31,Hispanic/Latino,Own,None,No
+7,female,31,White (NH),Rent,None,Yes
+7,male,63,White (NH),Own,None,No
+9,female,32,Hispanic/Latino,Own,None,No
+9,male,39,White (NH),Rent,None,No
+5,female,50,Hispanic/Latino,Rent,Most,No
+8,female,67,White (NH),Rent,None,Yes
+8,female,80,White (NH),Own,Several,No
+9,male,80,White (NH),Own,None,No
+5,female,68,Black,Own,None,No
+7,male,20,White (NH),Rent,None,Yes
+9,male,36,Other,Own,None,No
+5,male,73,Hispanic/Latino,Own,None,No
+7,male,33,Hispanic/Latino,Rent,None,No
+7,male,58,White (NH),Rent,None,Yes
+4,female,53,Black,Rent,Most,Yes
+9,female,80,White (NH),Rent,Several,No
+7,male,37,White (NH),Own,None,No
+8,female,71,Hispanic/Latino,Own,Several,No
+8,female,56,Black,Rent,Most,No
+6,male,80,Hispanic/Latino,Own,None,No
+6,male,34,Hispanic/Latino,Rent,None,No
+8,male,72,White (NH),Own,None,Yes
+4,female,24,White (NH),Own,None,No
+6,male,62,White (NH),Own,None,No
+5,female,61,White (NH),Rent,Several,Yes
+4,female,38,Other,Rent,None,No
+7,female,58,White (NH),Own,None,Yes
+5,male,24,White (NH),Rent,None,Yes
+8,female,78,Other,Own,None,No
+8,female,37,White (NH),Own,None,Yes
+6,male,32,Black,Rent,None,Yes
+5,male,73,Hispanic/Latino,Own,None,No
+7,female,55,White (NH),Own,None,No
+8,female,49,White (NH),Own,None,Yes
+5,male,40,White (NH),Own,None,Yes
+5,female,42,White (NH),Own,Several,Yes
+8,male,36,Asian,Rent,None,Yes
+7,male,21,Hispanic/Latino,Own,None,Yes
+6,female,24,White (NH),Own,None,No
+6,female,52,White (NH),Own,Most,No
+7,female,32,White (NH),Own,None,No
+6,female,52,White (NH),Own,Most,No
+8,female,41,White (NH),Own,None,No
+6,female,73,White (NH),Own,None,No
+7,male,57,White (NH),Own,Most,No
+8,male,47,White (NH),Own,None,No
+5,male,30,White (NH),Other,None,Yes
+8,male,49,White (NH),Own,None,No
+8,female,54,White (NH),Own,None,No
+7,male,31,Hispanic/Latino,Own,None,Yes
+7,male,80,White (NH),Own,None,Yes
+8,female,39,White (NH),Rent,None,No
+8,male,44,Hispanic/Latino,Own,Most,Yes
+8,male,36,Asian,Own,None,No
+6,female,65,White (NH),Rent,None,No
+8,female,62,White (NH),Own,None,No
+7,male,46,Hispanic/Latino,Own,None,Yes
+8,female,73,White (NH),Own,None,Yes
+7,male,23,White (NH),Own,None,No
+6,male,22,White (NH),Rent,None,No
+7,female,52,White (NH),Own,None,No
+5,male,44,White (NH),Rent,None,Yes
+8,female,43,White (NH),Own,None,No
+6,female,39,Hispanic/Latino,Rent,None,No
+7,female,32,White (NH),Own,Most,Yes
+7,female,21,White (NH),Rent,None,Yes
+8,female,80,White (NH),Own,None,Yes
+8,female,61,White (NH),Own,None,No
+6,female,65,Black,Own,None,Yes
+7,male,28,Black,Other,None,No
+6,male,48,Black,Own,None,Yes
+8,female,31,White (NH),Rent,None,No
+6,male,28,White (NH),Own,None,No
+9,male,50,White (NH),Own,None,No
+7,male,41,White (NH),Own,Several,Yes
+7,male,39,White (NH),Own,None,No
+6,male,32,Hispanic/Latino,Rent,None,Yes
+6,male,58,White (NH),Own,None,No
+8,female,65,White (NH),Own,None,No
+7,male,70,Black,Rent,Most,No
+8,female,33,White (NH),Rent,None,Yes
+7,male,45,White (NH),Own,Most,Yes
+8,female,31,Black,Rent,None,No
+7,female,41,White (NH),Own,None,Yes
+6,female,28,Hispanic/Latino,Rent,None,Yes
+6,male,64,White (NH),Own,None,Yes
+8,male,44,White (NH),Own,None,No
+10,female,39,Black,Rent,None,No
+12,female,33,White (NH),Rent,None,No
+9,female,27,White (NH),Own,None,No
+9,female,61,White (NH),Own,None,No
+7,female,65,White (NH),Own,None,Yes
+6,male,26,Asian,Rent,Several,No
+5,male,47,White (NH),Own,None,No
+6,male,41,White (NH),Own,None,Yes
+5,male,58,White (NH),Own,None,No
+8,female,69,White (NH),Own,None,Yes
+7,female,50,White (NH),Own,None,Yes
+8,male,55,White (NH),Rent,Several,Yes
+7,male,75,White (NH),Own,None,Yes
+7,male,22,Hispanic/Latino,Own,None,Yes
+4,male,46,White (NH),Rent,Most,Yes
+7,female,70,White (NH),Rent,None,Yes
+7,female,57,White (NH),Own,None,No
+7,male,33,White (NH),Rent,None,Yes
+9,female,72,Black,Own,None,No
+8,female,23,Hispanic/Latino,Rent,Several,No
+7,male,80,White (NH),Own,None,No
+7,male,28,White (NH),Own,None,No
+7,male,56,White (NH),Other,Most,Yes
+8,male,64,White (NH),Own,None,Yes
+7,male,32,White (NH),Rent,None,No
+10,female,67,White (NH),Own,None,Yes
+6,male,20,Asian,Rent,Several,No
+8,female,49,White (NH),Own,None,No
+6,female,54,Asian,Rent,None,No
+7,male,22,White (NH),Rent,None,No
+7,female,38,Asian,Own,None,No
+8,male,36,Hispanic/Latino,Own,None,No
+6,male,39,White (NH),Own,None,No
+6,female,32,Other,Own,Several,No
+8,female,38,White (NH),Own,None,No
+7,female,29,Asian,Own,None,Yes
+8,male,29,Hispanic/Latino,Rent,None,No
+8,male,24,Hispanic/Latino,Rent,None,No
+8,male,28,White (NH),Rent,Several,Yes
+5,male,67,Hispanic/Latino,Own,None,Yes
+4,female,44,White (NH),Own,None,No
+7,male,41,White (NH),Own,None,Yes
+7,male,30,Hispanic/Latino,Own,None,No
+8,female,22,Black,Rent,None,No
+8,female,30,White (NH),Own,None,Yes
+8,male,69,White (NH),Own,None,No
+8,male,53,Hispanic/Latino,Rent,Several,Yes
+6,female,61,White (NH),Own,Several,No
+7,male,65,White (NH),Own,None,Yes
+6,male,55,White (NH),Other,None,Yes
+8,male,37,White (NH),Own,None,No
+8,male,37,Hispanic/Latino,Own,None,No
+4,male,31,Hispanic/Latino,Rent,None,No
+6,female,32,Black,Rent,None,No
+7,male,25,Hispanic/Latino,Rent,None,Yes
+6,female,38,White (NH),Rent,None,No
+7,female,51,Hispanic/Latino,Rent,None,No
+12,female,33,White (NH),Rent,None,No
+7,male,38,Hispanic/Latino,Rent,Several,No
+8,male,50,Black,Own,None,Yes
+8,male,43,Hispanic/Latino,Rent,None,No
+8,female,22,Hispanic/Latino,Own,None,No
+8,female,71,White (NH),Own,None,Yes
+6,male,29,White (NH),Rent,None,Yes
+6,female,56,White (NH),Own,Most,Yes
+6,male,64,White (NH),Own,None,Yes
+7,male,70,White (NH),Own,None,No
+6,female,24,White (NH),Own,Most,No
+7,female,29,White (NH),Rent,None,No
+8,female,41,Black,Rent,None,Yes
+6,female,58,Asian,Own,None,No
+5,male,48,White (NH),Own,None,Yes
+8,male,62,White (NH),Own,None,Yes
+7,male,59,White (NH),Own,None,Yes
+5,male,21,White (NH),Rent,None,Yes
+6,male,43,Hispanic/Latino,Own,Several,Yes
+6,female,70,White (NH),Own,None,Yes
+7,female,30,White (NH),Rent,None,No
+7,female,43,Asian,Own,None,No
+8,female,64,White (NH),Own,None,No
+8,female,38,Hispanic/Latino,Own,Several,No
+8,female,45,White (NH),Own,None,No
+6,female,43,White (NH),Own,None,No
+8,male,70,White (NH),Own,None,Yes
+8,female,76,Asian,Rent,None,No
+7,male,57,Other,Own,None,Yes
+6,male,21,White (NH),Rent,None,No
+7,male,49,White (NH),Own,None,No
+6,male,52,White (NH),Own,None,No
+7,female,28,Asian,Own,None,No
+7,male,57,White (NH),Own,Several,Yes
+7,male,45,White (NH),Own,Several,No
+7,female,33,White (NH),Rent,None,Yes
+8,female,43,Hispanic/Latino,Own,None,No
+8,male,70,White (NH),Rent,Several,No
+6,male,63,Asian,Own,None,Yes
+7,male,48,White (NH),Own,None,No
+6,male,40,White (NH),Rent,Several,Yes
+7,male,51,Asian,Own,None,No
+7,female,47,White (NH),Own,None,No
+7,female,60,White (NH),Own,None,No
+8,male,80,White (NH),Own,None,No
+5,female,33,White (NH),Rent,None,Yes
+7,female,27,White (NH),Rent,None,Yes
+8,female,32,White (NH),Other,None,Yes
+7,female,45,Other,Own,None,No
+8,male,37,White (NH),Own,None,No
+8,male,41,Hispanic/Latino,Other,Several,No
+7,female,61,White (NH),Own,None,No
+8,female,21,White (NH),Own,None,No
+7,female,40,White (NH),Rent,Several,Yes
+5,female,39,Black,Own,Several,Yes
+7,female,61,Black,Own,None,Yes
+8,male,55,White (NH),Own,Several,Yes
+7,male,37,White (NH),Own,None,No
+8,female,28,Hispanic/Latino,Own,Several,Yes
+7,female,31,White (NH),Own,Several,Yes
+5,female,37,White (NH),Own,None,No
+9,male,65,White (NH),Own,None,No
+9,female,24,White (NH),Rent,Several,Yes
+7,male,26,White (NH),Own,None,No
+6,male,63,White (NH),Own,Several,No
+8,male,53,White (NH),Own,None,No
+6,male,26,White (NH),Rent,None,No
+8,male,24,Hispanic/Latino,Rent,None,No
+5,female,42,White (NH),Rent,None,No
+4,female,55,White (NH),Own,Most,Yes
+9,male,62,White (NH),Own,Several,Yes
+7,male,61,White (NH),Own,None,Yes
+8,female,32,White (NH),Other,None,Yes
+8,female,62,Black,Own,None,Yes
+6,female,37,Black,Own,None,No
+6,female,70,White (NH),Own,None,Yes
+6,male,54,White (NH),Own,None,No
+6,female,27,White (NH),Rent,None,No
+5,female,56,Black,Other,None,No
+6,male,80,White (NH),Own,None,Yes
+7,female,21,Asian,Rent,None,No
+6,male,50,Hispanic/Latino,Own,None,No
+5,female,59,Asian,Rent,None,No
+7,male,22,Hispanic/Latino,Rent,None,No
+6,male,52,White (NH),Own,None,Yes
+7,male,26,White (NH),Own,None,No
+8,male,80,White (NH),Own,None,No
+4,female,38,White (NH),Own,None,No
+8,female,21,Hispanic/Latino,Rent,None,No
+8,female,29,Other,Rent,None,Yes
+6,female,40,Hispanic/Latino,Own,None,No
+9,male,20,White (NH),Rent,None,No
+8,female,64,White (NH),Own,None,No
+5,female,26,White (NH),Rent,None,No
+7,male,51,Asian,Own,None,No
+8,female,37,Asian,Rent,None,No
+8,female,36,White (NH),Rent,None,No
+7,female,28,Other,Rent,None,No
+9,female,25,Hispanic/Latino,Rent,None,No
+7,male,58,White (NH),Rent,None,Yes
+7,male,57,White (NH),Own,Most,No
+6,female,73,Black,Own,Most,Yes
+6,female,32,Asian,Rent,None,No
+8,female,80,White (NH),Own,None,No
+7,female,77,White (NH),Own,None,Yes
+7,female,67,Asian,Own,None,No
+7,female,51,Black,Rent,None,Yes
+4,female,80,White (NH),Own,None,No
+7,male,26,White (NH),Own,None,No
+7,male,58,Black,Own,None,Yes
+6,male,47,Black,Own,None,Yes
+8,male,27,Asian,Rent,None,Yes
+7,female,24,Hispanic/Latino,Rent,None,No
+8,male,42,White (NH),Own,None,No
+6,male,62,White (NH),Own,Several,Yes
+7,female,39,Asian,Own,None,No
+7,female,80,White (NH),Own,None,Yes
+7,female,70,White (NH),Own,None,No
+7,male,80,White (NH),Own,None,Yes
+6,male,53,Asian,Rent,None,Yes
+6,female,57,White (NH),Own,None,No
+7,female,45,Black,Own,None,No
+5,female,20,White (NH),Rent,None,Yes
+8,female,25,White (NH),Rent,None,No
+7,female,64,White (NH),Own,None,No
+7,male,61,White (NH),Own,None,Yes
+8,female,63,White (NH),Own,None,No
+8,female,59,Hispanic/Latino,Rent,None,No
+7,female,64,White (NH),Own,Several,Yes
+8,male,30,White (NH),Rent,Several,Yes
+8,female,24,White (NH),Own,None,No
+8,female,63,White (NH),Own,None,No
+4,male,37,Hispanic/Latino,Own,None,Yes
+6,male,44,White (NH),Own,Most,No
+7,female,37,Black,Own,None,No
+8,female,68,White (NH),Rent,Several,Yes
+6,male,41,Hispanic/Latino,Rent,None,Yes
+5,male,41,Hispanic/Latino,Rent,None,Yes
+6,female,72,White (NH),Own,Several,Yes
+8,female,40,Black,Rent,None,No
+7,male,43,Hispanic/Latino,Rent,None,Yes
+8,male,69,White (NH),Own,None,No
+8,male,32,Hispanic/Latino,Rent,None,No
+6,male,71,White (NH),Own,Several,Yes
+7,male,78,Asian,Own,None,Yes
+4,female,45,White (NH),Rent,None,Yes
+5,male,64,Black,Own,None,Yes
+7,female,50,Black,Own,None,No
+7,female,80,White (NH),Own,None,No
+8,male,75,White (NH),Rent,None,Yes
+6,male,23,White (NH),Own,None,No
+9,female,24,White (NH),Own,None,Yes
+6,female,42,Asian,Own,None,No
+7,male,24,Hispanic/Latino,Rent,Several,No
+8,female,45,White (NH),Own,None,No
+7,male,33,White (NH),Own,None,No
+6,male,38,Asian,Rent,None,No
+6,male,57,Black,Own,None,No
+8,female,80,White (NH),Own,None,No
+8,female,80,White (NH),Own,None,Yes
+8,female,54,Black,Rent,None,No
+8,female,80,White (NH),Own,None,Yes
+5,female,47,White (NH),Own,Most,Yes
+6,female,68,White (NH),Own,None,No
+6,female,40,White (NH),Rent,Several,No
+7,male,68,White (NH),Own,Several,Yes
+8,male,47,White (NH),Own,None,No
+8,female,61,White (NH),Own,None,Yes
+6,male,35,White (NH),Rent,Most,No
+7,male,46,White (NH),Own,None,No
+6,male,40,White (NH),Rent,None,Yes
+6,male,61,Black,Rent,Most,Yes
+6,female,23,Black,Rent,None,No
+7,male,20,Black,Rent,None,Yes
+7,female,40,White (NH),Rent,Several,Yes
+5,male,70,Black,Rent,None,Yes
+6,male,46,White (NH),Own,None,Yes
+5,female,33,White (NH),Rent,None,Yes
+7,male,32,White (NH),Own,None,No
+7,female,63,White (NH),Own,None,No
+8,female,25,Hispanic/Latino,Rent,None,No
+9,female,30,White (NH),Rent,None,No
+7,female,49,White (NH),Own,Most,Yes
+7,male,20,White (NH),Rent,None,Yes
+8,male,23,White (NH),Rent,None,No
+6,male,33,White (NH),Rent,None,No
+6,female,23,Black,Rent,None,No
+6,female,38,Hispanic/Latino,Rent,None,Yes
+8,male,59,Black,Own,None,Yes
+10,female,80,White (NH),Own,None,No
+5,female,26,Hispanic/Latino,Rent,None,No
+3,female,43,White (NH),Own,None,Yes
+8,female,57,Hispanic/Latino,Own,None,Yes
+7,male,30,White (NH),Own,None,Yes
+8,female,23,White (NH),Rent,None,No
+8,male,36,White (NH),Rent,None,No
+11,male,23,Black,Own,None,No
+5,female,49,White (NH),Own,Several,No
+6,male,21,Black,Rent,None,No
+10,female,21,White (NH),Rent,None,No
+8,male,67,White (NH),Other,None,No
+7,female,61,White (NH),Own,None,No
+7,female,22,Black,Rent,None,No
+5,male,50,White (NH),Rent,None,Yes
+8,female,80,White (NH),Own,Several,Yes
+8,female,43,White (NH),Own,None,No
+5,male,38,Hispanic/Latino,Own,None,No
+6,female,51,White (NH),Rent,None,Yes
+8,male,58,White (NH),Own,None,Yes
+8,male,60,White (NH),Own,Several,No
+6,male,60,White (NH),Own,Several,No
+7,female,54,White (NH),Own,None,Yes
+6,female,69,Asian,Rent,None,No
+5,male,22,Other,Rent,None,No
+6,female,21,White (NH),Own,None,Yes
+6,male,51,Black,Own,None,Yes
+6,male,35,White (NH),Rent,Most,No
+12,female,39,White (NH),Own,Several,Yes
+7,male,68,White (NH),Own,None,No
+8,male,42,White (NH),Own,Several,No
+8,female,20,White (NH),Rent,None,No
+7,male,63,White (NH),Own,None,Yes
+6,female,60,Asian,Own,None,No
+5,female,24,Other,Own,None,Yes
+7,male,25,White (NH),Own,None,No
+6,female,70,Black,Own,Most,No
+6,male,60,Hispanic/Latino,Rent,None,No
+5,male,79,White (NH),Own,None,No
+6,male,55,White (NH),Rent,None,Yes
+4,male,28,Black,Own,None,No
+7,female,56,White (NH),Own,None,No
+7,female,55,White (NH),Rent,None,No
+6,female,73,White (NH),Own,None,No
+7,male,28,Black,Own,Several,No
+7,female,52,White (NH),Own,None,Yes
+5,male,42,Hispanic/Latino,Rent,None,Yes
+6,male,30,Hispanic/Latino,Rent,None,No
+7,female,76,White (NH),Own,None,No
+7,male,41,White (NH),Own,Several,Yes
+8,male,24,Asian,Rent,None,No
+7,female,49,Black,Own,None,No
+7,female,33,White (NH),Rent,None,Yes
+4,female,34,Black,Rent,None,No
+6,male,64,White (NH),Own,None,Yes
+5,male,24,White (NH),Rent,None,No
+7,female,28,Hispanic/Latino,Rent,None,No
+6,female,68,White (NH),Own,None,No
+7,male,56,White (NH),Own,None,Yes
+7,female,31,White (NH),Own,None,No
+8,male,73,White (NH),Own,None,Yes
+8,female,32,White (NH),Own,None,No
+7,female,77,White (NH),Own,None,Yes
+5,female,56,Hispanic/Latino,Own,None,Yes
+6,female,43,White (NH),Rent,None,Yes
+6,male,56,White (NH),Own,None,Yes
+8,female,43,White (NH),Own,None,No
+8,female,30,Black,Rent,None,No
+6,male,21,White (NH),Other,None,No
+5,male,65,Other,Own,Most,Yes
+8,male,69,Hispanic/Latino,Own,None,Yes
+4,male,49,White (NH),Own,Most,Yes
+7,male,72,White (NH),Own,None,Yes
+7,female,30,White (NH),Rent,None,Yes
+6,female,30,White (NH),Own,None,No
+6,male,53,White (NH),Own,None,Yes
+6,female,68,White (NH),Own,None,No
+8,male,26,Other,Rent,None,Yes
+7,male,48,White (NH),Own,None,No
+6,female,30,Other,Rent,Most,Yes
+8,male,66,White (NH),Own,None,Yes
+8,female,65,White (NH),Own,None,No
+7,male,49,White (NH),Own,None,Yes
+6,male,29,White (NH),Own,None,No
+8,male,36,Hispanic/Latino,Own,None,No
+7,female,31,White (NH),Rent,None,Yes
+7,male,27,Hispanic/Latino,Rent,None,No
+8,male,74,White (NH),Rent,Several,Yes
+7,male,29,Black,Rent,None,Yes
+5,male,32,Black,Own,None,Yes
+7,male,70,White (NH),Rent,None,Yes
+9,male,62,Black,Own,None,Yes
+7,male,46,White (NH),Own,None,No
+6,female,64,White (NH),Own,None,No
+8,female,75,White (NH),Own,Several,Yes
+6,male,35,White (NH),Rent,Most,No
+6,female,41,Hispanic/Latino,Rent,None,No
+6,male,71,White (NH),Own,Several,Yes
+8,male,76,Black,Own,None,Yes
+6,male,48,Black,Own,None,No
+5,female,45,Black,Rent,None,No
+9,female,46,White (NH),Own,None,No
+8,female,57,White (NH),Own,None,Yes
+7,male,32,White (NH),Own,None,No
+5,male,33,Black,Rent,None,No
+4,female,32,Hispanic/Latino,Rent,Most,Yes
+4,male,51,Asian,Own,None,Yes
+7,male,28,White (NH),Own,None,No
+9,female,78,White (NH),Own,None,No
+5,male,28,Hispanic/Latino,Rent,None,Yes
+8,female,49,White (NH),Own,None,No
+7,female,36,Black,Rent,None,Yes
+7,male,52,White (NH),Own,None,Yes
+9,female,61,White (NH),Own,None,No
+7,female,70,White (NH),Own,None,No
+7,male,80,White (NH),Own,None,No
+6,male,48,White (NH),Rent,Most,Yes
+7,female,24,White (NH),Rent,Several,No
+6,male,40,White (NH),Rent,Several,Yes
+6,male,62,White (NH),Own,Several,Yes
+4,female,44,White (NH),Own,None,No
+8,female,64,White (NH),Own,None,No
+8,male,37,Hispanic/Latino,Own,None,No
+9,male,39,White (NH),Rent,None,No
+5,female,25,White (NH),Own,None,Yes
+4,male,24,Hispanic/Latino,Rent,Most,No
+8,female,63,White (NH),Own,None,No
+6,male,54,Black,Own,None,Yes
+6,male,53,White (NH),Own,None,Yes
+8,male,44,Asian,Own,None,Yes
+8,female,27,Black,Own,None,No
+6,male,44,White (NH),Rent,None,Yes
+7,female,74,White (NH),Rent,None,Yes
+8,female,33,White (NH),Rent,None,Yes
+6,male,28,White (NH),Rent,None,Yes
+7,female,39,White (NH),Own,None,No
+8,female,62,Asian,Own,None,No
+8,female,47,White (NH),Own,Most,Yes
+7,male,62,White (NH),Own,None,Yes
+9,female,51,Hispanic/Latino,Own,None,No
+8,female,37,White (NH),Own,None,Yes
+8,female,26,White (NH),Own,None,No
+8,male,38,White (NH),Own,None,No
+7,female,34,White (NH),Own,None,Yes
+5,female,26,White (NH),Rent,None,No
+7,male,57,Other,Own,None,Yes
+5,male,20,White (NH),Other,None,No
+7,female,61,White (NH),Own,None,No
+6,male,68,Asian,Own,Several,Yes
+5,female,51,White (NH),Own,Several,Yes
+6,female,20,White (NH),Rent,Most,No
+7,male,80,White (NH),Own,None,Yes
+7,male,65,White (NH),Own,None,Yes
+8,female,80,White (NH),Own,None,No
+6,male,39,White (NH),Own,None,No
+4,female,47,Other,Own,None,Yes
+7,male,51,Hispanic/Latino,Own,None,No
+9,male,80,White (NH),Own,None,Yes
+7,female,45,White (NH),Rent,None,Yes
+6,male,46,White (NH),Own,None,Yes
+6,male,53,White (NH),Own,None,No
+6,female,30,White (NH),Own,None,No
+6,female,22,White (NH),Rent,None,No
+6,male,51,White (NH),Own,None,Yes
+8,female,57,Asian,Rent,None,Yes
+4,female,24,White (NH),Own,None,No
+9,male,80,White (NH),Own,Most,Yes
+7,male,70,White (NH),Own,None,No
+6,male,44,White (NH),Rent,None,Yes
+8,female,41,White (NH),Own,None,No
+8,male,20,White (NH),Own,None,No
+4,female,25,White (NH),Own,None,No
+7,male,80,Black,Rent,None,Yes
+7,male,74,White (NH),Own,None,Yes
+5,male,54,Other,Own,None,No
+6,male,52,White (NH),Rent,Most,Yes
+6,female,31,White (NH),Rent,None,Yes
+6,male,53,Black,Rent,None,Yes
+8,male,35,Black,Rent,None,No
+9,female,44,White (NH),Own,None,No
+8,male,25,White (NH),Own,None,No
+7,female,63,White (NH),Own,Several,No
+6,female,31,Hispanic/Latino,Rent,Most,Yes
+7,male,43,White (NH),Own,None,No
+5,male,42,Hispanic/Latino,Rent,None,Yes
+8,female,59,White (NH),Own,None,No
+5,male,31,Hispanic/Latino,Own,None,No
+8,female,71,White (NH),Own,Several,No
+6,male,47,Black,Rent,None,No
+6,male,45,White (NH),Own,None,Yes
+6,male,33,Black,Rent,None,Yes
+6,female,20,White (NH),Other,None,No
+8,female,31,Hispanic/Latino,Rent,None,No
+5,female,72,White (NH),Rent,None,Yes
+7,female,38,White (NH),Rent,None,Yes
+8,female,24,White (NH),Own,None,No
+9,female,27,White (NH),Own,None,No
+4,male,49,White (NH),Rent,Several,Yes
+8,female,44,White (NH),Own,Several,Yes
+8,female,62,White (NH),Own,None,No
+6,female,50,White (NH),Rent,None,Yes
+8,male,36,White (NH),Own,None,No
+8,male,67,White (NH),Own,None,Yes
+7,male,31,White (NH),Rent,Most,Yes
+8,male,80,White (NH),Own,None,Yes
+6,male,53,White (NH),Own,None,No
+5,male,48,White (NH),Own,None,Yes
+6,female,50,White (NH),Own,None,No
+6,male,21,White (NH),Rent,None,Yes
+9,female,70,White (NH),Own,None,Yes
+4,female,51,Hispanic/Latino,Own,Most,No
+8,male,37,White (NH),Own,None,No
+4,female,33,Black,Rent,None,No
+7,male,34,Black,Own,None,No
+6,male,21,White (NH),Other,None,No
+6,male,26,Hispanic/Latino,Own,None,Yes
+7,male,50,White (NH),Own,None,No
+8,female,26,White (NH),Rent,Several,Yes
+8,male,65,White (NH),Own,None,No
+8,female,80,White (NH),Own,Several,Yes
+7,male,57,White (NH),Other,None,Yes
+6,male,47,White (NH),Rent,None,No
+8,female,43,White (NH),Own,None,No
+5,male,53,White (NH),Own,Most,No
+7,female,46,White (NH),Own,Most,Yes
+8,female,54,White (NH),Own,None,No
+7,male,57,Other,Own,None,Yes
+9,male,69,White (NH),Own,None,No
+6,male,60,White (NH),Own,None,No
+4,male,43,Black,Own,None,No
+9,female,22,Other,Rent,None,No
+8,female,65,Black,Rent,None,Yes
+6,female,61,White (NH),Own,Several,Yes
+8,male,65,White (NH),Own,None,No
+8,male,64,Asian,Own,None,No
+6,male,57,White (NH),Own,None,Yes
+5,female,45,White (NH),Rent,Most,No
+8,male,42,White (NH),Own,None,No
+7,male,72,White (NH),Own,None,Yes
+8,female,60,White (NH),Rent,None,Yes
+7,male,53,White (NH),Own,None,No
+7,female,78,White (NH),Rent,None,Yes
+6,female,22,White (NH),Rent,None,No
+6,female,34,White (NH),Rent,None,No
+3,male,40,White (NH),Own,None,Yes
+6,female,60,Hispanic/Latino,Rent,None,No
+6,male,24,Black,Rent,None,No
+7,male,54,Hispanic/Latino,Own,None,Yes
+6,female,37,White (NH),Own,Several,Yes
+9,female,68,White (NH),Own,None,Yes
+7,male,51,White (NH),Own,None,Yes
+7,male,48,White (NH),Own,None,No
+7,female,50,White (NH),Own,Most,Yes
+8,male,35,White (NH),Own,None,No
+7,male,56,White (NH),Other,Most,Yes
+7,female,34,White (NH),Own,None,Yes
+7,female,22,Black,Own,None,Yes
+4,female,58,White (NH),Rent,Several,No
+7,female,21,White (NH),Rent,None,No
+7,female,40,White (NH),Rent,None,Yes
+6,male,59,White (NH),Own,None,Yes
+6,female,69,Asian,Rent,None,No
+8,male,25,Black,Rent,None,Yes
+7,male,52,White (NH),Own,None,Yes
+7,female,58,Black,Own,None,No
+6,male,60,White (NH),Own,Several,No
+8,female,48,White (NH),Own,None,Yes
+7,male,27,White (NH),Own,None,No
+5,female,36,Black,Own,None,No
+8,female,22,Hispanic/Latino,Rent,None,No
+7,male,35,White (NH),Own,Several,Yes
+9,female,28,White (NH),Own,None,No
+8,female,31,Hispanic/Latino,Rent,None,No
+6,male,22,White (NH),Rent,None,No
+7,female,33,White (NH),Own,None,No
+7,male,39,Asian,Own,Several,No
+7,male,47,Hispanic/Latino,Own,Most,No
+6,male,26,White (NH),Rent,None,Yes
+8,female,39,Asian,Own,None,No
+7,female,65,White (NH),Own,None,No
+10,female,39,Black,Rent,None,No
+5,female,42,White (NH),Rent,None,No
+7,male,47,White (NH),Own,None,Yes
+8,male,39,White (NH),Own,None,No
+7,male,32,White (NH),Rent,None,No
+10,female,74,White (NH),Own,None,No
+9,female,66,White (NH),Own,None,Yes
+7,male,29,White (NH),Rent,None,No
+5,male,50,Hispanic/Latino,Rent,None,Yes
+8,male,27,Hispanic/Latino,Own,None,No
+6,male,67,White (NH),Own,None,Yes
+10,female,34,Hispanic/Latino,Rent,None,No
+9,female,44,White (NH),Own,None,No
+5,male,61,Black,Own,None,Yes
+8,female,42,White (NH),Own,Several,Yes
+7,female,80,White (NH),Own,None,No
+8,male,27,White (NH),Rent,None,Yes
+8,male,64,White (NH),Own,None,Yes
+6,female,37,White (NH),Own,Several,Yes
+8,female,41,White (NH),Own,None,No
+6,male,35,White (NH),Rent,Most,No
+7,male,34,Asian,Rent,None,Yes
+8,male,53,White (NH),Own,None,No
+6,male,23,Black,Rent,Several,No
+12,male,74,White (NH),Own,None,No
+6,female,56,White (NH),Own,None,No
+7,male,24,Other,Rent,None,Yes
+7,male,60,White (NH),Own,None,No
+8,male,55,Black,Own,None,Yes
+7,female,32,Asian,Own,Several,No
+5,female,26,White (NH),Rent,None,No
+8,male,70,Black,Own,None,Yes
+5,female,49,Hispanic/Latino,Own,None,No
+8,male,38,Hispanic/Latino,Own,None,No
+8,male,34,White (NH),Rent,None,No
+8,female,23,White (NH),Rent,None,No
+7,male,65,Black,Rent,Several,No
+7,female,45,White (NH),Own,None,No
+7,male,33,White (NH),Rent,None,No
+9,female,70,Black,Own,None,No
+6,female,72,White (NH),Own,Several,No
+7,male,51,Hispanic/Latino,Own,None,No
+8,female,41,White (NH),Own,None,Yes
+6,female,50,Hispanic/Latino,Rent,None,No
+8,female,48,White (NH),Own,None,Yes
+7,female,68,Hispanic/Latino,Rent,None,No
+8,female,57,White (NH),Own,None,Yes
+7,female,63,White (NH),Own,None,No
+6,female,61,White (NH),Own,Several,Yes
+7,female,36,White (NH),Own,Several,Yes
+7,male,63,White (NH),Own,None,No
+6,male,60,White (NH),Own,None,No
+7,male,22,Asian,Own,None,No
+5,male,39,Asian,Rent,None,Yes
+10,male,30,Asian,Rent,Several,Yes
+7,female,42,White (NH),Own,None,No
+8,male,44,White (NH),Own,Several,Yes
+8,female,79,White (NH),Own,Several,No
+8,male,65,Black,Own,None,Yes
+9,female,31,White (NH),Own,None,Yes
+6,female,34,White (NH),Own,None,Yes
+7,male,75,White (NH),Own,None,Yes
+9,female,22,White (NH),Own,Several,No
+6,male,30,White (NH),Own,None,No
+7,male,39,Asian,Own,None,Yes
+6,male,71,White (NH),Own,Several,Yes
+3,male,62,White (NH),Rent,None,Yes
+5,female,57,White (NH),Own,Several,No
+8,male,80,White (NH),Own,None,Yes
+4,female,66,Hispanic/Latino,Own,Most,No
+8,female,36,Black,Rent,None,No
+8,male,74,White (NH),Own,None,Yes
+7,female,33,White (NH),Own,None,No
+7,female,60,White (NH),Own,None,No
+8,female,70,Hispanic/Latino,Own,None,No
+9,male,30,White (NH),Rent,None,Yes
+6,male,51,Asian,Own,None,Yes
+8,female,33,White (NH),Own,None,No
+5,female,64,Black,Own,None,No
+8,male,54,White (NH),Own,None,Yes
+8,female,20,White (NH),Rent,None,No
+7,female,55,White (NH),Own,None,No
+8,female,64,White (NH),Own,None,No
+8,female,20,White (NH),Other,None,No
+6,female,43,White (NH),Own,None,No
+6,female,27,Asian,Rent,None,No
+7,female,78,White (NH),Rent,None,Yes
+4,male,49,White (NH),Own,Most,Yes
+7,female,26,Hispanic/Latino,Own,None,Yes
+5,female,54,White (NH),Own,None,Yes
+6,female,22,White (NH),Rent,None,No
+8,female,22,Hispanic/Latino,Own,None,No
+7,male,50,White (NH),Own,None,No
+6,male,48,White (NH),Rent,None,Yes
+5,female,38,White (NH),Own,None,Yes
+5,female,50,Black,Rent,None,No
+9,female,50,White (NH),Own,None,Yes
+8,female,52,Asian,Own,None,No
+8,female,37,Other,Own,None,No
+9,female,26,White (NH),Rent,None,No
+7,female,30,White (NH),Rent,None,No
+6,male,44,White (NH),Own,Most,No
+6,female,43,White (NH),Own,None,No
+10,male,80,White (NH),Own,None,No
+6,female,69,White (NH),Own,None,Yes
+8,male,25,White (NH),Own,None,No
+8,male,63,Black,Own,Several,No
+7,female,31,White (NH),Rent,None,Yes
+7,female,51,Black,Own,None,Yes
+4,male,43,Other,Rent,None,Yes
+8,male,42,Hispanic/Latino,Rent,Most,No
+8,female,61,White (NH),Rent,None,Yes
+8,male,28,Hispanic/Latino,Rent,None,No
+7,female,34,White (NH),Own,None,No
+6,female,52,White (NH),Own,Most,No
+8,female,33,White (NH),Rent,None,Yes
+7,female,60,White (NH),Own,None,No
+7,female,35,White (NH),Other,None,Yes
+8,male,57,White (NH),Rent,None,Yes
+6,female,47,Hispanic/Latino,Own,Most,No
+7,male,21,White (NH),Own,None,No
+5,female,23,Hispanic/Latino,Rent,None,No
+7,male,36,Asian,Own,None,No
+7,male,58,White (NH),Own,None,Yes
+8,male,42,Hispanic/Latino,Rent,Most,No
+9,female,49,White (NH),Own,None,No
+6,female,71,White (NH),Own,None,No
+8,male,59,White (NH),Rent,Several,Yes
+9,male,80,White (NH),Own,None,No
+8,male,37,White (NH),Own,None,Yes
+6,female,64,White (NH),Own,None,No
+7,female,50,White (NH),Own,None,Yes
+6,male,70,White (NH),Own,None,No
+6,male,54,Asian,Own,None,No
+9,female,49,White (NH),Own,None,No
+6,female,39,White (NH),Other,None,No
+5,male,55,Black,Rent,None,Yes
+8,male,34,Hispanic/Latino,Rent,None,No
+6,female,55,Black,Own,None,Yes
+8,male,46,White (NH),Rent,Most,Yes
+9,female,46,Hispanic/Latino,Rent,None,Yes
+8,female,80,White (NH),Own,None,No
+5,female,68,White (NH),Rent,Most,No
+4,male,50,White (NH),Own,Several,Yes
+7,male,58,White (NH),Own,Several,No
+7,male,54,Hispanic/Latino,Own,None,Yes
+6,female,80,White (NH),Rent,None,No
+8,female,21,White (NH),Rent,None,No
+7,male,74,White (NH),Own,None,Yes
+8,female,71,White (NH),Own,None,No
+5,male,21,White (NH),Rent,None,Yes
+7,female,22,Hispanic/Latino,Own,None,No
+6,male,20,Hispanic/Latino,Own,None,No
+6,male,23,White (NH),Own,None,No
+7,female,61,White (NH),Own,None,No
+4,female,50,White (NH),Rent,None,Yes
+8,female,49,White (NH),Own,None,Yes
+7,male,24,White (NH),Own,None,No
+7,male,40,Hispanic/Latino,Rent,None,No
+9,female,56,Hispanic/Latino,Own,None,No
+8,male,70,White (NH),Rent,Several,No
+8,female,37,White (NH),Own,None,Yes
+8,female,27,Hispanic/Latino,Rent,None,No
+7,female,51,White (NH),Own,None,Yes
+7,male,44,White (NH),Rent,None,Yes
+8,female,71,White (NH),Own,None,No
+9,male,80,White (NH),Own,None,Yes
+6,female,58,Hispanic/Latino,Own,None,No
+8,female,23,White (NH),Own,None,No
+6,male,24,Black,Rent,None,Yes
+4,female,23,White (NH),Rent,None,Yes
+8,female,43,White (NH),Own,None,No
+6,female,62,Hispanic/Latino,Own,None,No
+7,female,40,White (NH),Rent,Several,Yes
+6,female,43,White (NH),Own,None,No
+6,male,70,White (NH),Other,Several,No
+7,male,46,White (NH),Own,None,No
+5,male,61,Black,Rent,None,Yes
+8,female,27,Hispanic/Latino,Rent,None,No
+6,female,64,White (NH),Own,Several,Yes
+6,female,25,Black,Own,None,No
+8,female,64,White (NH),Own,None,No
+6,female,27,White (NH),Rent,Several,Yes
+7,male,40,Black,Own,None,No
+7,female,30,White (NH),Rent,None,No
+8,male,63,White (NH),Own,None,Yes
+7,male,25,White (NH),Own,None,No
+7,male,52,White (NH),Own,None,Yes
+4,female,45,White (NH),Rent,None,Yes
+6,male,58,White (NH),Own,None,No
+7,female,22,Other,Rent,Several,No
+6,male,53,White (NH),Own,None,Yes
+6,female,28,Hispanic/Latino,Rent,None,Yes
+8,female,56,White (NH),Own,None,Yes
+8,female,35,White (NH),Other,None,No
+7,male,49,White (NH),Own,None,Yes
+7,female,27,White (NH),Own,None,No
+7,female,20,Black,Rent,Most,No
+8,male,22,Black,Rent,None,Yes
+7,female,52,Asian,Own,None,Yes
+4,male,50,White (NH),Rent,None,Yes
+9,female,35,Asian,Rent,None,No
+7,female,73,White (NH),Own,Several,Yes
+8,female,80,White (NH),Own,None,Yes
+5,male,29,Hispanic/Latino,Own,None,Yes
+7,female,25,White (NH),Rent,None,No
+7,female,30,White (NH),Rent,None,No
+7,male,32,White (NH),Rent,None,No
+5,female,54,Asian,Own,None,No
+6,male,68,White (NH),Rent,None,Yes
+5,male,50,White (NH),Own,None,Yes
+8,male,25,White (NH),Own,None,No
+8,male,74,White (NH),Own,None,Yes
+8,female,56,White (NH),Own,Several,Yes
+9,male,72,White (NH),Own,None,Yes
+6,female,34,White (NH),Own,None,Yes
+10,female,80,White (NH),Own,Several,No
+6,male,41,White (NH),Own,None,Yes
+7,female,35,White (NH),Own,None,No
+8,male,43,White (NH),Rent,None,No
+9,male,80,White (NH),Own,None,No
+8,female,45,White (NH),Own,None,No
+6,female,61,White (NH),Own,Several,Yes
+4,male,20,White (NH),Own,None,No
+8,male,47,White (NH),Own,None,No
+10,female,80,White (NH),Own,None,No
+5,female,42,Black,Rent,None,Yes
+8,male,56,White (NH),Own,None,No
+6,male,45,White (NH),Own,None,No
+8,female,52,Black,Own,None,No
+6,female,22,White (NH),Rent,None,No
+6,female,24,White (NH),Own,Most,No
+6,male,30,White (NH),Rent,None,No
+9,female,70,White (NH),Own,None,Yes
+9,male,68,White (NH),Own,None,Yes
+8,female,30,Hispanic/Latino,Own,None,No
+8,male,62,White (NH),Own,None,Yes
+7,male,49,White (NH),Own,None,No
+7,female,50,Hispanic/Latino,Own,None,No
+8,male,76,White (NH),Own,None,Yes
+8,male,80,White (NH),Own,None,Yes
+7,male,54,White (NH),Own,None,Yes
+11,female,75,Other,Own,None,Yes
+8,female,63,White (NH),Own,None,No
+7,male,31,Asian,Rent,None,Yes
+4,male,63,Hispanic/Latino,Rent,None,Yes
+7,male,33,Other,Rent,None,No
+4,male,35,White (NH),Rent,Several,No
+8,female,21,Hispanic/Latino,Rent,None,No
+8,female,79,White (NH),Own,Several,No
+6,male,57,White (NH),Own,None,Yes
+8,female,40,Hispanic/Latino,Rent,None,No
+8,male,24,White (NH),Own,None,Yes
+7,female,30,Asian,Own,Several,No
+8,male,32,White (NH),Own,None,No
+7,male,27,White (NH),Rent,None,No
+8,male,21,Asian,Own,None,No
+6,male,48,White (NH),Rent,Most,Yes
+6,female,27,White (NH),Rent,None,Yes
+6,male,30,White (NH),Rent,None,No
+6,male,80,Hispanic/Latino,Own,None,No
+7,male,37,White (NH),Own,None,No
+7,male,46,White (NH),Own,None,No
+8,female,65,White (NH),Own,None,Yes
+8,female,80,White (NH),Own,Several,Yes
+7,male,59,White (NH),Own,None,No
+7,male,73,White (NH),Own,None,No
+4,female,59,Black,Own,None,No
+9,male,50,White (NH),Own,None,No
+8,female,47,Black,Rent,Several,No
+6,male,70,White (NH),Own,None,No
+6,male,48,White (NH),Rent,Most,Yes
+8,female,49,White (NH),Own,None,No
+8,male,64,White (NH),Own,None,Yes
+7,female,61,White (NH),Own,None,No
+7,female,22,Hispanic/Latino,Own,None,No
+7,female,76,White (NH),Own,None,No
+6,male,48,White (NH),Rent,Most,Yes
+7,male,59,White (NH),Own,None,Yes
+6,female,41,White (NH),Rent,None,No
+7,male,56,White (NH),Own,None,No
+7,male,37,White (NH),Own,None,No
+6,female,80,White (NH),Own,Several,No
+5,female,28,White (NH),Rent,Most,Yes
+9,male,53,White (NH),Own,None,Yes
+7,female,70,White (NH),Own,None,Yes
+6,female,72,White (NH),Own,Several,Yes
+10,female,25,White (NH),Other,Most,Yes
+8,male,39,White (NH),Own,None,No
+8,female,30,Black,Rent,None,No
+5,male,80,White (NH),Own,None,No
+7,female,61,White (NH),Own,None,No
+7,male,80,White (NH),Own,None,Yes
+8,male,45,Asian,Rent,Most,No
+7,male,31,Asian,Own,Several,No
+7,male,33,White (NH),Own,None,No
+4,male,33,White (NH),Rent,Several,Yes
+6,male,41,White (NH),Rent,Several,Yes
+6,male,27,White (NH),Rent,None,Yes
+6,female,63,White (NH),Own,None,No
+4,female,69,White (NH),Rent,Most,No
+7,female,80,White (NH),Own,None,No
+7,male,75,White (NH),Own,None,Yes
+6,female,20,Hispanic/Latino,Other,Several,No
+8,female,33,Asian,Rent,None,No
+6,male,24,Hispanic/Latino,Rent,None,Yes
+7,female,59,White (NH),Own,None,No
+7,male,25,White (NH),Own,None,No
+5,male,36,Hispanic/Latino,Rent,Several,No
+9,female,20,Black,Rent,None,No
+6,female,48,Hispanic/Latino,Own,None,Yes
+5,male,63,White (NH),Own,None,No
+6,female,42,Other,Own,Most,Yes
+8,male,65,Black,Own,None,No
+8,male,27,White (NH),Rent,None,Yes
+8,male,31,White (NH),Own,None,Yes
+5,female,57,White (NH),Own,Several,No
+8,female,42,White (NH),Rent,Several,Yes
+8,male,29,Asian,Rent,None,No
+6,female,31,White (NH),Own,None,Yes
+8,female,64,White (NH),Own,None,No
+6,male,26,White (NH),Rent,None,Yes
+6,male,48,White (NH),Rent,Most,Yes
+7,male,27,White (NH),Own,None,No
+7,male,33,Hispanic/Latino,Rent,None,No
+5,male,63,White (NH),Own,None,Yes
+7,male,27,Hispanic/Latino,Other,None,No
+9,female,26,White (NH),Rent,None,No
+6,female,47,Black,Rent,Several,No
+6,female,78,Asian,Own,None,Yes
+5,female,20,White (NH),Rent,None,No
+6,female,73,White (NH),Own,None,No
+7,female,70,White (NH),Rent,None,Yes
+8,female,77,White (NH),Own,None,No
+9,male,62,White (NH),Own,Several,Yes
+6,female,43,White (NH),Rent,None,Yes
+6,male,78,White (NH),Own,Most,Yes
+5,male,29,Hispanic/Latino,Rent,None,Yes
+8,male,64,White (NH),Own,None,Yes
+7,female,33,White (NH),Rent,None,No
+6,female,25,White (NH),Own,None,Yes
+6,male,60,White (NH),Rent,None,Yes
+7,female,53,White (NH),Own,None,No
+7,male,60,White (NH),Own,Most,Yes
+8,male,37,White (NH),Own,Several,Yes
+6,female,72,White (NH),Rent,None,Yes
+9,male,65,White (NH),Own,None,Yes
+7,male,35,White (NH),Own,Several,Yes
+6,male,52,White (NH),Own,None,Yes
+6,female,36,Black,Rent,Several,No
+6,female,76,White (NH),Rent,None,Yes
+8,male,53,White (NH),Own,None,No
+8,male,57,White (NH),Own,None,Yes
+6,female,80,White (NH),Own,None,No
+5,female,36,Black,Own,None,No
+10,female,24,Black,Own,None,No
+8,male,69,White (NH),Own,None,No
+8,female,26,White (NH),Rent,None,No
+6,male,29,White (NH),Rent,None,Yes
+8,female,80,White (NH),Own,None,No
+4,male,43,Other,Rent,None,Yes
+8,male,62,White (NH),Own,None,Yes
+9,male,31,White (NH),Own,None,Yes
+6,male,57,White (NH),Other,Most,Yes
+7,male,40,Hispanic/Latino,Rent,None,No
+6,female,34,Black,Rent,None,No
+7,female,52,White (NH),Own,None,No
+8,male,74,White (NH),Own,None,Yes
+4,female,24,White (NH),Own,None,No
+6,male,53,White (NH),Own,None,No
+5,female,58,Black,Own,Several,No
+8,female,26,White (NH),Rent,None,No
+6,male,33,White (NH),Rent,None,No
+8,female,80,White (NH),Own,None,Yes
+8,female,37,White (NH),Own,None,Yes
+7,female,33,White (NH),Rent,None,Yes
+4,female,29,White (NH),Rent,None,Yes
+8,male,57,White (NH),Own,None,Yes
+8,male,21,Hispanic/Latino,Rent,Several,No
+8,male,63,White (NH),Own,None,Yes
+7,female,64,White (NH),Own,None,No
+8,female,44,Hispanic/Latino,Rent,None,No
+6,female,40,White (NH),Own,Several,Yes
+4,female,51,Black,Rent,None,No
+7,male,39,White (NH),Own,None,No
+5,male,30,White (NH),Other,None,Yes
+5,female,70,White (NH),Own,None,No
+6,male,53,White (NH),Own,None,Yes
+5,female,47,White (NH),Own,Several,No
+6,male,29,Black,Own,None,Yes
+5,male,26,White (NH),Own,Several,Yes
+7,male,58,White (NH),Own,None,Yes
+7,male,59,White (NH),Rent,None,Yes
+5,male,52,Black,Own,None,No
+6,male,29,White (NH),Rent,None,Yes
+8,male,35,Hispanic/Latino,Rent,Several,No
+5,male,60,Hispanic/Latino,Rent,None,Yes
+7,female,51,White (NH),Own,None,Yes
+6,male,40,Hispanic/Latino,Own,Most,Yes
+6,male,31,Black,Own,Several,No
+6,male,60,White (NH),Own,None,No
+7,female,52,White (NH),Own,None,Yes
+7,female,21,White (NH),Rent,None,No
+8,female,37,White (NH),Own,None,Yes
+8,female,29,White (NH),Rent,None,No
+6,female,34,White (NH),Rent,Most,Yes
+7,female,28,Hispanic/Latino,Rent,Several,No
+8,male,32,White (NH),Own,None,No
+7,female,21,Hispanic/Latino,Own,None,Yes
+7,female,77,White (NH),Own,None,Yes
+6,female,24,Asian,Rent,None,No
+7,female,42,White (NH),Own,None,Yes
+6,male,30,White (NH),Rent,None,Yes
+8,male,42,White (NH),Own,None,No
+6,male,51,White (NH),Own,None,No
+8,male,74,White (NH),Own,None,Yes
+8,male,38,Black,Own,None,Yes
+8,male,56,Black,Own,None,No
+8,male,24,Hispanic/Latino,Own,None,Yes
+8,female,41,White (NH),Own,None,Yes
+7,female,32,White (NH),Own,Most,Yes
+4,female,58,White (NH),Rent,Several,No
+6,male,20,Black,Rent,None,No
+6,male,47,Asian,Own,None,No
+4,female,80,White (NH),Own,None,Yes
+8,male,36,Asian,Own,None,No
+8,female,65,White (NH),Own,None,Yes
+7,female,49,White (NH),Own,Most,Yes
+6,female,56,White (NH),Own,None,No
+7,male,58,White (NH),Own,Several,No
+7,male,50,Hispanic/Latino,Rent,None,Yes
+8,male,32,White (NH),Own,None,No
+5,male,34,White (NH),Own,None,Yes
+6,male,41,White (NH),Own,Several,Yes
+8,male,42,White (NH),Own,None,No
+8,male,36,White (NH),Own,None,Yes
+8,female,48,White (NH),Own,None,No
+6,female,28,White (NH),Rent,None,No
+8,male,34,White (NH),Rent,None,No
+6,female,63,White (NH),Own,None,No
+6,female,62,White (NH),Own,None,No
+7,male,45,White (NH),Own,None,No
+6,female,49,White (NH),Rent,Several,No
+6,female,72,White (NH),Own,None,Yes
+5,male,56,White (NH),Own,Most,Yes
+7,female,24,White (NH),Rent,None,No
+6,male,41,Black,Rent,None,Yes
+7,male,40,White (NH),Rent,None,Yes
+8,female,40,White (NH),Own,None,No
+8,female,80,White (NH),Other,None,Yes
+6,male,68,White (NH),Rent,None,Yes
+4,male,24,Other,Own,None,No
+6,male,53,White (NH),Own,None,No
+7,female,29,Hispanic/Latino,Own,None,No
+5,female,80,White (NH),Rent,Most,Yes
+7,male,25,White (NH),Own,None,No
+8,female,32,White (NH),Own,None,Yes
+8,male,73,Black,Own,None,Yes
+7,male,40,White (NH),Rent,Most,No
+4,female,45,White (NH),Rent,None,Yes
+7,male,57,White (NH),Own,Most,No
+10,female,62,White (NH),Own,Several,Yes
+7,female,39,Asian,Own,None,No
+6,male,68,Black,Own,Several,Yes
+7,male,45,White (NH),Own,None,No
+8,male,43,White (NH),Rent,None,No
+6,female,38,White (NH),Own,None,No
+8,male,46,White (NH),Own,Several,Yes
+8,male,57,White (NH),Rent,None,Yes
+7,male,58,White (NH),Own,Most,Yes
+7,male,33,Black,Own,None,No
+6,female,68,White (NH),Own,None,No
+6,male,45,White (NH),Own,None,Yes
+9,female,29,White (NH),Rent,Several,No
+6,male,21,White (NH),Rent,None,No
+8,female,65,White (NH),Rent,Several,No
+7,male,49,White (NH),Own,None,No
+5,female,31,White (NH),Own,None,Yes
+5,male,26,White (NH),Own,Several,Yes
+7,male,80,White (NH),Own,None,Yes
+8,female,63,White (NH),Own,None,Yes
+8,female,46,White (NH),Own,None,No
+8,male,80,White (NH),Own,None,No
+3,male,27,Black,Own,None,Yes
+7,male,60,White (NH),Own,Most,Yes
+6,female,47,White (NH),Rent,Most,Yes
+6,female,39,Hispanic/Latino,Rent,Most,Yes
+6,male,45,White (NH),Own,None,No
+5,male,47,White (NH),Own,None,No
+6,female,43,White (NH),Own,None,Yes
+6,female,24,Hispanic/Latino,Own,Most,No
+5,male,32,White (NH),Own,None,No
+6,male,36,Asian,Own,Several,No
+9,female,24,White (NH),Rent,Several,Yes
+7,female,70,White (NH),Own,None,Yes
+6,male,34,Hispanic/Latino,Rent,None,No
+4,female,50,White (NH),Other,Most,Yes
+8,male,74,Hispanic/Latino,Own,Several,No
+5,female,35,White (NH),Rent,None,No
+6,female,80,White (NH),Own,None,No
+6,female,23,Other,Other,Several,Yes
+5,male,61,White (NH),Rent,None,Yes
+7,male,31,White (NH),Own,None,Yes
+4,female,49,Asian,Own,Several,No
+6,male,54,White (NH),Own,None,No
+6,female,39,Hispanic/Latino,Rent,None,No
+6,female,54,Hispanic/Latino,Rent,Several,Yes
+8,male,42,Hispanic/Latino,Rent,Most,No
+6,male,55,White (NH),Rent,None,Yes
+5,male,58,Black,Rent,None,Yes
+7,male,50,White (NH),Own,None,No
+7,male,56,Other,Own,None,No
+8,female,47,White (NH),Own,Several,No
+6,male,57,White (NH),Own,None,Yes
+8,male,42,White (NH),Own,None,No
+7,male,28,Other,Rent,None,No
+6,male,64,White (NH),Own,None,Yes
+8,male,23,White (NH),Rent,None,No
+9,female,50,White (NH),Own,None,Yes
+7,female,25,White (NH),Rent,None,No
+6,female,63,White (NH),Own,None,No
+7,male,72,White (NH),Own,None,Yes
+6,male,22,White (NH),Rent,None,No
+9,female,56,White (NH),Own,Several,No
+7,male,69,White (NH),Own,None,No
+4,male,52,White (NH),Own,Most,Yes
+7,male,29,White (NH),Rent,None,No
+10,male,23,Hispanic/Latino,Rent,None,No
+8,female,60,White (NH),Rent,None,Yes
+6,male,45,Hispanic/Latino,Rent,None,Yes
+8,male,60,Other,Own,None,Yes
+7,male,23,White (NH),Rent,None,No
+8,male,50,Black,Other,None,Yes
+8,female,67,Black,Own,None,No
+4,female,44,White (NH),Rent,None,Yes
+9,female,46,White (NH),Own,None,Yes
+8,female,29,White (NH),Rent,None,Yes
+7,female,20,White (NH),Rent,None,No
+6,female,66,White (NH),Own,None,No
+6,male,57,White (NH),Own,None,Yes
+8,female,45,Asian,Own,None,No
+7,male,45,Asian,Own,Several,Yes
+8,female,70,Black,Own,None,No
+4,female,80,White (NH),Own,None,No
+8,female,54,White (NH),Own,None,Yes
+7,female,78,White (NH),Own,None,No
+6,male,21,White (NH),Rent,None,Yes
+6,female,48,Black,Own,None,No
+8,male,63,White (NH),Own,None,Yes
+9,male,50,White (NH),Own,None,No
+8,male,60,Other,Own,None,Yes
+6,male,45,White (NH),Own,None,No
+6,male,64,White (NH),Own,None,Yes
+6,female,51,Hispanic/Latino,Rent,Most,Yes
+8,female,59,White (NH),Own,Several,Yes
+6,male,31,White (NH),Own,None,No
+8,male,29,White (NH),Rent,None,Yes
+7,female,36,Asian,Rent,None,Yes
+7,female,40,White (NH),Rent,Several,Yes
+6,female,51,White (NH),Rent,None,Yes
+6,male,21,White (NH),Other,None,No
+8,female,59,White (NH),Own,None,Yes
+6,female,80,White (NH),Rent,None,Yes
+5,female,57,White (NH),Own,Most,No
+7,male,27,White (NH),Own,Several,No
+7,female,66,White (NH),Own,None,Yes
+6,female,69,White (NH),Own,Most,No
+7,female,60,Black,Rent,None,No
+7,male,52,Other,Own,Most,Yes
+7,male,31,White (NH),Rent,Most,Yes
+6,male,37,White (NH),Own,None,No
+6,female,68,White (NH),Own,None,No
+6,female,28,White (NH),Rent,None,No
+6,male,57,White (NH),Own,None,Yes
+7,female,75,White (NH),Own,Several,No
+7,male,59,Hispanic/Latino,Own,None,Yes
+6,male,59,White (NH),Rent,None,Yes
+8,male,56,Black,Own,None,No
+10,female,80,White (NH),Own,None,No
+7,female,51,White (NH),Own,None,Yes
+7,male,56,Hispanic/Latino,Rent,Most,No
+8,female,44,White (NH),Own,Several,Yes
+9,male,65,White (NH),Own,None,No
+7,male,25,Hispanic/Latino,Own,Several,No
+7,female,64,White (NH),Own,Several,Yes
+8,male,37,White (NH),Other,None,Yes
+8,female,42,Other,Own,None,No
+5,female,52,Black,Own,None,No
+7,male,41,White (NH),Own,None,Yes
+7,male,45,Asian,Own,Several,Yes
+6,male,40,Black,Own,None,No
+8,male,23,White (NH),Rent,None,No
+8,male,64,White (NH),Own,None,No
+8,female,49,Asian,Own,None,No
+8,male,80,White (NH),Own,Several,No
+8,female,54,White (NH),Own,None,Yes
+5,female,51,White (NH),Rent,None,Yes
+7,male,54,Black,Own,None,No
+6,male,47,White (NH),Own,None,Yes
+7,male,74,Asian,Rent,None,Yes
+8,female,64,White (NH),Own,None,No
+9,male,65,White (NH),Own,None,No
+6,male,28,White (NH),Rent,None,Yes
+4,male,58,Hispanic/Latino,Own,Several,No
+8,male,36,Hispanic/Latino,Own,None,No
+8,female,67,White (NH),Other,None,Yes
+7,female,79,White (NH),Own,None,Yes
+5,male,63,White (NH),Own,None,No
+8,female,63,White (NH),Own,None,No
+10,female,74,White (NH),Own,None,No
+5,male,80,White (NH),Own,None,No
+7,male,26,White (NH),Rent,None,No
+8,male,64,White (NH),Rent,None,No
+7,female,39,Black,Rent,None,No
+7,male,80,White (NH),Other,None,Yes
+6,male,33,White (NH),Rent,None,No
+6,male,55,White (NH),Rent,None,Yes
+7,male,46,White (NH),Rent,Most,No
+8,female,47,Asian,Own,None,No
+8,male,46,Hispanic/Latino,Own,None,No
+8,male,57,White (NH),Own,None,No
+7,male,39,White (NH),Own,None,No
+4,male,67,Black,Own,None,Yes
+7,male,33,Hispanic/Latino,Rent,None,Yes
+8,female,80,White (NH),Own,None,No
+6,female,57,White (NH),Own,None,No
+6,male,67,Black,Own,None,Yes
+7,female,24,White (NH),Rent,None,Yes
+7,female,35,White (NH),Rent,None,No
+6,female,49,Hispanic/Latino,Own,None,No
+8,male,20,White (NH),Rent,None,No
+9,female,31,White (NH),Own,None,Yes
+8,female,32,White (NH),Own,None,No
+6,male,51,Black,Own,None,Yes
+7,male,53,White (NH),Own,None,No
+5,female,49,White (NH),Own,None,No
+6,male,41,White (NH),Own,None,Yes
+6,female,49,Black,Own,None,No
+8,female,44,White (NH),Own,None,Yes
+8,female,41,White (NH),Own,None,No
+8,male,61,White (NH),Own,None,Yes
+3,female,70,White (NH),Own,Several,Yes
+8,male,70,White (NH),Own,None,Yes
+6,female,48,Hispanic/Latino,Own,None,Yes
+5,male,54,Black,Rent,None,Yes
+7,male,65,White (NH),Own,None,Yes
+7,female,45,White (NH),Own,None,No
+5,female,46,Asian,Rent,Most,Yes
+6,female,48,Hispanic/Latino,Rent,Several,Yes
+8,female,73,White (NH),Own,None,Yes
+6,male,50,Black,Own,None,Yes
+8,male,32,White (NH),Own,None,No
+7,male,28,White (NH),Own,None,No
+8,female,76,White (NH),Own,None,No
+7,male,37,White (NH),Own,None,No
+8,male,39,Asian,Rent,Several,Yes
+5,male,27,White (NH),Own,None,Yes
+6,male,56,Hispanic/Latino,Own,Several,No
+6,male,50,White (NH),Own,Several,Yes
+6,female,47,Hispanic/Latino,Own,None,No
+8,male,80,White (NH),Own,None,Yes
+7,male,69,Asian,Own,None,No
+8,female,45,Hispanic/Latino,Rent,Most,No
+9,female,52,White (NH),Rent,Several,No
+7,male,28,White (NH),Own,None,No
+8,male,31,White (NH),Rent,None,Yes
+7,female,54,White (NH),Own,None,No
+8,female,23,White (NH),Own,None,No
+3,male,34,Black,Rent,Several,Yes
+6,female,72,White (NH),Own,None,Yes
+6,male,24,White (NH),Rent,None,Yes
+6,male,59,White (NH),Own,None,Yes
+9,female,70,White (NH),Own,None,Yes
+8,female,55,White (NH),Own,Several,Yes
+5,male,61,White (NH),Rent,None,Yes
+9,male,80,White (NH),Own,None,No
+7,male,80,White (NH),Own,None,Yes
+5,female,20,Hispanic/Latino,Rent,None,No
+6,male,40,Asian,Own,None,No
+7,male,58,White (NH),Own,Several,No
+6,male,57,White (NH),Own,None,Yes
+7,male,68,White (NH),Rent,None,Yes
+7,female,80,White (NH),Own,None,No
+6,male,63,White (NH),Own,Several,Yes
+6,female,22,Black,Own,None,No
+6,male,33,White (NH),Rent,None,Yes
+7,male,33,Hispanic/Latino,Rent,None,Yes
+8,female,57,White (NH),Own,None,Yes
+4,male,48,Hispanic/Latino,Rent,None,No
+6,female,71,Asian,Own,None,No
+6,male,63,White (NH),Own,Several,Yes
+6,female,36,Hispanic/Latino,Rent,None,No
+6,male,66,Asian,Rent,None,No
+8,female,26,White (NH),Own,None,No
+8,female,63,White (NH),Own,None,Yes
+8,female,27,White (NH),Own,None,No
+6,male,34,White (NH),Rent,Several,Yes
+7,female,22,Hispanic/Latino,Own,None,No
+8,female,59,White (NH),Own,None,Yes
+6,male,25,White (NH),Other,None,Yes
+9,female,70,Hispanic/Latino,Own,Several,Yes
+9,female,45,White (NH),Own,None,No
+8,female,80,White (NH),Own,None,No
+7,male,44,Asian,Rent,None,No
+6,male,59,White (NH),Own,None,No
+7,female,45,White (NH),Own,None,No
+8,male,49,White (NH),Own,None,Yes
+7,male,59,Hispanic/Latino,Rent,Several,Yes
+6,male,59,White (NH),Own,None,Yes
+8,male,65,White (NH),Own,None,No
+9,female,56,White (NH),Own,None,Yes
+8,female,23,White (NH),Own,None,No
+7,female,55,White (NH),Own,None,No
+9,male,65,White (NH),Own,None,No
+7,male,40,Hispanic/Latino,Rent,None,No
+8,female,60,Black,Rent,Several,No
+6,female,80,White (NH),Own,None,No
+5,male,48,Black,Own,None,Yes
+8,male,65,White (NH),Own,None,No
+8,male,70,Black,Own,None,Yes
+6,female,44,White (NH),Own,None,No
+8,female,43,Hispanic/Latino,Own,None,No
+6,female,24,White (NH),Own,None,No
+6,male,74,White (NH),Own,None,No
+6,male,44,Hispanic/Latino,Own,None,No
+6,male,46,White (NH),Rent,None,Yes
+7,female,78,White (NH),Rent,None,Yes
+8,female,76,White (NH),Own,None,No
+6,male,21,Hispanic/Latino,Rent,None,Yes
+6,male,58,White (NH),Own,Several,Yes
+8,male,25,Hispanic/Latino,Own,Several,No
+4,female,47,White (NH),Own,Several,No
+8,female,59,White (NH),Own,None,Yes
+8,female,61,White (NH),Rent,None,Yes
+4,male,60,Black,Rent,None,Yes
+8,female,23,Hispanic/Latino,Rent,Several,No
+6,male,45,White (NH),Own,None,Yes
+6,female,58,White (NH),Own,Several,Yes
+8,female,27,Asian,Own,None,No
+4,female,58,White (NH),Rent,Several,No
+8,female,64,White (NH),Own,None,Yes
+7,male,28,White (NH),Rent,None,No
+7,male,53,White (NH),Own,Several,Yes
+8,female,41,White (NH),Own,None,Yes
+7,male,53,White (NH),Own,None,No
+8,female,48,White (NH),Own,None,Yes
+7,female,38,White (NH),Rent,None,Yes
+8,male,49,Hispanic/Latino,Rent,None,No
+7,male,53,White (NH),Own,None,No
+9,male,71,White (NH),Own,Several,Yes
+10,female,77,White (NH),Own,None,Yes
+9,female,32,White (NH),Own,Several,No
+7,female,54,White (NH),Own,None,No
+7,female,53,White (NH),Own,None,No
+8,female,72,Asian,Own,None,No
+5,male,50,White (NH),Own,None,Yes
+7,female,47,White (NH),Own,None,No
+7,male,32,Hispanic/Latino,Rent,Several,Yes
+7,male,56,Other,Own,None,No
+5,male,80,White (NH),Own,None,No
+6,female,49,White (NH),Rent,Several,No
+6,male,27,White (NH),Rent,None,Yes
+6,male,57,White (NH),Own,None,Yes
+7,male,20,White (NH),Rent,None,Yes
+8,female,45,White (NH),Own,None,No
+6,female,25,White (NH),Own,None,Yes
+8,female,37,White (NH),Own,None,Yes
+6,male,51,White (NH),Own,None,No
+6,female,55,Black,Own,None,No
+6,male,49,Black,Own,None,No
+6,male,44,White (NH),Rent,None,Yes
+8,male,74,White (NH),Own,None,Yes
+5,female,58,Hispanic/Latino,Rent,None,No
+6,male,26,White (NH),Rent,None,Yes
+7,female,80,White (NH),Rent,None,No
+8,male,24,Hispanic/Latino,Own,None,Yes
+8,male,79,White (NH),Own,None,Yes
+6,female,61,White (NH),Own,Several,No
+9,female,80,White (NH),Rent,Several,No
+9,female,30,Black,Rent,None,No
+7,female,78,White (NH),Rent,None,Yes
+6,female,31,White (NH),Rent,None,Yes
+7,male,31,White (NH),Own,None,No
+7,male,25,Hispanic/Latino,Own,Several,No
+2,female,44,White (NH),Own,None,Yes
+7,male,25,White (NH),Rent,None,No
+6,male,64,White (NH),Own,None,Yes
+5,female,56,White (NH),Own,Several,No
+6,female,26,White (NH),Own,Several,Yes
+6,male,41,White (NH),Own,Several,Yes
+7,female,48,Hispanic/Latino,Rent,None,Yes
+8,male,25,White (NH),Own,None,No
+6,male,43,Hispanic/Latino,Own,Several,Yes
+7,female,63,White (NH),Own,None,Yes
+8,male,34,White (NH),Rent,None,No
+9,female,23,Hispanic/Latino,Rent,None,No
+8,female,26,Hispanic/Latino,Own,None,Yes
+6,male,70,White (NH),Other,Several,No
+7,male,33,White (NH),Own,None,No
+8,female,68,White (NH),Own,Several,Yes
+6,female,78,Asian,Own,None,Yes
+5,male,62,White (NH),Own,Several,No
+8,female,26,Hispanic/Latino,Own,None,Yes
+6,female,31,Hispanic/Latino,Own,None,No
+8,female,29,White (NH),Rent,None,No
+6,female,57,White (NH),Own,None,No
+8,male,68,White (NH),Own,None,Yes
+6,female,80,White (NH),Own,None,No
+7,male,64,Hispanic/Latino,Rent,None,Yes
+8,female,80,White (NH),Rent,None,Yes
+7,male,34,White (NH),Rent,None,No
+7,male,45,White (NH),Own,Most,Yes
+6,male,57,White (NH),Own,None,Yes
+8,male,63,White (NH),Own,None,Yes
+7,male,40,White (NH),Own,None,No
+4,male,46,White (NH),Rent,Most,Yes
+8,female,64,White (NH),Own,None,No
+7,female,63,White (NH),Own,None,Yes
+7,female,64,White (NH),Own,None,Yes
+7,male,32,Hispanic/Latino,Rent,Several,Yes
+6,male,29,White (NH),Own,None,Yes
+5,female,59,Asian,Rent,None,No
+8,male,59,White (NH),Own,None,Yes
+8,male,36,White (NH),Rent,None,No
+7,male,47,White (NH),Rent,None,Yes
+8,male,47,White (NH),Rent,Most,No
+8,female,68,White (NH),Own,None,No
+6,female,58,White (NH),Own,Several,Yes
+7,female,65,White (NH),Rent,Most,Yes
+6,male,56,White (NH),Own,None,Yes
+6,male,45,White (NH),Own,None,No
+8,female,22,White (NH),Rent,None,No
+10,female,34,Hispanic/Latino,Rent,None,No
+8,male,80,Asian,Own,None,Yes
+10,male,30,Asian,Rent,Several,Yes
+9,male,80,White (NH),Own,None,Yes
+9,male,39,White (NH),Rent,None,No
+8,male,52,Black,Own,None,No
+8,female,31,Hispanic/Latino,Own,None,No
+8,male,57,White (NH),Own,None,No
+5,male,50,White (NH),Rent,None,Yes
+6,male,20,Hispanic/Latino,Rent,None,No
+7,male,54,White (NH),Own,None,Yes
+4,male,50,White (NH),Rent,None,Yes
+7,male,42,White (NH),Own,None,No
+8,male,35,White (NH),Own,None,No
+8,female,50,White (NH),Own,Most,No
+6,female,30,Other,Rent,Most,Yes
+8,male,41,Black,Rent,None,No
+8,female,49,White (NH),Own,None,No
+7,male,56,White (NH),Own,None,Yes
+7,female,74,White (NH),Rent,None,Yes
+8,male,31,Hispanic/Latino,Own,None,No
+6,female,50,White (NH),Rent,None,Yes
+7,female,64,White (NH),Own,None,No
+7,male,65,White (NH),Own,None,No
+5,male,72,Asian,Rent,None,Yes
+7,male,46,Black,Own,None,No
+8,female,25,White (NH),Rent,None,No
+7,female,42,White (NH),Own,None,No
+9,male,74,White (NH),Own,None,Yes
+9,female,62,Asian,Other,None,No
+6,male,46,White (NH),Own,None,Yes
+7,male,42,Black,Own,None,No
+5,female,28,Hispanic/Latino,Own,None,No
+8,male,80,White (NH),Own,None,No
+8,male,54,White (NH),Own,None,Yes
+6,female,74,White (NH),Own,None,Yes
+9,male,50,White (NH),Own,None,No
+8,female,43,White (NH),Rent,None,No
+8,male,51,White (NH),Rent,Most,Yes
+8,female,43,White (NH),Own,None,No
+6,female,20,Black,Other,None,No
+8,male,67,White (NH),Other,None,No
+7,male,80,White (NH),Own,None,Yes
+7,male,25,White (NH),Rent,None,No
+8,male,63,White (NH),Own,None,Yes
+6,female,58,White (NH),Own,Most,No
+9,male,65,White (NH),Own,None,Yes
+8,female,80,White (NH),Own,None,No
+6,male,21,Hispanic/Latino,Own,None,No
+7,male,33,White (NH),Own,None,No
+7,female,47,White (NH),Own,None,Yes
+7,male,58,White (NH),Own,Several,No
+6,male,60,White (NH),Own,None,No
+6,male,43,Other,Rent,None,No
+6,female,59,Hispanic/Latino,Rent,Several,No
+7,male,20,White (NH),Rent,None,No
+8,male,61,White (NH),Own,None,Yes
+7,female,67,White (NH),Own,None,Yes
+8,female,46,White (NH),Own,None,Yes
+5,female,48,Black,Rent,Several,No
+8,female,45,White (NH),Own,None,Yes
+8,male,21,Black,Rent,Several,No
+6,male,77,White (NH),Own,None,Yes
+7,male,48,Black,Own,None,No
+8,male,63,White (NH),Own,Several,No
+6,male,52,White (NH),Own,None,No
+5,male,39,Hispanic/Latino,Rent,Most,Yes
+7,male,43,White (NH),Own,None,No
+7,female,25,White (NH),Other,None,No
+7,male,37,Hispanic/Latino,Rent,None,Yes
+6,male,40,White (NH),Rent,None,Yes
+7,male,50,White (NH),Own,None,No
+3,male,54,Black,Own,None,No
+7,female,37,White (NH),Own,None,No
+8,male,75,White (NH),Own,None,No
+7,female,27,White (NH),Rent,None,No
+6,male,44,White (NH),Rent,None,Yes
+6,male,80,White (NH),Own,Most,No
+8,female,32,White (NH),Own,None,Yes
+4,male,48,Hispanic/Latino,Rent,None,No
+7,female,64,White (NH),Own,None,Yes
+6,female,63,Black,Own,None,No
+8,male,36,Hispanic/Latino,Rent,None,No
+10,female,71,White (NH),Own,None,Yes
+8,female,62,Asian,Own,None,No
+5,male,77,Hispanic/Latino,Rent,Most,Yes
+7,male,48,White (NH),Own,None,No
+7,male,76,White (NH),Own,None,Yes
+7,female,56,Hispanic/Latino,Own,None,No
+5,female,49,White (NH),Own,Several,No
+7,female,60,White (NH),Own,None,No
+5,female,49,Black,Own,None,No
+6,male,60,Hispanic/Latino,Rent,None,No
+4,female,38,Other,Rent,None,No
+7,female,22,Hispanic/Latino,Own,None,No
+8,female,46,White (NH),Own,None,Yes
+6,female,80,Hispanic/Latino,Own,None,No
+8,male,45,Black,Own,None,Yes
+8,male,24,White (NH),Own,None,Yes
+6,male,59,White (NH),Rent,None,Yes
+7,male,46,Asian,Own,None,No
+6,male,48,Black,Own,None,No
+7,female,51,White (NH),Rent,None,Yes
+6,female,38,White (NH),Own,None,No
+7,male,39,White (NH),Rent,None,No
+8,male,80,White (NH),Own,None,Yes
+6,female,39,Hispanic/Latino,Rent,None,No
+8,male,47,White (NH),Own,None,No
+6,female,27,White (NH),Rent,None,No
+6,male,42,White (NH),Own,None,No
+7,male,58,White (NH),Own,Several,No
+5,female,41,Black,Rent,None,No
+5,female,45,White (NH),Own,None,Yes
+4,male,56,White (NH),Own,Most,Yes
+6,male,41,White (NH),Own,None,Yes
+8,male,30,Hispanic/Latino,Rent,None,No
+6,male,36,White (NH),Own,None,Yes
+6,female,28,White (NH),Own,None,Yes
+6,male,61,Black,Own,Several,Yes
+8,female,56,Black,Own,None,No
+8,female,55,White (NH),Own,Most,Yes
+7,male,65,White (NH),Own,None,Yes
+8,female,23,White (NH),Rent,Several,No
+6,male,49,Black,Rent,Several,No
+5,male,42,Black,Other,None,Yes
+7,male,58,White (NH),Own,None,Yes
+5,female,39,White (NH),Rent,Several,No
+7,male,58,Hispanic/Latino,Rent,None,Yes
+6,male,29,White (NH),Rent,None,Yes
+9,male,38,Hispanic/Latino,Own,None,No
+8,female,61,White (NH),Own,None,Yes
+8,male,75,Black,Own,None,Yes
+7,male,80,White (NH),Own,None,Yes
+8,male,68,White (NH),Own,None,Yes
+7,female,61,White (NH),Own,None,No
+6,female,76,White (NH),Own,Several,Yes
+7,female,32,White (NH),Own,None,No
+3,male,31,White (NH),Rent,Most,Yes
+6,male,40,Hispanic/Latino,Rent,None,Yes
+6,male,76,Black,Own,Several,Yes
+5,female,60,Black,Rent,Several,No
+7,female,52,White (NH),Own,None,No
+7,female,48,White (NH),Own,None,Yes
+6,female,38,White (NH),Own,None,No
+5,male,31,Asian,Rent,None,Yes
+8,male,68,White (NH),Own,None,Yes
+7,male,55,White (NH),Own,None,No
+7,male,56,White (NH),Own,None,Yes
+8,female,53,White (NH),Own,None,No
+7,female,69,Hispanic/Latino,Own,None,No
+8,female,45,White (NH),Own,None,Yes
+4,male,49,White (NH),Rent,Several,Yes
+5,male,53,White (NH),Own,Most,No
+7,female,80,White (NH),Own,None,Yes
+7,female,57,White (NH),Own,None,Yes
+5,male,28,Hispanic/Latino,Rent,None,Yes
+6,female,58,Hispanic/Latino,Rent,Several,Yes
+6,female,72,White (NH),Own,Several,Yes
+8,male,59,White (NH),Rent,Several,Yes
+8,female,57,White (NH),Own,None,No
+6,female,64,Hispanic/Latino,Rent,None,No
+9,female,46,White (NH),Own,None,Yes
+7,male,25,White (NH),Own,Several,No
+7,female,29,White (NH),Rent,None,No
+7,female,37,White (NH),Own,None,Yes
+8,female,43,White (NH),Own,None,No
+8,female,26,Black,Own,None,Yes
+7,female,22,Hispanic/Latino,Rent,None,No
+6,female,50,White (NH),Own,None,No
+8,female,75,Black,Own,None,No
+7,female,45,White (NH),Own,None,No
+7,male,31,White (NH),Rent,None,No
+6,female,54,Other,Own,None,No
+8,female,58,Asian,Own,None,No
+6,male,36,White (NH),Own,None,No
+4,male,33,White (NH),Rent,Several,Yes
+6,female,30,Hispanic/Latino,Own,None,No
+8,female,50,White (NH),Own,Most,No
+8,female,64,White (NH),Own,None,No
+7,male,58,White (NH),Own,None,Yes
+7,female,27,White (NH),Rent,None,No
+8,male,62,White (NH),Own,None,Yes
+4,female,45,White (NH),Rent,None,Yes
+4,female,36,White (NH),Own,None,Yes
+6,female,30,White (NH),Own,None,No
+8,male,41,White (NH),Own,None,No
+6,male,21,Black,Rent,None,No
+8,female,80,White (NH),Own,None,No
+6,female,35,White (NH),Rent,None,Yes
+6,female,36,White (NH),Own,Several,Yes
+4,male,62,Black,Own,None,No
+3,male,39,Black,Rent,Several,Yes
+8,female,25,White (NH),Rent,None,No
+7,male,54,White (NH),Own,None,Yes
+6,male,27,White (NH),Rent,None,No
+4,male,32,Other,Rent,None,No
+6,female,44,Black,Own,None,No
+7,male,56,Black,Own,None,Yes
+7,male,22,Hispanic/Latino,Own,None,Yes
+8,female,77,White (NH),Own,None,No
+8,female,43,Hispanic/Latino,Own,None,No
+6,male,59,White (NH),Rent,Several,Yes
+6,female,49,White (NH),Rent,Several,No
+8,male,54,White (NH),Own,None,Yes
+7,male,69,White (NH),Rent,Several,Yes
+8,female,72,White (NH),Own,None,No
+7,female,65,White (NH),Own,None,No
+6,female,26,Hispanic/Latino,Rent,Several,No
+6,male,53,Asian,Rent,None,No
+6,male,51,White (NH),Own,None,No
+5,male,36,White (NH),Rent,None,Yes
+5,male,52,Black,Own,None,Yes
+7,female,41,Asian,Own,Several,No
+6,female,43,White (NH),Own,None,No
+6,female,56,White (NH),Own,None,No
+8,female,57,White (NH),Own,None,No
+8,male,44,White (NH),Own,Several,Yes
+5,male,54,White (NH),Own,None,No
+7,male,34,White (NH),Own,Several,No
+7,female,33,White (NH),Rent,None,No
+7,male,25,White (NH),Own,None,No
+6,male,45,White (NH),Own,None,No
+7,male,74,White (NH),Own,None,Yes
+8,female,23,White (NH),Rent,None,No
+7,male,26,White (NH),Rent,None,No
+7,male,48,White (NH),Own,None,No
+6,male,35,White (NH),Rent,None,No
+8,male,21,White (NH),Own,None,No
+6,female,50,White (NH),Own,None,No
+8,female,76,Other,Own,None,No
+5,female,47,White (NH),Own,Several,No
+7,female,65,White (NH),Own,None,No
+3,male,58,Black,Rent,None,Yes
+6,female,38,White (NH),Rent,None,Yes
+6,male,53,White (NH),Own,None,Yes
+3,female,70,Black,Rent,None,No
+6,male,42,Hispanic/Latino,Own,None,Yes
+9,female,21,White (NH),Own,Most,No
+8,male,76,Black,Own,None,No
+8,male,69,White (NH),Own,None,Yes
+10,female,60,White (NH),Own,Several,Yes
+5,male,34,White (NH),Own,None,Yes
+6,female,34,White (NH),Rent,None,No
+7,female,43,Hispanic/Latino,Rent,None,No
+6,female,69,Black,Own,None,No
+6,female,50,Hispanic/Latino,Rent,Several,No
+8,male,28,Other,Rent,Most,No
+6,female,21,Other,Own,Most,Yes
+8,female,21,Black,Own,None,Yes
+8,female,56,Hispanic/Latino,Rent,Most,No
+5,female,38,White (NH),Rent,None,Yes
+7,male,53,White (NH),Own,None,No
+5,male,55,Black,Rent,None,Yes
+7,male,76,White (NH),Own,None,Yes
+5,female,20,Hispanic/Latino,Rent,None,No
+7,male,50,White (NH),Own,None,No
+8,female,58,Asian,Own,None,No
+9,male,50,Black,Own,Several,No
+5,female,23,Hispanic/Latino,Rent,None,No
+8,female,59,White (NH),Own,None,Yes
+8,female,54,White (NH),Own,None,No
+8,female,26,White (NH),Rent,Several,Yes
+6,female,66,White (NH),Own,None,Yes
+7,female,37,White (NH),Own,None,No
+8,female,80,White (NH),Other,None,Yes
+5,female,68,White (NH),Rent,Most,No
+8,male,25,Hispanic/Latino,Own,Several,No
+8,female,59,White (NH),Own,Several,Yes
+5,male,50,Black,Own,None,No
+7,female,57,White (NH),Own,None,No
+8,female,78,White (NH),Own,None,No
+10,male,23,Hispanic/Latino,Rent,None,No
+7,female,24,White (NH),Rent,None,Yes
+7,female,48,White (NH),Own,None,Yes
+6,male,28,Asian,Rent,None,Yes
+10,female,80,White (NH),Own,Several,Yes
+7,female,63,White (NH),Own,None,No
+4,male,29,Asian,Rent,Several,Yes
+7,male,37,Black,Rent,None,No
+6,female,46,White (NH),Own,None,Yes
+8,male,36,White (NH),Own,None,Yes
+8,female,47,White (NH),Own,None,Yes
+8,female,22,Hispanic/Latino,Rent,None,Yes
+8,male,76,White (NH),Own,None,Yes
+7,male,52,Hispanic/Latino,Own,None,No
+7,female,62,White (NH),Own,None,Yes
+4,female,24,White (NH),Own,None,No
+9,female,24,White (NH),Rent,Several,Yes
+8,female,39,Hispanic/Latino,Rent,Several,No
+8,female,23,White (NH),Rent,None,No
+9,male,65,White (NH),Own,None,Yes
+6,male,29,White (NH),Rent,None,Yes
+9,male,69,White (NH),Own,None,No
+8,female,57,White (NH),Own,None,Yes
+6,male,58,White (NH),Own,None,No
+8,female,20,White (NH),Other,None,No
+5,female,57,Black,Own,None,No
+7,female,33,Black,Rent,Most,Yes
+5,male,62,Hispanic/Latino,Rent,Several,Yes
+6,female,69,White (NH),Own,Several,Yes
+6,male,47,White (NH),Rent,None,No
+8,male,64,White (NH),Own,None,Yes
+9,female,80,White (NH),Own,None,No
+8,female,79,White (NH),Own,None,Yes
+7,male,34,White (NH),Own,None,Yes
+4,male,46,White (NH),Rent,Most,Yes
+7,female,51,White (NH),Own,None,Yes
+7,female,64,White (NH),Own,Several,Yes
+4,male,43,Other,Rent,None,Yes
+8,male,75,White (NH),Own,None,Yes
+12,female,33,White (NH),Rent,None,No
+7,female,22,White (NH),Rent,Several,Yes
+6,female,76,White (NH),Own,Several,Yes
+6,female,66,White (NH),Own,None,Yes
+6,male,65,Black,Own,None,Yes
+9,female,55,White (NH),Own,Several,Yes
+4,male,24,Hispanic/Latino,Rent,Most,No
+9,female,27,White (NH),Own,None,No
+5,male,40,White (NH),Own,None,Yes
+7,female,23,Asian,Own,None,No
+8,female,27,White (NH),Own,None,Yes
+7,male,40,White (NH),Rent,None,Yes
+9,female,68,White (NH),Own,None,Yes
+9,female,25,White (NH),Rent,Several,No
+6,male,21,White (NH),Rent,None,Yes
+7,male,43,White (NH),Other,Several,No
+7,female,70,White (NH),Own,None,Yes
+9,male,38,Hispanic/Latino,Own,None,No
+8,female,68,White (NH),Own,Several,Yes
+6,female,29,Asian,Rent,None,No
+7,female,73,White (NH),Own,Most,Yes
+6,female,54,White (NH),Own,None,Yes
+8,male,35,Black,Rent,None,No
+7,female,80,White (NH),Rent,None,No
+8,male,65,White (NH),Own,None,No
+5,male,63,White (NH),Own,None,No
+7,male,21,Hispanic/Latino,Own,None,No
+8,female,65,White (NH),Own,None,No
+9,male,20,Hispanic/Latino,Rent,None,Yes
+7,male,39,White (NH),Own,None,No
+6,male,55,White (NH),Rent,None,Yes
+8,female,48,Hispanic/Latino,Rent,Several,No
+6,female,69,White (NH),Own,Several,Yes
+7,male,28,White (NH),Own,None,No
+6,female,48,Hispanic/Latino,Own,None,Yes
+8,male,60,White (NH),Own,Several,No
+6,female,45,White (NH),Rent,None,Yes
+6,male,47,Asian,Rent,None,No
+6,male,60,White (NH),Own,None,No
+9,male,70,White (NH),Own,None,Yes
+8,male,80,Other,Rent,None,Yes
+7,male,50,White (NH),Own,None,No
+6,female,40,Hispanic/Latino,Rent,Most,No
+7,female,47,White (NH),Own,None,No
+6,female,22,White (NH),Rent,None,No
+7,male,54,White (NH),Own,None,Yes
+7,male,64,White (NH),Own,None,Yes
+8,male,40,White (NH),Rent,None,Yes
+8,male,59,White (NH),Rent,Several,Yes
+9,male,21,Hispanic/Latino,Rent,None,Yes
+8,male,76,White (NH),Own,None,Yes
+5,female,23,Black,Own,None,No
+8,female,39,White (NH),Own,None,Yes
+6,female,55,White (NH),Rent,Several,No
+4,female,23,Black,Own,Most,No
+8,female,43,White (NH),Own,None,No

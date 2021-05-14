@@ -404,16 +404,16 @@ country_totals = toyimports %>%
 Now we can look at the top trading partners:
 
 ```{r}
-head(country_totals, 5)
+head(country_totals)
 ```
 
-So the U.S.'s top 3 toy-trading partners were China, Denmark, and Canada.  Let's encode that information in a list:
+So the U.S.'s top 3 toy-trading partners were China, Denmark, and Canada.  Let's encode that information in a list, taking taking to use the precise values reflected in the `parter_name` column of the table above:
 
 ```{r}
-top_3_partner_names = c('China', 'Denmark', 'Canada')
+top3_partner_names = c('China', 'Denmark', 'Canada')
 ```
 
-Here `c` means "combine", and it's how we create a list^[Technically it's a vector, if you want to get specific about R's internal data structures.] of multiple elements.  This list of names will be useful when we turn to our second main task: plotting toy imports over time for each categories, separately for each of these three trading partners.  
+Here `c` means "combine", and it's how we create a list^[Technically it's a vector, if you want to get specific about R's internal data structures.] of multiple elements.  This list of names will be useful when we turn to our second main task: plotting toy imports over time for each categories, separately for each of these three top trading partners.  
 
 This second main task also breaks down into sub-tasks:
 
@@ -425,14 +425,14 @@ Here's how to translate this into R code, as well as the top 6 lines of the data
 
 ```{r, message=FALSE}
 top3_byyear = toyimports %>%
-  filter(partner_name %in% top_3_partner_names) %>%
-  group_by(partner_name, year) %>%
+  filter(partner_name %in% top3_partner_names) %>%
+  group_by(year, partner_name) %>%
   summarize(yearly_dollar_value = sum(US_report_import))
 
 head(top3_byyear)
 ```
 
-Now we can make our line graph.  We'll color in each line according to trading partner:  
+Now we can make our line graph of `yearly_dollar_value` versus `year`.  We'll color in each line according to trading partner, like this:  
 
 ```{r}
 ggplot(top3_byyear) +  
@@ -467,28 +467,67 @@ ggplot(top3_byyear) +
 
 And we're done!  Now we can compare across countries, as well as examine change over time within countries.
 
-<!-- # Let's look at three countries -->
-<!-- country_list = c('China', 'Korea, Rep.', 'United Kingdom') -->
 
-<!-- combined_toys = toyimports %>% -->
-<!--   filter(partner_name %in% country_list) %>% -->
-<!--   group_by(year, partner_name) %>% -->
-<!--   summarize(toys = sum(US_report_import)) -->
+## Summary shortcuts
 
-<!-- combined_toys -->
+Having covered several examples of complex summaries, we'll finish off this section at the opposite end of the difficulty spectrum: with some shortcuts for calculating simple summaries "on the fly," in a single line of code.  We'll also revisit these shortcuts in our section on statistical inference---specifically, in the upcoming lesson on [The bootstrap].  
 
+For these shortcuts to work, you'll need the `mosaic` library loaded:
 
-<!-- # Plot all three as line graphs -->
-<!-- ggplot(combined_toys) +  -->
-<!--   geom_line(aes(x=year, y=toys, color=partner_name)) + -->
-<!--   scale_x_continuous(breaks = 1996:2005) -->
+```{r, message=FALSE}
+library(mosaic)
+```
 
-<!-- # this plot fails because the three time series are on a -->
-<!-- # a very different scale. -->
-<!-- # The solution: a logarithmic scale for the y axis -->
-<!-- ggplot(combined_toys) +  -->
-<!--   geom_line(aes(x=year, y=toys, color=partner_name)) + -->
-<!--   scale_x_continuous(breaks = 1996:2005) + -->
-<!--   scale_y_log10() -->
-<!-- ``` -->
+Here are the basic shortcuts, illustrated on the `titanic` data.  To calculate the mean of a variable, you can use `mean` directly, like this:
 
+```{r}
+mean(~age, data=titanic)
+```
+
+This statement computes the mean value of the `age` variable for everyone in the `titanic` data set.  Don't forget the tilde (`~`) in front of `age`.
+
+You can also calculate a mean stratified by some other grouping variable, like this:  
+```{r}
+mean(age ~ sex, data=titanic)
+```
+
+This tells us the mean of the `age` variable for males and females separately.  Of if all you care about is the _difference_ between means, you can use `diffmean`:  
+```{r}
+diffmean(age ~ sex, data=titanic)
+```
+
+This tells us that the average age among males is about 1.9 years older than among females.  (`diffmean` only works if the grouping variable on the right-hand side of the tilde has exactly two levels.)
+
+The same type of shortcut works for proportions, too, using `prop`.  For example, here's the overall proportion of those who died on the Titanic (i.e. where `survived == "no"`):
+
+```{r}
+prop(~survived, data=titanic)
+```
+
+Here is that same proportion stratified by sex:  
+```{r}
+prop(survived ~ sex, data=titanic)
+```
+
+And here is the difference of those two proportions, using `diffprop`:
+
+```{r}
+diffprop(survived ~ sex, data=titanic)
+```
+
+This tells us that the survival rate among females was about 55% higher than among males.  
+
+The following summaries all have shortcut forms that follow the same basic logic:
+
+- `median`
+- `range`, `sd`, and `IQR` for measuring dispersion
+- `max` and `min`  
+- `favstats` for a collection of multiple summary statistics  
+
+I particularly like the `favstats` shortcut.  For example:
+
+```{r}
+favstats(age ~ sex, data=titanic)
+```
+
+Of course, these shortcuts aren't nearly as flexible as the full set of data verbs covered above, in that they don't let us `filter`, `mutate`, etc.  Nor do they let us compute any old summary statistic we might care about.   But they are useful for quick data exploration, when simple summaries often do the trick.

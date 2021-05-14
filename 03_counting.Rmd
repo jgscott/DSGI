@@ -226,7 +226,7 @@ So having specified that we want to condition on the `lollapalooza` variable, no
 And that second number is just the answer we were going for.   
 
 
-## Study questions {#study_tables}
+## Study questions {-}
 
 1. Use the "aclfest.csv" data set to answer the following questions.  
 

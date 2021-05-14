@@ -3,3 +3,5 @@ language:
   ui:
     chapter_name: "Lesson "
 delete_merged_file: true
+always_allow_html: true
+

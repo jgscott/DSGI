@@ -1,0 +1,68 @@
+residence,twobed_rent,twobed_sf,furnished,pool,distance_from_tower,laundry_in_unit,electricity,water,address,y_coordinate,x_coordinate
+21 Pearl,1010,777,0,0,0.6,1,0,0,"Pearl St & W 21st St Austin, TX 78705",30.284144,-97.746625
+21 Rio,1149,975,0,1,0.5,1,0,0,"2101 Rio Grande St Austin, TX 78705",30.284301,-97.744734
+2400 Nueces,1250,802,1,1,0.3,1,1,1,"2400 Nueces St Austin, TX 78705",30.288384,-97.743433
+26 West,1084,1014,1,1,0.5,1,0,0,"600 W 26th St Austin, TX 78705",30.290752,-97.743495
+900 West,900,837,0,0,0.7,0,0,0,"900 W. 23rd Austin, TX 78705",30.287504,-97.746903
+Axis West Campus,1189,1024,1,1,0.6,1,0,0,"2505 Longview St Austin, TX 78705",30.290161,-97.750456
+Block on 23rd,1074,994,0,0,0.5,1,0,0,"2222 Pearl St Austin, TX 78705",30.286889,-97.746721
+Block on 25th East,1004,820,0,1,0.5,1,0,0,"702 W 25th St Austin, TX 78705",30.289533,-97.745933
+Block on 25th West,1049,934,0,0,0.6,1,0,0,"2501 Pearl St Austin, TX 78705",30.289689,-97.74638
+Block on 28th,1024,1066,0,0,0.7,0,1,0,"701 W 28th St Austin, TX 78705",30.293237,-97.744641
+Block on Leon,939,956,0,0,0.8,0,1,0,"2510 Leon St Austin, TX 78705",30.290306,-97.749522
+Block on Pearl North & South,1044,864,0,0,0.5,1,0,0,"2200 Pearl St Austin, TX 78705",30.285636,-97.746721
+Block on Rio,964,1000,0,1,0.8,0,1,0,"2819 Rio Grande St Austin, TX 78705",30.295078,-97.743792
+Buena Vista Condominiums,1750,893,0,0,0.6,1,0,0,"1908 San Antonio St Austin, TX 78705",30.282871,-97.743495
+Camino Flats,750,800,0,1,0.8,0,0,1,"2810 Salado St Austin, TX 78705",30.294398,-97.745447
+Centennial Condominiums ,995,1211,0,1,0.4,1,0,1,"501 W 26th St Austin, TX 78705",30.290012,-97.742392
+Cornerstone Condominiums,850,750,0,0,0.4,1,0,1,"2308 Rio Grande St Austin, TX 78705",30.287612,-97.745108
+Crest at Pearl,1249,1077,1,1,0.6,1,0,0,"706 W Martin Luther King Jr Blvd Austin, TX 78705",30.283432,-97.746126
+Croix Condominiums,997,947,0,1,0.4,1,0,0,"806 W 24th St Austin, TX 78705",30.288377,-97.745983
+Delphi,875,756,0,0,0.4,0,0,0,"706 W 24th St Austin, TX 78705",30.288543,-97.745508
+Diplomat West Campus,747.5,800,0,0,0.7,0,0,0,"1911 San Gabriel St Austin, TX 78705",30.28449,-97.747909
+Escala at San Gabriel,800,997,0,1,0.8,0,0,0,"1000 W 26th St Austin, TX 78705",30.291229,-97.747848
+Galileo at 25th Condominiums,900,1143,0,1,0.6,1,0,0,"910 W 25th St Austin, TX 78705",30.289655,-97.74731
+Georgian Condominiums,947.5,943,0,0,0.6,1,0,0,"1000 W. 25th St Austin, TX 78705",30.289716,-97.747962
+GrandMarc,1245,1010,1,1,0.4,1,0,0,"510 W 26th St Austin, TX 78705",30.291002,-97.742307
+Landmark Square Condominiums,850,843,0,0,0.5,0,0,0,"706 W 22nd St Austin, TX 78705",30.285627,-97.745723
+Lantana,725,846,0,1,0.7,0,0,0,"1802 West Ave Austin, TX 78705",30.282048,-97.746805
+Lenox Condominiums,980,944,0,1,0.6,0,0,0,"915 W 23rd St Austin, TX 78705",30.287023,-97.747484
+Leon Condominiums,847.5,950,0,0,0.7,0,0,0,"2405 Leon St Austin, TX 78705",30.288835,-97.749034
+Lonestar Lofts,875,820,0,1,0.7,1,0,0,"2408 Leon St Austin, TX 78705",30.289037,-97.749776
+Orange Tree,975,1000,0,1,0.5,1,0,1,"2529 Rio Grande St Austin, TX 78705",30.290385,-97.743934
+Parapet Condominiums,862,876,0,0,0.7,1,1,1,"2801 Rio Grande St Austin, TX 78705",30.293716,-97.743728
+Piazza Navona,1150,803,0,0,0.6,1,0,0,"711 W 26th St Austin, TX 78705",30.290433,-97.745872
+Pointe on Rio,1238,1031,0,1,0.6,1,0,0,"1901 Rio Grande St Austin, TX 78705",30.282855,-97.744898
+Preservation Square Condominiums,800,899,0,1,0.6,1,0,0,"904 W 21st St Austin, TX 78705",30.28491,-97.747251
+Quarters Cameron,1005,836,0,0,0.7,1,0,0,"2707 Rio Grande St Austin, TX 78705",30.292434,-97.743835
+Quarters Grayson,1049,969,0,0,0.5,1,0,0,"714 W 22nd St Austin, TX 78705",30.285666,-97.746211
+Quarters Montgomery,1005,836,0,0,0.6,1,1,0,"2700 Nueces St Austin, TX 78705",30.292285,-97.743325
+Quarters Nueces,1140,882,0,1,0.3,1,0,0,"2300 Nueces St Austin, TX 78705",30.28708,-97.74396
+Quarters Sterling,1005,836,0,0,0.5,1,0,0,"709 W 22nd St Austin, TX 78705",30.285076,-97.746339
+Regents West on 24th,1335,1122,0,0,0.6,1,0,1,"2401 San Gabriel St Austin, TX 78705",30.288365,-97.747366
+Regents West on 26th,1210,1034,0,0,0.7,1,0,1,"900 W 26th St Austin, TX 78705",30.291156,-97.746508
+Rio West,1075,888,1,1,0.7,1,1,1,"2704 Rio Grande St Austin, TX 78705",30.292794,-97.744556
+Saint James Condominiums,775,910,0,0,0.8,1,0,1,"2811 Rio Grande St Austin, TX 78705",30.294235,-97.743665
+San Gabriel Square,825,1057,0,0,0.7,1,0,0,"2510 San Gabriel St Austin, TX 78705",30.290631,-97.747817
+San Pedro Oaks,712.5,790,0,1,0.8,0,0,0,"803 W 28th St Austin, TX 78705",30.293221,-97.745457
+Savannah Condominiums,825,783,0,0,0.7,0,0,0,"915 W 22 1/2 St Austin, TX 78705",30.286086,-97.747803
+St. Thomas Condominiums,875,900,0,0,0.5,1,0,0,"807 W 25th St Austin, TX 78705",30.289164,-97.746126
+Stoneleigh Condominiums,847.5,950,0,1,0.7,1,0,0,"2409 Leon St Austin, TX 78705",30.288998,-97.748927
+Texan 26,959,885,0,0,0.8,1,0,0,"1009 W 26th Street Austin, TX 78705",30.290653,-97.748227
+Texan Pearl,935,1000,0,0,0.6,1,0,0,"2515 Pearl St Austin, TX 78705",30.290494,-97.746125
+Texan Shoal Creek,947.5,1000,0,1,0.7,1,0,0,"2502 Leon St Austin, TX 78705",30.289858,-97.749522
+Texan Tower,950,1023,0,1,0.7,1,0,0,"2505 San Gabriel St Austin, TX 78705",30.289989,-97.747544
+Texan West Campus,949,808,0,1,0.7,1,0,0,"2616 Salado St Austin, TX 78705",30.292272,-97.745457
+The Ruckus,1300,973,1,0,0.4,1,0,0,"2502 Nueces St Austin, TX 78705",30.289619,-97.743347
+Twelve Oaks Condominiums,924,800,0,0,0.6,0,0,0,"704 W 21st St Austin, TX 78705",30.284432,-97.745872
+Twenty Two 15,1115,793,0,0,0.5,1,0,0,"2215 Rio Grande St Austin, TX 78705",30.286309,-97.744429
+University House,1229,797,1,1,0.3,1,0,1,"2100 San Antonio St Austin, TX 78705",30.284114,-97.743304
+Vanderbilt Condominiums,910,846,0,0,0.6,1,0,0,"912 W 22nd St Austin, TX 78705",30.285754,-97.747739
+Vintage West Campus,1134,900,0,0,0.6,1,1,1,"904 W 22 1/2 St Austin, TX 78705",30.286516,-97.746975
+Warwick Apartments,812.5,950,0,0,0.9,0,0,0,"2907 West Ave Austin, TX 78705",30.297253,-97.744492
+Waterford Condominiums,775,925,0,0,0.7,1,0,0,"2401 Leon St. Austin, TX 78705",30.288436,-97.748892
+Wedgewood Condominiums,847.5,948,0,0,0.6,0,0,0,"2802 Nueces St. Austin, TX 78705",30.293743,-97.742901
+West Ridge Condos,775,769,0,0,0.7,0,0,0,"914 W 26th St. Austin, TX 78705",30.291069,-97.74723
+Westplace,812.5,729,0,0,0.8,1,0,0,"2706 Salado St. Austin, TX 78705",30.292871,-97.745532
+Winchester Condominiums,800,710,0,1,0.8,0,0,0,"2414 Longview St. Austin, TX 78705",30.289396,-97.751301
+Wynnwood Condominiums,800,782,0,0,0.6,1,0,0,"711 W 21st St. Austin, TX 78705",30.283971,-97.746347

@@ -1,3 +1,5 @@
+# (PART\*) Part I: Data exploration {-}
+
 # Getting started in R
 
 In this very first lesson, you'll learn how to:  
