@@ -4,5 +4,26 @@
 knitr::opts_chunk$set(cache = T)
 ```
 
+Up to now, we've answered every question about statistical uncertainty by running a Monte Carlo simulation (of which the bootstrap is a special case).  This depends, obviously, on having a pretty fast computer.  So you might ask: what on earth did people do before there were computers fast enough to make this possible?  How did they ever measure their statistical uncertainty?  
 
+The answer is: people did __math.__  Lots and lots of math, spanning at least three centuries (18th to 20th).  And in this lesson, we're going to summarize what people learned from all that math.  
+
+#### Did someone say "math"? {-}
+
+If you enjoy math, feel free to skip this section.
+
+If, however, you don't enjoy math, you might have some concerns.  Let me try to address those concerns head-on, with an FAQ.
+
+(1) __"Is this math hard?"__  Much of it is accessible to anyone with a high-school math education, with some effort.  But yes, I personally think that [certain _other_ parts](https://www.cs.toronto.edu/~yuvalf/CLT.pdf) of this math are [pretty hard](https://shoichimidorikawa.github.io/Lec/ProbDistr/t-e.pdf).  Let's say that it's harder than a typical college course on differential equations, but not as hard as, for example, quantum mechanics.  Although if you're the kind of person who likes to compute [Fourier transforms](https://en.wikipedia.org/wiki/Characteristic_function_(probability_theory)) as a morning warm-up for the _real_ work you plan to do today on [Radon-Nikodym derivatives](https://en.wikipedia.org/wiki/Radon%E2%80%93Nikodym_theorem), you would no doubt find all of it pretty straightforward.
+
+(2) __"Holy smokes.  Am I going to have to learn do this math myself?"__ Emphatically not, unless you decide to take your studies a lot further than these lessons can carry you.  
+
+(3) __"Whew.  OK, so am I going to have to _understand_ this math?"__  It depends what you mean by "understand."  I _will_ summarize and expect you to understand the practical consequences of this math.  But I _will not_ ask you to actually stare at mathematical derivations and understand what's going on.  
+
+(4) __"Do I even need this math to do statistical inference today, when computers make Monte Carlo simulation so fast and straightforward?"__  On rare occasions, but usually not.  There are some really hard problems out there where the math helps, but for basically every data-science situation we consider in this book, you don't need any math at all.  All you need is a computer.  
+
+(5) __"Seriously?  So you're telling me we're going to talk about some hard math from the 18th and 19th centuries, rendered largely unnecessary by computers.  Why am I still here?"__  Let me congratulate you on your keen sense of opportunity cost.  That's such an excellent question that it deserves a much longer answer.  
+
+
+#### Why bother? {-}
 

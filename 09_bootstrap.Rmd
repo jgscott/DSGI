@@ -133,7 +133,18 @@ This is the core mechanism by which bootstrapping works: resampling creates synt
 And that's the basic idea:  
 
 - You're certain if your results are repeatable under different samples from the same random data-generating process.  
-- Bootstrapping lets you measure the repeatability of your results, by approximating the randomness of our data-generating process.  
+- Bootstrapping lets you measure the repeatability of your results, by approximating the process of sampling randomly from the wider population.  
+
+#### The core assumption of the bootstrap {-}
+
+The core assumption of the bootstrap is that the randomness in your data, and therefore the statistical uncertainty in your answer, arises from the process of sampling.  That is, the bootstrap implicitly assumes that your samples can be construed as random samples from some wider reference population.  While the bootstrap isn't explicitly designed for anything else, it's actually provides a pretty good approximation for _other_ common forms of randomness as well.^[This isn't a theorem or anything; it's just something I've noticed because I use the bootstrap a lot, and I therefore end up comparing it to more "bespoke" options in a bunch of different situations.  For the kinds of problems that we tend to look at in an intro data science course, it's a rare case that I notice much of a practical difference between the answer I get from the bootstrap and the answer I get from some other, more clever, more situation-specific technique for inference.]  These include:  
+
+- experimental randomization.  
+- measurement error.  
+- intrinsic variability of some natural process (e.g. your heart rate).  
+
+So while we'll motivate the bootstrap as an approximation to random sampling, we'll actually use it in a broader set of situations, where random sampling isn't necessarily the reason we face statistical uncertainty about our answers.^[There are varieties of the bootstrap designed for other forms of randomness, including the _parametric bootstrap_ and the _residual resampling_ bootstrap.  There's also a technique called the _randomization test_ or _permutation test_ that has a very bootstrap-like feel, and is explicitly designed to measure statistical uncertainty association with experimental randomization.]
+
 
 ## Bootstrapping summaries
 
@@ -626,13 +637,13 @@ sd(~SleepHrsNight, data=NHANES_sleep)
 
 So yes, there is a "statistically significant" relationship between age and sleep hours.  This relationship is, contrary to the short-term experience of new parents, actually positive.  On average, people sleep a bit more as they age.^[This is a tad misleading.  A more detailed look at the NHANES data shows a small average dip in average sleep time from from ages 20-50, and then a small rise from ages 50-80.  But the rise at the back end is a bit steeper than the dip at the front end, for a small net-positive average effect from ages 20-80.]    
 
-But only on average, and even then only a little bit!  Don't fall into the psycho-semantic trap of assuming that, just because some effect is labeled "statistically significant," it must therefore matter in the real world.  The age--sleep relationship in the NHANES data is a perfect example of an effect that is statistically significant, but that we're _nearly sure_, based on the confidence interval, must be so small that it hardly matters at all in practical terms.  (Again, that's my opinion; if 3.6 minutes of extra sleep is make-or-break for you, you're certainly free to disagree, but sadly you'll need to wait a decade for those future nights of bliss.)
+But only on average, and even then only a little bit!  Don't fall into the trap of assuming that, just because some effect is labeled "statistically significant," it must therefore matter in the real world.  It just isn't so.  The age--sleep relationship in the NHANES data is a perfect example of an effect that is statistically significant, but that we're _nearly sure_, based on the confidence interval, must be so small that it hardly matters at all in practical terms.  (Again, that's my opinion; if 3.6 minutes of extra sleep is make-or-break for you, you're certainly free to disagree, but sadly you'll need to wait a decade for those coming nights of somnolent bliss.)
 
 Now, don't get me wrong.  I'm not saying that statistical significance is an irrelevant concept.  Being able to speak the language of statistical significance is really important for communicating about data.  Rightly or wrongly, there are times and places where people just expect you to use the term, especially in certain allegedly rarefied academic contexts.  More to the point, there are _also_ cases, like in clinical trials of new drugs, where it actually is super important to know whether an effect is statistically significant ("Does this new drug actually work better than the old one?").
 
-But confidence intervals are _almost always_ more useful than claims about statistical significance.  My advice to you is to entertain the full range of values encompassed by the confidence interval, rather than jumping straight to the needlessly binary question of whether that confidence interval contains zero.
+But confidence intervals are _almost always_ more useful than claims about statistical significance.  My advice to you is to entertain the full range of values encompassed by the confidence interval, rather than jumping straight to the needlessly binary question of whether that confidence interval contains zero.  
 
-In fact, I'll tell you an ironic little secret.  People sometimes use the term "statistical significance" to sound fancy and scientific and credible.  It even works sometimes.  But to those who know better, focusing too much on statistical significance, at the expense of focusing on practical significance, instead comes across as a mark of insecurity or pseudo-seriousness about statistics.
+In fact, I'll tell you an ironic little secret.  Sometimes people use the term "statistical significance" to sound fancy and scientific and credible.  Sometimes it even works.  But to those who know better, focusing too much on statistical significance, at the expense of focusing on practical significance, instead comes across as a mark of insecurity or pseudo-seriousness about statistics.
 
 
 ```{r, echo=FALSE, out.width="100%"}
@@ -653,7 +664,7 @@ Moreover, there's also an unfortunate glory-hound phenomenon related to this who
 
 > Age nearly irrelevant in explaining sleep patterns, new study finds
 
-Paradoxically, both headlines are true.  But the first one is true only in a narrow pedantic sense.  It pulls a fundamentally dishonest trick; it expects that you'll read "significant" as meaning "having a large effect in the real world," rather than as "statistically significant at the 5% level."  Note that this probably _isn't_ a trick played by the journalist on the reader.  It's more likely to be a trick played by the study author on the world, on the assumption that the world doesn't know any better.
+Paradoxically, both headlines are true.  But the first one is true only in a narrow pedantic sense.  It pulls a fundamentally dishonest trick; it expects that you'll read "significant" as meaning "having a large effect in the real world," rather than as "statistically significant at the 5% level."  Note that this probably _isn't_ a trick played by the journalist on the reader.  It's more likely to be a trick played by the study authors on both themselves and the journalist, because none of them know any better.
 
 I hope you agree that the first headline is basically fake news.  But while the second headline may be non-fake, it is also, sadly, non-news---both to sleep researchers and to the general public.  Very few headlines of the form "Study finds no big deal" have ever been written, either in newspapers or academic journals.  You can therefore imagine which headline a journalist would rather write, and which study an academic would rather try to publish---maybe out of ignorance, maybe out of "[publish or perish](https://en.wikipedia.org/wiki/Publish_or_perish)" career insecurity, but _definitely_ to the detriment of public knowledge and trust in science.  
 
@@ -694,9 +705,9 @@ boot_distance = do(10000)*lm(twobed_rent ~ distance_from_tower, data=resample(ap
 confint(boot_distance, level = 0.95)
 ```
 
-So our 95% confidence interval ranges from about -\$840 per mile to about -\$420 per mile.  (The numbers are negative because increased distance implies lower price, on average.  Also, I feel free to round to the tens place because the confidence interval says the number isn't certain even to the hundreds place; further precision beyond the tens place is pointless).
+So our 95% confidence interval ranges from about -\$840 per mile to about -\$420 per mile.  (The numbers are negative because increased distance implies lower price, on average.  Also, I feel OK rounding to the tens place because the confidence interval says the number isn't certain even to the hundreds place; further precision beyond the tens place is pointless).
 
-This is an example of a relationship that is both _statistically_ significant (because the confidence interval doesn't contain zero) and _practically_ significant (because all the values in the confidence interval look large, in real-world terms).  To reason a bit more specifically about practical significance, lets assume 1 mile equals a 20-minute walk, and therefore 0.1 miles equals a 2-minute walk.  So to save 2 minutes each way in walking distance, you pay 0.1 $\times$ 630 = \$63 per month.  Or _maybe_, if this is an especially unlucky sample, you'd actually pay 0.1 $\times$ \$420 = \$42$ on average, across all apartments in the general population---but that's only on the very low end of the confidence interval.  No matter what, it seems like a big effect.  
+This is an example of a relationship that is both _statistically_ significant (because the confidence interval doesn't contain zero) and _practically_ significant (because all the values in the confidence interval look large, in real-world terms).  To reason a bit more specifically about practical significance, lets assume 1 mile equals a 20-minute walk, and therefore 0.1 miles equals a 2-minute walk.  So to save 2 minutes each way in walking distance, you'd expect to pay an extra 0.1 $\times$ 630 = \$63 per month for a two-bedroom West Campus apartment.  Or _maybe_, if this is an especially unlucky sample, you'd expect to pay 0.1 $\times$ \$420 = \$42 on average, across all apartments in the general population---but that's only on the very low end of the confidence interval.  No matter what, it seems like a big effect.  
 
 ## Bootstrapping usually, but not always, works  
 
@@ -712,7 +723,7 @@ confint(boot_sleep, level = 0.95)
 ## 1 mean 6.820191 6.937217  0.95 percentile 6.878955
 ```
 
-When I calculate this interval and declare, "I'm 95% confident that the average sleep time in America is between 6.82 and 6.94 hours per night," what reason do you have to believe me?  I'm sure you are a streetwise, highly experienced individual.  Your sniffer is sound.  Your compass is true. No doubt you've heard _many_ people state _many_ things with a high degree of self-professed confidence, despite being totally full of shit.  What, if anything, makes my self-professed confidence any different?  
+When I calculate this interval and state, "I'm 95% confident that the average sleep time in America is between 6.82 and 6.94 hours per night," what reason do you have to believe me?  I'm sure you are a streetwise, highly experienced individual.  Indeed, I've heard tell of your legend.  Your sniffer is sound.  Your compass is true.  On many occasions, you've heard someone make statements with a high degree of self-professed confidence, while you've known the whole time that they were totally full of shit.  What, if anything, makes _my_ statement, and _my_ self-professed confidence, any different?  
 
 ### What "confidence" means {-}  
 
@@ -849,7 +860,7 @@ This code draws 100 real samples of size 50 from the original data set.  Then fo
 - From that bootstrap sampling distribution of 1000 means, compute a confidence interval.  
 - Check whether the confidence interval contains the right answer of 47.28.  
 
-My code takes a minute or two to run even with 8 compute cores, but the result is 100 samples leading to 100 confidence intervals, about 95 of which should contain the truth.  To check, let's make a plot using `geom_errorbar`, which we haven't specifically learned about yet, but which is tailor-made for showing confidence intervals:  
+The code takes 10 or 15 seconds to run even with 8 compute cores, but the result is 100 samples leading to 100 confidence intervals, about 95 of which should contain the truth.  To check, let's make a plot using `geom_errorbar`, which we haven't specifically learned about yet, but which is tailor-made for showing confidence intervals:  
 
 ```{r bootstrap-coverage1, out.width="100%", fig.asp=0.5, fig.cap="The best self-diagnostic I know for assessing your understanding of the bootstrap."}
 ggplot(one_hundred_intervals) + 
@@ -921,7 +932,7 @@ Missed again!  We're 0 for 2.  What's going on?
 
 Let's more carefully verify that this isn't just bad luck, by repeating our exercise of simulating 100 separate samples and calculating a bootstrap confidence interval for each one.  Except instead of bootstrapping the _sample mean_, we'll bootstrap the _sample minimum._  
 
-Here's my modified code block to do just that.  I just copied and pasted from above, changing `mean` to `min`:    
+Here's my modified code block to do just that.  I basically just copied and pasted from above, changing `mean` to `min`:    
 
 ```{r, echo=FALSE, message=FALSE}
 set.rseed(20205685)
@@ -951,9 +962,9 @@ ggplot(another_one_hundred_intervals) +
   theme(legend.position="bottom")
 ```
 
-Holy cow.  Of our 100 different 95% bootstrap confidence intervals, _just one_ of them actually contained the true value of -19 F.  That's not bad luck.  That's just a legitimately poor track record.  What's gone wrong?  
+Holy cow.  Of our 100 different 95% bootstrap confidence intervals, _just one_ of them actually contained the true value of -19 F.  That's not just bad luck.  Something has gone horribly wrong.  But what?  
 
-[What's wrong is that the lowest temperature in a sample of 50 days is a __really bad estimate__ for the lowest temperature we expect to see over a 16-year (or 5,844 day) period.  The only way your sample minimum can ever equal the population minimum is if, by sheer dumb luck, you _just happen to sample_ the very coldest day overall.  With a sample size of 50, and a population size of 5,844, the chances that this happens are about 1 in 117.  For the other 116 out of 117 samples, the sample minimum is _necessarily_ larger than the population minimum.  No matter how many times you bootstrap that sample, you are never going to hit -19 F, and your confidence interval will fail to contain the true population minimum.  So compared with the population minimum, the sample minimum exhibits a massive, fundamental asymmetry: it's _never_ too low, it's _almost always_ too high, and _very rarely_ it's exactly right.  This asymmetric behavior is quite different from that of the sample mean: half the time the sample mean is too low and half the time it's too high, so that on average it's about right.]{.spoiler}
+[What's wrong is that the lowest temperature in a sample of 50 days is a __really naive estimate__ for the lowest temperature we expect to see over a 16-year (or 5,844 day) period.  The only way your sample minimum can ever equal the population minimum is if, by sheer dumb luck, you _just happen to sample_ the very coldest day overall.  With a sample size of 50, and a population size of 5,844, the chances that this happens are about 1 in 117.  For the other 116 out of 117 samples, the sample minimum is _necessarily_ larger than the population minimum.  No matter how many times you bootstrap such a sample, you are _never_ going to hit -19 F, and your confidence interval will fail to contain the true population minimum.  So as an estimator of the population minimum, the sample minimum exhibits a massive, fundamental asymmetry: it's _never_ too low, it's _nearly always_ too high, and _very rarely_ it's exactly right.  This asymmetric behavior is quite different from that of the sample mean: half the time the sample mean is too low and half the time it's too high, so that on average it's about right.]{.spoiler}
 
 The moral of the story is: the bootstrap doesn't always work.  In particular, it doesn't work for the min (or max) of a sample!  
 
@@ -964,7 +975,7 @@ So we've seen one example where the bootstrap works great, and another example w
 
 In turns out that our second example, where we tried to bootstrap the sample minimum to get a confidence interval for the population minimum, is a bit pathological.  That is to say: it's not representative of most common data-science situations.
 
-In fact, it turns out that you can successfully bootstrap most common summary statistics most of the time, assuming your observations can plausibly be interpreted as independent samples from some larger reference population.  By "safely," I mean that you can quote bootstrap confidence intervals in the knowledge that you're likely to cover the true value the stated percentage of the time.  These "safe" statistics include almost all the stuff we've been calculating in these lessons so far:  
+In fact, you can successfully bootstrap most common summary statistics most of the time, assuming your observations can plausibly be interpreted as independent samples from some larger reference population.  By "safely," I mean that you can quote bootstrap confidence intervals in the knowledge that you're likely to cover the true value the stated percentage of the time.  These "safe" statistics include almost all the stuff we've been calculating in these lessons so far:  
 
 - means and medians  
 - standard deviations and inter-quartile ranges   
@@ -975,15 +986,15 @@ In fact, it turns out that you can successfully bootstrap most common summary st
 
 I recognize that the phrase "most common summary statistics most of the time" contains not just one but two weasel words in it.  That's because it's hard to give generic, non-weasely advice about the bootstrap, and about statistical inference more generally, without the discussion veering off into some very deep, very scratchy mathematical weeds.   All I'll say about the math is that our [best people](https://www.routledge.com/An-Introduction-to-the-Bootstrap/Efron-Tibshirani/p/book/9780412042317) are [working on it](https://www.cambridge.org/asia/catalogue/catalogue.asp?isbn=9780521574716).  
 
-However, I can give you some examples of where the bootstrap breaks, and where you therefore need more advanced inference techniques not covered in these lessons.  These include the following situations:  
+However, I can give you some other examples of where the bootstrap breaks, and where you therefore need more advanced inference techniques not covered in these lessons.  These include the following situations:  
 
 - your sample is very small, say less than 20 or maybe 30.      
-- you want to estimate the extreme quantiles of a distribution (of which the min and max are the most extreme possible).    
+- you want to estimate the extreme quantiles of a distribution (of which the min and max are the most extreme possible, as you've seen).    
 - your data points are highly correlated cross space or time.  
 - you're fitting a very fancy machine-learning model, with a cool name like "lasso" or "deep neural network."  
 - the underlying population distribution is very heavy-tailed.  
 
-Honestly, this is the kind of stuff you learn about in a more advanced statistics course.  Your best best in these cases is to actually take such a course, or else to work with a professional statistician.  Of course, if you'd like to dig in more yourself, the following book has a chapter (Ch.9) devoted to "When Bootstrapping Fails Along with Remedies for Failures":
+Honestly, this is the kind of stuff you'd learn about in a more advanced statistics course.  Your best best in these cases is to actually take such a course, or else to work with a professional statistician.  Of course, if you'd like to dig in more yourself, the following book has a chapter (Ch.9) devoted to "When Bootstrapping Fails Along with Remedies for Failures":
 
 >M. R. Chernick, Bootstrap methods: A guide for practitioners and researchers, 2nd ed. Hoboken N.J.: Wiley-Interscience, 2008.
 

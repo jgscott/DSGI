@@ -1,5 +1,9 @@
 # Data wrangling
 
+```{r, echo=FALSE, set.seed(19820518)}
+knitr::opts_chunk$set(cache = T)
+```
+
 __Data wrangling__ refers to the process of getting your data into a useful form for visualization, summary, and modeling.  Wrangling is an important part of data science, because data rarely comes in _precisely_ the form that suits some particular analysis.  For example, you might want to focus only on specific rows or columns of your data, or calculate summary statistics only for specific subgroups.   Maybe you want to create a new variable derived from existing ones.  Or else you just want to sort the rows according to some variable, to make a table a little easier to read.  All of these tasks involve wrangling your data.  
 
 Luckily, R---or more specifically, the `tidyverse` library---comes equipped with several handy data verbs that streamline these wrangling tasks.   In this lesson, you'll learn to:  
@@ -134,6 +138,7 @@ head(rapidcity2009)
 We can use any of the following logical tests in our `filter` statements:  
 
 - `==` for exact equality, e.g. `Month == 3` for March.  Note that if our variable is a text string, we need to surround it with quotation marks.  So if the months were encoded using English names rather than letters, we'd need `Month == "March"` instead.  You'll see examples of this soon.  
+- `!=` for "is not equal to."  
 - `<` and `<=` for "less than" and "less than or equal to," respectively.  For example, `Temp <= 50` will include only those days where the `Temp` variable is less than or equal to 50 degrees.  Similarly, `>` and `>=` mean "greater than" and "greater than or equal to," respectively.  
 - `|` for "or" statements.  E.g. `Month == 1 | Month == 2` will get you all rows from January and February across all years.  
 - `&` for "and" statements.  E.g. `Month == 1 & Year == 2009` will get you all rows specifically from January 2009.   
