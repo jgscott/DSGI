@@ -4,26 +4,72 @@
 knitr::opts_chunk$set(cache = T)
 ```
 
-Up to now, we've answered every question about statistical uncertainty by running a Monte Carlo simulation (of which the bootstrap is a special case).  This depends, obviously, on having a pretty fast computer.  So you might ask: what on earth did people do before there were computers fast enough to make this possible?  How did they ever measure their statistical uncertainty?  
+Up to now, we've answered every question about statistical uncertainty by running a Monte Carlo simulation, of which the bootstrap is a special case.  This depends, obviously, on having a pretty fast computer, so that we can `do()` things repeatedly and not wait too long.  So you might ask: what on earth did people do before there were computers fast enough to make this possible?  How did they ever measure their statistical uncertainty?  
 
 The answer is: people did __math.__  Lots and lots of math, spanning at least three centuries (18th to 20th).  And in this lesson, we're going to summarize what people learned from all that math.  
 
+
 #### Did someone say "math"? {-}
 
-If you enjoy math, feel free to skip this section.
+If you enjoy math, feel free to skip this section.  But if you don't enjoy math, you might have some concerns.  Let me try to address those concerns head-on, with the following FAQ.
 
-If, however, you don't enjoy math, you might have some concerns.  Let me try to address those concerns head-on, with an FAQ.
+(1) __"Is this math hard?"__  Some of it is accessible to anyone with a high-school math education, and that's the part that gets taught in a high-school AP Statistics course.  But yes, [certain _other_ parts](https://www.cs.toronto.edu/~yuvalf/CLT.pdf) of this [math](http://cameron.econ.ucdavis.edu/e240a/asymptotic.pdf) actually are pretty hard.  And if you don't dig into this math, there will _always_ be parts of the high-school version seem [mystifying.](https://shoichimidorikawa.github.io/Lec/ProbDistr/t-e.pdf)  I'd say that overall, this math is harder than a college course on differential equations, but not as hard as, for example, a PhD course on quantum mechanics.^[For those that know this math, I'm thinking of, for example, the proof of the Central Limit Theorem involving characteristic functions, or the proof of the asymptotic normality of the OLS estimator.]   <!-- Although if you're the kind of person who likes to compute [Fourier transforms](https://en.wikipedia.org/wiki/Characteristic_function_(probability_theory)) as a morning warm-up for the _real_ work you plan to do today on [Radon-Nikodym derivatives](https://en.wikipedia.org/wiki/Radon%E2%80%93Nikodym_theorem), you would no doubt find all of it pretty straightforward. --> 
 
-(1) __"Is this math hard?"__  Much of it is accessible to anyone with a high-school math education, with some effort.  But yes, I personally think that [certain _other_ parts](https://www.cs.toronto.edu/~yuvalf/CLT.pdf) of this math are [pretty hard](https://shoichimidorikawa.github.io/Lec/ProbDistr/t-e.pdf).  Let's say that it's harder than a typical college course on differential equations, but not as hard as, for example, quantum mechanics.  Although if you're the kind of person who likes to compute [Fourier transforms](https://en.wikipedia.org/wiki/Characteristic_function_(probability_theory)) as a morning warm-up for the _real_ work you plan to do today on [Radon-Nikodym derivatives](https://en.wikipedia.org/wiki/Radon%E2%80%93Nikodym_theorem), you would no doubt find all of it pretty straightforward.
 
-(2) __"Holy smokes.  Am I going to have to learn do this math myself?"__ Emphatically not, unless you decide to take your studies a lot further than these lessons can carry you.  
+(2) __"Holy smokes.  That sounds terrifying.  Am I going to have to learn do this math myself?"__ Emphatically not, unless you decide to take your studies a lot further than these lessons can carry you.  
 
-(3) __"Whew.  OK, so am I going to have to _understand_ this math?"__  It depends what you mean by "understand."  I _will_ summarize and expect you to understand the practical consequences of this math.  But I _will not_ ask you to actually stare at mathematical derivations and understand what's going on.  
+(3) __"Whew.  OK, so am I going to have to _understand_ this math?"__  It depends what you mean by "understand."   I _will not_ ask you to actually stare at mathematical derivations and understand what's going on.  I _will_ summarize the practical consequences of this math and ask that you understand them.  
 
-(4) __"Do I even need this math to do statistical inference today, when computers make Monte Carlo simulation so fast and straightforward?"__  On rare occasions, but usually not.  There are some really hard problems out there where the math helps, but for basically every data-science situation we consider in this book, you don't need any math at all.  All you need is a computer.  
+(4) __"Do I even need this math to do statistical inference?"__  Usually not, at least for the problems we consider in this book.  Remember, not every data-science situation you'll encounter even requires statistical inference at all.  (See "[The truth about statistical uncertainty].") And when statistical inference _is_ required, you typically don't need any math at all---just what we've learned so far (mainly the bootstrap).    
 
-(5) __"Seriously?  So you're telling me we're going to talk about some hard math from the 18th and 19th centuries, rendered largely unnecessary by computers.  Why am I still here?"__  Let me congratulate you on your keen sense of opportunity cost.  That's such an excellent question that it deserves a much longer answer.  
+(5) __"Seriously?  So you're telling me we're going to talk about some hard math from a long time ago, rendered largely unnecessary by computers.  Why am I still here?"__  Let me congratulate you on your keen sense of the opportunity cost of your time.  (I wish you were in charge of most meetings I attend.)  Yours is such an excellent question that it deserves a much longer answer.  
 
 
 #### Why bother? {-}
+
+There's one overwhelmingly important reason why it's important, even for beginners, to understand this historically older, more mathematical approach to statistical inference: _because a lot of people out there still use it._  
+
+Why, you ask, do they still use this older approach?  (I mean, haven't they read my FAQ?!)  I suppose that's an interesting question, but it's a question for another day.  The fact is, folks _do_ use this older approach.  And when they communicate their results to you, using terms like "z test" or "t test," they'll expect you to understand them.  As a basic matter of statistical literacy, it is important that you do.
+
+And you will!  If you understood the lesson on "[The bootstrap]", these people describing their "z tests" or "t tests" won't be talking about anything fundamentally unfamiliar to you, despite their exotic vocabulary.  In fact, you stand a decent chance of understanding what they're saying better than they understand it themselves.  It does take a bit of time and effort to learn a few new terms for a few old ideas (hence this lesson), but at the end of the day, everyone's just talking about [Sampling distributions].  
+
+To convince you of this, let me show you the following table.  In the left column are a bunch of phrases associated with the older, more mathematical way of approaching statistical inference.  In the right column are some corresponding translations.  If you understand what the right column is referring to, you're going to find this lesson a breeze.  It'll be just like memorizing how to say "please," "thank you," and "where's the bathroom?" in the local language of a foreign country you're about to visit.  
+
+
+<br>
+
+Table: (\#tab:translation-table) How to translate between two different approaches to statistical inference.
+
+| If someone uses a...  | That's basically the same thing as...|
+|:-------------------|:--------------------------------------|
+| One-sample t-test (or z-test)  | Bootstrapping a sample mean, making a confidence interval, and possibly checking whether that confidence interval includes some specific value (usually 0).        |
+| One-sample test of proportion  | Bootstrapping a proportion, making a confidence interval, and possibly checking whether that confidence interval includes some specific value (usually 0.5).                                     |
+| Two-sample t-test (or z-test)       | Bootstrapping the difference in means between two groups (`diffmean`), making a confidence interval for the difference, and possibly checking whether that confidence interval contains zero.    |
+| Two-sample test of proportions | Bootstrapping the difference in proportions between two groups (`diffprop`), making a confidence interval for the difference, and possibly checking whether that confidence interval contains 0. |
+| Regression summary table       | Bootstrapping a regression model (`lm`), making confidence intervals for the regression coefficients, and possibly checking whether those confidence intervals contain zero.    |
+
+<br>
+
+The rest of this lesson is about understanding Table \@ref(tab:translation-table).  
+
+Let me also add a few other reasons why you'd actually _want_ to understand this table, quite apart from the practical need to know what other people are talking about when they use the terms in the left column.  
+
+(1) __It's a time-saver.__  Hey, life is short.  I don't know about you, but sometimes I get bored waiting for my computer to `do()` something 10,000 times in order to produce a confidence interval.  It turns out that, if you understand the correspondences in the table above, you can get a nearly identical confidence interval in no time at all, without actually bootstrapping.  This is pretty cool if you're just exploring a data set and want a quick answer, without having to twiddle your thumbs while R is thinking.  
+
+(2) __It works on bigger data sets.__  A related problem is that for some very large data sets, bootstrapping might take _so_ much time that it's no longer just a question of boredom, but of whether you'll get an answer _at all_ within some reasonable time frame.  
+
+(3) __It offers insight.__  Specifically, the math behind Table \@ref(tab:translation-table) helps you understand a very fundamental relationship between sample size and statistical uncertainty, called _de Moivre's equation_.  Knowing this relationship protects you against all kinds of unfortunate logical errors.  
+
+(4) __It prepares you to do more.__  If you decide to pursue further studies in statistics and data science, eventually you will encounter the limits of the bootstrapping approach, and you'll need to rely on some math.  Of course, preparing you to take more statistics classes isn't my primary goal in these lessons.   But it's a nice side benefit.  
+
+Let's dive right in.  
+
+## de Moivre's equation
+
+The oldest and most fundamental piece of the mathematical puzzle here is something called _de Moivre's equation._  
+
+## The Central Limit Theorem  
+
+
+## Beyond de Moivre
 
