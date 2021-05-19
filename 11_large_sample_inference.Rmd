@@ -13,7 +13,7 @@ The answer is: people did __math.__  Lots and lots of math, spanning at least th
 
 If you enjoy math, feel free to skip this section.  But if you don't enjoy math, you might have some concerns.  Let me try to address those concerns head-on, with the following FAQ.
 
-(1) __"Is this math hard?"__  Some of it is accessible to anyone with a high-school math education, and that's the part that gets taught in a high-school AP Statistics course.  But yes, [certain _other_ parts](https://www.cs.toronto.edu/~yuvalf/CLT.pdf) of this [math](http://cameron.econ.ucdavis.edu/e240a/asymptotic.pdf) actually are pretty hard.  And if you don't dig into this math, there will _always_ be parts of the high-school version seem [mystifying.](https://shoichimidorikawa.github.io/Lec/ProbDistr/t-e.pdf)  I'd say that overall, this math is harder than a college course on differential equations, but not as hard as, for example, a PhD course on quantum mechanics.^[For those that know this math, I'm thinking of, for example, the proof of the Central Limit Theorem involving characteristic functions, or the proof of the asymptotic normality of the OLS estimator.]   <!-- Although if you're the kind of person who likes to compute [Fourier transforms](https://en.wikipedia.org/wiki/Characteristic_function_(probability_theory)) as a morning warm-up for the _real_ work you plan to do today on [Radon-Nikodym derivatives](https://en.wikipedia.org/wiki/Radon%E2%80%93Nikodym_theorem), you would no doubt find all of it pretty straightforward. --> 
+(1) __"Is this math hard?"__  Some of it is accessible to anyone with a high-school math education, and that's the part that gets taught in a high-school AP Statistics course.  But yes, [certain _other_ parts](https://www.cs.toronto.edu/~yuvalf/CLT.pdf) of this [math](http://cameron.econ.ucdavis.edu/e240a/asymptotic.pdf) actually are pretty hard.  And if you don't dig into this math, there will _always_ be parts of the high-school version that seem [mystifying.](https://shoichimidorikawa.github.io/Lec/ProbDistr/t-e.pdf)  I'd say that overall, this math is harder than a college course on differential equations, but not as hard as, for example, a PhD course on quantum mechanics.^[For those that know this math, I'm thinking of, for example, the proof of the Central Limit Theorem involving characteristic functions, or the proof of the asymptotic normality of the OLS estimator.]
 
 
 (2) __"Holy smokes.  That sounds terrifying.  Am I going to have to learn do this math myself?"__ Emphatically not, unless you decide to take your studies a lot further than these lessons can carry you.  
@@ -29,9 +29,9 @@ If you enjoy math, feel free to skip this section.  But if you don't enjoy math,
 
 There's one overwhelmingly important reason why it's important, even for beginners, to understand this historically older, more mathematical approach to statistical inference: _because a lot of people out there still use it._  
 
-Why, you ask, do they still use this older approach?  (I mean, haven't they read my FAQ?!)  I suppose that's an interesting question, but it's a question for another day.  The fact is, folks _do_ use this older approach.  And when they communicate their results to you, using terms like "z test" or "t test," they'll expect you to understand them.  As a basic matter of statistical literacy, it is important that you do.
+Why, you ask, do they still use this older approach?  (I mean, haven't they read my FAQ?!)  I suppose that's an interesting question, but it's a question for another day.  The fact is, folks _do_ use this older approach.  And when they communicate their results to you, using terms like "z test" or "t interval," they'll expect you to understand them.  As a basic matter of statistical literacy, it is important that you do.
 
-And you will!  If you understood the lesson on "[The bootstrap]", these people describing their "z tests" or "t tests" won't be talking about anything fundamentally unfamiliar to you, despite their exotic vocabulary.  In fact, you stand a decent chance of understanding what they're saying better than they understand it themselves.  It does take a bit of time and effort to learn a few new terms for a few old ideas (hence this lesson), but at the end of the day, everyone's just talking about [Sampling distributions].  
+And you will!  If you understood the lesson on "[The bootstrap]", these folks describing their "z test" or "t interval" won't be talking about anything fundamentally unfamiliar to you, despite their exotic vocabulary.  In fact, you stand a decent chance of understanding what they're saying better than they understand it themselves.  It does take a bit of time and effort to learn a few new terms for a few old ideas (hence this lesson), but at the end of the day, everyone's just talking about [Sampling distributions].  
 
 To convince you of this, let me show you the following table.  In the left column are a bunch of phrases associated with the older, more mathematical way of approaching statistical inference.  In the right column are some corresponding translations.  If you understand what the right column is referring to, you're going to find this lesson a breeze.  It'll be just like memorizing how to say "please," "thank you," and "where's the bathroom?" in the local language of a foreign country you're about to visit.  
 
@@ -42,8 +42,8 @@ Table: (\#tab:translation-table) How to translate between two different approach
 
 | If someone uses a...  | That's basically the same thing as...|
 |:-------------------|:--------------------------------------|
-| One-sample t-test (or z-test)  | Bootstrapping a sample mean, making a confidence interval, and possibly checking whether that confidence interval includes some specific value (usually 0).        |
-| One-sample test of proportion  | Bootstrapping a proportion, making a confidence interval, and possibly checking whether that confidence interval includes some specific value (usually 0.5).                                     |
+| one-sample t-test (or "t inverval")  | Bootstrapping a sample mean, making a confidence interval, and possibly checking whether that confidence interval includes some specific value (like 0).        |
+| one-sample test of proportion (or "z interval")  | Bootstrapping a proportion, making a confidence interval, and possibly checking whether that confidence interval includes some specific value (like 0.5).                                     |
 | Two-sample t-test (or z-test)       | Bootstrapping the difference in means between two groups (`diffmean`), making a confidence interval for the difference, and possibly checking whether that confidence interval contains zero.    |
 | Two-sample test of proportions | Bootstrapping the difference in proportions between two groups (`diffprop`), making a confidence interval for the difference, and possibly checking whether that confidence interval contains 0. |
 | Regression summary table       | Bootstrapping a regression model (`lm`), making confidence intervals for the regression coefficients, and possibly checking whether those confidence intervals contain zero.    |
@@ -52,24 +52,295 @@ Table: (\#tab:translation-table) How to translate between two different approach
 
 The rest of this lesson is about understanding Table \@ref(tab:translation-table).  
 
-Let me also add a few other reasons why you'd actually _want_ to understand this table, quite apart from the practical need to know what other people are talking about when they use the terms in the left column.  
+Let me also add four other reasons why you'd actually _want_ to understand this table, quite apart from the practical need to understand what other people are talking about when they use the terms in the left column.  
 
-(1) __It's a time-saver.__  Hey, life is short.  I don't know about you, but sometimes I get bored waiting for my computer to `do()` something 10,000 times in order to produce a confidence interval.  It turns out that, if you understand the correspondences in the table above, you can get a nearly identical confidence interval in no time at all, without actually bootstrapping.  This is pretty cool if you're just exploring a data set and want a quick answer, without having to twiddle your thumbs while R is thinking.  
+(1) __It's a time-saver.__  Hey, life is short.  I don't know about you, but sometimes I get bored waiting for my computer to `do()` something 10,000 times in order to produce a confidence interval.  It turns out that, if you understand the correspondences in the table above, you can get a perfectly fine confidence interval in no time at all, without actually bootstrapping.  This is pretty useful, especially if you're just exploring a data set and want a quick answer without having to twiddle your thumbs while R is thinking.  
 
 (2) __It works on bigger data sets.__  A related problem is that for some very large data sets, bootstrapping might take _so_ much time that it's no longer just a question of boredom, but of whether you'll get an answer _at all_ within some reasonable time frame.  
 
-(3) __It offers insight.__  Specifically, the math behind Table \@ref(tab:translation-table) helps you understand a very fundamental relationship between sample size and statistical uncertainty, called _de Moivre's equation_.  Knowing this relationship protects you against all kinds of unfortunate logical errors.  
+(3) __It offers insight.__  To give one example: the math behind Table \@ref(tab:translation-table) helps you understand a very fundamental relationship between sample size and statistical uncertainty, called _de Moivre's equation_.  Knowing this relationship protects you against all kinds of unfortunate logical errors, and we'll talk about some of these below.  
 
-(4) __It prepares you to do more.__  If you decide to pursue further studies in statistics and data science, eventually you will encounter the limits of the bootstrapping approach, and you'll need to rely on some math.  Of course, preparing you to take more statistics classes isn't my primary goal in these lessons.   But it's a nice side benefit.  
+(4) __It prepares you to do more.__  We've already talked about how [Bootstrapping usually, but not always, works].  If you decide to pursue further studies---in statistics, machine learning, data science, ecology, economics, or any number of fields---eventually you will encounter the limits of the bootstrapping approach, and you'll need to rely on some math (or, at the very least, on the results of some other people's math).   This lesson will give you the proper foundation to understand what's going on if and when that happens.  Of course, my primary goal here is to teach you some practical data-science skills, not to run you through some mathematical boot camp for advanced studies in statistics.  Future-proofing your stats education is mainly just a nice side benefit.  
 
 Let's dive right in.  
 
-## de Moivre's equation
-
-The oldest and most fundamental piece of the mathematical puzzle here is something called _de Moivre's equation._  
 
 ## The Central Limit Theorem  
 
+The first piece of the mathematical puzzle here is something called the Central Limit Theorem.  It provides a formal mathematical description of a phenomenon that you may have noticed yourself: that all sampling distributions basically look the same.
 
-## Beyond de Moivre
+To dramatize this point, here's a cut-and-paste montage of nine different sampling distributions from eight different problems we've seen so far in these lessons:
+
+```{r bunch-of-sampling-distributions, echo=FALSE, out.width="100%", fig.cap="Nine sampling distributions that all look pretty much the same."}
+knitr::include_graphics("images/bunch_of_sampling_distributions.png")
+```
+
+I mean, just look at them.  Without getting out your magnifying class to actually inspect the scale of the $x$ axis in each plot, can you tell the difference between the sampling distributions?  I sure can't.  They all look the same!  More to the point, they all basically look like this:
+
+<br>
+
+```{r, echo=FALSE, out.width="100%", fig.align = 'center'}
+knitr::include_graphics("images/normal_cartoon.png")
+```
+
+<br>
+
+Distributions that look like this have a name: we call them __normal distributions__ (or colloquially, "bell curves"). We describe a normal distribution using two numbers: 
+
+- the mean $\mu$, which determines where the peak of the distribution is centered.  
+- the standard deviation $\sigma$, which determines how spread out the distribution is.  
+
+Normal distributions can be tall and skinny, short and broad, or anywhere in between, depending on the value of $\sigma$.  They can also be centered anywhere, depending on the value of $\mu$.  There are infinitely many combinations of $\mu$ and $\sigma$, and so there are infinitely many possible normal distributions.  Here are three examples:  
+
+<!-- ``` -->
+<!-- curve(dnorm(x, 0, 1), n= 10001, from=-10, to = 10, -->
+<!--       xlab='', ylab='', axes=FALSE, ylim=c(0, 0.8)) -->
+<!-- curve(dnorm(x, 2, 3), n= 10001, add=TRUE, col='red') -->
+<!-- curve(dnorm(x, -3, 0.5), n= 10001, add=TRUE, col='blue') -->
+<!-- axis(1, at = seq(-10, 10, by=1), cex.axis=0.8) -->
+<!-- ``` -->
+
+
+```{r, echo=FALSE, out.width="100%", fig.align = 'center'}
+knitr::include_graphics("images/normal_examples.png")
+```
+
+
+And now to come to the point: there's a famous result in mathematics, called the Central Limit Theorem, which states that your eyes are not deceiving when you examine Figure \@ref(fig:bunch-of-sampling-distributions) and conclude that all sampling distributions look basically the same.  
+
+```{theorem, name = "Central Limit Theorem, simplified version"}
+Sampling distributions based on averages of independent samples basically all look the same: like a normal distribution.  They only differ in where their peaks are centered ($\mu$) and how spread out they are ($\sigma$).  
+```
+
+<br>
+
+
+
+The requirement that $N$ be "sufficiently large" is what gives this lesson (and this whole approach to statistics) its name: __large-sample inference.__  The basic idea behind all this math is that, by studying what happens when we collect lots of data, we can learn some things that allow us to make inferential statements that hold __approximately__ across a wide variety of situations, even if we don't necessarily have lots of data ourselves.  
+
+You might notice two weasel words in this simplified version of the Central Limit Theorem: "sufficiently large" and "well approximated."  What, precisely, do those mean?  Alas, it's hard to say without going into some very detailed math, specifically something called the [Berry--Esseen theorem](https://en.wikipedia.org/wiki/Berry%E2%80%93Esseen_theorem).  But here's a rough guideline: if the population you're sampling from isn't too skewed or crazy looking, then 30 samples is generally "sufficiently large."
+
+
+
+## de Moivre's equation
+
+The second piece of the mathematical puzzle here is something called __de Moivre's equation__, also known as the "square root rule."^[To be clear, this is not the same thing as de Moivre's [formula for complex exponentials.](https://en.wikipedia.org/wiki/De_Moivre%27s_formula)]   You'll recall that the Central Limit Theorem tells us that, with enough samples, the distribution of an average looks approximately normal; de Moivre's equation tells us precisely how _wide_ that normal distribution will be.  
+
+This equation was discovered by a Swiss mathematician named [Abraham de Moivre](https://en.wikipedia.org/wiki/Abraham_de_Moivre) in 1730.  In my opinion, it represents one of the most under-rated triumphs of human reasoning in history.  Most educated people, for example, have heard of Einstein's equation: $e = mc^2$.  De Moivre's equation is just as profound; it represents an equally universally truth, and is equally useful for making accurate scientific predictions.  Yet very few people outside statistics and data science know it. 
+
+De Moivre's equation concerns a situation we've considered before: where we take an average of many samples, and we want to understand [how much statistical uncertainty we have about that average](#bootstrap-sample-mean).  Specifically, the equation establishes an inverse relationship between the statistical uncertainty of the sample average and the square root of the sample size.  It goes like this:
+
+$$
+\mbox{Statistical uncertainty of an average} = \frac{\mbox{Variability of a single measurement}}{\sqrt{\mbox{Sample size}}}
+$$
+
+Data scientists usually use the Greek letter $\sigma$ (sigma) to denote the variability of a single measurement, and the letter N to denote the sample size.  Also, you should remember our more technical term for the statistical uncertainty of an average: the "standard error."  This terminology allows us to express de Moivre's equation a little more compactly:
+
+$$
+\mbox{Standard error of the mean} = \frac{\sigma}{\sqrt{N}} 
+$$
+
+This equation looks simple, but its consequences are profound.
+
+First, de Moivre's equation places a fundamental limit on how fast we can learn about something subject to statistical fluctuations.  Naively, you might think that statistical uncertainty goes down in proportion to how much data you have, i.e. your sample size.  But de Moivre's equation tells us otherwise: it tells us that statistical uncertainty goes down in proportion to the __square root__ of your sample size.  So, for example:
+
+- if you collect 4 times as much data as you had before, you're not 4 times as certain as you were before: de Moivre's equation says that your standard error will go down by a factor of $1/\sqrt{4} = 1/2$.  That is, you'll have half as much uncertainty as you had before.
+- if you collect 100 times as much data as you had before, you're not 100 times as certain as you were before: de Moivre's equation says that your standard error will go down by a factor of $1/\sqrt{100} = 1/10$.  That is, you'll have 10% as much uncertainty as you had before.  
+
+Second,...
+
+```{theorem, name = "Central Limit Theorem, more precise version"}
+Suppose we take $N$ independent samples from some wider population, and we compute the average of the samples, denoted $\bar{X}_N$.  If $N$ is sufficiently large, then the statistical fluctuations in $\bar{X}_N$ can be well approximated by a normal distribution.  This is true regardless of the shape of the original population distribution.  
+```
+
+
+### Example 1: sleep, revisited  {-}
+
+```{r, echo=FALSE, message=FALSE}
+NHANES_sleep = read.csv('data/NHANES_sleep.csv', header=T)
+```
+
+Let's see an example with some actual numbers attached, by revisiting the [NHANES_sleep](data/NHANES_sleep.csv) data we saw in the lesson on bootstrapping.   Please import this data set into RStudio, and then load the `tidyverse` and `mosaic` libraries:
+
+```{r, message=FALSE}
+library(tidyverse)
+library(mosaic)
+```
+
+You'll recall that, in our original analysis of this data, we looked at Americans' average number of sleep hours per night, based on the following distribution of results from the NHANES survey:  
+
+```{r, eval=FALSE}
+ggplot(NHANES_sleep) + 
+  geom_histogram(aes(x = SleepHrsNight), binwidth=1)
+```
+
+```{r, echo=FALSE}
+ggplot(NHANES_sleep) + 
+  geom_histogram(aes(x = SleepHrsNight), binwidth=1) + 
+  scale_x_continuous(breaks=1:13)
+```
+
+We took the mean of this data distribution, and we found that on average, Americans sleep 6.88 hours per night.  
+
+```{r}
+mean(~SleepHrsNight, data=NHANES_sleep)
+```
+
+Now let's turn to the question of statistical uncertainty.  de Moivre's equation makes a specific mathematical prediction: it says that the standard error of this sample mean is equal to the standard deviation of a single measurement ($\sigma$), divided by the square root of the sample size.  So as long as you know $N$ and can calculate $\sigma$ from the data, we can use de Moivre's equation to quantify our statistical uncertainty, all without ever running the bootstrap---which, of course, de Moivre couldn't feasibly do, since he sadly had never encountered a computer.  
+
+Let's churn through the math.  Our sample size $N$ is...
+
+```{r}
+nrow(NHANES_sleep)
+```
+
+...1,991 survey respondents.  And we estimate that standard deviation $\sigma$ of the `SleepHrsNight` variable is:
+
+```{r}
+sd(~SleepHrsNight, data=NHANES_sleep)
+```
+
+... about 1.32 hours.  Therefore de Moivre's equation says that the standard error of our sample mean should be...
+
+```{r}
+1.32/sqrt(1991)
+```
+
+...about 0.0296 hours.
+
+Remember, this number represents a specific mathematical prediction for the statistical uncertainty of the sample mean---that is, the typical error of the mean across many repeated samples.  Let's compare this prediction with the standard error we get when we bootstrap:  
+
+```{r, echo=FALSE, message=FALSE}
+options(`mosaic:parallelMessage` = FALSE)
+```
+
+```{r, message=FALSE}
+boot_sleep = do(10000)*mean(~SleepHrsNight, data=resample(NHANES_sleep))
+
+# calculate bootstrapped standard error
+boot_sleep %>%
+  summarize(std_err_sleep = sd(mean))
+```
+
+About 0.0295.  Clearly the answer from de Moivre's equation was really, really similar.  In fact, here's $\pm$ 1 bootstrap standard error to either side of the sample mean,  superimposed on the bootstrap sampling distribution:
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", fig.asp=0.7}
+ggplot(boot_sleep) + 
+  geom_histogram(aes(x=mean)) + 
+  geom_vline(xintercept=c(6.878955 - 0.0296, 6.878955 + 0.0296), color='red', size=2)
+```
+
+And here's $\pm$ 1 standard error calculated from de Moivre's equation, superimposed on the same sampling distribution:
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", fig.asp=0.7}
+ggplot(boot_sleep) + 
+  geom_histogram(aes(x=mean)) + 
+  geom_vline(xintercept=c(6.878955 - 0.0295, 6.878955 + 0.0295), color='blue', size=2)
+```
+
+I don't know about you but I definitely can't tell the difference.  
+
+In this particular case, it is both trivial and fast to compute a bootstrapped standard error.  However, I hope you think it's at least somewhat cool that de Moivre could have used his equation back in 1730 to tell you what bootstrap standard error you could expect to get 300 years later, with your fancy modern computer.  
+
+
+### Example 2: cheese {-}
+
+
+Let's see a second example, using the [data on weekly cheese sales](data/kroger.csv) across 68 weeks at 11 different Kroger grocery stores that we examined back in the lesson on [Plots].  
+
+```{r, echo=FALSE, message=FALSE}
+kroger = read.csv('data/kroger.csv')
+```
+
+We'll start by filtering down this data set to consider only sales for the Dallas store: 
+
+```{r}
+kroger_dfw = filter(kroger, city == 'Dallas')
+```
+
+Here's a quick histogram of the data distribution for the `vol` variable, representing weekly sales of [American cheese](https://www.google.com/search?q=kraft+singles&hl=en&tbm=isch):
+
+```{r, message=FALSE}
+ggplot(kroger_dfw) + 
+  geom_histogram(aes(x=vol))
+```
+
+For the Dallas store, it looks like the mean weekly sales volume is...
+
+```{r}
+# mean for the sample...
+mean(~vol, data=kroger_dfw)
+```
+
+... about 4356 packages of cheese.
+
+But what about statistical uncertainty?  Weekly sales of pretty much any consumer good are an inherently variable thing, even such a staple product as American cheese.  Maybe a couple weeks were a bit colder than average, depressing demand for patio fare like nachos.  Or maybe the Dallas area had a big power outage one week, implying that nobody could microwave any cheese.  These things happen.  And what if this particular store had a weekly target of 4500 packages?  Does this data imply that they're really, truly under-performing that target, or might they have been the victim of some unlucky weekly fluctuations?
+
+Let's use de Moivre's equation to calculate the standard error of this sample mean.  Our sample size is...
+
+```{r}
+nrow(kroger_dfw)
+```
+
+...61 weeks.  And our sample standard deviation is...
+
+```{r}
+sd(~vol, data=kroger_dfw)
+```
+
+... about 2354.  So de Moivre's equation is that our standard error is $\sigma/\sqrt{n}$, or:
+
+```{r}
+2353.645/sqrt(61)
+```
+
+...about 300 packages of cheese.  Let's compare this with our bootstrapped standard error, which is...
+
+```{r, echo=FALSE, message=FALSE}
+options(`mosaic:parallelMessage` = FALSE)
+```
+
+```{r, message=FALSE}
+boot_cheese = do(10000)*mean(~vol, data=resample(kroger_dfw))
+
+# calculate bootstrapped standard error
+boot_cheese %>%
+  summarize(std_err_vol = sd(mean))
+```
+
+... about 300.  Again, that's nearly identical to the answer from de Moivre's equation.  For reference, here's $\pm$ 1 bootstrap standard error to either side of the sample mean, superimposed on the sampling distribution:  
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", fig.asp=0.7}
+ggplot(boot_cheese) + 
+  geom_histogram(aes(x=mean)) + 
+  geom_vline(xintercept=c(4356.508 - 301.3534, 4356.508 + 301.3534), color='red', size=2)
+```
+
+And here's $\pm$ 1 standard error calculated from de Moivre's equation, superimposed on the same sampling distribution:
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", fig.asp=0.7}
+ggplot(boot_cheese) + 
+  geom_histogram(aes(x=mean)) + 
+  geom_vline(xintercept=c(4356.508 - 298.181, 4356.508 + 298.181), color='blue', size=2)
+```
+
+Again, pretty hard to tell apart.  No matter which standard error we use, it's totally plausible that the _real_ long run average sales figure for this store exceeds its hypothetical target of 4500 weekly units, and that the low sample mean just reflects natural variation.  This is a good example of where our statistical uncertainty comes not from sampling (like in a political poll), but rather from the intrinsic variability of some phenomenon---in this case, the economic and culinary phenomenon of how much cheese the people of Dallas happen to want to buy in any given week.  
+
+de Moivre presumably never encountered American cheese.  I like to think that, being Swiss, he would have appreciated its similarity, at least in nacho-cheese form, to fondue.  (Although being _French_-Swiss, he might instead have found it [bizarre](https://www.youtube.com/watch?v=8xjfdGErgUc&ab_channel=BuzzFeedVideo)).  Either way, his equation is pretty good for describing statistical uncertainty surrounding American cheese sales.  
+
+
+
+## Beyond de Moivre de Moivre's equation
+
+### Differences of means
+
+### Proportions
+
+### Differences of proportions
+
+### Regression coefficients
+
+
+
+## Misunderstanding de Moivre's equation
 

@@ -169,7 +169,7 @@ The first five lines of the data file look like this.
 head(NHANES_sleep, 5) 
 ```
 
-### Example 1: sample mean {-}
+### Example 1: sample mean {.unnumbered #bootstrap-sample-mean}  
 
 The first question we'll address is: how well are Americans sleeping, on average?  Our first pass here might be to plot the data distribution for the `SleepHrsNight` variable in a histogram:
 
@@ -215,6 +215,12 @@ I don't know about you, but my reaction to that number is that 3 minutes seems l
 But of course, that error of 3 minutes, or 0.05 hours, was based on just a single bootstrap sample.  Was 3 minutes a _typical_ sampling error?  Or might it instead have been an abnormally small (or abnormally large) sampling error?
 
 Let's run 10,000 bootstrap samples to find out.  It turns out that we can do this in a single line of R code that combines `do` with `resample`.  (Remember `do` from our prior lesson on [Sampling distributions].)  The following line might take ten seconds or so to execute on your machine, so be patient:
+
+
+
+```{r, echo=FALSE, message=FALSE}
+options(`mosaic:parallelMessage` = FALSE)
+```
 
 ```{r}
 boot_sleep = do(10000)*mean(~SleepHrsNight, data=resample(NHANES_sleep))

@@ -195,7 +195,7 @@ head(sim_cancer)
 
 Let's now visualize the distribution.  Remember that our observed test statistic was 47 cancer cases. Can we eyeball how much of the distribution is 47 or larger?
 
-```{r}
+```{r, sim-cancer-pvalue}
 ggplot(sim_cancer) + 
   geom_histogram(aes(x=nflip), binwidth=1)
 ```

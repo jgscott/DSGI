@@ -243,7 +243,7 @@ So we've seen in Figure \@ref(fig:dessert-sampling-distribution) that our sample
 
 You could certainly just eyeball the histogram in Figure \@ref(fig:dessert-sampling-distribution) and almost surely end up saying something intelligent: for example, that about 2/3 of all samples look within 5% of the right answer, or the vast majority (at least 9 out of 10) look within 10% of the right answer.   But the most common way of providing a quantitative answer to this question is to quote the standard deviation of the sampling distribution.  In fact, this number is so special that statisticians have given it a special name: the _standard error_.  
 
-```{definition}
+```{definition, name="standard error", label="standarderror"}
 The standard deviation of a sampling distribution is called the __standard error__.  This reflects the typical magnitude of error of a statistical summary, compared with the expected or average value of that summary under repeated sampling.
 ```  
 
