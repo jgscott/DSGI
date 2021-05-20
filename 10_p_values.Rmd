@@ -75,7 +75,7 @@ options(`mosaic:parallelMessage` = FALSE)
 patriots_sim = do(10000)*nflip(25)
 ```
 
-The object we created, `patriots_sim`, is a data frame with a single column, called nflip.  Each entry represents the number of "H" outcomes (i.e. notional Patriots wins) in a single simulate of 25 coin flips:  
+The object we created, `patriots_sim`, is a data frame with a single column, called nflip.  Each entry represents the number of "H" outcomes (i.e. notional Patriots wins) in a single simulation of 25 coin flips:  
 
 ```{r}
 head(patriots_sim)

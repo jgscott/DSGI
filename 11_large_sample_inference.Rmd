@@ -20,7 +20,7 @@ If you enjoy math, feel free to skip this section.  But if you don't enjoy math,
 
 (3) __"Whew.  OK, so am I going to have to _understand_ this math?"__  It depends what you mean by "understand."   I _will not_ ask you to actually stare at mathematical derivations and understand what's going on.  I _will_ summarize the practical consequences of this math and ask that you understand them.  
 
-(4) __"Do I even need this math to do statistical inference?"__  Usually not, at least for the problems we consider in this book.  Remember, not every data-science situation you'll encounter even requires statistical inference at all.  (See "[The truth about statistical uncertainty].") And when statistical inference _is_ required, you typically don't need any math at all---just what we've learned so far (mainly the bootstrap).    
+(4) __"Do I even need this math to do statistical inference?"__  Usually not, at least for the problems we consider in this book.  Remember, not every data-science situation you'll encounter even requires statistical inference.  (See "[The truth about statistical uncertainty].") And when statistical inference _is_ required, you typically don't need any math at all---just what we've learned so far (mainly the bootstrap).    
 
 (5) __"Seriously?  So you're telling me we're going to talk about some hard math from a long time ago, rendered largely unnecessary by computers.  Why am I still here?"__  Let me congratulate you on your keen sense of the opportunity cost of your time.  (I wish you were in charge of most meetings I attend.)  Yours is such an excellent question that it deserves a much longer answer.  
 
@@ -60,14 +60,16 @@ Let me also add four other reasons why you'd actually _want_ to understand this 
 
 (3) __It offers insight.__  To give one example: the math behind Table \@ref(tab:translation-table) helps you understand a very fundamental relationship between sample size and statistical uncertainty, called _de Moivre's equation_.  Knowing this relationship protects you against all kinds of unfortunate logical errors, and we'll talk about some of these below.  
 
-(4) __It prepares you to do more.__  We've already talked about how [Bootstrapping usually, but not always, works].  If you decide to pursue further studies---in statistics, machine learning, data science, ecology, economics, or any number of fields---eventually you will encounter the limits of the bootstrapping approach, and you'll need to rely on some math (or, at the very least, on the results of some other people's math).   This lesson will give you the proper foundation to understand what's going on if and when that happens.  Of course, my primary goal here is to teach you some practical data-science skills, not to run you through some mathematical boot camp for advanced studies in statistics.  Future-proofing your stats education is mainly just a nice side benefit.  
+(4) __It prepares you to do more.__  We've already talked about how [Bootstrapping usually, but not always, works].  If you decide to pursue further studies---in statistics, machine learning, computer science, economics, or any number of fields---eventually you will encounter the limits of the simple bootstrapping approach, and you'll need to rely on some math (or, at the very least, on the results of some other people's math).   This lesson will give you the proper foundation to understand what's going on if and when that happens.  Of course, my primary goal here is to teach you some practical data-science skills, not to run you through some mathematical boot camp for advanced studies in statistics.  Future-proofing your stats education is mainly just a nice side benefit.  
 
 Let's dive right in.  
 
 
 ## The Central Limit Theorem  
 
-The first piece of the mathematical puzzle here is something called the Central Limit Theorem.  It provides a formal mathematical description of a phenomenon that you may have noticed yourself: that all sampling distributions basically look the same.
+### The normal distribution {-}
+
+The first piece of the mathematical puzzle here is something called the normal distribution.  It helps us give a formal mathematical description of a phenomenon that you may have noticed yourself: that all sampling distributions basically look the same.
 
 To dramatize this point, here's a cut-and-paste montage of nine different sampling distributions from eight different problems we've seen so far in these lessons:
 
@@ -75,7 +77,7 @@ To dramatize this point, here's a cut-and-paste montage of nine different sampli
 knitr::include_graphics("images/bunch_of_sampling_distributions.png")
 ```
 
-I mean, just look at them.  Without getting out your magnifying class to actually inspect the scale of the $x$ axis in each plot, can you tell the difference between the sampling distributions?  I sure can't.  They all look the same!  More to the point, they all basically look like this:
+I mean, just look at them.  It's like that famous first line of _Anna Karenina_, where all happy families are the same.  Without getting out your magnifying glass to inspect the scale of the $x$ axis in each plot, can you tell the difference between these sampling distributions?  I sure can't.  They all look the same!  More to the point, they all look like this:
 
 <br>
 
@@ -85,12 +87,16 @@ knitr::include_graphics("images/normal_cartoon.png")
 
 <br>
 
-Distributions that look like this have a name: we call them __normal distributions__ (or colloquially, "bell curves"). We describe a normal distribution using two numbers: 
+Distributions that look like this have a name: we call them __normal distributions__ (or more colloquially, "bell curves," or more verbosely, ["Gaussian distributions"](https://en.wikipedia.org/wiki/List_of_things_named_after_Carl_Friedrich_Gauss)).  Normal distributions are "normal" in the same sense that blue jeans are normal, which is to say they're ubiquitous---as evidenced by the fact that all the sampling distributions in Figure \@ref(fig:bunch-of-sampling-distributions) look normal.  This is emphatically _not_ a coincidence, but rather a consequence of a very important result in mathematics called the Central Limit Theorem, or CLT for short.  We'll see a more precise statement of this theorem soon, but here's the basic idea.
+
+> __Central Limit Theorem, simplified version__: sampling distributions based on averages from a large number of independent samples basically all look the same: like a normal distribution.
+
+Since the normal distribution seems so... well... _central_ to all this business, let's try to understand it a bit more.  A normal distribution, written as $N(\mu, \sigma)$, can be described using two numbers: 
 
 - the mean $\mu$, which determines where the peak of the distribution is centered.  
 - the standard deviation $\sigma$, which determines how spread out the distribution is.  
 
-Normal distributions can be tall and skinny, short and broad, or anywhere in between, depending on the value of $\sigma$.  They can also be centered anywhere, depending on the value of $\mu$.  There are infinitely many combinations of $\mu$ and $\sigma$, and so there are infinitely many possible normal distributions.  Here are three examples:  
+The nine sampling distributions shown in Figure \@ref(fig:bunch-of-sampling-distributions) all have different means and standard deviations, but it's hard to tell because they're all shown on different scales (i.e. different sets of $x$ and $y$ axes).  Below are three different normal distributions, all shown on the _same_ scale, so you can appreciate their variety.
 
 <!-- ``` -->
 <!-- curve(dnorm(x, 0, 1), n= 10001, from=-10, to = 10, -->
@@ -100,41 +106,50 @@ Normal distributions can be tall and skinny, short and broad, or anywhere in bet
 <!-- axis(1, at = seq(-10, 10, by=1), cex.axis=0.8) -->
 <!-- ``` -->
 
-
 ```{r, echo=FALSE, out.width="100%", fig.align = 'center'}
 knitr::include_graphics("images/normal_examples.png")
 ```
 
+As you can see, a normal distribution can be centered anywhere (depending on $\mu$).  And it can be tall and skinny, short and broad, or anywhere in between (depending on $\sigma$).  If we think that some random quantity $X$ follows a normal distribution, we write $X \sim N(\mu, \sigma)$ as shorthand, where the tilde sign ($\sim$) means "is distributed as."  
 
-And now to come to the point: there's a famous result in mathematics, called the Central Limit Theorem, which states that your eyes are not deceiving when you examine Figure \@ref(fig:bunch-of-sampling-distributions) and conclude that all sampling distributions look basically the same.  
+Here are some useful facts about normal random variables---or more specifically, about the central areas under the curve, between the extremes of the left and right tail.  If $X$ has a $\mbox{N}(\mu, \sigma)$ distribution, then the chance that $X$ will be within $1 \sigma$ of its mean is about $68\%$; the chance that it will be within $2\sigma$ of its mean is about $95\%$; and the chance that it will be within $3\sigma$ of its mean is about $99.7\%$.  Said in equations:
 
-```{theorem, name = "Central Limit Theorem, simplified version"}
-Sampling distributions based on averages of independent samples basically all look the same: like a normal distribution.  They only differ in where their peaks are centered ($\mu$) and how spread out they are ($\sigma$).  
+\begin{eqnarray*}
+P(\mu - 1\sigma < X < \mu + 1\sigma) &\approx& 0.68 \\
+P(\mu - 2\sigma < X < \mu + 2\sigma) &\approx& 0.95 \\ 
+P(\mu - 3\sigma < X < \mu + 3\sigma) &\approx& 0.997 \, .
+\end{eqnarray*}
+
+And said in a picture, with fastidiously accurate numbers:
+
+<br>
+
+```{r normal-6895, echo=FALSE, out.width="100%", fig.align = 'center', fig.cap="A useful fact worth remembering about the normal distribution."}
+knitr::include_graphics("images/normal6895.png")
 ```
 
 <br>
 
+### de Moivre's equation {-}
 
+But our discussion of the Central Limit Theorem so far is incomplete.  Suppose we take a bunch of samples $X_1, \ldots, X_N$ from some wider population whose mean is $\mu$, and we calculate $\bar{X}_N$, the mean of the sample.  Can we say anything a bit more specific about the statistical fluctuations in $\bar{X}_N$, beyond the fact that those fluctuations will be approximately normal?  Specifically, can we say how spread out those fluctuations might be around the population mean of $\mu$?
 
-The requirement that $N$ be "sufficiently large" is what gives this lesson (and this whole approach to statistics) its name: __large-sample inference.__  The basic idea behind all this math is that, by studying what happens when we collect lots of data, we can learn some things that allow us to make inferential statements that hold __approximately__ across a wide variety of situations, even if we don't necessarily have lots of data ourselves.  
+It turns out that the answer is: yes, quite precisely.
 
-You might notice two weasel words in this simplified version of the Central Limit Theorem: "sufficiently large" and "well approximated."  What, precisely, do those mean?  Alas, it's hard to say without going into some very detailed math, specifically something called the [Berry--Esseen theorem](https://en.wikipedia.org/wiki/Berry%E2%80%93Esseen_theorem).  But here's a rough guideline: if the population you're sampling from isn't too skewed or crazy looking, then 30 samples is generally "sufficiently large."
+This leads us to the second big piece of our mathematical puzzle: something called __de Moivre's equation__, also known as the "square root rule."^[To be clear, this is not the same thing as de Moivre's [formula for complex exponentials.](https://en.wikipedia.org/wiki/De_Moivre%27s_formula)]   The Central Limit Theorem tells us that, with enough data points, the distribution of an average looks approximately normal; de Moivre's equation tells us precisely how narrow or wide that normal distribution will be, as a function of two things:
 
-
-
-## de Moivre's equation
-
-The second piece of the mathematical puzzle here is something called __de Moivre's equation__, also known as the "square root rule."^[To be clear, this is not the same thing as de Moivre's [formula for complex exponentials.](https://en.wikipedia.org/wiki/De_Moivre%27s_formula)]   You'll recall that the Central Limit Theorem tells us that, with enough samples, the distribution of an average looks approximately normal; de Moivre's equation tells us precisely how _wide_ that normal distribution will be.  
+(1) The variability of a single data point.  
+(2) The number of data points you're averaging.  
 
 This equation was discovered by a Swiss mathematician named [Abraham de Moivre](https://en.wikipedia.org/wiki/Abraham_de_Moivre) in 1730.  In my opinion, it represents one of the most under-rated triumphs of human reasoning in history.  Most educated people, for example, have heard of Einstein's equation: $e = mc^2$.  De Moivre's equation is just as profound; it represents an equally universally truth, and is equally useful for making accurate scientific predictions.  Yet very few people outside statistics and data science know it. 
 
-De Moivre's equation concerns a situation we've considered before: where we take an average of many samples, and we want to understand [how much statistical uncertainty we have about that average](#bootstrap-sample-mean).  Specifically, the equation establishes an inverse relationship between the statistical uncertainty of the sample average and the square root of the sample size.  It goes like this:
+De Moivre's equation concerns a situation we've approached before, using the bootstrap: one where we take an average of many samples, and we want to understand [how much statistical uncertainty we have about that average](#bootstrap-sample-mean).  Specifically, the equation establishes an inverse relationship between the variability of the sample average and the square root of the sample size.  It goes like this:
 
 $$
-\mbox{Statistical uncertainty of an average} = \frac{\mbox{Variability of a single measurement}}{\sqrt{\mbox{Sample size}}}
+\mbox{Variability of an average} = \frac{\mbox{Variability of a single data point}}{\sqrt{\mbox{Sample size}}}
 $$
 
-Data scientists usually use the Greek letter $\sigma$ (sigma) to denote the variability of a single measurement, and the letter N to denote the sample size.  Also, you should remember our more technical term for the statistical uncertainty of an average: the "standard error."  This terminology allows us to express de Moivre's equation a little more compactly:
+Data scientists usually use the Greek letter $\sigma$ (sigma) to denote the variability of a single data point, and the letter N to denote the sample size.  Also, you should remember our more technical term for the variability (or statistical fluctuations) of an average: the "standard error."  This terminology allows us to express de Moivre's equation a little more compactly:
 
 $$
 \mbox{Standard error of the mean} = \frac{\sigma}{\sqrt{N}} 
@@ -147,11 +162,53 @@ First, de Moivre's equation places a fundamental limit on how fast we can learn 
 - if you collect 4 times as much data as you had before, you're not 4 times as certain as you were before: de Moivre's equation says that your standard error will go down by a factor of $1/\sqrt{4} = 1/2$.  That is, you'll have half as much uncertainty as you had before.
 - if you collect 100 times as much data as you had before, you're not 100 times as certain as you were before: de Moivre's equation says that your standard error will go down by a factor of $1/\sqrt{100} = 1/10$.  That is, you'll have 10% as much uncertainty as you had before.  
 
-Second,...
+Second, de Moivre's equation also allows us to state a more precise version of the Central Limit Theorem, as follows.
 
 ```{theorem, name = "Central Limit Theorem, more precise version"}
-Suppose we take $N$ independent samples from some wider population, and we compute the average of the samples, denoted $\bar{X}_N$.  If $N$ is sufficiently large, then the statistical fluctuations in $\bar{X}_N$ can be well approximated by a normal distribution.  This is true regardless of the shape of the original population distribution.  
+Suppose we take $N$ independent samples from some wider population, and we compute the average of the samples, denoted $\bar{X}_N$.  Let $\mu$ be the mean of the population, and let $\sigma$ be the standard deviation of a single observation from the population.  If $N$ is sufficiently large, then the statistical fluctuations in $\bar{X}_N$ can be well approximated by a normal distribution, with mean $\mu$ and standard deviation $\sigma/\sqrt{N}$: 
+
+$$
+\bar{X}_N \approx N \left( \mu, \frac{\sigma}{\sqrt{N}} \right)
+$$
 ```
+
+<br>
+
+Three notes here:  
+
+(1) The Central Limit Theorem holds regardless of the shape of the original population distribution.^[OK, not _entirely_ regardless.  It is easy for mathematicians to find counterexamples, because that's what mathematicians do.  A more accurate statement is that the "basic" Central Limit Theorem holds whenever your population distribution has a finite mean and variance.  This covers the vast majority of all common data-science situations.]  In particular, the population itself _does not have to be normally distributed,_ and indeed can be crazily non-normal.  It doesn't matter.  As long as the sample size is large enough, the statistical fluctuations in the sample mean will look approximately normal.  We'll see examples of this below.  
+(2) The requirement that $N$ be "sufficiently large" is what gives this lesson (and this whole approach to statistics) its name: __large-sample inference.__  The basic idea behind all this math is that, by studying what happens when we collect lots of data, we can learn some things that allow us to make inferential statements that hold __approximately__ across a wide variety of situations, even if we don't necessarily have lots of data ourselves.
+(3) You might notice two remaining weasel words in this supposedly more precise version of the Central Limit Theorem: "sufficiently large" and "well approximated."  What, precisely, do those mean?  Alas, it's hard to say without going into some very detailed math, specifically a result called the [Berry--Esseen theorem](https://en.wikipedia.org/wiki/Berry%E2%80%93Esseen_theorem).  But here's a rough guideline: if the population you're sampling from isn't too skewed or crazy looking, then 30 samples is generally "sufficiently large" for the approximation to be really quite good.  
+
+### The CLT in action {-}
+
+The Central Limit Theorem and de Moivre's equation can feel a bit abstract.  In my opinion, the best way to make them feel concrete is to mess around with some Monte Carlo simulations until they both start to make sense.  
+
+### Some simple uses of CLT {-}
+
+Let's see some examples with actual numbers attached, so that we can understand how the Central Limit Theorem, combined with de Moivre's equation, can be useful in practice for helping us reason about uncertainty.   
+
+
+__Example 1: FedEx packages.__
+
+
+__Example 2: etc.__
+
+
+## Confidence intervals for a mean 
+
+Let's now turn to the main question: how can we use the Central Limit Theorem, combined with de Moivre's equation, to get confidence interval without bootstrapping? 
+
+You might also remember the "confidence interval rule of thumb" from our lesson on [The bootstrap]: 
+
+> __Confidence interval rule of thumb:__ a 95% confidence interval tends to be about two standard errors to either side of your best guess.  A 68% confidence interval tends to be about one standard error to either side of your best guess.
+
+These numbers of 68% and 95% actually come from the normal distribution (recall Figure \@ref(fig:normal-6895)), and the underlying justification for this rule of thumb _is_ the Central Limit Theorem.  The logic here, roughly is:
+
+- The Central Limit Theorem says that statistical uncertainty in the sample mean can be described by a normal distribution.  
+- de Moivre's equation tells us the standard deviation of that sampling distribution: $\sigma/\sqrt{n}$
+- A normally distributed random variable is within 2 standard deviations of its mean 95% of the time, so $\bar{x}_n$ should be within 2 standard errors of $\mu$ (the right answer) 95% of the time.  
+- Thus if we quote the confidence interval $\bar{x}_n \pm 2 \cdot \sigma/\sqrt{n}$, we should capture the true value in our interval 95% of the time.  
 
 
 ### Example 1: sleep, revisited  {-}
@@ -160,7 +217,7 @@ Suppose we take $N$ independent samples from some wider population, and we compu
 NHANES_sleep = read.csv('data/NHANES_sleep.csv', header=T)
 ```
 
-Let's see an example with some actual numbers attached, by revisiting the [NHANES_sleep](data/NHANES_sleep.csv) data we saw in the lesson on bootstrapping.   Please import this data set into RStudio, and then load the `tidyverse` and `mosaic` libraries:
+For our first example, let's revisit the [NHANES_sleep](data/NHANES_sleep.csv) data we saw in the lesson on bootstrapping.   Please import this data set into RStudio, and then load the `tidyverse` and `mosaic` libraries:
 
 ```{r, message=FALSE}
 library(tidyverse)
@@ -240,8 +297,44 @@ ggplot(boot_sleep) +
 
 I don't know about you but I definitely can't tell the difference.  
 
-In this particular case, it is both trivial and fast to compute a bootstrapped standard error.  However, I hope you think it's at least somewhat cool that de Moivre could have used his equation back in 1730 to tell you what bootstrap standard error you could expect to get 300 years later, with your fancy modern computer.  
+What about a confidence interval?  Let's compare our bootstrapped confidence interval with what we get using de Moivre's equation---that is, going out two "de Moivre" standard errors from the sample mean.  Our bootstrapped confidence interval goes from about 6.82 to 6.94:
 
+```{r}
+confint(boot_sleep, level = 0.95)
+```
+
+And if we go use de Moivre's equation to go out two standard errors to either side of the sample mean of 6.88, we get a confidence interval of...
+
+```{r}
+6.88 - 2 * 1.32/sqrt(1991)
+6.88 + 2 * 1.32/sqrt(1991)
+```
+
+... also 6.82 to 6.94.  Voila---a confidence interval that's basically identical to what you get when you bootstrap, except using math rather than computational muscle.  
+
+
+### `t.test` shortcut {-}
+
+In this particular case, it is both trivial and fast to compute a bootstrapped confidence interval.  However, I hope you think it's at least somewhat cool that de Moivre could have used his equation back in 1730 to tell you what bootstrap confidence interval you could expect to get 300 years later, with your fancy modern computer.  
+
+However, it's also a little bit tedious to have to do these calculations "by hand," i.e. treating R as a calculator and manually type out the formula for de Moivre's equation, like this:
+
+```{r}
+6.88 - 2 * 1.32/sqrt(1991)
+6.88 + 2 * 1.32/sqrt(1991)
+```
+
+Luckily, there's a shortcut, using a built-in R command called `t.test`:  It works like this:
+
+```{r}
+t.test(~SleepHrsNight, data=NHANES_sleep)
+```
+
+This command prints out a _bunch_ of extraneous information to the console.  You can safely ignore just about everything, except the part labeled "95% confidence interval," which is indeed the interval calculated using de Moivre's equation.^[You might ask, why is it really close to not _exactly identical_ to the confidence interval we calculated by hand?  Well, that's because going out 2 standard errors is really close to but not _exactly identical_ to a 95% confidence interval.  Instead of 2, `t.test` is using a number that's really, really close to 2, but is more exact.]
+
+#### Summary: inference for a mean {-}
+
+If you want to get a 95% confidence interval for a mean without bootstrapping, use `t.test`, and ignore everything in the output except for the part that says "confidence interval":
 
 ### Example 2: cheese {-}
 
@@ -288,7 +381,7 @@ nrow(kroger_dfw)
 sd(~vol, data=kroger_dfw)
 ```
 
-... about 2354.  So de Moivre's equation is that our standard error is $\sigma/\sqrt{n}$, or:
+... about 2354.  So de Moivre's equation says is that our standard error is $\sigma/\sqrt{n}$, or:
 
 ```{r}
 2353.645/sqrt(61)
@@ -330,7 +423,10 @@ de Moivre presumably never encountered American cheese.  I like to think that, b
 
 
 
-## Beyond de Moivre de Moivre's equation
+
+
+
+## Beyond de Moivre's equation
 
 ### Differences of means
 

@@ -1,8 +1,8 @@
-# Basic regression  
+# Fitting straight lines {#basic_regression}  
 
-In data science, the term "regression" means, roughly, "fitting an equation to describe relationships in data."  This is a _huge_ topic, and we'll cover it across multiple lessons.  This lesson is about the basics.  You'll learn:  
+In data science, the term "regression" means, roughly, "fitting an equation to describe relationships in data."  This is a _huge_ topic, and we'll cover it across multiple lessons.  This lesson is about the most basic kind of equation you can fit to a data set: a straight line, also known as a "linear regression model."  You'll learn:  
 
-- what a regression model is.  
+- what a linear regression model is.  
 - how to fit a regression model in R.  
 - why regression models are useful.  
 
@@ -313,7 +313,7 @@ knitr::include_graphics('images/green_beige_people2.png')
 
 Here's yet another pair of people in the study whose max heart rates differ by 25 BPM.  But this difference is clearly intermediate between the two extreme examples we saw in the previous figure:  
 
-- One person is 21 and the other 36.  This difference in age accounts for _some_ of the difference in their maximum heart rates.  To be specific, since the weight on age in our model is $-0.7$, age can account for a difference of $-0.7 \cdot (36-25) = -7.7$ BPM.  
+- One person is 21 and the other 36.  This difference in age accounts for _some_ of the difference in their maximum heart rates.  To be specific, since the weight on age in our model is $-0.7$, age can account for a difference of $-0.7 \cdot (36-21) = -10.5$ BPM.  
 - But even once you account for age, there's still an unexplained difference: the 21-year-old has an _above-average_ MHR for their age, while the 36-year old has a _below-average_ MHR for their age.  So age predicts some, but not all, of the observed difference in their MHRs.  
 
 This example illustrates an important point.  Some variation is predictable.  Other variation is unpredictable.  Any _individual_ difference can be one or the other, but is usually a combination of both types. 
@@ -331,16 +331,16 @@ $$
 
 This number, pronounced "R-squared," measures how large the _predictable_ component of variation is, relative to the _total_ variation (i.e. the sum of both the predictable and unpredictable components).  Hence the mnemonic: $R^2 = PV/TV$.  
 
-In English, $R^2$ answers the question: what proportion of overall variation in the $y$ variable can be predicted using a linear regression on the $x$ variable? Some basic facts about $R^2$.  
+In English, $R^2$ answers the question: what proportion of overall variation in the $y$ variable can be predicted using a linear regression on the $x$ variable? Here are some basic facts about $R^2$.  
 
 - It's always between 0 and 1.
 - 1 means that $y$ and $x$ are perfectly related: all variation in $y$ is predictable.  
 - 0 means no relationship: all variation in $y$ is unpredictable (at least, unpredictable using a linear function of $x$).
 - $R^2$ is independent of the units in which $x$ and $y$ are measured.  In other words, if you ran the regression using "beats per second" rather than "beats per minute", or using "age in days" rather than "age in years", $R^2$ would remain unchanged.  
 - $R^2$ does not have a causal interpretation.  It measures strength of linear association, not causation.  High values of $R^2$ do not imply that $x$ causes $y$.  
-- If the true relationship between $x$ and $y$ is nonlinear, $R^2$ doesn't really convey any useful information at all.  
+- If the true relationship between $x$ and $y$ is nonlinear, $R^2$ doesn't necessarily convey any useful information at all, and indeed can be [highly misleading](https://en.wikipedia.org/wiki/Anscombe%27s_quartet).    
 
-You stare at the definition above and ask: why do we square $s_{\hat{y}}$ and $s_e$ in the formula for $R^2$?  Great question!  There's actually a pretty deep mathematical answer---one that you'd learn in a mathematical statistics course, and that is, believe it or not, intimately connected to the Pythagorean theorem for right triangles.  But that takes us beyond the scope of these lessons.  If you'd like to read more, [the Wikipedia page for $R^2$](https://en.wikipedia.org/wiki/Coefficient_of_determination) goes into punishing levels of detail. 
+You might stare at the definition of $R^2$ above and ask: why do we square both $s_{\hat{y}}$ and $s_e$ in the formula for $R^2$?  Great question!  There's actually a pretty deep mathematical answer---one that you'd learn in a mathematical statistics course, and that is, believe it or not, intimately connected to the Pythagorean theorem for right triangles.  But that takes us beyond the scope of these lessons.  If you'd like to read more, [the Wikipedia page for $R^2$](https://en.wikipedia.org/wiki/Coefficient_of_determination) goes into punishing levels of detail, as would an advanced course with a name like "[Linear Models](https://link.springer.com/book/10.1007/978-1-4419-9816-3)."
 
 The easiest way to calculate $R^2$ in R is to use the `rsquared` function from the `mosaic` library:
 

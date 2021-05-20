@@ -113,7 +113,7 @@ OK, so that's not the actual procedure that an actual statistician would recomme
 
 > If our data set had been different merely due to chance, how different might our answer have been?
 
-To oversimplify, but not by much: in statistical inference, we're "certain" of our answer if, when we ask the same question over and over again, we get the same answer each time.  If we get different answers each time, we're uncertain---and the _amount_ by which those answers differ from one another provides us a quantitative measure of our statistical uncertainty.
+To oversimplify, but not by much: in statistical inference, we're "certain" of our answer if, when we ask the same question over and over again, we get the same answer each time.  If our answer fluctuates each time, we're uncertain---and the _amount_ by which those answers fluctuate from one another provides us a quantitative measure of our statistical uncertainty.
 
 ## Sampling distributions
 
@@ -129,7 +129,7 @@ library(mosaic)
 
 ### Example 1: dessert {-}
 
-Suppose it were actually true that, if offered the choice, 52% of all Americans would prefer huckleberry pie and 48% would prefer tiramisu.  Now imagine setting out to measure these numbers using a survey.  What range of plausible survey results might we expect to see if we asked 100 people about their preference?  If our survey is designed well, we'd hope that _on average_, it would yield the right result: that 52% of people prefer huckleberry pie.  This is the true value of the _parameter_, or fact about the wider population, that we seek to uncover.   But any individual survey could easily deviate from the right answer, just by chance.  The question is: by how much?  
+Suppose it were actually true that, if offered the choice, 52% of all Americans would prefer huckleberry pie and 48% would prefer tiramisu.  Now imagine setting out to measure these numbers using a survey.  What range of plausible survey results might we expect to see if we asked 100 people about their preference?  If our survey is designed well, we'd hope that _on average_, it would yield the right result: that 52% of people prefer huckleberry pie.  This is the true value of the _parameter_, or fact about the wider population, that we seek to uncover.   But any individual survey could easily deviate from the right answer, just by chance.  The question is: by how much?  What kind of statistical fluctuations should we expect in our survey result?   
 
 Let's find out.  We'll use R to simulate a single survey of size 100, using the `rflip` function.  This function is designed to simulate coin flips; in our simulation, we imagine that each survey respondent is like a metaphorical coin, and that the result of each coin flip represents some particular respondent's dessert preference.  In the code below, we've specified that we want to flip 100 "weighted" coins, and that the probability that any one coin comes up "H" is 0.52:
 
@@ -150,7 +150,7 @@ rflip(100, prob=0.52)
 
 In interpreting these results, we'll just pretend that, instead of "heads" and "tails", the letters stand for "huckleberry pie" and "tiramisu."
 
-Here, it looks like 57% of our survey respondents said they preferred huckleberry pie.  Remember, the true population-wide proportion was assumed to be 52%, so the _right_ answer (parameter) and the _survey_ answer (estimator) differ by about 5%.^[Of course, if you run this code yourself, you'll get a slightly different simulated survey result.  This is expected---the result is random!]
+Here, it looks like 57% of our survey respondents said they preferred huckleberry pie.  Remember, the true population-wide proportion was assumed to be 52%, so the _right_ answer (parameter) and the _survey_ answer (estimator) differ by about 5%.^[Of course, if you run this code yourself, you'll get a slightly different simulated survey result.  This is expected---the result is random!]  This represents an error arising from natural statistical fluctuations in our sample.   
 
 Is 5% a typical error, or did we just get very unlucky?  Remember the basic mantra of statistical inference: you're certain if your results are repeatable.  So let's repeat our hypothetical survey 10 times, using the following statement.  
 
@@ -216,7 +216,7 @@ ggplot(dessert_surveys) +
   geom_histogram(aes(x=huckleberry_prop), binwidth = 0.01)
 ```
 
-This histogram depicts _the_ central object of concern in statistical inference.  It is an example of what's called a __sampling distribution.__  Here's the full definition of this very important concept, which formalizes what we mean when we say "repeatability."  
+This histogram depicts _the_ central object of concern in statistical inference.  It is an example of what's called a __sampling distribution.__  Here's the full definition of this very important concept, which formalizes what we mean when we use terms like "repeatability" or "statistical fluctuations."    
 
 
 ```{definition}
@@ -244,7 +244,7 @@ So we've seen in Figure \@ref(fig:dessert-sampling-distribution) that our sample
 You could certainly just eyeball the histogram in Figure \@ref(fig:dessert-sampling-distribution) and almost surely end up saying something intelligent: for example, that about 2/3 of all samples look within 5% of the right answer, or the vast majority (at least 9 out of 10) look within 10% of the right answer.   But the most common way of providing a quantitative answer to this question is to quote the standard deviation of the sampling distribution.  In fact, this number is so special that statisticians have given it a special name: the _standard error_.  
 
 ```{definition, name="standard error", label="standarderror"}
-The standard deviation of a sampling distribution is called the __standard error__.  This reflects the typical magnitude of error of a statistical summary, compared with the expected or average value of that summary under repeated sampling.
+The standard deviation of a sampling distribution is called the __standard error__.  This reflects the typical statistical fluctuation of our summary statistic---that is, the typical magnitude of error of our summary, compared with the expected or average value of that summary under repeated sampling.
 ```  
 
 <br>
@@ -290,7 +290,7 @@ Four days of fishing give us some idea of how the estimates $\hat{\beta}_0$ and 
 knitr::include_graphics("images/fishingtrips2.png")
 ```
 
-These pictures show the sampling distribution of the least-squares line---that is, how the estimates for $\beta_0$ and $\beta_1$ change from sample to sample, shown in histograms in the right margin.  In theory, to know the sampling distributions exactly, we'd need to take an infinite number of samples, but 2500 gives us a rough idea.  The individual sampling distributions of the intercept and slope are shown in histograms, below.  
+These pictures show the sampling distribution of the least-squares line---that is, how the estimates for $\beta_0$ and $\beta_1$ vary from sample to sample, shown in histograms in the right margin.  In theory, to know the sampling distributions exactly, we'd need to take an infinite number of samples, but 2500 gives us a pretty good idea.  The individual sampling distributions of the intercept and slope are shown in histograms, below.  
 
 ```{r fishing-trips3, echo=FALSE, out.width="100%", fig.cap="The sampling distributions of the intercept (left) and slope (right) from our 2500 simulated fishing trips."}
 knitr::include_graphics("images/fishingtrips3.png")
@@ -299,14 +299,14 @@ knitr::include_graphics("images/fishingtrips3.png")
 Let's ask our two big questions about these sampling distributions.
 
 (1) Where are they centered?  They seem to be roughly centered on the true values of $\beta_0 = 49$ and $\beta_1 = 4.24$.  This is reassuring: our sample estimates are right, on average.  
-(2) How spread out are they?  We'll answer this by quoting the standard deviation of each sampling distribution, also known as the standard error.  The standard error of $\hat{\beta}_0$ is about 50, while the standard error of $\hat{\beta}_1$ is about $0.5$.  These represent the "typical errors" made when using a single sample to estimate the population regression line, and they provide a numerical description of the spread of the grey lines in Figure \@ref(fig:fishing-trips2).  
+(2) How spread out are they?  We'll answer this by quoting the standard deviation of each sampling distribution, also known as the standard error.  The standard error of $\hat{\beta}_0$ is about 50, while the standard error of $\hat{\beta}_1$ is about $0.5$.  These represent the "typical errors" or "typical statistical fluctuations" when using a single sample to estimate the population regression line, and they provide a numerical description of the spread of the grey lines in Figure \@ref(fig:fishing-trips2).  
 
 
 ### Summary {-}
 
 The figure below shows a stylized depiction of a sampling distribution that summarizes everything we've covered so far.
 
-The sampling distribution depicts the a thought experiment.   Our goal is to estimate some parameter, which we'll denote generically by $\theta$.  We repeatedly take many samples (say, 1000) from same random process that generated our data.  For each sample, we calculate our estimator $\hat{\theta}$: that is, some summary statistic designed to provide our best guess for $\theta$, in light of that sample.  
+The sampling distribution depicts the results of a thought experiment.   Our goal is to estimate some parameter, which we'll denote generically by $\theta$.  We repeatedly take many samples (say, 1000) from same random process that generated our data.  For each sample, we calculate our estimator $\hat{\theta}$: that is, some summary statistic designed to provide our best guess for $\theta$, in light of that sample.  
 
 ```{r samping-distribution-schematic, echo=FALSE, out.width="100%", fig.cap="A stylized depiction of a sampling distribution of an estimator."}
 knitr::include_graphics("images/samplingdistribution_schematic.png")
@@ -324,7 +324,7 @@ Second, how spread out is the sampling distribution?  We usually measure this by
 I hope you now appreciate these two big take-home lessons:  
 
 - the core object of concern in statistical inference is the sampling distribution. 
-- the sampling distribution measures our "statistical uncertainty," which is a very narrow definition of uncertainty, roughly equivalent to the notion of repeatability.  _You're certain if your results are repeatable._  
+- the sampling distribution measures our "statistical uncertainty," which is a very narrow definition of uncertainty, roughly equivalent to the notion of repeatability.  _You're certain if your results are repeatable._  You're uncertain if your results are subject to a lot of statistical fluctuations.  
 
 Of course, we've focused only on intuition-building exercises involving simulated data.  We haven't _at all_ addressed the very practical question of how to actually find the sampling distribution in a real data-analysis problem.  Don't worry---that's exactly what the next few lessons are for.    
 
@@ -400,7 +400,7 @@ On the other hand, statistical inference is likely to be less useful (although m
 (4) We expect that the future may look very different from the past.   
 (5) Systematic biases in our measurement process dwarf random, repeatable sources of uncertainty.  
 
-This list _also_ covers a lot of situations involving data. Therefore, an important skill that every good data scientist needs is the ability to examine a claim and ask: "Are the tools of statistical inference useful in evaluating this claim?"  This often boils down to asking the follow-up question: "Where does the uncertainty here come from?"
+This list _also_ covers a lot of situations involving data. Therefore, an important skill that every good data scientist needs is the ability to examine a claim and ask: "How useful are the tools of statistical inference in evaluating this claim?"  This often boils down to asking the follow-up question: "Where does the uncertainty here come from?"
 
 #### Ten claims about the world {-}
 

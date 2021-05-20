@@ -304,7 +304,7 @@ It's basically like taking a little axe and chopping off 2.5% of the bootstrap s
 
 You might notice that this 95% interval ends up covering _two_ standard errors, or 0.06 hours, to either side of your sample estimate of 6.88.  This specific numerical correspondence (68% for 1 standard error, 95% for 2) happens frequently enough to warrant a rule of thumb:
 
-> __Bootstrapping rule of thumb:__ a 95% confidence interval tends to be about two standard errors to either side of your best guess.  A 68% confidence interval tends to be about one standard error to either side of your best guess.
+> __onfidence interval rule of thumb:__ a 95% confidence interval tends to be about two standard errors to either side of your best guess.  A 68% confidence interval tends to be about one standard error to either side of your best guess.
 
 But when in doubt, you can always use `confint` at whatever level you choose.  
 
