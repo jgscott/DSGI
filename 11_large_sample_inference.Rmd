@@ -1,7 +1,7 @@
 # Large-sample inference
 
 ```{r, echo=FALSE}
-knitr::opts_chunk$set(cache = T)
+knitr::opts_chunk$set(cache = T, fig.align='center')
 ```
 
 Up to now, we've answered every question about statistical uncertainty by running a Monte Carlo simulation, of which the bootstrap is a special case.  This depends, obviously, on having a pretty fast computer, so that we can `do()` things repeatedly and not wait too long.  So you might ask: what on earth did people do before there were computers fast enough to make this possible?  How did they ever measure their statistical uncertainty?  
@@ -29,7 +29,7 @@ If you enjoy math, feel free to skip this section.  But if you don't enjoy math,
 
 There's one overwhelmingly important reason why it's important, even for beginners, to understand this historically older, more mathematical approach to statistical inference: _because a lot of people out there still use it._  
 
-Why, you ask, do they still use this older approach?  (I mean, haven't they read my FAQ?!)  I suppose that's an interesting question, but it's a question for another day.  The fact is, folks _do_ use this older approach.  And when they communicate their results to you, using terms like "z test" or "t interval," they'll expect you to understand them.  As a basic matter of statistical literacy, it is important that you do.
+Why, you ask, do they still use this older approach?  (I mean, haven't they read my FAQ?!)  I suppose that's an interesting question, but it's a question for another day.  The fact is, folks _do_ use this older approach.  Lots of them.  And when they communicate their results to you, using terms like "z test" or "t interval," they'll expect you to understand them.  As a basic matter of statistical literacy, it is important that you do.
 
 And you will!  If you understood the lesson on "[The bootstrap]", these folks describing their "z test" or "t interval" won't be talking about anything fundamentally unfamiliar to you, despite their exotic vocabulary.  In fact, you stand a decent chance of understanding what they're saying better than they understand it themselves.  It does take a bit of time and effort to learn a few new terms for a few old ideas (hence this lesson), but at the end of the day, everyone's just talking about [Sampling distributions].  
 
@@ -42,11 +42,11 @@ Table: (\#tab:translation-table) How to translate between two different approach
 
 | If someone uses a...  | That's basically the same thing as...|
 |:-------------------|:--------------------------------------|
-| one-sample t-test (or "t inverval")  | Bootstrapping a sample mean, making a confidence interval, and possibly checking whether that confidence interval includes some specific value (like 0).        |
-| one-sample test of proportion (or "z interval")  | Bootstrapping a proportion, making a confidence interval, and possibly checking whether that confidence interval includes some specific value (like 0.5).                                     |
-| Two-sample t-test (or z-test)       | Bootstrapping the difference in means between two groups (`diffmean`), making a confidence interval for the difference, and possibly checking whether that confidence interval contains zero.    |
-| Two-sample test of proportions | Bootstrapping the difference in proportions between two groups (`diffprop`), making a confidence interval for the difference, and possibly checking whether that confidence interval contains 0. |
-| Regression summary table       | Bootstrapping a regression model (`lm`), making confidence intervals for the regression coefficients, and possibly checking whether those confidence intervals contain zero.    |
+| one-sample t-test (or "t inverval")  | Bootstrapping a sample mean and making a confidence interval (and possibly checking whether that confidence interval includes some specific value, like 0).        |
+| one-sample test of proportion (or "z interval")  | Bootstrapping a proportion and making a confidence interval (and possibly checking whether that confidence interval includes some specific value, like 0.5).                                     |
+| Two-sample t-test (or z-test)       | Bootstrapping the difference in means between two groups (`diffmean`) and making a confidence interval for the difference (and possibly checking whether that confidence interval contains zero).    |
+| Two-sample test of proportions | Bootstrapping the difference in proportions between two groups (`diffprop`) amd making a confidence interval for the difference, (and possibly checking whether that confidence interval contains 0). |
+| Regression summary table       | Bootstrapping a regression model (`lm`) and making confidence intervals for the regression coefficients (and possibly checking whether those confidence intervals contain zero).    |
 
 <br>
 
@@ -96,7 +96,7 @@ Since the normal distribution seems so... well... _central_ to all this business
 - the mean $\mu$, which determines where the peak of the distribution is centered.  
 - the standard deviation $\sigma$, which determines how spread out the distribution is.  
 
-The nine sampling distributions shown in Figure \@ref(fig:bunch-of-sampling-distributions) all have different means and standard deviations, but it's hard to tell because they're all shown on different scales (i.e. different sets of $x$ and $y$ axes).  Below are three different normal distributions, all shown on the _same_ scale, so you can appreciate their variety.
+The nine sampling distributions shown in Figure \@ref(fig:bunch-of-sampling-distributions) all have different means and standard deviations, but it's hard to tell because they're all shown on different scales/aspect ratios (i.e. different sets of $x$ and $y$ axes).  Below are three different normal distributions, all shown on the _same_ scale, so you can appreciate their variety.
 
 <!-- ``` -->
 <!-- curve(dnorm(x, 0, 1), n= 10001, from=-10, to = 10, -->
@@ -180,35 +180,267 @@ Three notes here:
 (2) The requirement that $N$ be "sufficiently large" is what gives this lesson (and this whole approach to statistics) its name: __large-sample inference.__  The basic idea behind all this math is that, by studying what happens when we collect lots of data, we can learn some things that allow us to make inferential statements that hold __approximately__ across a wide variety of situations, even if we don't necessarily have lots of data ourselves.
 (3) You might notice two remaining weasel words in this supposedly more precise version of the Central Limit Theorem: "sufficiently large" and "well approximated."  What, precisely, do those mean?  Alas, it's hard to say without going into some very detailed math, specifically a result called the [Berry--Esseen theorem](https://en.wikipedia.org/wiki/Berry%E2%80%93Esseen_theorem).  But here's a rough guideline: if the population you're sampling from isn't too skewed or crazy looking, then 30 samples is generally "sufficiently large" for the approximation to be really quite good.  
 
+
 ### The CLT in action {-}
 
-The Central Limit Theorem and de Moivre's equation can feel a bit abstract.  In my opinion, the best way to make them feel concrete is to mess around with some Monte Carlo simulations until they both start to make sense.  
-
-### Some simple uses of CLT {-}
-
-Let's see some examples with actual numbers attached, so that we can understand how the Central Limit Theorem, combined with de Moivre's equation, can be useful in practice for helping us reason about uncertainty.   
+The Central Limit Theorem and de Moivre's equation can feel a bit abstract.  In my opinion, the best way to make these two ideas feel concrete is to mess around with some Monte Carlo simulations until they both start to make sense.   [This web app](https://gallery.shinyapps.io/CLT_mean/) allows you to explore the CLT to your heart's content, and I highly recommend it!  But we'll look at two specific examples here.  
 
 
-__Example 1: FedEx packages.__
+#### Example 1: FedEx packages {-}
+
+In our first example, we'll try to reason our way through a deceptively simple question: what's the average weight of packages that a FedEx driver delivers in a single day, and how does that average fluctuate from truck to truck (or from day to day for a single truck)?  
+
+To FedEx, understanding fluctuations in average package weight for a delivery truck is very much _not_ an academic question.  In fact, I once heard a really interesting conference presentation from a data scientist at FedEx who discussed this very issue.  Her reasoning was roughly the following:
+
+- Every pound of package weight you're carrying around requires more fuel, so you need to make sure a given truck is adequately fueled to complete its delivery run.  
+- But you don't want to _over-fuel_ a truck either.  Unnecessary fuel means you're carrying unnecessary weight, and therefore _burning_ more fuel than you need to.  
+- So there's really an "ideal" amount of fuel to carry: not too much, but enough to cover typical day-to-day fluctuations in package weight.  You only save a small amount _per truck, per day_ by getting this right.  But over many trucks and many days, it can add up.  Considering that 3-5% of FedEx's roughly \$80 billion in revenue is spent on fuel in any given year, we're talking about real money here.  
+
+With that in mind, let's now return to our question: how does the average weight of packages delivered by a single FedEx truck vary from one truck to the next?
+
+We can think of a single truck's daily load of packages as a random sample from the population of all FedEx packages.  So the two relevant questions are: (1) What the does "the population of all FedEx packages" look like?  And (2) What is the "sample size," i.e. how many packages does a FedEx truck carry in a single day?  Since I don't work for FedEx, I'll have to make some assumptions.
+
+As far as what the population looks like, here are some basic facts I remember from that presentation by the FedEx data scientist:
+
+- the average weight of a FedEx package was 6.1 pounds
+- the standard deviation in weight was 5.6 pounds
+- the distribution of weights was _very_ skewed, where most packages were pretty light but a handful of them were very heavy.
+
+Since I don't have access to FedEx's raw data, I simulated a notional population with 100,000 imaginary packages having these statistical properties.  You can find them in [fedex_sim.csv](data/fedex_sim.csv).  Go ahead and load this (simulated) data set into R studio.  (You'll also need `tidyverse` and `mosaic`.) 
+
+```{r, echo=FALSE}
+fedex_sim = read.csv('data/fedex_sim.csv')
+```
+
+```{r, message=FALSE}
+library(tidyverse)
+library(mosaic)
+```
+
+This data set has a single column called `weight`, notionally measured in pounds.  If we make a histogram of this `weight` variable, you'll see what I mean when I say that the distribution of individual package weights is very skewed:
+
+```{r fedex-weight-pop, fig.align='center', fig.cap="A simulated distribution of FedEx package weights."}
+ggplot(fedex_sim) + 
+  geom_histogram(aes(x=weight), binwidth=0.5)
+```
+
+So let's treat this distribution as a decent stand-in for "the weight distribution of all FedEx packages."   While it's surely wrong in the particulars, it's probably pretty similar in shape to the _real_ distribution, which none of us actually know unless we work for FedEx.  And as you can see from `favstats`, the distribution matches the mean (6.1 pounds) and standard deviation (5.1 pounds) that I recall hearing:
+
+```{r}
+favstats(~weight, data=fedex_sim)
+```
+
+The next question is: how many packages per day does a typical FedEx truck deliver?  I'm not sure, but according to [some guy on the Internet who claims to have worked for a shipping company](https://www.quora.com/How-many-packages-does-a-FedEX-driver-deliver-in-a-day/answer/William-Travis-4?ch=10&share=7c86cb0f) (and who might also have [fought at the Alamo](https://en.wikipedia.org/wiki/William_B._Travis)), the answer is "it depends."  Our hero claims that a driver on an urban express route might deliver 300 packages, while a driver on a more rural route might deliver only 60.  These numbers sound reasonable to me, and frankly I wouldn't know any better, so let's run with them.  
+
+We'll start on the low end, with 60 packages.  Let's say there are five different trucks in your general neighborhood today, each delivering 60 packages.  Each truck represents a sample of size 60 from the population, which we can simulate like this:
+
+```{r, echo=FALSE, message=FALSE}
+options(`mosaic:parallelMessage` = FALSE)
+```
+
+```{r, message=FALSE}
+do(5)*mean(~weight, data=sample_n(fedex_sim, 60))
+```
+
+You might get the sense, even from just 5 samples, that the average package weight for a single truck is usually pretty close to the population average of 6.1 pounds.
+
+But what about if we look across, say, 5000 trucks, which is roughly the number of FedEx trucks making deliveries in Texas on a single day?^[In 2020 FedEx claimed a fleet of 78,000 trucks.  Texas represents about 9% of the US population, and so probably about 9% of the FedEx trucks.  That's about 7000 trucks.  But probably not all are driving on any given day, so I'm using 5000 as a round, ballpark figure.]  Let's take 5000 different samples of size 60, representing 5000 different trucks, and make a histogram of each truck's mean package weight.
+
+```{r, echo=FALSE, message=FALSE}
+options(`mosaic:parallelMessage` = FALSE)
+```
+
+```{r, fedex-histogram60, out.width = "100%", fig.asp = 0.6, fig.cap = "The sampling distribution of the mean package weight for a FedEx truck, assuming it carries 60 packages.", message=FALSE}
+# Monte Carlo simulation: 5000 samples of size n = 60
+sim_n60 = do(5000)*mean(~weight, data=sample_n(fedex_sim, 60))
+
+# histogram of the 5000 different means
+ggplot(sim_n60) + 
+  geom_histogram(aes(x=mean), binwidth=0.1)
+```
+
+Even though the _population distribution_ in Figure \@ref(fig:fedex-weight-pop) looks wildly non-normal, the _sampling distribution of the mean_ is really quite close to a normal distribution centered around the population mean of 6.1.  This is just as the Central Limit Theorem would predict. 
+
+Moreover, de Moivre's equation tells us that the standard error of the mean of 60 packages is:
+
+$$
+\mbox{std. err.} = \frac{\sigma}{\sqrt{N}} = \frac{5.6}{\sqrt{60}} \approx 0.72
+$$
+
+This predicts how wide the histogram in Figure \@ref(fig:fedex-histogram60) should be.  So let's check! To dramatize how accurate de Moivre's equation is, let's superimpose a $N(6.1, 0.72)$ distribution on top of this histogram:
+
+```{r, out.width = "100%", fig.asp = 0.6, echo=FALSE}
+# histogram of the 5000 different means
+mydens1 = function(x) 0.1*5000*dnorm(x, 6.1, 5.6/sqrt(60))
+
+ggplot(sim_n60) + 
+  geom_histogram(aes(x=mean), binwidth=0.1) + 
+  stat_function(fun = mydens1, col='blue', size=2)
+```
+
+We've learned that the prediction of the Central Limit Theorem, together with de Moivre's equation, is pretty good, even with just 60 samples from a very non-normal population. 
+
+Now what happens if we assume that a FedEx truck carries 300 packages?  We can simulate this by changing the sample size in our simulation, as in the code block below:  
+
+```{r, echo=FALSE, message=FALSE}
+options(`mosaic:parallelMessage` = FALSE)
+```
+
+```{r, message=FALSE}
+# Monte Carlo simulation: 5000 samples of size n = 300
+sim_n300 = do(5000)*mean(~weight, data=sample_n(fedex_sim, 300))
+```
+
+For this larger sample size de Moivre's equation predicts that the standard error of the sample mean should be 
+
+$$
+\mbox{std. err.} = \frac{\sigma}{\sqrt{N}} = \frac{5.6}{\sqrt{300}} \approx 0.32
+$$
+
+So let's plot our simulated sampling distribution, together with the prediction from de Moivre's equation of a $N(6.1, 0.32)$ distribution.  As you can see, the predicted normal distribution is near-exact fit to the true sampling distribution:
+
+```{r, fedex-histogram300, out.width = "100%", fig.asp = 0.6, fig.cap = "The sampling distribution of the mean package weight for a FedEx truck, assuming it carries 300 packages, together with the prediction from the Central Limit Theorem and de Moivre's equation.", echo=FALSE, message=FALSE}
+mydens2 = function(x) 0.1*5000*dnorm(x, 6.1, 5.6/sqrt(300))
+
+ggplot(sim_n300) + 
+  geom_histogram(aes(x=mean), binwidth=0.1) + 
+  stat_function(fun = mydens2, col='red', size=2) 
+```
 
 
-__Example 2: etc.__
+Below you can see these two sampling distributions plotted on the same scale, allowing you to appreciate their differences in shape.  
 
+```{r, echo=FALSE, message=FALSE, out.width="100%", fig.asp = 0.5}
+D = rbind(mutate(sim_n60, sample_size = "60"), mutate(sim_n300, sample_size = "300"))
+
+ggplot(D) + 
+  geom_histogram(aes(x=mean, fill=sample_size), alpha=0.4, binwidth=0.1, position="identity") + 
+  stat_function(fun = mydens1, col='blue', size=0.5) + 
+  stat_function(fun = mydens2, col='red', size=0.5) + 
+  labs(fill = "Sample size")
+```
+
+Since a sample of 300 has 5 times as much data as a sample of 60, de Moivre's equation says that the red histogram should be narrower than the blue histogram by a factor of $1/\sqrt{5} \approx 0.45$.  Just eyeballing the figure, this looks about right.  
+
+
+#### Example 2: class GPA {-}
+
+In our second example, we'll use the Central Limit Theorem to examine a question that I certainly think about from time to time: what kind of statistical fluctuations should we expect in the class GPA for a single section of a college statistics course?  
+
+To begin, I grabbed some data on students' final grades from many, many sections of a course called STA 371 that I taught for a long time at the University of Texas.   These grades are on traditional plus/minus letter-grade scale, which I then [converted to GPA points](https://onestop.utexas.edu/student-records/grades/), where an A is 4.0, an A- is 3.67, a B+ is 3.33, and so on.  I also asked my colleagues for the grade distribution (although obviously not individual students' grades) from their sections, and I summarized all this information into a single table.  You can see the results in [grade_distribution.csv](data/grade_distribution.csv), which looks like this:
+
+
+```{r, echo=FALSE, out.width="30%", out.extra='style="float:right; padding:10px"'}
+grade_distribution = read.csv('data/grade_distribution.csv')
+grade_distribution %>% knitr::kable() %>%
+  kableExtra::kable_styling(full_width = F)
+```
+
+The column labeled `n` represents the total number of students who received that letter grade across all sections.  We can think of this as a population distribution of GPA for all students who take the course.  Here's a bar graph of this distribution:
+
+```{r, grade-distribution-barplot, out.width = "80%", fig.asp = 0.6, fig.cap="The distribution of student grades across many, many sections of a single college statistics course, where 4.0=A, 3.67=A-, etc."}
+ggplot(grade_distribution) + 
+  geom_col(aes(x=factor(GPA), y = n)) + 
+  labs(x="Student GPA")
+```
+
+This is obviously _nothing_ like a normal distribution.  But as we'll soon see---and as the Central Limit Theorem would predict---it turns out that the average GPA for an individual section of this course _does_ look very close to normal.  
+
+To give us something to sample from, I simulated a hypothetical population of 5000 students from this grade distribution.  You can find this simulated population in [grade_population.csv](data/grade_population.csv).  Go ahead and import this into RStudio.  Here are the first six lines of the file, representing the first six students in our population:  
+
+```{r, echo=FALSE}
+grade_population = read.csv('data/grade_population.csv')
+```
+
+```{r}
+head(grade_population)
+```
+
+We can compute an overall population GPA for this course by taking the average of the `GPA` column, like this:
+
+```{r}
+mean(~GPA, data=grade_population)
+```
+
+As you can see, the overall GPA across lots and lots of sections is very close to 3.3, which is actually what our dean's office "suggests" that we, as instructors of individual courses, aim for.  
+
+But what about the class GPA for a single section of, say, 45 students?   Obviously it won't be _exactly_ 3.3, but how close can we expect it to be, assuming that students in a specific section are a random sample of all students?  We can simulate a single section as follows, by randomly sampling 45 students from our entire "population":
+
+```{r}
+# Construct a random sample
+single_section = sample_n(grade_population, size = 45)
+
+# mean GPA for all 45 students in the simulated section
+mean(~GPA, data=single_section)
+```
+
+In this particular simulated section, the class GPA was close to, but not exactly equal to, the "population" GPA of 3.3.  
+
+So now let's repeat this process 10000 times to get a sampling distribution for the class GPA in a section of 45:
+
+```{r, echo=FALSE, message=FALSE}
+options(`mosaic:parallelMessage` = FALSE)
+```
+
+```{r, message=FALSE}
+gpa_sim = do(10000)*mean(~GPA, data = sample_n(grade_population, size = 45))
+```
+
+Here's a histogram of this sampling distribution:  
+
+```{r, gpa-histogram, out.width = "100%", fig.asp = 0.6, fig.cap = "The sampling distribution of course GPA in a section of 45 students.", message=FALSE}
+ggplot(gpa_sim) + 
+  geom_histogram(aes(x=mean), binwidth=0.02)
+```
+
+As the CLT would predict, this looks quite close to normal, despite the striking non-normality in Figure \@ref(fig:grade-distribution-barplot).  Moreover, the population standard deviation is...
+
+```{r}
+sd(~GPA, data=grade_population)
+```
+
+about 0.687.  Therefore, since our sample size is n=45, de Moivre's equation predicts that the standard error of this sampling distribution should be:
+
+$$
+\mbox{std. err.} = \frac{\sigma}{\sqrt{N}} = \frac{0.687}{\sqrt{45}} \approx 0.1
+$$
+
+So let's superimpose a normal distribution with mean 3.3 and standard deviation 0.1 on top of this histogram:
+
+```{r, out.width = "100%", fig.asp = 0.6, echo=FALSE, message=FALSE}
+mydens3 = function(x) 0.02*10000*dnorm(x, 3.3, 0.1)
+
+ggplot(gpa_sim) + 
+  geom_histogram(aes(x=mean), binwidth=0.02) + 
+  stat_function(fun = mydens3, col='blue', size=2) 
+```
+
+The prediction of the Central Limit Theorem, together with de Moivre's equation, accords pretty closely with reality.  
+
+__Take-home lesson.__  I was surprised when I put this example together and saw the sampling distribution in Figure \@ref(fig:gpa-histogram) for the first time.  It was wider than I (naively) expected.  I don't think this kind of "typical" variability from one section of a course to the next is widely appreciated by either faculty or students.  Moreover, I think ignorance of this variability has some important practical consequences.  For example, there are a few major teaching awards in my college for which faculty are eligible _only_ if their course GPA is _very_ close to 3.3---much closer than this sampling distribution would suggest is reasonable.  For another thing, every faculty member who teaches big undergraduate classes has it ingrained in their minds what the "expected" GPA for their course is.  But no one emphasizes to faculty how much natural variability to expect around this number.  Heck, I'm a statistics professor and I didn't know it until I actually ran the simulation!
+
+Why does this matter?  Well, when I look back over the years, I see that the course GPA's in my own sections of this course are much more clustered around 3.3 than this distribution in Figure \@ref(fig:gpa-histogram) predicts that they should be.  And the only way this could happen is if we're actually punishing the very best students!  Here's why: on a practical level, the way most faculty arrive at a target GPA is by setting the curve on students' raw percentage grades in order to "curve them up" so that the course GPA comes close to 3.3.  In some years the curve is more aggressive, in other years less so.  But course GPA's that are _too_ tightly clustered around 3.3 are not just unwarranted, they're actively damaging.  For example, I _must_ have had at least one or two abnormally good sections over the years, i.e. sections that probably "should" have had a GPA of maybe 3.4-3.5.  These are sections drawn from the upper tail of Figure \@ref(fig:gpa-histogram).  But the students in these "better" sections didn't get the grades they deserved: because I didn't _appreciate_ that they were in abnormally good sections, I curved their grades less than I should have, because I was aiming for something spuriously close to 3.3.  (Of course, the opposite is also true; I must also have had some sections that probably "should" have had a course GPA of 3.1-3.2, and I curved their raw grades more than I should have.)   
+
+Anyway, when I saw Figure \@ref(fig:gpa-histogram), I e-mailed the dean about it.  I'm not sure if anything will come of it, but the exercise was certainly instructive for me---and, I hope, for you.  
 
 ## Confidence intervals for a mean 
 
 Let's now turn to the main question: how can we use the Central Limit Theorem, combined with de Moivre's equation, to get confidence interval without bootstrapping? 
 
-You might also remember the "confidence interval rule of thumb" from our lesson on [The bootstrap]: 
+You might remember the "confidence interval rule of thumb" from our lesson on [The bootstrap]: 
 
 > __Confidence interval rule of thumb:__ a 95% confidence interval tends to be about two standard errors to either side of your best guess.  A 68% confidence interval tends to be about one standard error to either side of your best guess.
 
-These numbers of 68% and 95% actually come from the normal distribution (recall Figure \@ref(fig:normal-6895)), and the underlying justification for this rule of thumb _is_ the Central Limit Theorem.  The logic here, roughly is:
+These numbers of 68% and 95% actually come from the normal distribution (recall Figure \@ref(fig:normal-6895)), and the underlying justification for this rule of thumb _is_ the Central Limit Theorem.  The logic here, roughly, is as follows.
 
-- The Central Limit Theorem says that statistical uncertainty in the sample mean can be described by a normal distribution.  
-- de Moivre's equation tells us the standard deviation of that sampling distribution: $\sigma/\sqrt{n}$
-- A normally distributed random variable is within 2 standard deviations of its mean 95% of the time, so $\bar{x}_n$ should be within 2 standard errors of $\mu$ (the right answer) 95% of the time.  
+- The Central Limit Theorem says that statistical fluctuations in the sample mean can be described by a normal distribution, centered around the population mean $\mu$.    
+- de Moivre's equation tells us the standard deviation of that normal distribution: $\sigma/\sqrt{n}$, where $\sigma$ is the standard deviation of a single data point, and $n$ is the sample size.  
+- A normally distributed random variable is within 2 standard deviations of its mean 95% of the time.  Therefore, $\bar{x}_n$ should be within 2 standard errors of $\mu$ (the population mean) 95% of the time.  
 - Thus if we quote the confidence interval $\bar{x}_n \pm 2 \cdot \sigma/\sqrt{n}$, we should capture the true value in our interval 95% of the time.  
+
+And that's basically it---a couple centuries' worth of math in a handful of bullet points.  Or even more succinctly: __just use de Moivre's equation and quote $\bar{x}_n \pm 2 \cdot \sigma/\sqrt{n}$ as your 95% confidence interval for the mean.__  The Central Limit implies that this confidence interval should be nearly identical to the confidence interval you get from bootstrapping.  
+
+Let's see this basic logic applied to some examples.  
 
 
 ### Example 1: sleep, revisited  {-}
@@ -243,7 +475,9 @@ We took the mean of this data distribution, and we found that on average, Americ
 mean(~SleepHrsNight, data=NHANES_sleep)
 ```
 
-Now let's turn to the question of statistical uncertainty.  de Moivre's equation makes a specific mathematical prediction: it says that the standard error of this sample mean is equal to the standard deviation of a single measurement ($\sigma$), divided by the square root of the sample size.  So as long as you know $N$ and can calculate $\sigma$ from the data, we can use de Moivre's equation to quantify our statistical uncertainty, all without ever running the bootstrap---which, of course, de Moivre couldn't feasibly do, since he sadly had never encountered a computer.  
+Now let's turn to the question of statistical uncertainty.  How much should the sample mean of 1,991 people fluctuate around the _true_ population mean?  
+
+de Moivre's equation makes a specific mathematical prediction: it says that the standard error of the sample mean is equal to the standard deviation of a single measurement ($\sigma$), divided by the square root of the sample size.  So as long as you know $N$ and can calculate $\sigma$ from the data, we can use de Moivre's equation to quantify our statistical uncertainty, all without ever running the bootstrap---which, of course, de Moivre couldn't feasibly do, since he sadly had never encountered a computer.  
 
 Let's churn through the math.  Our sample size $N$ is...
 
@@ -297,7 +531,7 @@ ggplot(boot_sleep) +
 
 I don't know about you but I definitely can't tell the difference.  
 
-What about a confidence interval?  Let's compare our bootstrapped confidence interval with what we get using de Moivre's equation---that is, going out two "de Moivre" standard errors from the sample mean.  Our bootstrapped confidence interval goes from about 6.82 to 6.94:
+What about a 95% confidence interval?  Let's compare our bootstrapped confidence interval with what we get using de Moivre's equation---that is, going out two "de Moivre" standard errors from the sample mean.  Our bootstrapped confidence interval goes from about 6.82 to 6.94:
 
 ```{r}
 confint(boot_sleep, level = 0.95)
@@ -324,20 +558,19 @@ However, it's also a little bit tedious to have to do these calculations "by han
 6.88 + 2 * 1.32/sqrt(1991)
 ```
 
-Luckily, there's a shortcut, using a built-in R command called `t.test`:  It works like this:
+Luckily, there's a shortcut, using a built-in R command called `t.test`.  It works basically just like `mean`, as follows:
 
 ```{r}
 t.test(~SleepHrsNight, data=NHANES_sleep)
 ```
 
-This command prints out a _bunch_ of extraneous information to the console.  You can safely ignore just about everything, except the part labeled "95% confidence interval," which is indeed the interval calculated using de Moivre's equation.^[You might ask, why is it really close to not _exactly identical_ to the confidence interval we calculated by hand?  Well, that's because going out 2 standard errors is really close to but not _exactly identical_ to a 95% confidence interval.  Instead of 2, `t.test` is using a number that's really, really close to 2, but is more exact.]
+This command prints out a _bunch_ of extraneous information to the console.  You can safely ignore just about everything, except the part labeled "95% confidence interval," which is indeed the interval calculated using de Moivre's equation.^[You might ask, why is it really close, but not _exactly identical_, to the confidence interval we calculated by hand?  Well, that's because going out 2 standard errors is really close, but not _exactly identical_, to a 95% confidence interval.  Instead of 2, `t.test` is using a number that's really, really close to 2, but is more exact.]
 
-#### Summary: inference for a mean {-}
+__Summary: inference for a mean.__  If you want to get a 95% confidence interval for a mean without bootstrapping, use `t.test`, and ignore everything in the output except for the part that says "confidence interval."  This is, in fact, the shortcut that most people use.  And now you understand the first row of Table \@ref(tab:translation-table).  For reasons not worth going into, this is often called the "t interval" for a mean.  
 
-If you want to get a 95% confidence interval for a mean without bootstrapping, use `t.test`, and ignore everything in the output except for the part that says "confidence interval":
+
 
 ### Example 2: cheese {-}
-
 
 Let's see a second example, using the [data on weekly cheese sales](data/kroger.csv) across 68 weeks at 11 different Kroger grocery stores that we examined back in the lesson on [Plots].  
 
@@ -358,18 +591,21 @@ ggplot(kroger_dfw) +
   geom_histogram(aes(x=vol))
 ```
 
-For the Dallas store, it looks like the mean weekly sales volume is...
+This clearly isn't normally distributed, but having seen the examples of the previous section, that shouldn't faze us a bit in applying de Moivre's equation.
+
+
+Let's calculate the mean weekly sales volume for the Dallas store across these 61 weeks, which we can think of as a good approximation to the long-run average of this store's "true" sales level.  This sample mean is...
 
 ```{r}
 # mean for the sample...
 mean(~vol, data=kroger_dfw)
 ```
 
-... about 4356 packages of cheese.
+... about 4356 packages of cheese per week.  
 
-But what about statistical uncertainty?  Weekly sales of pretty much any consumer good are an inherently variable thing, even such a staple product as American cheese.  Maybe a couple weeks were a bit colder than average, depressing demand for patio fare like nachos.  Or maybe the Dallas area had a big power outage one week, implying that nobody could microwave any cheese.  These things happen.  And what if this particular store had a weekly target of 4500 packages?  Does this data imply that they're really, truly under-performing that target, or might they have been the victim of some unlucky weekly fluctuations?
+But what about statistical uncertainty?  Weekly sales of pretty much any consumer good are an inherently variable thing, even such a staple product as American cheese.  Maybe a couple weeks were a bit colder than average, depressing demand for patio fare like nachos.  Or maybe the Dallas area had a big power outage one week, implying that nobody could microwave any cheese.  These things happen.  And what if this particular store had a weekly target of 4500 packages?  Does this data set imply that they're _really, truly_ under-performing their target, or might they have been the victim of some unlucky weekly fluctuations?
 
-Let's use de Moivre's equation to calculate the standard error of this sample mean.  Our sample size is...
+With these statistical fluctuations in mind, let's use de Moivre's equation to calculate the standard error of this sample mean.  Our sample size is...
 
 ```{r}
 nrow(kroger_dfw)
@@ -419,22 +655,41 @@ ggplot(boot_cheese) +
 
 Again, pretty hard to tell apart.  No matter which standard error we use, it's totally plausible that the _real_ long run average sales figure for this store exceeds its hypothetical target of 4500 weekly units, and that the low sample mean just reflects natural variation.  This is a good example of where our statistical uncertainty comes not from sampling (like in a political poll), but rather from the intrinsic variability of some phenomenon---in this case, the economic and culinary phenomenon of how much cheese the people of Dallas happen to want to buy in any given week.  
 
-de Moivre presumably never encountered American cheese.  I like to think that, being Swiss, he would have appreciated its similarity, at least in nacho-cheese form, to fondue.  (Although being _French_-Swiss, he might instead have found it [bizarre](https://www.youtube.com/watch?v=8xjfdGErgUc&ab_channel=BuzzFeedVideo)).  Either way, his equation is pretty good for describing statistical uncertainty surrounding American cheese sales.  
 
+What about a 95% confidence interval for the long-run average of this store's sales?  Let's compare our bootstrapped confidence interval with what we get using de Moivre's equation by going out "de Moivre" standard errors from the sample mean.  Our bootstrapped confidence interval is...
 
+```{r}
+confint(boot_cheese, level = 0.95)
+```
 
+... about 3780 to 4950.  And if we go use de Moivre's equation to go out two standard errors (that is, 2 times $2353.645/\sqrt{61}$) to either side of the sample mean of 4356.5, we get a confidence interval of...
+
+```{r}
+4356.5 - 2 * 2353.645/sqrt(61)
+4356.5 + 2 * 2353.645/sqrt(61)
+```
+
+... about 3750 to 4960.  As with the previous example, our bootstrap confidence interval and our CLT-based confidence interval are very similar.  Moreover, the differences between the two confidence intervals are _much_ smaller (on the order of 10 packets of cheese) than than the statistical uncertainty associated with the sample mean itself (on the order of 1000 packets of cheese).  It basically doesn't matter which one you use.  
+
+Finally, also remember that we can use `t.test` to compute this latter CLT-based confidence interval (a.k.a. "t-interval"), without taking the trouble to plug in numbers to de Moivre's equation ourselves:
+
+```{r}
+t.test(~vol, data=kroger_dfw)
+```
+
+Abraham de Moivre presumably never encountered American cheese.  I like to think that, being Swiss, he would have appreciated its similarity, at least in nacho-cheese form, to fondue.  (Although being _French_-Swiss, he might instead have found it [bizarre](https://www.youtube.com/watch?v=8xjfdGErgUc&ab_channel=BuzzFeedVideo)).  Either way, his equation is pretty good for describing statistical fluctuations in American cheese sales.  
 
 
 
 ## Beyond de Moivre's equation
 
-### Differences of means
+### Differences of means {-}
 
-### Proportions
+### Proportions {-}
 
-### Differences of proportions
+### Differences of proportions {-}
 
-### Regression coefficients
+### Regression coefficients {-}
 
 
 

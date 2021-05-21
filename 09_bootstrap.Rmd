@@ -420,7 +420,7 @@ Let's once again take care to distinguish this confidence interval from the data
 
 __True or false:__ this histogram, and the associated confidence interval, tell us that about 95% of all Americans experience depression on somewhere between 18.5% and 22.1% of their days.  
 
-[FALSE again. The variability in the data distribution is much, much wider than this.  Some Americans experience depression every day.  Some Americans experience depression never, or nearly never.  This interval simply isn't telling us about the variability in individual Americans' experiences of depression.  Rather, it is characterizing _how precisely_ our sample has allowed us to estimate a specific parameter: the population average frequency of Americans that experience any depressive days at all.]{.spoiler}
+[FALSE again. The variability in the data distribution is much, much wider than this.  Some Americans experience depression every day.  Some Americans experience depression never, or nearly never.  This interval simply isn't telling us about the variability in individual Americans' experiences of depression.  Rather, it is characterizing _how precisely_ our sample has allowed us to estimate the population average frequency of Americans that experience any depressive days at all (our estimand).]{.spoiler}
 
 
 ## Bootstrapping differences
@@ -478,7 +478,7 @@ Based on this survey, we can say with 95% confidence that females get a bit more
 You'll notice that this confidence interval rules out a difference of zero.  We therefore say that the difference is __statistically significant__, i.e. nonzero up to a specified level of statistical uncertainty.  
 
 ```{definition}
-A parameter is said to be __statistically significant__ at some specified level $\alpha$ if a confidence interval at level $1-\alpha$ for that parameter _does not contain zero_.  
+An estimate is said to be __statistically significant__ at some specified level $\alpha$ if a confidence interval at level $1-\alpha$ for that estimate _does not contain zero_.  
 ```
 
 <br>
@@ -491,7 +491,7 @@ Remember, this confidence interval of (-0.35, -0.12) is a claim about the differ
 
 __True or false:__ this histogram, and the associated confidence interval, tell us that if we randomly sampled one male and one female from the population, we're 95% confident that the female would sleep between 0.12 and 0.35 hours longer than the male.  
 
-[FALSE. Again, the variability in the data distribution is much, much wider than this.  Some males sleep 9 or 10 hours per night; some females sleep 4 or 5 hours per night.  The confidence interval just isn't telling us about the individual-level differences.  Rather, it is characterizing _how precisely_ our sample has allowed us to estimate a specific parameter: the difference between the average sleep time of all males living in America and the average sleep time of all females living in America.]{.spoiler}
+[FALSE. Again, the variability in the data distribution is much, much wider than this.  Some males sleep 9 or 10 hours per night; some females sleep 4 or 5 hours per night.  The confidence interval just isn't telling us about the individual-level differences.  Rather, it is characterizing _how precisely_ our sample has allowed us to know the true value of our estimand: the difference between the average sleep time of all males living in America and the average sleep time of all females living in America.]{.spoiler}
 
 To help you visualize this, let's actually try to answer the other question: if we randomly sample one male and one female from the population, what's the difference in how long they sleep?  Setting up a simulation like this requires a bit more work, but it's not too bad.  To do so, we can first group the data set by Gender, like this:
 
@@ -627,7 +627,7 @@ The line is essentially, but not _exactly_, flat.
 
 This example serves to illustrate a really important distinction in data science: the distinction between __statistical significance__ and __practical significance.__
 
-As we've already discussed, __statistical significance__ just means whether the confidence interval for some parameter contains zero---nothing more, nothing less.  By this narrow definition, the relationship between age and sleeping hours per night is statistically significant at the 5% level.  After all, the 95% confidence interval for the `Age` slope doesn't contain zero:
+As we've already discussed, __statistical significance__ just means whether the confidence interval for some estimate contains zero---nothing more, nothing less.  By this narrow definition, the relationship between age and sleeping hours per night is statistically significant at the 5% level.  After all, the 95% confidence interval for the `Age` slope doesn't contain zero:
 
 ```{r}
 confint(boot_sleep_age, level = 0.95) %>% filter(name == 'Age')

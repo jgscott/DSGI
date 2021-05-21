@@ -100,14 +100,14 @@ So the data seem to say that more people like huckleberry pie.  But this is just
 The following definition will help us talk about these ideas precisely.  
 
 ```{definition}
-In data science, a __parameter__ is any fact about the world, or any fact about some idealized model of the world, that we're trying to learn about using data.  An __estimator__ is any statistical summary (sample mean, sample proportion, etc.) designed to estimate a parameter.  
+In data science, an __estimand__ is any fact about the world, or any fact about some idealized model of the world, that we're trying to learn about using data.  An __estimator__ is any statistical summary (sample mean, sample proportion, etc.) designed to estimate the estimand!  
 ```
 
 <br>
 
-In our dessert example, the _parameter_ is the true nationwide proportion of folks that prefer huckleberry pie to tiramisu, while the _estimator_ is the corresponding proportion based on a survey of size n=100.  Clearly our estimator provides _some_ information about the parameter, but not perfect information.  Even after seeing the data, we're uncertain.  
+In our dessert example, the _estimand_ is the true nationwide proportion of folks that prefer huckleberry pie to tiramisu, while the _estimator_ is the corresponding proportion based on a survey of size n=100.  Clearly our sample provides _some_ information about the population, but not perfect information.  Even after seeing the data, we're uncertain.  
 
-But just how uncertain are we?  The statistician's answer to this question is to invoke the concept of repeatability.  _You're certain if your results are repeatable._  So to measure repeatability, and therefore certainty, you take a _different_ sample of 100 people, you ask the same question again, and you see how much your estimator changes.  And then you do it again, and again, and again, thousands of times! If you get something close to 52% every time, then you're pretty certain the true value of the parameter is about 52%.
+But just how uncertain are we?  The statistician's answer to this question is to invoke the concept of repeatability.  _You're certain if your results are repeatable._  So to measure repeatability, and therefore certainty, you take a _different_ sample of 100 people, you ask the same question again, and you see how much your estimator changes.  And then you do it again, and again, and again, thousands of times! If you get something close to 52% every time, then you're pretty certain the true value of the estimand is about 52%.
 
 OK, so that's not the actual procedure that an actual statistician would recommend that you follow.  It's ludicrously infeasible.  But it is the fundamental _thought experiment_ of statistical inference, which seeks to answer the question: 
 
@@ -129,7 +129,7 @@ library(mosaic)
 
 ### Example 1: dessert {-}
 
-Suppose it were actually true that, if offered the choice, 52% of all Americans would prefer huckleberry pie and 48% would prefer tiramisu.  Now imagine setting out to measure these numbers using a survey.  What range of plausible survey results might we expect to see if we asked 100 people about their preference?  If our survey is designed well, we'd hope that _on average_, it would yield the right result: that 52% of people prefer huckleberry pie.  This is the true value of the _parameter_, or fact about the wider population, that we seek to uncover.   But any individual survey could easily deviate from the right answer, just by chance.  The question is: by how much?  What kind of statistical fluctuations should we expect in our survey result?   
+Suppose it were actually true that, if offered the choice, 52% of all Americans would prefer huckleberry pie and 48% would prefer tiramisu.  Now imagine setting out to measure these numbers using a survey.  What range of plausible survey results might we expect to see if we asked 100 people about their preference?  If our survey is designed well, we'd hope that _on average_, it would yield the right result: that 52% of people prefer huckleberry pie.  This is the _estimand_, or fact about the wider population, that we seek to uncover.   But any individual survey could easily deviate from the right answer, just by chance.  The question is: by how much?  What kind of statistical fluctuations should we expect in our survey result?   
 
 Let's find out.  We'll use R to simulate a single survey of size 100, using the `rflip` function.  This function is designed to simulate coin flips; in our simulation, we imagine that each survey respondent is like a metaphorical coin, and that the result of each coin flip represents some particular respondent's dessert preference.  In the code below, we've specified that we want to flip 100 "weighted" coins, and that the probability that any one coin comes up "H" is 0.52:
 
@@ -150,7 +150,7 @@ rflip(100, prob=0.52)
 
 In interpreting these results, we'll just pretend that, instead of "heads" and "tails", the letters stand for "huckleberry pie" and "tiramisu."
 
-Here, it looks like 57% of our survey respondents said they preferred huckleberry pie.  Remember, the true population-wide proportion was assumed to be 52%, so the _right_ answer (parameter) and the _survey_ answer (estimator) differ by about 5%.^[Of course, if you run this code yourself, you'll get a slightly different simulated survey result.  This is expected---the result is random!]  This represents an error arising from natural statistical fluctuations in our sample.   
+Here, it looks like 57% of our survey respondents said they preferred huckleberry pie.  Remember, the true population-wide proportion was assumed to be 52%, so the _right_ answer (estimand) and the _survey_ answer (estimator) differ by about 5%.^[Of course, if you run this code yourself, you'll get a slightly different simulated survey result.  This is expected---the result is random!]  This represents an error arising from natural statistical fluctuations in our sample.   
 
 Is 5% a typical error, or did we just get very unlucky?  Remember the basic mantra of statistical inference: you're certain if your results are repeatable.  So let's repeat our hypothetical survey 10 times, using the following statement.  
 
@@ -276,13 +276,13 @@ Imagine that you go on a four-day fishing trip to a lovely small lake out the wo
 knitr::include_graphics("images/fishingtrips.png")
 ```
 
-In this case, the two parameters we're trying to estimate are the slope ($\beta_1$) and intercept ($\beta_0$) of the dotted line in the figure.  I can tell you exactly what these numbers are, because I used R to simulate the lake and all the fish in it:
+In this case, the two things we're trying to estimate are the slope ($\beta_1$) and intercept ($\beta_0$) of the dotted line in the figure.  I can tell you exactly what these numbers are, because I used R to simulate the lake and all the fish in it:
 
 $$
 E(y \mid x) = 49 + 4.24 \cdot x
 $$
 
- This line represents the population regression line: the conditional expected value of weight ($y$), given measured volume ($x$), for all 800 fish in the lake.  Each individual sample of size 15 provides a noisy, error-prone estimate of this population regression line.  To distinguish these estimates from the true values of their corresponding parameters, let's call these estimates $\hat{\beta}_0$ and $\hat{\beta}_1$, where the little hats mean "estimates."  (Once, on a midterm exam, a student informed me that "$\hat{\beta}$ wears a hat because he is an impostor of the true value."  So if that helps you remember what the hat means, don't let me stop you.)  
+ This line represents the population regression line: the conditional expected value of weight ($y$), given measured volume ($x$), for all 800 fish in the lake.  Each individual sample of size 15 provides a noisy, error-prone estimate of this population regression line.  To distinguish these estimates from the true values of their corresponding estimands, let's call these estimates $\hat{\beta}_0$ and $\hat{\beta}_1$, where the little hats mean "estimates."  (Once, on a midterm exam, a student informed me that "$\hat{\beta}$ wears a hat because he is an impostor of the true value."  So if that helps you remember what the hat means, don't let me stop you.)  
 
 Four days of fishing give us some idea of how the estimates $\hat{\beta}_0$ and $\hat{\beta}_1$ vary from sample to sample.  But 2500 days of fishing give us a better idea.   Figure \@ref(fig:fishing-trips2) shows just this: 2500 different samples of size 15 from the population, together with 2500 different regression estimates of the weight--volume relationship.  This is another example of a Monte Carlo simulation, where we run a computer program to repeatedly simulate the random process that gave rise to our data (in this case, sampling from a population).
 
@@ -306,7 +306,7 @@ Let's ask our two big questions about these sampling distributions.
 
 The figure below shows a stylized depiction of a sampling distribution that summarizes everything we've covered so far.
 
-The sampling distribution depicts the results of a thought experiment.   Our goal is to estimate some parameter, which we'll denote generically by $\theta$.  We repeatedly take many samples (say, 1000) from same random process that generated our data.  For each sample, we calculate our estimator $\hat{\theta}$: that is, some summary statistic designed to provide our best guess for $\theta$, in light of that sample.  
+The sampling distribution depicts the results of a thought experiment.   Our goal is to estimate some fact about the population, which we'll denote generically by $\theta$; that's our _estimand_.  We repeatedly take many samples (say, 1000) from same random process that generated our data.  For each sample, we calculate our estimator $\hat{\theta}$: that is, some summary statistic designed to provide our best guess for $\theta$, in light of that sample.  
 
 ```{r samping-distribution-schematic, echo=FALSE, out.width="100%", fig.cap="A stylized depiction of a sampling distribution of an estimator."}
 knitr::include_graphics("images/samplingdistribution_schematic.png")
@@ -314,7 +314,7 @@ knitr::include_graphics("images/samplingdistribution_schematic.png")
 
 At the end, we combine all the estimates $\hat{\theta}^{(1)}, \ldots, \hat{\theta}^{(1000)}$ into a histogram.  This histogram represents the sampling distribution of our estimator.^[Technically, the sampling distribution is the distribution of estimates we'd get with an infinite number of Monte Carlo samples, and the histogram based on 1000 Monte Carlo samples is an approximation of this distribution.   The error in this approximation is called "Monte Carlo error."  This type of error is usually negligible.]
 
-We then ask two questions about that histogram.  First, where is the sampling distribution centered?  We hope that it's centered at or near the true value of the parameter we're trying to estimate, i.e. that our estimator gets roughly the right answer _on average_ across multiple samples.    
+We then ask two questions about that histogram.  First, where is the sampling distribution centered?  We hope that it's centered at or near the true value of the estimand, i.e. that our estimator gets roughly the right answer _on average_ across multiple samples.    
 
 Second, how spread out is the sampling distribution?  We usually measure this by quoting the standard error, i.e. the standard deviation of the sampling distribution.  The standard error answers the question: "When I take repeated samples from the same random process that generated my data, my estimate is typically off from the truth by about how much?"  The bigger the standard error, the less repeatable the estimator across different samples, and the less certain you are about the results for any _particular_ sample.  
 

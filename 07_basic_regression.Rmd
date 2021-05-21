@@ -1,10 +1,11 @@
-# Fitting straight lines {#basic_regression}  
+# Fitting equations {#basic_regression}  
 
 In data science, the term "regression" means, roughly, "fitting an equation to describe relationships in data."  This is a _huge_ topic, and we'll cover it across multiple lessons.  This lesson is about the most basic kind of equation you can fit to a data set: a straight line, also known as a "linear regression model."  You'll learn:  
 
 - what a linear regression model is.  
 - how to fit a regression model in R.  
 - why regression models are useful.  
+- how to go beyond "simple" straight lines.  
 
 
 ## What is a regression model?  
@@ -46,7 +47,7 @@ So how do we actually _know_ that these fitted parameters of 208 and 0.7 are the
 
 ### Multiple regression models {-}
 
-Now let's see what a regression model with three parameters looks like.  Suppose that you were a data scientist at Zillow, the online real-estate marketplace, and that you had to build a rule for predicting the price of a house.  You might start with two obvious features of a house, like the square footage and the number of bathrooms, together with weights for each feature.  For example:
+Now let's see what a regression model with two explanatory variables looks like.  Suppose that you were a data scientist at Zillow, the online real-estate marketplace, and that you had to build a rule for predicting the price of a house.  You might start with two obvious features of a house, like the square footage and the number of bathrooms, together with weights for each feature.  For example:
 
 $$
 \mbox{Expected Price = 10,000 + 125 $\times$ (Square Footage) + 26,000 $\times$ (Num.!Bathrooms)}
@@ -60,16 +61,17 @@ In words, this says that to predict the price of a house, you should follow thre
 
 This is called a _multiple regression model_, because it's an equation that uses multiple features (square footage, bathrooms) to predict price.  In real life, the weights or multipliers would be tuned to describe the prices in a particular housing market.  You'll always have one more parameter (here, 3) than you have features (here, 2): one parameter per feature, plus one extra parameter for the baseline.  
 
-Of course, we don't need to stop at two features!  Houses have lots of other features that affect their price—for example, the distance to the city center, the size of the yard, the age of the roof, and the number of fireplaces.  With modern software, we can easily fit an equation that incorporates all of these features, and hundreds more.  Every feature gets its own weight; more important features end up getting bigger weights, because the data show that they have a bigger effect on the price.  Now, if you try to write out such a model in words---"add this," "multiply this," like we did for the two-feature rule above---it starts to look like the IRS forms they hand out in Hell.   But as we'll see, R just churns through all the calculations with no problem, even for models with hundreds of parameters.  Moreover, whether a model has 1 feature or 101 features, the underlying principles are the same:
+Of course, we don't need to stop at two features!  Houses have lots of other features that affect their price—for example, the distance to the city center, the size of the yard, the age of the roof, and the number of fireplaces.  With modern software, we can easily fit an equation that incorporates all of these features, and hundreds more.  Every feature gets its own weight; more important features end up getting bigger weights, because the data show that they have a bigger effect on the price.  Now, if you try to write out such a model in words---"add this," "multiply this," like we did for the two-feature rule above---it starts to look like the IRS forms they hand out in Hell.   But R just churns through all the calculations with no problem, even for models with hundreds of parameters.
+
+In this lesson, we're going to focus on basic regression models with just one feature.  In a later lesson, we'll learn about _multiple regression models_, which incorporate lots of features (like our imaginary Zillow example above). But whether a model has 1 feature or 101 features, the underlying principles are the same:
 
 1) A regression model is an equation that describes relationships in a data set.  
 2) Regression models have free parameters: the baseline value, and the weights on each feature.  
 3) We choose these parameters so that the regression model's predictions are as accurate as possible.  
 
 
-## Fitting regression models    
 
-In this lesson, we're going to focus on basic regression models with just one or two features.  In a later lesson, we'll learn about _multiple regression models_, which incorporate lots of features (like our imaginary Zillow example above). 
+## Fitting regression models    
 
 First, a bit of notation.  The general form of a simple regression model with just one feature looks like this:  
 
@@ -350,4 +352,8 @@ rsquared(model_hr)
 
 This number is telling us that about 52% of the variation in maximum heart rates is predictable by age.  The other 48% is unpredictable by age.  (Although it might be predictable by something else!)
 
+
+## Beyond straight lines
+
+Models with a log-transformed Y and/or X variable.  
 
