@@ -10,8 +10,6 @@ In data science, the term "regression" means, roughly, "fitting an equation to d
 
 ## What is a regression model?  
 
-### Simple regression models {-}  
-
 Let's first see a simple example of the kind of thing I mean.  You may have heard the following rule from a website or an exercise guru: to estimate your maximum heart rate, subtract your age from 220.  This rule can be expressed as an equation:
 
 $$
@@ -45,12 +43,12 @@ And that's a very general principle in regression: more complex models, with mor
 So how do we actually _know_ that these fitted parameters of 208 and 0.7 are the best choices?  Well, you _could_ just guess and check until you're convinced you can't do any better.  (You can't.)   But modern computers do this for us in a much more intelligent fashion, finding the best-fitting parameters by cleverly exploiting matrix algebra and calculus in ways that, [while fascinating](https://math.mit.edu/icg/resources/teaching/18.085-spring2015/LeastSquares.pdf), aren't worth going into here.  If you major in math or statistics or computer science, or if you program statistical software for a living, those details are super important.  (I was a math major and I still remember sweating them out line by line.)  Most people, on the other hand, are safe in simply trusting that their software has done the calculations correctly.  
 
 
-### Multiple regression models {-}
+####  An aside: multiple regression models {-}
 
-Now let's see what a regression model with two explanatory variables looks like.  Suppose that you were a data scientist at Zillow, the online real-estate marketplace, and that you had to build a rule for predicting the price of a house.  You might start with two obvious features of a house, like the square footage and the number of bathrooms, together with weights for each feature.  For example:
+We can also fit regression models with multiple explanatory variables.  Let's briefly see what one of these models looks like.  Suppose that you were a data scientist at Zillow, the online real-estate marketplace, and that you had to build a rule for predicting the price of a house.  You might start with two obvious features of a house, like the square footage and the number of bathrooms, together with weights for each feature.  For example:
 
 $$
-\mbox{Expected Price = 10,000 + 125 $\times$ (Square Footage) + 26,000 $\times$ (Num.!Bathrooms)}
+\mbox{Expected Price = 10,000 + 125 $\times$ (Square Footage) + 26,000 $\times$ (Num. Bathrooms)}
 $$
 
 In words, this says that to predict the price of a house, you should follow three steps:
@@ -86,7 +84,7 @@ Each piece of this equation (a.k.a. "regression model") has a name:
 - $e$: the model error, also called the _residual_  
 - $i$: an index that lets us refer to individual data points ($i=1$ is the first data point, $i=2$ the second, and so on).   
 
-Given a data set with bunches of pairs $(x_i, y_i)$, we choose the intercept ($\beta_0$) and slope ($\beta_1$) to make the model errors ($e_i$) as small as we can, on average.  
+Given a data set with bunches of pairs $(x_i, y_i)$, we choose the intercept ($\beta_0$) and slope ($\beta_1$) to make the model errors ($e_i$) as small as we can, on average.  To be a bit more specific, for mathematical reasons not worth going into, we actually make the _sum of the squared model errors_ as small as we can.  That's why this approach is called _ordinary least squares,_ or OLS.  ("Ordinary" to distinguish it from other variations on the same idea that you might learn about in another course, like "weighted" or "generalized" least squares.)  
 
 ```{r, echo=FALSE, message=FALSE}
 heartrate = read.csv("data/heartrate.csv", header=TRUE)
@@ -130,7 +128,12 @@ $$
 \hat{y} = 208 - 0.7 x
 $$
 
-The notation $\hat{y}$, read aloud as "y-hat," is short for "predicted $y$".  It represents the _fitted value_ or _conditional expected value_: our best guess for the $y$ variable, given what we know about the $x$ variable. 
+The notation $\hat{y}$, read aloud as "y-hat," is short for "predicted $y$".  It represents the _fitted value_ or _conditional expected value_: our best guess for the $y$ variable, given what we know about the $x$ variable. Here are the fitted values for the first five people in our data set:
+
+```{r}
+fitted(model_hr) %>%
+   head(5)
+```
 
 ## Using and interpreting regression models  
 
@@ -231,14 +234,14 @@ Clearly Alice has the higher MHR, but let’s make things fair!  We know that ma
 The key insight is that a regression model allows us to make this idea of "for her age" explicit.   Alice's predicted heart rate, given her age of 28, is:  
 
 $$
-\hat{y} = 208 - 0.7 \cdot 28 = 188.4 \\
+\hat{y} = 208 - 0.7 \cdot 28 = 188.4 
 $$
 
 Her actual heart rate is 185.  This is 3.4 BPM _below average_ for her age.  In regression modeling, this difference between actual and expected outcome is called the "residual" or "model error":
 
 $$
 \begin{aligned}
-\mbox{Residual} &= \mbox{Actual} - \mbox{Predicted} \\
+\mbox{Residual} &= \mbox{Actual} - \mbox{Predicted} 
 &= 185 - 188.4 \\
 & = -3.4
 \end{aligned}
@@ -246,7 +249,7 @@ $$
 
 Brianna, on the other hand, is age 55.  Her predicted max heart rate, given her age, is:  
 $$
-\hat{y} = 208 - 0.7 \cdot 55 = 169.5 \\
+\hat{y} = 208 - 0.7 \cdot 55 = 169.5 
 $$
 
 Her actual heart rate is 174.  This is 4.5 BPM _above average_ for her age:
@@ -320,12 +323,28 @@ Here's yet another pair of people in the study whose max heart rates differ by 2
 
 This example illustrates an important point.  Some variation is predictable.  Other variation is unpredictable.  Any _individual_ difference can be one or the other, but is usually a combination of both types. 
 
-And that brings us to our fourth use-case for regression: to decompose variation in predictable and unpredictable components.  Specifically, this is based on a comparison of the following quantities:
+And that brings us to our fourth use-case for regression: to decompose variation into predictable and unpredictable components.  Specifically, this is based on examining and comparing the following quantities:
 
-- $s_{e}$, the standard deviation of the model errors $e$.  This represents _unpredictable_ variation in $y$.  
+- $s_{e}$, the standard deviation of the model errors $e$.  This represents _unpredictable_ variation in $y$.  This is sometimes called the "root mean squared error," or RMSE.  
 - $s_{\hat{y}}$, the standard deviation of the model's predicted or fitted values $\hat{y}$.  This represents _predictable_ variation in $y$.  
 
-The obvious question is: which one is bigger, and by how much?  As a conventional way of answering this question, we often report the following quantity:
+The simplest thing to do here is to just quote $s_e$, the standard deviation of the model residuals (or RMSE).  Here this number is for our heart-rate regression:
+
+```{r}
+sd(resid(model_hr))
+```
+
+This says that the typical model error is about 7.5 beats per minute.  This represents the unpredictable component of variation in max heart rate. 
+
+How does this compare to the predictable component of variation?  Let's check by calculating the standard deviation of our model's fitted values:  
+
+```{r}
+sd(fitted(model_hr))
+```
+
+So it looks like the predictable and unpredictable components of variation are similar in magnitude.
+
+As a more conventional way of measuring this, we often report the following quantity:
 
 $$
 R^2 = \frac{s_{\hat{y}}^2}{s_{\hat{y}}^2 + s_{e}^2} = \frac{PV}{TV}
@@ -352,8 +371,402 @@ rsquared(model_hr)
 
 This number is telling us that about 52% of the variation in maximum heart rates is predictable by age.  The other 48% is unpredictable by age.  (Although it might be predictable by something else!)
 
+As a quick summary:
+
+- $s_e$, the standard deviation of the model residuals, represents an _absolute_ measure of our model's ability to fit the data  It tells us about unpredictable variation alone: that is, the typical size of a model error, in the same units as the original response variable.  
+- $R^2$ represents a _relative_ measure of our model's ability to fit the data.  It a unit-less quantity that tells us how large the _predictable_ component of variation is, relative to the _total_ variation.  
 
 ## Beyond straight lines
 
-Models with a log-transformed Y and/or X variable.  
+Linear regression models describe additive change: that is, when x changes by 1 unit, you add to (or subtract from) y.  This is clear enough in our running heart-rate example: when you _add_ 1 year to age (x), you _subtract_ 0.7 BPM from your expected max heart rate (y).   We describe this kind of relationship with a _slope_: "rise over run," or the expected change in y for a one-unit change in x.  This kind of relationship is very common in the real world. For example:
 
+- If you increase your electricity consumption by 1 kilowatt-hour, your energy bill in Texas will go up by about 12 cents, on average.  
+- If you travel 1 mile further in a ride-share like an Uber or Lyft, your fare will go up by about \$1.50.  
+- If you add 100 square feet to a house in Los Angeles, you'd expect its value to go up by about \$50,000.  
+
+But not every quantitative relationship is like that.  We'll look at two other common kinds of relationships: _multiplicative_ change and _relative proportional_ change.  
+
+### Exponential models {-}
+
+Many real-world relationships are naturally described in terms of multiplicative change: that is, when x changes by 1 unit, you _multiply_ y by some amount.   These relationships are referred to as  _exponential growth_ (or _exponential decay_) models.  For example:  
+
+- If your bank offers you interest of 5% on your savings account, that means your money grows not by a constant amount each year, but at a constant rate: when you _add_ 1 year to the calendar, you _multiply_ your account balance by 1.05.  If you start with more, you gain more each year in absolute terms.  
+- In New York City's first pandemic wave in March/April 2020, each new day saw 22% more Covid cases than the previous day, on average.  This, too, represents multiplicative change: when you _add_ 1 day to the calendar, you _multiply_ expected cases by 1.22.  This reflects the way diseases spread through the population: the more infected people there are transmitting the disease, the more _new_ infections there will be the next day.      
+- If you start with a given mass of Carbon-14 and wait 5,730 years, about half of what was there previously will remain, due to radioactive decay.  Once again, this is multiplicative change: when you _add_ 5,730 years to the calendar, you _multiply_ the mass of your remaining Carbon-14 by 0.5.  (Since the multiplier is less than 1, this is exponential decay.)  
+
+We describe this kind of multiplicative change not in terms of a slope, but in terms of a _growth rate_---or, if the relationship is negative, a _decay rate._  This describes how y changes multiplicatively as x changes additively.  
+
+Mathematically, the equation of an exponential model is pretty simple.  It looks like this:
+
+\begin{equation} 
+y = \alpha e^{\beta x} 
+  (\#eq:exponential-model)
+\end{equation} 
+
+The two parameters of this model are:  
+
+- $\alpha$, which describes the _initial model value_ of $y$, when $x=0$ (i.e. before $y$ starts growing or decaying exponentially).
+- $\beta$, which is the growth rate (if positive) or decay rate (if negative).  You can interpret $\beta$ as like an interest rate.  For example, if $\beta = 0.05$, then $y$ grows at the same per-period rate as an investment account with 5% interest.  
+
+An exponential model is nonlinear.  But the punch line here is that, via a simple math trick, we can actually use _linear_ regression to fit it.  That simple trick is to _fitting our model using a logarithmic scale_ for the y variable.  To see why, observe what happens if we take the (natural) logarithm of both sides of Equation \@ref(eq:exponential-model):
+
+\begin{equation}
+\begin{aligned}
+\log y & = \log( \alpha e^{\beta x} ) \\
+&= \log \alpha + \beta x
+\end{aligned}
+\end{equation} 
+
+This is a linear equation for $\log$ y versus x, with intercept $\log \alpha$ and slope $\beta$.  The implication is that we can fit an exponential growth model using a linear regression for $\log$ y versus x.  Let's see two examples to walk through the details.  
+
+#### Example 1: Ebola in West Africa {-}
+
+Beginning in March 2014, West Africa experienced the largest outbreak of the Ebola virus in history.  Guinea, Liberia, Niger, Sierra Leone, and Senegal were all hit hard by the epidemic.  In this example, we'll look at the number of cases of Ebola in these five countries over time, beginning on March 25, 2014 (which will be out "zero date" for the epidemic).
+
+Please download and import the data in [ebola.csv](data/ebola.csv) into RStudio.  The first six lines of the file look like this:  
+
+```{r, echo=FALSE, message=FALSE}
+ebola = read.csv("data/ebola.csv", header=TRUE)
+```
+
+
+```{r}
+head(ebola)
+```
+
+This file breaks things down by country, but we'll look at the `totalSus` column, for total suspected cases across all five countries.  Let's visualize this in a line graph, starting from day 0 (March 25):  
+
+```{r}
+# total cases over time
+ggplot(ebola) + 
+  geom_line(aes(x=Day, y = totalSus))
+```
+
+This is clearly non-linear.  But if we plot this on a logarithmic scale for the y axis, the result looks remarkably close to linear growth:
+
+```{r}
+# total cases over time: logarithm scale for y variable
+ggplot(ebola) + 
+  geom_line(aes(x=Day, y = log(totalSus)))
+```
+
+So let's use our trick: fit the model using a log-transformed y variable (which here is `totalSus`):
+
+```{r}
+# linear model for log(cases) versus time
+lm_ebola = lm(log(totalSus) ~ Day, data=ebola)
+coef(lm_ebola)
+```
+
+So our fitted parameters are:  
+
+- intercept = $\log(\alpha)$ = 4.54.  So our initial model value is $\alpha = e^{4.54} = 93.7$.  
+- A slope of $\beta = 0.0216$.  This corresponds to a daily growth rate in cases of a little over 2.1%.    
+
+We can actually add this "reference" line to our log-scale plot, to visualize the fit:  
+
+```{r}
+# total cases over time with reference line
+ggplot(ebola) + 
+   geom_line(aes(x=Day, y = log(totalSus))) + 
+   geom_abline(intercept = 4.54, slope = 0.0216, color='red')
+```
+
+This emphasizes that the slope of the red line is the average daily growth rate over time.  
+
+
+#### Example 2: Austin's population over time  {-}
+
+Austin is routinely talked about as one of the [fastest-growing cities in America](https://kinder.rice.edu/urbanedge/2019/10/22/wallethub-austin-dallas-houston-fastest-growing-cities-2019)..  But just how fast is it growing, and how long has this growth trend been going on?
+
+Please import the data in [austin_metro.csv](data/austin_metro.csv), which contains estimated population for the Austin metropolitan area all the way back to 1840.^[All population estimates from 1950 onwards are rounded to the nearest thousand people.]    Here are the first six lines of the file:
+
+
+```{r, echo=FALSE, message=FALSE}
+austin_metro = read.csv("data/austin_metro.csv", header=TRUE)
+```
+
+```{r}
+head(austin_metro)
+```
+
+And here's a plot of Austin's population over time:
+
+```{r}
+ggplot(austin_metro) + 
+   geom_line(aes(x=Year, y=Population))
+```
+
+Let's fit an exponential growth model to this.  We'll first define a new variable that treats 1840 as our "zero" date, called `YearsSince1840`.  As you can see, the data looks relatively linear on a logarithmic scale:  
+
+```{r}
+austin_metro = mutate(austin_metro, YearsSince1840 = Year - 1840)
+ggplot(austin_metro) + 
+   geom_line(aes(x=YearsSince1840, y=log(Population)))
+```
+
+So let's fit a linear model for log(Population) versus years since 1840:  
+
+```{r}
+lm_austin = lm(log(Population) ~ YearsSince1840, data=austin_metro)
+coef(lm_austin)
+```
+
+Our average population growth rate is a little over 4.1% per year, every year back to 1840. Here's this reference line, superimposed on the log-scale plot of the data:  
+
+
+```{r}
+ggplot(austin_metro) + 
+   geom_line(aes(x=YearsSince1840, y=log(Population)))  + 
+   geom_abline(intercept = 7.14, slope = 0.0412, color='red')
+```
+
+As you can see, the fit is quite good.  There's some wobble around the trend line in the earlier years, but since at least 1915 (i.e. 75 years after 1840), Austin has grown at a nearly constant 4.1% annual rate.  
+
+
+<!-- ```{r} -->
+<!-- ggplot(austin_metro) +  -->
+<!--    geom_line(aes(x=YearsSince1840, y=Population))  +  -->
+<!--    scale_y_continuous(trans = "log", breaks = 10^{2:7}) + -->
+<!--    geom_abline(intercept = 7.14, slope = 0.0412, color='red') -->
+<!-- ``` -->
+
+
+So to summarize:
+
+- if your data look roughly linear when you plot log(y) versus x, then an exponential model is appropriate.  
+- you can fit this exponential model by running a linear regression for log(y) versus x.  
+- the estimated slope of this regression model is the growth rate (or, if negative, the decay rate) of your fitted exponential model.  
+
+
+### Power laws {-}  
+
+So far we've covered additive change (described by a linear model) and multiplicative change (described by an exponential model).  A third important type of relationship is _relative proportional change_: when x changes by 1%, you expect y to change by some corresponding percentage amount, independent of the initial size of $x$ and $y$.  These relationships are referred to as _power laws._  For example:  
+
+- if you double the radius of a circle, you multiply it's area by 4, no matter how big the initial circle is.  This is just math, since $A = \pi r^2$.  
+- if you increase your running speed by 1% (x), you will reduce the amount of time it takes to finish a race by 1% (y), regardless of the race distance or your initial speed.  
+- if stores charge 1% more for Bud Light beer (x), on average consumers will buy about 2% fewer six-packs of it (y).  Bud Light, relatively speaking, is an elastic good: consumers respond strongly to price changes (e.g. by buying some other beer instead).  
+- if oil companies charge 1% more for gasoline (x), on average consumers will buy about 0.05% to 0.1% fewer gallons of it (y).  Gasoline, relatively speaking, is an inelastic good: consumers respond weakly to price changes, because unless you're Doc in "Back to the Future," you can't run your car on beer (or anything else).    
+- if someone's income goes up by 1% (x), on average they buy 2% fewer cups of cheap coffee from gas stations (y).  In economics, gas-station coffee is called an "inferior good."  This isn't coffee snobbery; to an economist, "inferior" just means that people buy less of something when they get richer.  
+- if someone's income goes up by 1% (x), on average they buy 1.5% more cups of coffee from Starbucks (y).  In economics, Starbucks coffee is called a "luxury good," because people buy more of it when they get richer.
+
+We describe this kind of change in terms of an _elasticity_, which measures how responsive changes in y are to changes in x.  Indeed, as some of the examples above illustrate, elasticities are a fundamental concept in economics.  
+
+The basic equation of a power-law model is this:
+
+\begin{equation} 
+y = K x^{\beta} 
+  (\#eq:power-law-model)
+\end{equation} 
+
+The two parameters of this model are:  
+
+- $K$, which describes the _base value_ of $y$, when $x=1$.  
+- $\beta$, which is the elasticity, which describes relative proportional change in y versus x.  In a power law, when x changes by 1%, y changes by $\beta$%, on average.    
+
+A power law, like an exponential model, is also non-linear.  But via a similar trick to what we tried with exponential models, we can still _linear_ regression to fit it.  That simple trick is to _fitting our model using a logarithmic scale_ for both the x variable _and_ the y variable.  To see why, observe what happens if we take the (natural) logarithm of both sides of Equation \@ref(eq:power-law-model):
+
+\begin{equation}
+\begin{aligned}
+\log y & = \log( K x^{\beta} ) \\
+&= \log K + \log (x^\beta) \\
+&= \log K + \beta \log x
+\end{aligned}
+\end{equation} 
+
+This is a linear equation for $\log$ y versus $\log$ x, with intercept $\log K$ and slope $\beta$.  The implication is that we can fit a power-law model using a linear regression for $\log$ y versus $\log$ x.  Let's see two examples to walk through the details.  
+
+#### Example 1: brain versus body weight {-}
+
+Which animal has the largest brain?  Let's look at the data in [animals.csv](data/animals.csv) to find out.  This data set has the body weight (in kilos) and brain weight (in grams) for 34 different land animal species.
+
+```{r, echo=FALSE}
+animals = read.csv('data/animals.csv')
+```
+
+
+In one sense, it's obvious which animals in this data set have the largest brains... elephants!  We can see this by sorting the `brain` column in descending order:  
+
+```{r}
+# the largest brains
+animals %>%
+   arrange(desc(brain))  %>%
+   head(5)
+```
+
+But a more interesting question is: which animal has the the largest brain, relative to its body weight?  Your first thought here might be to compute the ratio of brain weight to body weight:
+
+```{r}
+# compute brain to body weight ratio
+animals = animals %>%
+  mutate(brain_body_ratio = round(brain/body, 2))
+
+# print the top 5 animals
+animals %>%
+   arrange(desc(brain_body_ratio)) %>%
+   head(5)
+```
+
+We might expect that a primate like a rhesus monkey would have a relatively large brain.  But rats with the gold medal?  Moles with the bronze?  Somehow this doesn't seem right.   
+
+What's going on here is that a straight-up ratio is misleading, because body weight and brain weight follow a nonlinear relationship.  But this isn't necessarily obvious from a standard scatter plot.  The problem is that these weights vary over many, many orders of magnitude:  we have lots of small critters and a couple of elephants:
+
+```{r, out.width="100%", fig.align="center", fig.asp = 0.6}
+ggplot(animals) + 
+  geom_point(aes(x=body, y=brain))
+```
+
+As a result, all the points look "squished" in the lower left corner of the plot.  However, things look much nicer when plotted on a log-log scale.  The log transformation of both axes has stretched the lower left corner of the box out in both x and y directions, allowing us to see the large number of data points that previously were all trying to occupy the same space.
+
+```{r, out.width="100%", fig.align="center", fig.asp = 0.6}
+ggplot(animals) + 
+  geom_point(aes(x=log(body), y=log(brain)))
+```
+
+This pattern---a linear relationship in log(y) versus log(x)---is characteristic of a power law.  So let's run our regression on this log-log scale:
+
+```{r}
+lm_critters = lm(log(brain) ~ log(body), data=animals)
+coef(lm_critters)
+```
+
+The fitted slope tells us the _elasticity_: when an animal's body weight changes by 1%, we expect its brain weight to change by 0.75%, regardless of the initial size of the animal.  As you can see, the fit of this line looks excellent when superimposed on the log-log-scale plot:
+
+```{r, out.width="100%", fig.align="center", fig.asp = 0.6}
+ggplot(animals) + 
+   geom_point(aes(x=log(body), y=log(brain))) + 
+   geom_abline(intercept=2.2, slope=0.75, color='red')
+```
+
+Our fitted equation on the log scale is $\log(y) = 2.2 + 0.75 \cdot \log(x)$, meaning that our power law is:
+
+$$
+y = e^{2.2} \cdot x^{0.75} \approx 9 x^{0.75}
+$$
+
+We can also look at the residuals of this model to help us understand which animal has the largest brain, relative to what we'd expect based on body size:
+
+```{r}
+# add the residuals to the data frame
+animals = animals %>%
+   mutate(logbrain_residual = resid(lm_critters))
+
+# print the top 5 animals by residual brain weight
+animals %>%
+   arrange(desc(logbrain_residual))  %>%
+   head(5)
+```
+
+This looks a bit more like what we'd expect based on prior knowledge of "smart" animals.  
+
+__Random aside__: when I first fit a power law to this data set, it told me that the [chinchilla](https://www.google.com/search?q=cute+chinchilla&hl=EN&tbm=isch) had the largest brain relative to its body weight, and that humans had the second largest brains.  I initially regarded the chinchilla with new-found respect, and I began trying to understand what made chinchillas so smart.  Did they have complex societies?  Did they have a secret chinchilla language?  I couldn't find anything.  As far as I could discern from my research, chinchillas were just cute, chunky ground squirrels that could [jump surprisingly high,](https://www.youtube.com/watch?v=5d60b22YRf8)  but were not surprisingly brainy.
+
+Then I finally discovered what was wrong.  See this line in the data set, where it says the chinchilla brain weighs 6.4 grams, or about half a tablespoon of sugar?  
+
+```{r}
+animals %>% filter(animal == 'Chinchilla')
+```
+
+There was a typo in the original version.  Someone had typed in 64 grams of brain weight, rather than 6.4 grams, making chinchillas look 10 times more cerebral than they really were.  This is what the original plot of the data on the log-log scale looked like.  The chinchilla stands out as the largest residual:
+
+
+```{r, echo=FALSE, out.width="100%", fig.align="center"}
+knitr::include_graphics("images/chinchilla_before.png")
+```
+
+I discovered and corrected this error only after a lot of looking through obscure sources on mammalian brain weights.  The corrected plot looked like this, with the chinchilla much closer to the line and the human standing out as the largest residual:
+
+```{r, echo=FALSE, out.width="100%", fig.align="center"}
+knitr::include_graphics("images/chinchilla_after.png")
+```
+
+Lesson learned: if a result is surprising, consider double-checking your data for dumb clerical errors!    
+
+
+#### The residuals in a power-law model {-}
+
+As we've just seen, we can fit power laws using ordinary least squares after a log transformation of both the predictor and response.  In introducing this idea, we didn't pay much attention to the residuals, or model errors.  If we actually keep track of these errors, we see that the model we're fitting for the $i$th data point is this:
+
+$$
+\log y_i = \log \alpha + \beta_1 \log x_i + e_i \, ,
+$$
+
+where $e_i$ is the amount by which the fitted line misses $\log y_i$.   We previously suppressed these residuals to lighten the notation, but now we'll pay them a bit more attention.
+
+Our equation with the residuals in it, $\log y_i = \log \alpha + \beta_1 \log x_i + e_i$, says that the residuals affect the model in an additive way _on the log scale_. But if we exponentiate both sides, we find that they affect the model in a multiplicative way on the original scale:
+
+$$
+\begin{aligned}
+e^{\log y_i} &= e^{\log \alpha }\cdot e^{ \beta_1 \log x} \cdot e^{e_i} \\
+y_i &= \alpha x^{\beta_1} e^{e_i}  \, .
+\end{aligned}
+$$
+
+Therefore, in a power low, the exponentiated residuals describe the percentage error made by the model on the original scale.  Let's work through the calculations for three examples:
+
+- If $e_i = 0.2$ on the log--log scale, then the actual response is $e^{0.2} \approx 1.22$ times the value predicted by the model.  That is, our model underestimates this particular $y_i$ by 22\%.
+- If $e_i = -0.1$ on the log--log scale, then the actual response is $e^{-0.1} \approx 0.9$ times the value predicted by the model.  That is, our model overestimates this particular $y_i$ by $10\%$.
+- If $e_i = 1.885$ on the log--log scale, then the actual response is $e^{1.88} \approx 6.55$ times the value predicted by the model.  That is, our model underestimates this particular $y_i$ by a multiplicative factor of 6.55.  This was the residual for humans in our brain-weight regression; humans' brains are 6.55 times larger than expected based on their body weight.  
+
+
+The key thing to realize here is that the _absolute_ magnitude of the error will therefore depend on whether the $y$ variable itself is large or small.  This kind of multiplicative error structure makes perfect sense for our body--brain weight data: a 10\% error for a lesser short-trailed shrew will have us off by a gram or two, while a 10\% error for an elephant will have us off by 60 kilos or more.  Bigger critters mean bigger errors---but only in an absolute sense, and not if we measure error relative to body weight.
+ 
+
+#### Example 2: demand for milk {-}
+
+A very important application of power laws in economics arises when estimating supply and demand curves.
+
+- A supply curve answers the question: as a function of price (P), what quantity (Q) of a good or service will suppliers provide?  When price goes up, suppliers are willing to provide more.  But how much more?
+- A demand curve answers the question: as a function of price (P), what quantity (Q) of a good or service do consumers demand?  When price goes up, consumers are willing to buy less.  But how much less?
+
+Both curves are characterized by elasticities.  One goal of microeconomics is to understand how these two curves define a market equilibrium price.  But our goal here is a bit simpler: given some data on price and quantity demanded, can we estimate a demand curve and the corresponding [price elasticity of demand](https://www.youtube.com/watch?v=J82_xd5XxXg&ab_channel=MarginalRevolutionUniversity)?
+
+```{r, echo=FALSE}
+milk = read.csv("data/milk.csv")
+```
+
+Please download and import the data in [milk.csv](data/milk.csv).  This data comes from something called a "stated preference" study, which is intended to measure someone's willingness to pay for a good or service.  The basic idea of this study is that you give participants a hypothetical grocery budget, say \$100, together with a "menu" of prices for various goods, and you ask them to allocate their fixed budget however they want.  By manipulating the menu prices---for example, by making milk notionally more expensive for some participants and less expensive for others---you can indirectly measure how sensitive people's purchasing decisions are to prices.  In [milk.csv](data/milk.csv), there are two columns: `price`, representing the price of milk on the menu; and `sales`, representing the number of participants willing to purchase milk at that price.  Each study participant saw three versions of the menu: one where milk was cheap, one where it was expensive, and one where it was somewhere in the middle.  But within those broad price bands, the exact numerical value of the prices each participant saw were jittered, so that in the aggregate, many different prices were represented.  
+
+Here's a scatter plot of the data:
+
+```{r milk-plot}
+ggplot(milk) +
+   geom_point(aes(x=price, y=sales))
+```
+
+As you can see, people are generally less willing to buy milk at higher prices.  Moreover, it becomes clear that a power law makes sense for this data when we plot it on a log-log scale: 
+
+```{r milk-plot-log}
+ggplot(milk) +
+   geom_point(aes(x=log(price), y=log(sales)))
+```
+
+Remember, the characteristic feature of a power law is that it looks linear when plotting log(y) versus log(x), which is exactly what we see here.  So let's fit a linear model for log(sales) versus log(price):
+
+```{r}
+lm_milk = lm(log(sales) ~ log(price), data=milk)
+coef(lm_milk)
+```
+
+Our fitted equation on the log scale is $\log(y) = 4.72 - 1.62 \cdot \log(x)$, meaning that our power law is:
+
+$$
+y = e^{4.72} \cdot x^{-1.62} \approx 112.2 \cdot x^{-1.62}
+$$
+
+Our estimated elasticity is about -1.62: that is, when the price of milk increases by 1%, consumers want to buy about 1.62% less of it, on average.  
+
+### Summary {-}
+
+
+Here's a quick table wrapping up our discussion of "Beyond straight lines."  
+
+| Type of change  | Model | Example | Fitting in R | Coefficient on x| 
+|:--------|:--------|:---------|:------------------|:---------|
+| Additive              | Linear      | Heart rate vs. age | `lm(y ~ x, data=D)` | Slope |
+| Multiplicative        | Exponential | Population vs. time  | `lm(log(y) ~ x, data=D)` | Growth rate |
+| Relative proportional | Power law   | Demand vs. price  | `lm(log(y) ~ log(x), data=D)` | Elasticity | 
+
+If I had to summarize this table in a single phrase, it would be: additive change on the log scale is the same thing as multiplicative change on the original scale.  As long as you understand that basic principle, the whole table should fall into place.  
+
+## Study questions: fitting equations {-}

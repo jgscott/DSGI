@@ -13,7 +13,7 @@ The answer is: people did __math.__  Lots and lots of math, spanning at least th
 
 If you enjoy math, feel free to skip this section.  But if you don't enjoy math, you might have some concerns.  Let me try to address those concerns head-on, with the following FAQ.
 
-(1) __"Is this math hard?"__  Some of it is accessible to anyone with a high-school math education, and that's the part that gets taught in a high-school AP Statistics course.  But yes, [certain _other_ parts](https://www.cs.toronto.edu/~yuvalf/CLT.pdf) of this [math](http://cameron.econ.ucdavis.edu/e240a/asymptotic.pdf) actually are pretty hard.  And if you don't dig into this math, there will _always_ be parts of the high-school version that seem [mystifying.](https://shoichimidorikawa.github.io/Lec/ProbDistr/t-e.pdf)  I'd say that overall, this math is harder than a college course on differential equations, but not as hard as, for example, a PhD course on quantum mechanics.^[For those that know this math, I'm thinking of, for example, the proof of the Central Limit Theorem involving characteristic functions, or the proof of the asymptotic normality of the OLS estimator.]
+(1) __"Is this math hard?"__  Some of it is accessible to anyone with a high-school math education, and that's the part that gets taught in a high-school AP Statistics course.  But yes, [certain _other_ parts](https://www.cs.toronto.edu/~yuvalf/CLT.pdf) of this [math](http://cameron.econ.ucdavis.edu/e240a/asymptotic.pdf) actually are pretty hard.  And if you don't dig into this math, there will _always_ be parts of the high-school version that you just have to accept [because someone tells you to do it that way.](https://shoichimidorikawa.github.io/Lec/ProbDistr/t-e.pdf)  I'd say that overall, this math is harder than a college course on differential equations, but not as hard as, for example, a PhD course on quantum mechanics.^[For those that know this math, I'm thinking of, for example, the proof of the Central Limit Theorem involving characteristic functions, or the proof of the asymptotic normality of the OLS estimator.]
 
 
 (2) __"Holy smokes.  That sounds terrifying.  Am I going to have to learn do this math myself?"__ Emphatically not, unless you decide to take your studies a lot further than these lessons can carry you.  
@@ -29,11 +29,11 @@ If you enjoy math, feel free to skip this section.  But if you don't enjoy math,
 
 There's one overwhelmingly important reason why it's important, even for beginners, to understand this historically older, more mathematical approach to statistical inference: _because a lot of people out there still use it._  
 
-Why, you ask, do they still use this older approach?  (I mean, haven't they read my FAQ?!)  I suppose that's an interesting question, but it's a question for another day.  The fact is, folks _do_ use this older approach.  Lots of them.  And when they communicate their results to you, using terms like "z test" or "t interval," they'll expect you to understand them.  As a basic matter of statistical literacy, it is important that you do.
+Why, you ask, do they still use this older approach?  (I mean, haven't they read my FAQ?!)  That's an interesting question, but it's a question for another day.  The fact is, folks _do_ use this older approach, many with good reasons.  And when they communicate their results to you, using terms like "z test" or "t interval," they'll expect you to understand them.  As a basic matter of statistical literacy, it is important that you do.
 
-And you will!  If you understood the lesson on "[The bootstrap]", these folks describing their "z test" or "t interval" won't be talking about anything fundamentally unfamiliar to you, despite their exotic vocabulary.  In fact, you stand a decent chance of understanding what they're saying better than they understand it themselves.  It does take a bit of time and effort to learn a few new terms for a few old ideas (hence this lesson), but at the end of the day, everyone's just talking about [Sampling distributions].  
+And you will!  If you understood the lesson on "[The bootstrap]", these folks describing their "z test" or "t interval" won't be talking about anything fundamentally unfamiliar to you, despite their exotic vocabulary.  In fact, you stand a decent chance of understanding what they're saying better than they understand it themselves.  It does take a bit of time and effort to learn a few new terms for a few old ideas (hence this lesson).  But at the end of the day, everyone's just talking about [Sampling distributions].  
 
-To convince you of this, let me show you the following table.  In the left column are a bunch of phrases associated with the older, more mathematical way of approaching statistical inference.  In the right column are some corresponding translations.  If you understand what the right column is referring to, you're going to find this lesson a breeze.  It'll be just like memorizing how to say "please," "thank you," and "where's the bathroom?" in the local language of a foreign country you're about to visit.  
+To convince you of this, let me show you the following table.  In the left column are a bunch of phrases associated with the older, more mathematical way of approaching statistical inference.  In the right column are some corresponding translations in terms of the bootstrap.  If you understand what the right column is referring to, you're going to find this lesson a breeze.  It'll be just like memorizing how to say "please," "thank you," and "where's the bathroom?" in the local language of a foreign country you're about to visit.  
 
 
 <br>
@@ -45,7 +45,7 @@ Table: (\#tab:translation-table) How to translate between two different approach
 | one-sample t-test (or "t inverval")  | Bootstrapping a sample mean and making a confidence interval (and possibly checking whether that confidence interval includes some specific value, like 0).        |
 | one-sample test of proportion (or "z interval")  | Bootstrapping a proportion and making a confidence interval (and possibly checking whether that confidence interval includes some specific value, like 0.5).                                     |
 | Two-sample t-test (or z-test)       | Bootstrapping the difference in means between two groups (`diffmean`) and making a confidence interval for the difference (and possibly checking whether that confidence interval contains zero).    |
-| Two-sample test of proportions | Bootstrapping the difference in proportions between two groups (`diffprop`) amd making a confidence interval for the difference, (and possibly checking whether that confidence interval contains 0). |
+| Two-sample test of proportions | Bootstrapping the difference in proportions between two groups (`diffprop`) and making a confidence interval for the difference, (and possibly checking whether that confidence interval contains 0). |
 | Regression summary table       | Bootstrapping a regression model (`lm`) and making confidence intervals for the regression coefficients (and possibly checking whether those confidence intervals contain zero).    |
 
 <br>
@@ -58,14 +58,14 @@ Let me also add four other reasons why you'd actually _want_ to understand this 
 
 (2) __It works on bigger data sets.__  A related problem is that for some very large data sets, bootstrapping might take _so_ much time that it's no longer just a question of boredom, but of whether you'll get an answer _at all_ within some reasonable time frame.  
 
-(3) __It offers insight.__  To give one example: the math behind Table \@ref(tab:translation-table) helps you understand a very fundamental relationship between sample size and statistical uncertainty, called _de Moivre's equation_.  Knowing this relationship protects you against all kinds of unfortunate logical errors, and we'll talk about some of these below.  
+(3) __It offers insight.__  To give one example: the math behind Table \@ref(tab:translation-table) helps you understand a very fundamental relationship between sample size and statistical uncertainty, called _de Moivre's equation_.  
 
 (4) __It prepares you to do more.__  We've already talked about how [Bootstrapping usually, but not always, works].  If you decide to pursue further studies---in statistics, machine learning, computer science, economics, or any number of fields---eventually you will encounter the limits of the simple bootstrapping approach, and you'll need to rely on some math (or, at the very least, on the results of some other people's math).   This lesson will give you the proper foundation to understand what's going on if and when that happens.  Of course, my primary goal here is to teach you some practical data-science skills, not to run you through some mathematical boot camp for advanced studies in statistics.  Future-proofing your stats education is mainly just a nice side benefit.  
 
 Let's dive right in.  
 
 
-## The Central Limit Theorem  
+## The Central Limit Theorem {#central-limit-theorem}
 
 ### The normal distribution {-}
 
@@ -162,6 +162,7 @@ First, de Moivre's equation places a fundamental limit on how fast we can learn 
 - if you collect 4 times as much data as you had before, you're not 4 times as certain as you were before: de Moivre's equation says that your standard error will go down by a factor of $1/\sqrt{4} = 1/2$.  That is, you'll have half as much uncertainty as you had before.
 - if you collect 100 times as much data as you had before, you're not 100 times as certain as you were before: de Moivre's equation says that your standard error will go down by a factor of $1/\sqrt{100} = 1/10$.  That is, you'll have 10% as much uncertainty as you had before.  
 
+
 Second, de Moivre's equation also allows us to state a more precise version of the Central Limit Theorem, as follows.
 
 ```{theorem, name = "Central Limit Theorem, more precise version"}
@@ -183,7 +184,9 @@ Three notes here:
 
 ### The CLT in action {-}
 
-The Central Limit Theorem and de Moivre's equation can feel a bit abstract.  In my opinion, the best way to make these two ideas feel concrete is to mess around with some Monte Carlo simulations until they both start to make sense.   [This web app](https://gallery.shinyapps.io/CLT_mean/) allows you to explore the CLT to your heart's content, and I highly recommend it!  But we'll look at two specific examples here.  
+The Central Limit Theorem and de Moivre's equation can feel a bit abstract.  It's certainly not obvious or intuitive why either mathematical result is true.  In a course covering probability or mathematical statistics, you would actually _prove_ that they're true, but those kinds of mathematical proofs are not really our focus in these lessons.  
+
+Instead, we're going to take a different approach.  In my opinion, the best way to make the Central Limit Theorem and de Moivre's equation feel concrete is to mess around with some Monte Carlo simulations until they both start to make sense.   [This web app](https://gallery.shinyapps.io/CLT_mean/) allows you to explore the CLT to your heart's content, and I highly recommend it!  But we'll look at two specific examples here.  
 
 
 #### Example 1: FedEx packages {-}
@@ -194,7 +197,7 @@ To FedEx, understanding fluctuations in average package weight for a delivery tr
 
 - Every pound of package weight you're carrying around requires more fuel, so you need to make sure a given truck is adequately fueled to complete its delivery run.  
 - But you don't want to _over-fuel_ a truck either.  Unnecessary fuel means you're carrying unnecessary weight, and therefore _burning_ more fuel than you need to.  
-- So there's really an "ideal" amount of fuel to carry: not too much, but enough to cover typical day-to-day fluctuations in package weight.  You only save a small amount _per truck, per day_ by getting this right.  But over many trucks and many days, it can add up.  Considering that 3-5% of FedEx's roughly \$80 billion in revenue is spent on fuel in any given year, we're talking about real money here.  
+- So there's really an "ideal" amount of fuel to carry: not too much, but enough to cover typical day-to-day fluctuations in package weight.  You only save a small amount _per truck, per day_ by getting this right.  But over many trucks and many days, it can add up.  Considering that 3-5% of FedEx's roughly \$80 billion in revenue is spent on fuel in any given year, we're talking about real money here.^[You might ask, why doesn't FedEx just weigh each truck and fuel it accordingly?  Someone actually asked this question in the conference presentation I attended.  The answer was, basically, that time costs more than fuel.  Can you imagine how long it would take to line up every FedEx truck and weigh it as it leaves the warehouse?  It's far better, time-wise, to have a rule of thumb that covers expected statistical fluctuations in package weight.]  
 
 With that in mind, let's now return to our question: how does the average weight of packages delivered by a single FedEx truck vary from one truck to the next?
 
@@ -244,7 +247,7 @@ do(5)*mean(~weight, data=sample_n(fedex_sim, 60))
 
 You might get the sense, even from just 5 samples, that the average package weight for a single truck is usually pretty close to the population average of 6.1 pounds.
 
-But what about if we look across, say, 5000 trucks, which is roughly the number of FedEx trucks making deliveries in Texas on a single day?^[In 2020 FedEx claimed a fleet of 78,000 trucks.  Texas represents about 9% of the US population, and so probably about 9% of the FedEx trucks.  That's about 7000 trucks.  But probably not all are driving on any given day, so I'm using 5000 as a round, ballpark figure.]  Let's take 5000 different samples of size 60, representing 5000 different trucks, and make a histogram of each truck's mean package weight.
+But what about if we look across, say, 5000 trucks, which is about the number of FedEx trucks making deliveries in Texas on a single day?^[In 2020 FedEx claimed a fleet of 78,000 trucks.  Texas represents about 9% of the US population, and so probably about 9% of the FedEx trucks.  That's about 7000 trucks.  But probably not all are driving on any given day, so I'm using 5000 as a round, ballpark figure.]  Let's take 5000 different samples of size 60, representing 5000 different trucks, and make a histogram of each truck's mean package weight.
 
 ```{r, echo=FALSE, message=FALSE}
 options(`mosaic:parallelMessage` = FALSE)
@@ -344,7 +347,7 @@ ggplot(grade_distribution) +
   labs(x="Student GPA")
 ```
 
-This is obviously _nothing_ like a normal distribution.  But as we'll soon see---and as the Central Limit Theorem would predict---it turns out that the average GPA for an individual section of this course _does_ look very close to normal.  
+This is obviously _nothing_ like a normal distribution.  It's highly skewed, and it can only take on a discrete set of values.  But as we'll soon see---and as the Central Limit Theorem would predict---it turns out that the average GPA for an individual section of this course _does_ look very close to normal.  
 
 To give us something to sample from, I simulated a hypothetical population of 5000 students from this grade distribution.  You can find this simulated population in [grade_population.csv](data/grade_population.csv).  Go ahead and import this into RStudio.  Here are the first six lines of the file, representing the first six students in our population:  
 
@@ -423,9 +426,10 @@ Why does this matter?  Well, when I look back over the years, I see that the cou
 
 Anyway, when I saw Figure \@ref(fig:gpa-histogram), I e-mailed the dean about it.  I'm not sure if anything will come of it, but the exercise was certainly instructive for me---and, I hope, for you.  
 
-## Confidence intervals for a mean 
 
-Let's now turn to the main question: how can we use the Central Limit Theorem, combined with de Moivre's equation, to get confidence interval without bootstrapping? 
+## Confidence intervals for a mean {#confidence-intervals-mean}
+
+Let's now turn to the main question we're trying to answer in this lesson: how can we use the Central Limit Theorem, combined with de Moivre's equation, to get confidence interval without bootstrapping? 
 
 You might remember the "confidence interval rule of thumb" from our lesson on [The bootstrap]: 
 
@@ -433,14 +437,16 @@ You might remember the "confidence interval rule of thumb" from our lesson on [T
 
 These numbers of 68% and 95% actually come from the normal distribution (recall Figure \@ref(fig:normal-6895)), and the underlying justification for this rule of thumb _is_ the Central Limit Theorem.  The logic here, roughly, is as follows.
 
-- The Central Limit Theorem says that statistical fluctuations in the sample mean can be described by a normal distribution, centered around the population mean $\mu$.    
+- The Central Limit Theorem says that statistical fluctuations in the sample mean $\bar{X}_N$ can be described by a normal distribution, centered around the population mean $\mu$.    
 - de Moivre's equation tells us the standard deviation of that normal distribution: $\sigma/\sqrt{n}$, where $\sigma$ is the standard deviation of a single data point, and $n$ is the sample size.  
-- A normally distributed random variable is within 2 standard deviations of its mean 95% of the time.  Therefore, $\bar{x}_n$ should be within 2 standard errors of $\mu$ (the population mean) 95% of the time.  
-- Thus if we quote the confidence interval $\bar{x}_n \pm 2 \cdot \sigma/\sqrt{n}$, we should capture the true value in our interval 95% of the time.  
+- A normally distributed random variable is within 2 standard deviations of its mean 95% of the time.  Therefore, $\bar{X}_N$ should be within 2 standard errors of $\mu$ (the population mean) 95% of the time.  
+- Thus if we quote the confidence interval $\bar{X}_N \pm 2 \cdot \sigma/\sqrt{n}$, we should capture $\mu$ in our interval 95% of the time.  
 
-And that's basically it---a couple centuries' worth of math in a handful of bullet points.  Or even more succinctly: __just use de Moivre's equation and quote $\bar{x}_n \pm 2 \cdot \sigma/\sqrt{n}$ as your 95% confidence interval for the mean.__  The Central Limit implies that this confidence interval should be nearly identical to the confidence interval you get from bootstrapping.  
+And that's basically it---a couple centuries' worth of math in a handful of bullet points.  Or even more succinctly: __just use de Moivre's equation and quote $\bar{X}_N \pm 2 \cdot \sigma/\sqrt{n}$ as your 95% confidence interval for the mean.__  The Central Limit implies that this confidence interval should be really close to the confidence interval you get from bootstrapping.  
 
-Let's see this basic logic applied to some examples.  
+The caveat, of course, is that such a confidence interval characterizes _only_ statistical uncertainty.  It doesn't have anything to say about non-statistical uncertainty, i.e. systematic biases in your measurement process.  So if your sample is biased, then all bets are off regarding whether your confidence interval contains the true value.  But this is true of pretty much any confidence interval, including those calculated by bootstrapping.  
+
+With that caveat in mind, let's see some examples.  
 
 
 ### Example 1: sleep, revisited  {-}
@@ -546,6 +552,8 @@ And if we go use de Moivre's equation to go out two standard errors to either si
 
 ... also 6.82 to 6.94.  Voila---a confidence interval that's basically identical to what you get when you bootstrap, except using math rather than computational muscle.  
 
+Finally, let's remember our caveat: this confidence interval characterizes _only_ statistical uncertainty.  But in this case, since the NHANES study consists of a representative sample of all Americans, any biases in our measurement process are likely to be small.  It seems reasonable to assume that statistical uncertainty is what matters most here.  
+
 
 ### `t.test` shortcut {-}
 
@@ -564,10 +572,27 @@ Luckily, there's a shortcut, using a built-in R command called `t.test`.  It wor
 t.test(~SleepHrsNight, data=NHANES_sleep)
 ```
 
-This command prints out a _bunch_ of extraneous information to the console.  You can safely ignore just about everything, except the part labeled "95% confidence interval," which is indeed the interval calculated using de Moivre's equation.^[You might ask, why is it really close, but not _exactly identical_, to the confidence interval we calculated by hand?  Well, that's because going out 2 standard errors is really close, but not _exactly identical_, to a 95% confidence interval.  Instead of 2, `t.test` is using a number that's really, really close to 2, but is more exact.]
+This command prints out a _bunch_ of extraneous information to the console.  You can safely ignore just about everything for now, except the part labeled "95% confidence interval," which is indeed the interval calculated using de Moivre's equation.
 
-__Summary: inference for a mean.__  If you want to get a 95% confidence interval for a mean without bootstrapping, use `t.test`, and ignore everything in the output except for the part that says "confidence interval."  This is, in fact, the shortcut that most people use.  And now you understand the first row of Table \@ref(tab:translation-table).  For reasons not worth going into, this is often called the "t interval" for a mean.  
+__Summary: inference for a mean.__  If you want to get a 95% confidence interval for a mean without bootstrapping, use `t.test`, and ignore everything in the output except for the part that says "confidence interval."  This is, in fact, the shortcut that most people use.  And now you understand the first row of Table \@ref(tab:translation-table).  This is often called the "t interval" for a mean.  
 
+
+__Minor technical point.__  You might ask: why is the confidence interval calculated via `t.test` really similar, but not _exactly identical_, to the confidence interval we calculated by hand by going out 2 standard errors from the sample mean?  Here those two intervals are, out to 4 decimal places:  
+
+- 2 standard errors by hand: (6.8208, 6.9392)
+- using `t.test`: (6.8211, 6.9369)  
+
+These two intervals are slightly different because going out 2 standard errors is just a rule of thumb that's easy to remember.  It gives you something really close, but not _exactly identical_, to a 95% confidence interval based on the Central Limit Theorem.  For a normal distribution, the exact number is closer to 1.96 (see Figure \@ref(fig:normal-6895)).  So instead of the rule of thumb based on 2 standard errors, `t.test` is using an exact figure, and is a bit narrower as a result.  
+
+In fact, `t.test` is being even a little bit more clever.  It uses a number that's always pretty close to 2 but that depends on the sample size. For example, if you had only 10 samples, `t.test` would calculate a confidence interval by going out 2.26 standard errors from the sample mean.  If you had 30 samples, it would go out 2.04 standard errors.  Only if you had thousands of samples of more would it actually use 1.96, which is the mathematically "correct" number for a normal distribution.  
+Is there any rhyme or reason to these numbers? Yes, there is---but the reasoning is very complicated.  It's based on something called the [t distribution](https://www.jmp.com/en_us/statistics-knowledge-portal/t-test/t-distribution.html) (hence the "t interval" and the function `t.test` in R).  There's a huge amount of detail here, but the short version is this:
+
+- de Moivre's equation and the Central Limit Theorem assume that the population standard deviation $\sigma$ is known.  
+- But $\sigma$ is almost never known.  We have to estimate it using the data---and this estimate, like all estimates, is subject to error.  
+- When we use an _estimate_ of $\sigma$ rather than the true $\sigma$ in de Moivre's equation, it introduces extra uncertainty in our calculation.  
+- The t distribution is like a version of the normal distribution that accounts in a precise mathematical way for this extra uncertainty.  
+
+Lots of introductory statistics courses spend a whole lot of time on these details.  In these lessons, we're basically going to ignore them; in my opinion, they're just not that important until you reach a much more advanced level in your statistics education.  It's enough to understand that `t.test` is basically just computing a confidence interval based on the Central Limit Theorem and de Moivre's equation, with a minor correction that widens the confidence intervals to account for small sample sizes.  It's not important that you understand the precise details of how that "minor correction" is actually calculated.  
 
 
 ### Example 2: cheese {-}
@@ -683,15 +708,350 @@ Abraham de Moivre presumably never encountered American cheese.  I like to think
 
 ## Beyond de Moivre's equation
 
-### Differences of means {-}
+### The basic recipe of large-sample inference {-}
 
-### Proportions {-}
+In the previous section on the Central Limit Theorem, we focused exclusively on the sample mean.  We learned that, for large enough samples, the statistical fluctuations in the sample mean can be described by a normal distribution whose width is known quite precisely, via de Moivre's equation.  
 
-### Differences of proportions {-}
-
-### Regression coefficients {-}
+It turns out that the sample mean isn't special: many other common data summaries also have approximately normal sampling distributions, regardless of whether the underlying population itself looks normal.  The upshot is that we can make approximate probability statements about most common estimators using the normal distribution, using the same basic logic from the section on [confidence intervals for a mean](#confidence-intervals-mean). This includes means, medians, proportions, differences of means, differences of proportions, standard deviations, correlations, regression coefficients, quantiles... it's quite a long list!  These estimators are all said to be _asymptotically normal_, assuming your data consists a random sample from some underlying population.
 
 
+```{definition, label="asymptotic-normal", name = "Asymptotic normality"}
+An estimator is said to be __asymptotically normal__ if its sampling distribution is approximately normal for large enough samples.  
+```
 
-## Misunderstanding de Moivre's equation
+<br>
 
+For any asymptotically normal estimator $\hat{\theta}$, we can calculate a confidence interval using the same basic approach:
+
+(1) Calculate the sample estimate $\hat{\theta}$.  
+(2) Calculate the standard error of your estimate, $\mbox{se}(\hat{\theta})$, from the appropriate formula (like de Moivre's equation).  
+(3) Form the confidence interval like this:  
+
+```{r, echo=FALSE, out.width="100%"}
+knitr::include_graphics("images/CLT.png")
+```
+
+In fact, the only thing that changes from one summary statistic to another is the formula for the standard error.  For a sample mean, we calculate the standard error using de Moivre's equation: $\mbox{se}(\bar{X}_N) = \sigma/\sqrt{n}$.  For any statistic other than the sample mean, we simply require a different formula for the standard error.  Luckily, over the last couple of centuries, _many_ of these "de-Moivre-like" formulas have been worked out for a huge range of situations, and they're programmed into every common statistical software package (including R). 
+
+I'll issue a pre-emptive warning here: the details of these formulas can get a little tedious!  In practice, this traditional way of doing statistical inference involves a lot of time spent looking up these formulas, and a lot of "plug and chug," where you plug numbers into a formula and then just do the darn arithmetic.  (If you took AP Statistics in high school, this likely describes your experience for much of the course.)  I'll quote a few of these formulas briefly below, just to give you a sense for what they're like---but there's no need to memorize them.  Then we'll go through several examples that illustrate how these formulas compare with bootstrapped standard errors.  (Spoiler alert: they give nearly identical results.)  My advice is to not focus on the micro-details of the formulas.  Instead, focus on how this basic three-step recipe is applied each time. 
+
+
+#### Sample mean {-}
+
+Suppose we collect a random sample of data points $x_1, \ldots, x_N$ from some wider population with mean $\mu$, and we calculate their sample mean $\bar{x}$.  The standard error of this sample mean is:
+
+$$
+\mathrm{se}(\bar{x}) = \frac{\sigma}{\sqrt{N}}
+$$
+
+where $N$ is the sample size and $\sigma$ is the standard deviation, typically estimated by taking the sample standard deviation of $x_1, \ldots, x_N$.  This is __de Moivre's equation__, as we've already covered.  
+
+
+#### Sample proportion {-}
+
+Suppose we collect observe a sample of $N$ independent "yes-or-no" outcomes, all with common but unknown probability $p$ of being "yes."  We let $\hat{p}$ denote the proportion of "yes" outcomes in our sample.  The standard error of this sample proportion is:
+
+$$
+\mathrm{se}(\hat{p}) = \sqrt{\frac{\hat{p} \cdot (1-\hat{p})}{N}}
+$$
+
+
+#### The Pythagorean theorem  {-}
+
+Suppose we collect independent random samples from two groups, and that we calculate the same summary statistic in each group, denoted $\hat{\theta}_1$ and $\hat{\theta}_2$, respectively.  We are interested in the difference between the two groups, $\hat{\theta}_1 - \hat{\theta}_2$.  The standard error of this difference can be calculated using the Pythagorean Theorem for standard errors:   
+
+$$
+\left[ \mathrm{se}(\hat{\theta}_1 - \hat{\theta}_2) \right]^2 =  \left[ \mathrm{se}(\hat{\theta}_1) \right]^2 +  \left[ \mathrm{se}(\hat{\theta}_2) \right]^2 
+$$
+
+Intuitively, it's like $\mathrm{se}(\hat{\theta}_1 - \hat{\theta}_2)$ is the hypotenuse of a right triangle, while $\mathrm{se}(\hat{\theta}_1)$ and $\mathrm{se}(\hat{\theta}_2)$ are the two legs of that triangle.  If you have that picture in your head, then it makes sense to use the Pythagorean theorem to calculate the "length of the hypotenuse," i.e. the standard error of the differences between the two groups.^[This analogy can be made precise using probability theory, but that's beyond the scope of these lessons.]  For example:  
+
+- difference of means, $\bar{x}_1 - \bar{x}_2$.  According to the Pythagorean Theorem for standard errors, the standard error of this difference is:  
+$$
+\mathrm{se}(\bar{x}_1 - \bar{x}_2) = \sqrt{\frac{\sigma_1^2}{N_1} + \frac{\sigma^2_2}{N_2}} 
+$$
+
+- difference of proportions, $\hat{p}_1 - \hat{p}_2$.  According to the Pythagorean Theorem for standard errors, the standard error of this difference is:  
+$$
+\mathrm{se}(\hat{p}_1 - \hat{p}_2) = \sqrt{\frac{\hat{p_1} \cdot (1 - \hat{p_1})}{N_1}  +  \frac{\hat{p_2} \cdot (1 - \hat{p_2})}{N_2}} 
+$$
+
+
+
+<!-- #### Regression coefficients {-} -->
+
+<!-- Suppose we fit a regression model by ordinary least squares. -->
+
+<!-- \begin{eqnarray} -->
+<!-- \mbox{se}(\hat{\beta_0}) &=& \hat{s} \cdot \sqrt{ \frac{1}{n}  + \frac{\bar{x}^2}{\sum_{i=1}^n (x_i - \bar{x})^2}  }  \\ -->
+<!-- \mbox{se}(\hat{\beta_1}) &=& \hat{s} \cdot \sqrt{ \frac{1}{\sum_{i=1}^n (x_i - \bar{x})^2} } \, . -->
+<!-- \end{eqnarray} -->
+
+<!-- where $\hat{s}$ is the standard deviation of the model residuals and $\bar{x}$ is the sample mean of our predictor ($x$) variable. -->
+
+
+
+### Example 1: sample proportion {-}
+
+Let's now see some examples of these formulas in action.  
+
+First, please download and import the data in [beer.csv](data/beer.csv), which contains a sample of beers (and ciders) available for purchase in Texas.  The first six lines of the file look like this: 
+
+```{r, echo=FALSE}
+beer = read.csv("data/beer.csv")
+```
+
+```{r}
+head(beer)
+```
+
+Here we'll focus on the `IPA` column, which indicates whether a beer is a particular style called an [India Pale Ale](https://www.bonappetit.com/story/ipa-beer-styles).  Our question is simple: what proportion of unique beers available for sale in Texas are IPA's?
+
+```{r}
+prop(~IPA, data=beer)
+```
+
+A little over 20%.  What about a confidence interval?  Let's follow the three steps outlined in "[The basic recipe of large-sample inference]".  
+
+__Step 1: summary statistics.__  The sample proportion of IPA's is $\hat{p} = 0.206$, based on a sample of size N=344.  
+
+__Step 2: standard error.__ Our standard error formula for a proportion is:
+
+$$
+\mathrm{se}(\hat{p}) = \sqrt{\frac{\hat{p} \cdot (1 - \hat{p})}{N}} = \sqrt{\frac{0.206 \cdot (1 - 0.206)}{344}} = 0.022
+$$
+
+
+__Step 3: confidence interval.__ For a confidence interval of 95%, we go out two standard errors from our sample estimate of 0.206.  Therefore our 95% confidence interval is:  
+
+$$
+\begin{aligned}
+&\phantom{\approx} 0.206 \pm 2 \cdot 0.022 \\
+&\approx (0.16, \, 0.25)
+\end{aligned}
+$$
+
+Our conclusion is that between 16% and 25% of unique beers on the wider market in Texas are IPA's.  
+
+Let's compare this with a bootstrapped confidence interval, which we can calculate easily using the following code block:
+
+
+```{r, echo=FALSE, message=FALSE}
+options(`mosaic:parallelMessage` = FALSE)
+```
+
+```{r}
+boot_IPAprop = do(10000)*prop(~IPA, data=resample(beer))
+confint(boot_IPAprop)
+```
+
+This is nearly identical to what we get using the Central Limit Theorem.
+
+
+#### `prop.test` shortcut {-}
+
+There's also a handy shortcut to get a large-sample confidence interval for a proportion, using R's built-in `prop.test` function.  It works just like `prop`, `mean`, and `t.test`.  Again, you can safely ignore everything except the part labeled "confidence interval":  
+
+```{r}
+prop.test(~IPA, data=beer)
+```
+
+This avoids having to do any tedious standard-error calculations by hand. 
+
+
+### Example 2: difference of means {-}
+
+Let's now focus on the column labeled `ped`, which stands for price elasticity of demand.  This represents consumer price sensitivity for each beer in the sample. We'll compare price elasticity for IPA's versus non-IPA's:
+
+```{r}
+ggplot(beer) + 
+  geom_boxplot(aes(x=IPA, y=ped))
+```
+
+It looks like IPA's have considerably more negative price elasticities, on average, implying great consumer price sensitivity for IPA's than non-IPA's.  We can calculate the average value of `ped` in each group as follows:
+
+```{r}
+mean(ped ~ IPA, data=beer)
+```
+
+
+One possible explanation for this difference is that consumers consider IPA's to be highly substitutable for one another.  So if one particular IPA seems expensive, consumers just buy a different one.  
+
+Let's get a confidence interval for the difference between these two means, applying our three-step recipe.  Here we'll need to use both de Moivre's equation as well as the "Pythagorean theorem" for the difference in sample means between two groups.
+
+__Step 1: summary statistics.__  To apply the correct formulas, we need the sample mean, sample standard deviation, and sample size in each group.  We'll get this via group/pipe/summarize:
+
+```{r}
+beer %>%
+  group_by(IPA) %>%
+  summarize(xbar = mean(ped),
+            sigma = sd(ped),
+            n = n())
+```
+
+We can also get R to calculate the difference between the two means, which is about 1.31% (i.e. more negative elasticity for IPA's):  
+
+```{r}
+diffmean(ped ~ IPA, data=beer)
+```
+
+
+__Step 2: standard error.__  Our formula for the standard error of the difference between two sample means $\bar{x}_1$ and $\bar{x}_2$ is:  
+
+$$
+\mathrm{se}(\bar{x}_1 - \bar{x}_2) = \sqrt{\frac{\sigma_1^2}{N_1} + \frac{\sigma^2_2}{N_2}} = \sqrt{\frac{0.606^2}{273} + \frac{0.623^2}{71}} = 0.082
+$$
+
+__Step 3: confidence interval.__  For a 95% interval, we go out standard errors from our difference in sample means, which is 1.31:  
+
+$$
+\begin{aligned}
+&\phantom{\approx} 1.31  \pm 2 \cdot 0.082 \\
+&\approx (1.15, \, 1.47)
+\end{aligned}
+$$
+
+So there you have it.  What a slog.  This kind of "by-hand" calculation gets so tedious so quickly that I almost never bother---but I do want to show you the details for these examples so you see what's going on "under the hood."  It's the kind of thing that makes you sympathize with those scientists in years past who lacked computers and had to do _everything_ by hand.  
+
+But since I _do_ have a computer, I typically just use `t.test`, which applies the correct formulas automatically to calculate a large-sample confidence interval for the difference of two means:
+
+```{r}
+t.test(ped ~ IPA, data=beer)
+```
+
+The output labeled "95% confidence interval" goes from 1.14 to 1.47, just like our "by hand" calculation.  This interval represents our statistical uncertainty about the difference in average elasticity for IPA's versus non-IPA's.  This confidence interval doesn't contain zero, so we have a statistically significant difference in elasticity: it appears IPA-beer consumers are more price-sensitive than non-IPA beer consumers.
+
+You may notice that `t.test` quotes a p-value.  This p-value is calculated under the null hypothesis that the true difference in `ped` for IPA's and non-IPA's were zero.  The fact that this p-value is tiny means we're very confident of a non-zero difference in elasticity between the two groups.  
+
+We can compare our large-sample confidence interval to what we get when we bootstrap the difference in means:
+
+```{r, echo=FALSE, message=FALSE}
+options(`mosaic:parallelMessage` = FALSE)
+```
+
+```{r}
+boot_IPA_ped = do(10000)*diffmean(ped ~ IPA, data=resample(beer))
+confint(boot_IPA_ped, level=0.95)
+```
+
+Other than the difference in sign, this confidence interval is basically identical to the large-sample confidence interval calculated using `t.test`.   (The difference in sign arises because `t.test` calculates the IPA mean minus the non-IPA mean, whereas our bootstrapped confidence interval is for the non-IPA mean minus the IPA mean.)  
+
+
+### Example 3: difference of proportions {-}
+
+For our third example, we'll consider the case of a difference in proportions between two groups.  Please download and import the data set in [recid.csv](data/recid.csv).  This contains data on the recividism status for a random sample of 432 prisoners released from Maryland state prisons:
+
+```{r, echo=FALSE}
+recid = read.csv('data/recid.csv')
+```
+
+```{r}
+head(recid)
+```
+
+The `arrest` column indicates whether someone was re-arrested within 52 weeks after their release from prison.  We'll compare recidivism rates stratified by the `emp1` variable, which indicates whether someone was employed within 1 week after their release:  
+
+```{r}
+prop(arrest ~ emp1, data=recid, success=0)
+```
+
+By adding `success = 0` as an optional flag, we're telling `prop` which outcome corresponds to a "success" (1 = arrest, or 0 = no arrest).  We choose `success=0` because it would be odd to interpret re-arrest as a "success."  So here, it looks like 81.7% of those who were employed within a week of release avoided re-arrest, versus 72.3% for those who weren't.
+
+To get a confidence interval for the population-wide difference in proportions, let's use `prop.test`, which applies the appropriate standard-error formulas:
+
+```{r}
+prop.test(arrest ~ emp1, data=recid, success=0)
+```
+
+This tells us that the 95% confidence interval for the difference in re-arrest rates was somewhere between -21.1% and +2.4%.  So there's a large amount of uncertainty here.  `prop.test` also provides a p-value under the null hypothesis that the true difference in proportions is 0.  This p-value is 0.1714, indicating that the difference is not statistically significant at any commonly accepted level (e.g. 0.05).  
+
+
+Let's compare our large-sample confidence interval with a bootstrapped confidence interval:
+
+```{r, echo=FALSE, message=FALSE}
+options(`mosaic:parallelMessage` = FALSE)
+```
+
+```{r}
+boot_recid = do(10000)*diffprop(arrest ~ emp1, data=resample(recid))
+confint(boot_recid)
+```
+
+This isn't identical to our large-sample confidence interval from `prop.test`, but it's very similar: about -20% to about +2%.  Both confidence intervals are telling us basically the same thing: recidivism is probably lower among released prisoners who get jobs quickly, but there's a lot of uncertainty about how much lower.  
+
+This, incidentally, provides another example of the difference between statistical and practical significance.  The difference between recidivism rates in the two groups here is not statistically significant at the 5% level.  But that doesn't prove that there's no difference!  Here, it just means the sample size is too small to rule out statistical fluctuations (particularly among prisoners who _did_ find work within a week of release, of whom there are only 60).  
+
+It's worth re-iterating a lesson we learned in our discussion of [Statistical vs. practical significance], back when we learned about the bootstrap:  
+
+> Confidence intervals are _almost always_ more useful than claims about statistical significance.  My advice to you is to entertain the full range of values encompassed by the confidence interval, rather than jumping straight to the needlessly binary question of whether that confidence interval contains zero.  
+
+Think of it this way.  Can the data rule out a 0% difference in overall recividism rates between the employed and non-employed groups?  No.  But can the data rule out, for example, an 18% difference?  Also no---and 18% would be a really large difference, in practical terms.  (If a program to get released prisoners into work quickly reduced recidivism by 18%, that would be an incredible policy triumph and a major win for society.)  So here, we have an effect that is _not_ statistically significant, but that might actually be quite large.  Of course, it might also be small, or zero, or even negative (which admittedly seems implausible, at least to me).  We're just not sure, in light of the data.  We probably need a bigger study.  
+
+
+### Example 4: regression model {-}
+
+
+```{r, echo=FALSE, message=FALSE}
+heartrate = read.csv("data/heartrate.csv", header=TRUE)
+```
+
+For our last example, let's return to the data in [heartrate.csv](data/heartrate.csv).  We looked at this data in our unit on [Fitting equations](#basic_regression), when we looked at the relationship between someone's maximum heart rate and their age:  
+
+```{r, fig.asp = 0.6, out.width = "100%"}
+ggplot(heartrate) + 
+  geom_point(aes(x=age, y=hrmax))
+```
+
+We then used regression to learn that, on average, maximum heart rate declines about 0.7 beats per minute with each additional year of age:  
+
+```{r}
+lm_heart = lm(hrmax ~ age, data=heartrate)
+coef(lm_heart)
+```
+
+In R, it's incredibly simple to get a confidence interval for regression coefficients based on the Central Limit Theorem: just call `confint` on your fitted model object, like this!^[You may notice that I never even gave you the formulas for the standard error of regression coefficients.  You can [look it up here](https://www.statisticshowto.com/find-standard-error-regression-slope/) if you really want to!]
+
+```{r}
+confint(lm_heart)
+```
+
+So our 95% large-sample confidence interval for the slope on age is about (-0.80, -0.58).  Let's compare this with a bootstrap confidence interval:
+
+
+```{r, echo=FALSE, message=FALSE}
+options(`mosaic:parallelMessage` = FALSE)
+```
+
+```{r}
+boot_hr = do(10000)*lm(hrmax ~ age, data=resample(heartrate))
+confint(boot_hr)
+```
+
+If you inspect the row labeled `age`, you'll see that our bootstrap confidence interval for this coefficient is incredibly close to our large-sample confidence interval: roughly (-0.81, -0.58).  
+
+
+### Summary {-}  
+
+We've now covered every row of Table \@ref(tab:translation-table).  Let's summarize what we've learned:  
+
+- Most common statistical summaries (means, proportions, regression coefficients, etc) have sampling distributions that look approximately normal for large enough samples.  
+- This is a consequence of a deeper principle called the Central Limit Theorem.
+- We can use the Central Limit Theorem to calculate "large-sample" confidence intervals for these summaries.  We expect these confidence intervals to be pretty accurate unless the sample size is very small.  
+- This whole approach requires some fairly tedious math, to calculate the standard error of the sampling distribution for a specific kind of estimator.    
+- Luckily R has built-in routines for computing large-sample confidence intervals that do the tedious math for you.  
+- In nearly every case, the large-sample confidence interval calculated using R's built-in routines looks very similar to the corresponding confidence interval calculated via bootstrapping.  
+
+Here's a table that covers these built-in R functions, together with their bootstrapping equivalents.  In the table, `y` refers to an outcome variable, `group` to some grouping factor (like IPA's vs. non-IPA's), and `x` refers to a predictor variable in a regression model.  
+
+| Situation | Built-in R function | Bootstrapping equivalent | 
+|:------|:----------|:-------------|
+| Estimating a mean       | `t.test(~y, data=D)`      | `do(10000)*mean(~y, data=resample(D))` |
+| Estimating a proportion | `prop.test(~y, data=D)`      | `do(10000)*prop(~y, data=resample(D))` | 
+| Comparing two means     | `t.test(y~group, data=D)`      | `do(10000)*mean(y~group, data=resample(D))` |
+| Comparing two proportions     | `prop.test(y~group, data=D)`      | `do(10000)*prop(y~group, data=resample(D))` |
+| Regression model     | `lm(y~x, data=D)`, then `confint`     | `do(10000)*lm(y~x, data=resample(D))` |
+
+## Study questions: large-sample inference {-}  
+
+(1) etc. 
+(2) etc. 

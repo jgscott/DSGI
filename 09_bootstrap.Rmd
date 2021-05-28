@@ -645,11 +645,11 @@ So yes, there is a "statistically significant" relationship between age and slee
 
 But only on average, and even then only a little bit!  Don't fall into the trap of assuming that, just because some effect is labeled "statistically significant," it must therefore matter in the real world.  It just isn't so.  The age--sleep relationship in the NHANES data is a perfect example of an effect that is statistically significant, but that we're _nearly sure_, based on the confidence interval, must be so small that it hardly matters at all in practical terms.  (Again, that's my opinion; if 3.6 minutes of extra sleep is make-or-break for you, you're certainly free to disagree, but sadly you'll need to wait a decade for those coming nights of somnolent bliss.)
 
-Now, don't get me wrong.  I'm not saying that statistical significance is an irrelevant concept.  Being able to speak the language of statistical significance is really important for communicating about data.  Rightly or wrongly, there are times and places where people just expect you to use the term, especially in certain allegedly rarefied academic contexts.  More to the point, there are _also_ cases, like in clinical trials of new drugs, where it actually is super important to know whether an effect is statistically significant ("Does this new drug actually work better than the old one?").
+Now, don't get me wrong.  I'm not saying that statistical significance is an irrelevant concept.  Being able to speak the language of statistical significance is really important for communicating about data.  Rightly or wrongly, there are times and places where people just expect you to use the term, especially in certain allegedly rarefied academic contexts.  More to the point, there are _also_ cases, like in clinical trials, where it actually is super important to know whether an effect is statistically significant. (Does this new drug actually work better than the old one?  Does this new vaccine work at all?)
 
 But confidence intervals are _almost always_ more useful than claims about statistical significance.  My advice to you is to entertain the full range of values encompassed by the confidence interval, rather than jumping straight to the needlessly binary question of whether that confidence interval contains zero.  
 
-In fact, I'll tell you an ironic little secret.  Sometimes people use the term "statistical significance" to sound fancy and scientific and credible.  Sometimes it even works.  But to those who know better, focusing too much on statistical significance, at the expense of focusing on practical significance, instead comes across as a mark of insecurity or pseudo-seriousness about statistics.
+In fact, I'll tell you a little secret.  Sometimes people use the term "statistical significance" to sound fancy and scientific and credible.  Sometimes it even works.  But to those who know better, focusing too much on statistical significance, at the expense of focusing on practical significance, instead comes across as a mark of insecurity or pseudo-seriousness about statistics.
 
 
 ```{r, echo=FALSE, out.width="100%"}
@@ -681,7 +681,7 @@ This emphatically _doesn't_ mean that all academic studies are just dumb stats t
 
 Let's see a second example of bootstrap confidence intervals for a regression model.  Here, we'll try to answer a question about the Austin real-estate market that's very much on the minds of many UT-Austin students: how do apartment rents in the West Campus neighborhood fall off as you get further away from campus itself? 
 
-Please download and import the data in [apartments.csv](data/apartments.csv), which contains data on a sample of 67 apartments in West Campus.  For each apartment, we know the monthly rent and square footage of a two-bedroom apartment, as well as the distance from the UT Tower, which makes the notional (if not the actual) center of campus. (The data set has several other feature of the unit that might affect price, but we're not concerned about those here.)  This analysis focuses on two-bedroom apartments, since virtually all buildings have many units of this size, and since we want a common basis for comparing across buildings.  
+Please download and import the data in [apartments.csv](data/apartments.csv), which contains data on a sample of 67 apartments in West Campus.  For each apartment, we know the monthly rent and square footage of a two-bedroom apartment, as well as the distance from the UT Tower, which marks the notional (if not the actual) center of campus. (The data set has several other feature of the unit that might affect price, but we're not concerned about those here.)  This analysis focuses on two-bedroom apartments, since virtually all buildings have many units of this size, and since we want a common basis for comparing across buildings.  
 
 ```{r, echo=FALSE, message=FALSE}
 apartments = read.csv('data/apartments.csv', header=TRUE)
@@ -792,6 +792,7 @@ Please once again import the [rapidcity.csv](data/rapidcity.csv) data set from a
 ```{r, echo=FALSE}
 rapidcity = read.csv('data/rapidcity.csv', header=TRUE)
 options(`mosaic:parallelMessage` = FALSE)
+set.rseed(12345678)
 ```
 
 You might remember that the average temperature in Rapid City over this entire time period (1995-2011) was about 47.3 degrees F:  
@@ -806,12 +807,21 @@ But instead of working from this census, now imagine that we took a sample of, s
 
 Here's our sample of size 50, along with the corresponding sample mean.
 
-```{r}
+```{r, echo=FALSE}
+set.rseed(12345678)
+options(`mosaic:parallelMessage` = FALSE)
+```
+
+```{r, message=FALSE}
 rapidcity_sample = sample_n(rapidcity, 50)
 mean(~Temp, data=rapidcity_sample)
 ```
 
 Of course we don't get the right answer, which is 47.28.  But what if we now bootstrap that sample to construct a confidence interval?  Notice that, crucially, our code below resamples from the "temperature sample" in the `rapidcity_sample` data set we just created above, but _not_ the full "temperature census" in `rapidcity`:  
+
+```{r, echo=FALSE}
+options(`mosaic:parallelMessage` = FALSE)
+```
 
 ```{r}
 rapidcity_sample_boot = do(1000)*mean(~Temp, data=resample(rapidcity_sample))
@@ -822,12 +832,21 @@ It looks like our bootstrap confidence interval contains the right answer of 47.
 
 Did we just get lucky?  Let's try it again.  First we'll take an entirely new sample of size 50, and use that  new sample to once again estimate the population average:
 
-```{r}
+```{r, echo=FALSE}
+set.rseed(12345661)
+options(`mosaic:parallelMessage` = FALSE)
+```
+
+```{r, message=FALSE}
 rapidcity_sample2 = sample_n(rapidcity, 50)
 mean(~Temp, data=rapidcity_sample2)
 ```
 
 Once again, we don't get the right answer, which is 47.28.  But let's bootstrap this second sample to get a confidence interval:  
+
+```{r, echo=FALSE}
+options(`mosaic:parallelMessage` = FALSE)
+```
 
 ```{r}
 rapidcity_sample_boot2 = do(1000)*mean(~Temp, data=resample(rapidcity_sample2))
@@ -890,7 +909,7 @@ In other words, if you understand this figure, you've basically aced the last tw
 
 
 
-### Example 2: the sample minimum {-}
+### Example 2: sample minimum {-}
 
 Just so that you don't come away from this lesson thinking that the bootstrap _always_ works, let's see a case where it doesn't.  
 
@@ -909,7 +928,7 @@ rapidcity_sample = sample_n(rapidcity, 50)
 min(~Temp, data=rapidcity_sample)
 ```
 
-Well, that's not very close.  Then again, _of course_ our sample answer is wrong, compared with the right answer of -19.  We should expect to see that by now for pretty much _any_ statistical summary.  So let's bootstrap our sample and calculate a confidence interval:
+Well, that's not very close.  Then again, _of course_ our sample answer is wrong, compared with the right answer of -19.  We should expect to see that by now for pretty much any statistical summary.  So let's bootstrap our sample and calculate a confidence interval:
 
 ```{r, message=FALSE}
 rapidcity_sample_boot_min = do(1000)*min(~Temp, data=resample(rapidcity_sample))

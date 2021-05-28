@@ -37,7 +37,7 @@ In this lesson, you'll learn:
   
 So let's return to our burning question: just how likely is it that one team could win the pre-game coin toss at least 19 out of 25 times, assuming that there's no cheating going on?  Of course we'd "expect" any given team to win only about half of its pre-game coin tosses, or roughly 12 or 13 out of 25.  But that's hardly enough evidence to open a cheating investigation into the Patriots.  We have to account for the possibility that they just got lucky.
 
-One way to get a feel for the inherent randomness of coin-flipping is to visit [random.org](http://www.random.org/coins/), which has a cute feature where you can "flip" a state quarter of your choice, as many times as you like.  In honor of the New England Patriots, I flipped a Connecticut state quarter a bunch of times, and it didn't take me too long to notice a few lucky streaks.  For example, here's a stretch with 12 out of 15 heads:
+One way to get a feel for the inherent randomness of coin-flipping is to visit [random.org](http://www.random.org/coins/), which has a cute feature where you can "flip" a state quarter of your choice, as many times as you like.  Since there was no quarter available for the Patriots' actual home state of Massachusetts, I chose the next-best "New England" option and flipped a Connecticut state quarter a bunch of times.  It didn't take me too long to notice a few lucky streaks.  For example, here's a stretch with 12 out of 15 heads:
 
 ```{r, echo=FALSE, fig.cap="A lucky streak with 12 heads out of 15 flips."}
 knitr::include_graphics('images/connecticutt_quarters.png')
