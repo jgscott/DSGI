@@ -2,4 +2,206 @@
 
 # Experiments
 
+```{r, echo=FALSE}
+set.seed(19820518)
+knitr::opts_chunk$set(cache = T, fig.asp = 0.65, out.width="100%")
+```
+
+
+
+```{css, echo=FALSE}
+.spoiler {
+  visibility: hidden;
+}
+
+.spoiler::before {
+  visibility: visible;
+  content: "(Spoiler.)";
+  color: #CC5500
+}
+
+.spoiler:hover {
+  visibility: visible;
+}
+
+.spoiler:hover::before {
+  display: none;
+}
+```
+
+## Causal vs. statistical questions  
+
+Why have some nations become rich while others have remained poor?  Do small class sizes improve student achievement?  Does following a Mediterranean diet rich in vegetables and olive oil reduce your risk of a heart attack?  Does a green certification (like LEED, for [Leadership in Energy and Environmental Design](http://www.usgbc.org/leed)) improve the value of a commercial property?
+
+Questions of cause and effect like these are, fundamentally, questions about counterfactual statements.  A counterfactual is an if--then statement about something that has not actually occurred.  For example: "If Colt McCoy had not been injured early in the
+[2010 National Championship football game](https://en.wikipedia.org/wiki/2010_BCS_National_Championship_Game), then the Texas Longhorns would have beaten Alabama."  If you judge this counterfactual statement to be true, then you might say that Colt McCoy's injury caused the Longhorns' defeat.
+
+Statistical questions, on the other hand, are about correlations.  This makes them fundamentally different from causal questions.
+
+- Causal: "If we invested more money in our school system, how much faster would our economy grow?"  Statistical: "In looking at data on a lot of countries, how are education spending and economic growth related?"  
+- Causal: "If I ate more vegetables than I do now, how much longer would I live?"  Statistical: "Do people who eat a lot of vegetables live longer, on average, than people who don't?"
+- Causal: "If we hire extra teachers at our school and reduce our class sizes, will our students' test scores improve?"  Statistical: "Do students in smaller classes tend to have higher test scores?"
+
+Causal questions all invoke some kind of hypothetical intervention, where some "treatment" variable is changed and everything else is held equal.    Statistical questions, on the other hand, are about the patterns we observe in the real world.  And the real world is rarely so simple as the clean hypothetical interventions we might imagine.
+
+For example, suppose we observe that people who eat more vegetables live longer.^[I'm not sure if that's true, but it seems plausible.]  But those same people who eat lots of vegetables probably also tend to exercise more, live in better housing, and work higher-status jobs.  These other factors are _confounders_: they're associated with vegetable eating, and they also might lead to a longer life-span.
+
+```{definition, name="Confounder"}
+A confounder is a competing causal explanation for some observed correlation.  Specifically, suppose that x represents a "treatment" variable and that y represents a "response" variable, and that our goal is to understand the causal effect of x on y.  A confounder is some third variable z that affects y (either directly or indirectly), and is also correlated with x.  
+```
+
+<br>
+
+
+In our hypothetical veggie example, the presence of confounders forces us to ask the question: is it the vegetables that make people live longer, or is it just the other things that vegetable eaters have/are/do?   This is a specific version of the general question we'll address in this chapter: under what circumstances can causal questions be answered using data?  
+
+Consider a second example, this one drawn from the pages of [USA Today](www.usatoday.com/yourlife/health/medical/pediatrics/2010-11-20-teendrugs22_ST_N.htm):
+
+> A study presented at the Society for Neuroscience meeting, in San Diego last week, shows people who start using marijuana at a young age have more cognitive shortfalls. Also, the more marijuana a person used in adolescence, the more trouble they had with focus and attention. "Early onset smokers have a different pattern of brain activity, plus got far fewer correct answers in a row and made way more errors on certain cognitive tests," says study author Staci Gruber.
+
+Here the confounder is _baseline cognitive performance._   Did the smokers get less smart because of the marijuana, or were the less-smart kids more likely to pick up a marijuana habit in the first place?  It's an important question to consider in making drug policy, especially for states and countries where marijuana is legal.  But can we know the answer on the basis of a study like this?
+
+This is the point where most books remind you that "correlation does not imply causation."   Obviously.  But if not to illuminate causes, what is the point of looking for correlations?  Of course correlation does not imply causality, or else playing professional basketball would make you tall.  But that hasn't stopped humans from learning that smoking causes cancer, or that lightning causes thunder, on the basis of observed correlations.  The important question is: what distinguishes the good evidence-based arguments from the bad?  How can we learn causality from correlation?
+
+It's not easy, but neither is it impossible.  This lesson is about the best way we know how: by running an _experiment._  The idea of an experiment is simple.  If you want to know what would happen if you intervened in some system, then you should intervene and measure what happens.  There is simply no better way to establish that one thing causes another.
+
+More specifically, this lesson will teach you the three basic principles of good experimental design:  
+
+- Use a control group.   
+- Block what you can.   
+- Randomize what you cannot.  
+
+
+## The importance of a control group
+
+The key principle in using experiments to draw causal conclusions is that of a _balanced comparison_.  In this section, we'll focus on the "comparison" part; in later sections, we'll focus on the "balanced" part.  
+
+In an experiment, a _control group_ is the standard by which comparisons are made.  Typically, it's a group of subjects in an experiment or study that do not receive the treatment under study, but rather are used as a benchmark for the subjects that _do_ receive the treatment.  Without a control group, we have no way of knowing whether any changes in the outcome of interest are _caused_ by the treatment, or simply the result of natural variation or pre-existing trends.
+
+To understand the importance of a control group, try to reason through each of the following examples.  Could the study in question be used to support a causal claim?  Why or why not?  
+
+__Example 1:__ You recruit 100 people suffering from cold symptoms.  You feed them all lots of oranges, which are full of Vitamin C.  Seven days later, 92 out of 100 people are free of cold symptoms.  Did the oranges make people better?  [People generally get better from a cold after several days, without any intervention.  It's impossible to tell whether the oranges had any effect unless you compare orange-eaters ("treatment") versus non-orange-eaters ("control").]{.spoiler}
+
+__Example 2:__ You recruit 100 4th-grade students whose reading skills are below grade level.  You get them to enroll them in an after-school reading program at the local library.  A year later, their average performance on a reading test has improved by 6%.  Did the after-school program help?  [Kids generally get better at reading over time just by being in school, at least on average.  It's impossible to know how effective the after-school program was unless you compare kids who enrolled in it ("treatment") versus kids who didn't enroll ("control)".]{.spoiler}
+
+__Example 3:__ You conjecture that people will perform worse on a skill-based task when they are in the presence of an observer with a financial interest in the outcome.  You recruit 100 subjects and give them time to practice playing a video game that requires them to navigate an obstacle course as quickly as possible. You then instruct each subject to play the game one final time with an observer present. Subjects are randomly assigned to one of two groups.  Group 1 is told that the participant and observer will _each_ win $10 if the participant beats a certain threshold time, while Group 2 is told only that the participant will win the prize if the threshold is beaten.  At the end of the study, subjects in Group 2 beat the threshold time 9% more often than those in group 1.  [The study is a true experiment. There is an experimental group and a control group. Moreover, subjects were randomly assigned to either of the groups, ensuring that the only systematic difference between the two groups is the experimental intervention itself. (We'll talk more about this idea below.)  Hence this study could be used to support a causal claim.]{.spoiler}
+
+The use of a control group is especially important in studying new medical therapies.  As one physician reminisces:
+
+> One day when I was a junior medical student, a very important Boston surgeon visited the school and delivered a great treatise on a large number of patients who had undergone successful operations for vascular reconstruction.  At the end of the lecture, a young student at the back of the room timidly asked, "Do you have any controls?"  Well, the great surgeon drew himself up to his full height, hit the desk, and said, "Do you mean did I not operate on half of the patients?"  The hall grew very quiet then.  The voice at the back of the room very hesitantly replied, "Yes, that's what I had in mind."  Then the visitor's fist really came down as he thundered, "Of course not.  That would have doomed half of them to their death."  God, it was quiet then, and one could scarcely hear the small voice ask, "Which half?"^[Dr.~E.~Peacock, University of Arizona. Originally quoted in \textit{Medical World News} (September 1, 1972).  Reprinted pg. 144 of \textit{Beautiful Evidence}, Edward Tufte (Graphics Press, 2006).]
+
+
+These last two words---"Which half?"---should echo in your mind whenever you are asked to judge the quality of evidence offered in support of a causal claim.  Neither a booming authoritative voice nor fancy statistics are a substitute for a controlled experiment.  
+
+__Some history.__ The notion of a controlled experiment has been around for thousands of years.  The first chapter of the book of Daniel, in the Bible, relates the tale of one such experiment.  Daniel and his three friends Hananiah, Mishael, and Azariah arrive in the court of Nebuchadnezzar, the King of Babylon.  They enroll in a Babylonian school, and are offered a traditional Babylonian diet.  Daniel, however, is a tee-totaling vegetarian; he wishes not to "defile himself with the portion of the king's meat, nor with the wine which he drank."  So he goes to Melzar, who is in charge of the school, and he asks not to be forced to eat meat or drink wine.  But Melzar responds that he fears for Daniel's health if he were to let them follow some crank new-age diet.  More to the point, Melzar observes, if the new students were to fall ill, "then shall ye make me endanger my head to the king."  Given that Melzar had already been made a eunuch by the king, this fear sounds plausible.  
+
+So Daniel proposes a trial straight out of a statistics textbook:
+
+>Prove thy servants, I beseech thee, ten days; and let them give us pulse to eat, and water to drink.   
+> Then let our countenances be looked upon before thee, and the countenance of the children that eat of the portion of the king's meat: and as thou seest, deal with thy servants.  
+> -- King James Bible, Daniel 1:12--13.
+
+The King agreed.  When Daniel and his friends were inspected ten days later, "their countenances appeared fairer and fatter in flesh" than all those who had eaten meat and drank wine.  Suitably impressed, Nebuchadnezzar brings Daniel and his friends in for an audience, and he finds that "in all matters of wisdom and understanding," they were "ten times better than all the magicians and astrologers that were in all his realm."
+
+__Placebos.__  As for a placebo-controlled trial, in which some of the patients are intentionally given a useless treatment: that idea came much later.^[See "The Power of Nothing" in the December 12, 2011 edition of \textit{The New Yorker} (pp.~30--6).]  A placebo, from the Latin _placere_ ("to please"), is any fake treatment designed to simulate the real one.  Using a placebo for your control group avoids the possibility that patients might simply imagine that the the latest miracle drug has made them feel better, in a feat of unconscious self-deception called the placebo effect.
+
+```{definition, name="Placebo effect"}
+A _placebo effect_ is any effect produced by some treatment that cannot be attributed to the properties of the treatment itself, and must therefore be due to the patient's belief in the effect of that treatment.
+```
+
+<br>
+
+Because of placebo effects, we often don’t compare "treatment" with "nothing."  Instead we compare "treatment" with "other treatment."  The "other treatment" might be am actually placebo (e.g. pill with only inactive ingredients, or an injection of nothing but saline).  Or it might be some other "status quo" treatment.  This kind of experiment is called a _placebo-controlled_ trial.  
+
+The first placebo-controlled trial seems to have taken place in 1784.  It was directed by none other than Benjamin Franklin, the American ambassador to the court of King Louis XVI of France.  A German doctor by the name of Franz Mesmer had gained some degree of notoriety in Europe for his claim to have discovered a new force of nature that he called, in French, "magnetisme animal," and which was said to have magical healing powers.  The demand for Dr. Mesmer's services soon took off among the ladies of Parisian high society, whom he would "Mesmerize" using a wild contraption involving ropes and magnetized iron rods.
+
+Much to the king's dismay, his own wife, Marie Antoinette, was one of Mesmer's keenest followers.  The king found the whole Mesmerizing thing frankly a bit dubious, and presumably wished for his wife to have nothing to do with the doctor's "magnetisme animal."  So he convened several members of the French Academy of Sciences to investigate whether Dr. Mesmer had indeed discovered a new force of nature.  The panel included Antoine Lavoisier, the father of modern chemistry, along with Joseph Guillotin, whose own wild contraption was soon to put the King's difficulties with Mesmer into perspective.  Under Ben Franklin's supervision, the scientists set up an experiment to replicate some of Dr. Mesmer's prescribed treatments, substituting non-magnetic materials---history's first placebo---for half of the patients.  In many cases, even the patients in the control group would flail about and start talking in tongues anyway.  The panel concluded that the doctor's method produced no effect other than in the patients' own minds.  Mesmer was denounced as a charlatan, although he continues to exact his revenge, via the presense of "mesmerize" in the dictionary.
+
+It's easy to laugh about the placebo effect, but it's strikingly common.  In fact, for most of human history, placebos were pretty much the only thing doctors had to offer.  Thomas Jefferson once wrote:
+
+> One of the most successful physicians I have ever known has assured me that he used more bread pills, drops of coloured water, and powders of hickory ashes, than of all other medicines put together.
+
+Placebos don't "cure" you, but they do genuinely make at least some people feel better, at least compared to doing nothing.  There's been quite a lot of research on placebos over the years, and we've learned a lot---in particular, we've learned that some placebos are more effective than others:  
+
+- Two placebo pills are more effective than one.  
+- A placebo injection is more effective than a placebo pill.  
+- A brand-name placebo is more effective than an off-brand one.  
+
+Some doctors even do placebo surgery.  A recent and especially striking example comes from Thomas Freeman, director of the neural reconstruction unit at Tampa General Hospital in Florida.  Dr. Freeman performs _placebo brain surgery._  (You read that correctly.)  According to the British Medical Journal,
+
+> In the placebo surgery that he performs, Dr Freeman bores into a patient's skull, but does not implant any of the fetal nerve cells being studied as a treatment for Parkinson's disease. The theory is that such cells can regenerate brain cells in patients with the disease.  Some colleagues decry the experimental method, however, saying that it is too risky and unethical, even though patients are told before the operation that they may or may not receive the actual treatment.^[BMJ. 1999 October 9; 319(7215): 942]
+
+"There has been a virtual taboo of putting a patient through an imitation surgery," Dr. Freeman said.  "This is the way to start the discussion."  Freeman has performed 106 real and placebo cell transplant operations since 1992.  He argues that the medical history is littered with examples of unsafe and ineffective surgical procedures that were not tested against a placebo and resulted in needless deaths, year after year, before doctors abandoned them. (Remember that voice: "which half?")  
+
+
+## Randomization
+
+The next key principle of good experimental design is __randomization,__ which means randomly assigning subjects to the treatment and control groups.  The randomization will ensure that, on average, there are no systematic differences between the two groups, other than the treatment itself.  The Latin phrase \textit{ceteris paribus}, which translates roughly as "everything else being equal," is often used to describe such a situation.  
+
+The basic mechanics of randomization look like this:  
+
+```{r, echo=FALSE}
+knitr::include_graphics("images/basic_randomization.png")
+```
+
+The basic idea here is that randomization makes confounders balance out, on average.  Imagine studying, for example, whether eating more broccoli ("treatment") improves your blood pressure, versus not eating it ("control").  The challenge here is that lots of other "nuisance" factors drive blood pressure:   
+
+- Age: young people have lower average blood pressures than old people.  
+- Sex: males have higher average blood pressures than females.  
+- Income: wealthier people experience fewer economic and life stresses, potentially lowering their blood pressure.  
+
+Now let;s suppose something that seems reasonable: younger/richer/female people eat more broccoli than older/poorer/male people.  If that's true, then broccoli will _correlate_ with blood pressure differences, without necessarily causing them.  
+
+So if you just observe the blood pressures of broccoli eaters versus non-eaters, you still have a control group.  But it's a really poor control group.  In comparing treated with control subjects, you’re implicitly comparing young vs. old, male vs. female, rich vs. poor... You’ve turned all these other nuisance factors that drive blood pressure into confounders: systematic differences between treatment and control groups that also affect the outcome.
+
+On the other hand, what happens if you randomize people to broccoli eating versus no-broccoli eating?  Well, sex/age/income differences still affect blood pressure.  But all these differences balance out, at least on average!  The nuisance factors are no longer confounders, because they're not correlated with whether you ate broccoli or not during the study period.  Because of randomization, the only _systematic_ difference between broccoli eaters and non-eaters is the treatment, i.e. the broccoli eating itself.  So if you see a systematic difference in outcomes, it must be the broccoli.
+
+Let's practice applying this principle
+
+
+Let's practice here, by comparing two causal hypotheses arising from two different data sets.  The first comes from a clinical trial in the 1980's on a then-new form of adjuvant chemotherapy for treating colorectal cancer, a dreadful disease that, as of 2015, has a five-year survival rate of only 60-70\% in the developed world.
+
+%
+%      rx
+%status Obs Lev Lev+5FU
+%     0 138 138     185
+%     1 177 172     119
+
+%    married
+%cens   0   1
+%   0 436 116
+%   1 640 253
+
+The trial followed a simple protocol.  After surgical removal of their tumors, patients were randomly assigned to different treatment regimes.  Some patients were treated with fluorouracil (the chemotherapy drug, also called 5-FU), while others received no follow-up therapy. The researchers followed the patients for many years afterwards and tracked which ones suffered from a recurrence of colorectal cancer.
+
+The outcome of the trial are in Table \ref{tab:colorectal}, below.  Among the patients who received chemotherapy, 39\% (119/304) had relapsed by the end of the study period, compared with 57\% of patients (177/315) in the group who received no therapy:
+\begin{table}
+\begin{center}
+\begin{tabular}{r r r r}
+\toprule
+\multicolumn{2}{r}{Chemotherapy?}			& 	Yes & No \\
+					\midrule
+\multirow{2}{*}{Recurrence?} & Yes & 119 &  177  \\
+ 					&  No   &  185 &  138   \\
+\bottomrule
+\end{tabular}
+\end{center}
+\caption{\label{tab:colorectal} Data from: J.~A.~Laurie et.~al. Surgical adjuvant therapy of large-bowel carcinoma: An evaluation of levamisole and the combination of levamisole and fluorouracil. J.~Clinical Oncology, 7:1447--56, 1989.  There was also a third treatment arm of the study in which patient received a drug called levamisole, which isn't discussed here.  Survival statistics on colorectal cancer from Cunningham et. al (2010). ``Colorectal cancer.'' Lancet 375 (9719): 1030--47.}
+\end{table}
+
+The evidence strongly suggests that the chemotherapy reduced the risk of recurrence by a substantial amount: the relative risk of a relapse under the treatment group is $0.7$, with a 95\% confidence interval of $(0.59, 0.83)$. 
+
+We can be confident that this evidence reflects causality, and not merely correlation, because patients were randomly assigned to the treatment and control groups.  Randomization ensures \textit{balance}: that is, it ensures that there are no systematic differences between the two groups with respect to any confounding factors that might be correlated with the patients' survival chances.  This would obviously not be true if we had non-randomly assigned all the healthiest patients to the treatment group, and all the sickest patients to the control group.
+
+It's worth emphasizing a key fact here.  Randomization ensures balance both for the possible confounders that we can measure (like a patient's age or baseline health status), as well as for the ones we might \textit{not} be able to measure (like a patient's will to live).  This is what makes randomization so powerful, and randomized experiments so compelling.  We don't even have to know what the possible confounding variables are in order for the experiment to give us reliable information about the causal effect of the treatment.  \textit{Randomization balances everything}, at least on average.
+
+
+## Blocking
+
+
+
+## Analyzing experimental data
+
+Suppose we're interested in the causal effect of one variable (x) on another variable (y).  To make things simple, let's suppose that x is a binary variable.  That is, it can only take on two values (0/1, no/yes, off/on, etc).  
+
 

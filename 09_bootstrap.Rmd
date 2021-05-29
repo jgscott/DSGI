@@ -980,7 +980,7 @@ another_one_hundred_intervals = another_one_hundred_intervals %>%
 
 Let's now plot these 100 confidence intervals and check how many of them contained the true population minimum.
 
-```{r bootstrap-coverage2, out.width="100%", fig.asp=0.5, fig.cap="This is about as bad as bootstrapping ges."}
+```{r bootstrap-coverage2, out.width="100%", fig.asp=0.5, fig.cap="This is about as bad as bootstrapping gets."}
 ggplot(another_one_hundred_intervals) + 
   geom_errorbar(aes(x=Sample, ymin=lower, ymax=upper, color=contains_truth)) + 
   geom_hline(aes(yintercept = -19), color='black') +
