@@ -43,29 +43,29 @@ And that's a very general principle in regression: more complex models, with mor
 So how do we actually _know_ that these fitted parameters of 208 and 0.7 are the best choices?  Well, you _could_ just guess and check until you're convinced you can't do any better.  (You can't.)   But modern computers do this for us in a much more intelligent fashion, finding the best-fitting parameters by cleverly exploiting matrix algebra and calculus in ways that, [while fascinating](https://math.mit.edu/icg/resources/teaching/18.085-spring2015/LeastSquares.pdf), aren't worth going into here.  If you major in math or statistics or computer science, or if you program statistical software for a living, those details are super important.  (I was a math major and I still remember sweating them out line by line.)  Most people, on the other hand, are safe in simply trusting that their software has done the calculations correctly.  
 
 
-####  An aside: multiple regression models {-}
+<!-- ####  An aside: multiple regression models {-} -->
 
-We can also fit regression models with multiple explanatory variables.  Let's briefly see what one of these models looks like.  Suppose that you were a data scientist at Zillow, the online real-estate marketplace, and that you had to build a rule for predicting the price of a house.  You might start with two obvious features of a house, like the square footage and the number of bathrooms, together with weights for each feature.  For example:
+<!-- We can also fit regression models with multiple explanatory variables.  Let's briefly see what one of these models looks like.  Suppose that you were a data scientist at Zillow, the online real-estate marketplace, and that you had to build a rule for predicting the price of a house.  You might start with two obvious features of a house, like the square footage and the number of bathrooms, together with weights for each feature.  For example: -->
 
-$$
-\mbox{Expected Price = 10,000 + 125 $\times$ (Square Footage) + 26,000 $\times$ (Num. Bathrooms)}
-$$
+<!-- $$ -->
+<!-- \mbox{Expected Price = 10,000 + 125 $\times$ (Square Footage) + 26,000 $\times$ (Num. Bathrooms)} -->
+<!-- $$ -->
 
-In words, this says that to predict the price of a house, you should follow three steps:
+<!-- In words, this says that to predict the price of a house, you should follow three steps: -->
 
-1)	Multiply the square footage of the house by 125 (parameter 1).  
-2)	Multiply the number of bathrooms by 26,000 (parameter 2).
-3)	Add the results from A and B to 10,000 (the baseline parameter).  This yields the predicted price.
+<!-- 1)	Multiply the square footage of the house by 125 (parameter 1).   -->
+<!-- 2)	Multiply the number of bathrooms by 26,000 (parameter 2). -->
+<!-- 3)	Add the results from A and B to 10,000 (the baseline parameter).  This yields the predicted price. -->
 
-This is called a _multiple regression model_, because it's an equation that uses multiple features (square footage, bathrooms) to predict price.  In real life, the weights or multipliers would be tuned to describe the prices in a particular housing market.  You'll always have one more parameter (here, 3) than you have features (here, 2): one parameter per feature, plus one extra parameter for the baseline.  
+<!-- This is called a _multiple regression model_, because it's an equation that uses multiple features (square footage, bathrooms) to predict price.  In real life, the weights or multipliers would be tuned to describe the prices in a particular housing market.  You'll always have one more parameter (here, 3) than you have features (here, 2): one parameter per feature, plus one extra parameter for the baseline.   -->
 
-Of course, we don't need to stop at two features!  Houses have lots of other features that affect their price—for example, the distance to the city center, the size of the yard, the age of the roof, and the number of fireplaces.  With modern software, we can easily fit an equation that incorporates all of these features, and hundreds more.  Every feature gets its own weight; more important features end up getting bigger weights, because the data show that they have a bigger effect on the price.  Now, if you try to write out such a model in words---"add this," "multiply this," like we did for the two-feature rule above---it starts to look like the IRS forms they hand out in Hell.   But R just churns through all the calculations with no problem, even for models with hundreds of parameters.
+<!-- Of course, we don't need to stop at two features!  Houses have lots of other features that affect their price—for example, the distance to the city center, the size of the yard, the age of the roof, and the number of fireplaces.  With modern software, we can easily fit an equation that incorporates all of these features, and hundreds more.  Every feature gets its own weight; more important features end up getting bigger weights, because the data show that they have a bigger effect on the price.  Now, if you try to write out such a model in words---"add this," "multiply this," like we did for the two-feature rule above---it starts to look like the IRS forms they hand out in Hell.   But R just churns through all the calculations with no problem, even for models with hundreds of parameters. -->
 
-In this lesson, we're going to focus on basic regression models with just one feature.  In a later lesson, we'll learn about _multiple regression models_, which incorporate lots of features (like our imaginary Zillow example above). But whether a model has 1 feature or 101 features, the underlying principles are the same:
+<!-- In this lesson, we're going to focus on basic regression models with just one feature.  In a later lesson, we'll learn about _multiple regression models_, which incorporate lots of features (like our imaginary Zillow example above). But whether a model has 1 feature or 101 features, the underlying principles are the same: -->
 
-1) A regression model is an equation that describes relationships in a data set.  
-2) Regression models have free parameters: the baseline value, and the weights on each feature.  
-3) We choose these parameters so that the regression model's predictions are as accurate as possible.  
+<!-- 1) A regression model is an equation that describes relationships in a data set.   -->
+<!-- 2) Regression models have free parameters: the baseline value, and the weights on each feature.   -->
+<!-- 3) We choose these parameters so that the regression model's predictions are as accurate as possible.   -->
 
 
 

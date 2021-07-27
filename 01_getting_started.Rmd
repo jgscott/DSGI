@@ -254,7 +254,7 @@ Two further notes on running statements from a script:
 
 ### A slightly more interesting script {-}
 
-OK, so that first script was a bit... basic.  Below, I've given you one that's slightly more interesting.  You can safely include the little notes after the `#` symbol, which are called "comments."  R ignores anything in a script the right of the `#` symbol, allowing you to write little explanations (for yourself or others) about what your code is doing.
+OK, so that first script was a bit simple.  Below, I've given you one that's slightly more interesting.  You can safely include the little notes after the `#` symbol, which are called "comments."  R ignores anything in a script the right of the `#` symbol, allowing you to write little explanations (for yourself or others) about what your code is doing.
 
 ```
 # Load one of R's built-in data sets about cars
@@ -365,7 +365,7 @@ Then repeat the whole process to install `mosaic`.  If you got an error, see [De
 
 Let's practice loading the `tidyverse` library, which we'll lean on heavily in most of these lessons.  In R, you load a library using the `library` command, like this:
 
-```{r}
+```{r, echo=TRUE, message=TRUE}
 library(tidyverse)
 ```
 
@@ -373,7 +373,7 @@ If you see a similar set of messages to what's shown above after the `##` symbol
 
 But if you haven't installed the `tidyverse` library, executing this command will give you an error like this:
 
-  ```
+```
 Error in library(tidyverse) : there is no package called ‘tidyverse’
 ```
 

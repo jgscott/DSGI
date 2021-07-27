@@ -33,7 +33,15 @@ knitr::opts_chunk$set(cache = T, fig.asp = 0.65, out.width="100%")
 
 Why have some nations become rich while others have remained poor?  Do small class sizes improve student achievement?  Does following a Mediterranean diet rich in vegetables and olive oil reduce your risk of a heart attack?  Does a green certification (like LEED, for [Leadership in Energy and Environmental Design](http://www.usgbc.org/leed)) improve the value of a commercial property?
 
-Questions of cause and effect like these are, fundamentally, questions about counterfactual statements.  A counterfactual is an if--then statement about something that has not actually occurred.  For example: "If Colt McCoy had not been injured early in the
+Questions of cause and effect like these are, fundamentally, questions about counterfactual statements.
+
+```{definition}
+A counterfactual is an if--then statement about something that has not actually occurred.
+```
+
+<br>
+
+For example: "If Colt McCoy had not been injured early in the
 [2010 National Championship football game](https://en.wikipedia.org/wiki/2010_BCS_National_Championship_Game), then the Texas Longhorns would have beaten Alabama."  If you judge this counterfactual statement to be true, then you might say that Colt McCoy's injury caused the Longhorns' defeat.
 
 Statistical questions, on the other hand, are about correlations.  This makes them fundamentally different from causal questions.
@@ -61,9 +69,9 @@ Consider a second example, this one drawn from the pages of [USA Today](www.usat
 
 Here the confounder is _baseline cognitive performance._   Did the smokers get less smart because of the marijuana, or were the less-smart kids more likely to pick up a marijuana habit in the first place?  It's an important question to consider in making drug policy, especially for states and countries where marijuana is legal.  But can we know the answer on the basis of a study like this?
 
-This is the point where most books remind you that "correlation does not imply causation."   Obviously.  But if not to illuminate causes, what is the point of looking for correlations?  Of course correlation does not imply causality, or else playing professional basketball would make you tall.  But that hasn't stopped humans from learning that smoking causes cancer, or that lightning causes thunder, on the basis of observed correlations.  The important question is: what distinguishes the good evidence-based arguments from the bad?  How can we learn causality from correlation?
+You've surely heard it said that "correlation does not imply causation."   Obviously.  But if not to illuminate causes, what is the point of looking for correlations?  Of course correlation does not imply causality, or else playing professional basketball would make you tall.  But that hasn't stopped humans from learning that smoking causes cancer, or that lightning causes thunder, on the basis of observed correlations.  The important question is: what distinguishes the good evidence-based arguments from the bad?  How can we learn causality from correlation?
 
-It's not easy, but neither is it impossible.  This lesson is about the best way we know how: by running an _experiment._  The idea of an experiment is simple.  If you want to know what would happen if you intervened in some system, then you should intervene and measure what happens.  There is simply no better way to establish that one thing causes another.
+It's not easy, but neither is it impossible.  This lesson is about the best way we know how: by running an _experiment,_ also known as a _randomized controlled trial_ (or RCT).   The idea of an experiment is simple.  If you want to know what would happen if you intervened in some system, then you should intervene and measure what happens.  There is simply no better way to establish that one thing causes another.
 
 More specifically, this lesson will teach you the three basic principles of good experimental design:  
 
@@ -88,7 +96,7 @@ __Example 3:__ You conjecture that people will perform worse on a skill-based ta
 
 The use of a control group is especially important in studying new medical therapies.  As one physician reminisces:
 
-> One day when I was a junior medical student, a very important Boston surgeon visited the school and delivered a great treatise on a large number of patients who had undergone successful operations for vascular reconstruction.  At the end of the lecture, a young student at the back of the room timidly asked, "Do you have any controls?"  Well, the great surgeon drew himself up to his full height, hit the desk, and said, "Do you mean did I not operate on half of the patients?"  The hall grew very quiet then.  The voice at the back of the room very hesitantly replied, "Yes, that's what I had in mind."  Then the visitor's fist really came down as he thundered, "Of course not.  That would have doomed half of them to their death."  God, it was quiet then, and one could scarcely hear the small voice ask, "Which half?"^[Dr.~E.~Peacock, University of Arizona. Originally quoted in \textit{Medical World News} (September 1, 1972).  Reprinted pg. 144 of \textit{Beautiful Evidence}, Edward Tufte (Graphics Press, 2006).]
+> One day when I was a junior medical student, a very important Boston surgeon visited the school and delivered a great treatise on a large number of patients who had undergone successful operations for vascular reconstruction.  At the end of the lecture, a young student at the back of the room timidly asked, "Do you have any controls?"  Well, the great surgeon drew himself up to his full height, hit the desk, and said, "Do you mean did I not operate on half of the patients?"  The hall grew very quiet then.  The voice at the back of the room very hesitantly replied, "Yes, that's what I had in mind."  Then the visitor's fist really came down as he thundered, "Of course not.  That would have doomed half of them to their death."  God, it was quiet then, and one could scarcely hear the small voice ask, "Which half?"^[Dr. E. Peacock, University of Arizona. Originally quoted in _Medical World News_ (September 1, 1972).  Reprinted pg. 144 of _Beautiful Evidence_, Edward Tufte (Graphics Press, 2006).]
 
 
 These last two words---"Which half?"---should echo in your mind whenever you are asked to judge the quality of evidence offered in support of a causal claim.  Neither a booming authoritative voice nor fancy statistics are a substitute for a controlled experiment.  
@@ -103,7 +111,7 @@ So Daniel proposes a trial straight out of a statistics textbook:
 
 The King agreed.  When Daniel and his friends were inspected ten days later, "their countenances appeared fairer and fatter in flesh" than all those who had eaten meat and drank wine.  Suitably impressed, Nebuchadnezzar brings Daniel and his friends in for an audience, and he finds that "in all matters of wisdom and understanding," they were "ten times better than all the magicians and astrologers that were in all his realm."
 
-__Placebos.__  As for a placebo-controlled trial, in which some of the patients are intentionally given a useless treatment: that idea came much later.^[See "The Power of Nothing" in the December 12, 2011 edition of \textit{The New Yorker} (pp.~30--6).]  A placebo, from the Latin _placere_ ("to please"), is any fake treatment designed to simulate the real one.  Using a placebo for your control group avoids the possibility that patients might simply imagine that the the latest miracle drug has made them feel better, in a feat of unconscious self-deception called the placebo effect.
+__Placebos.__  As for a placebo-controlled trial, in which some of the patients are intentionally given a useless treatment: that idea came much later.^[See "The Power of Nothing" in the December 12, 2011 edition of _The New Yorker_ (pp. 30--6).]  A placebo, from the Latin _placere_ ("to please"), is any fake treatment designed to simulate the real one.  Using a placebo for your control group avoids the possibility that patients might simply imagine that the the latest miracle drug has made them feel better, in a feat of unconscious self-deception called the placebo effect.
 
 ```{definition, name="Placebo effect"}
 A _placebo effect_ is any effect produced by some treatment that cannot be attributed to the properties of the treatment itself, and must therefore be due to the patient's belief in the effect of that treatment.
@@ -111,21 +119,21 @@ A _placebo effect_ is any effect produced by some treatment that cannot be attri
 
 <br>
 
-Because of placebo effects, we often don’t compare "treatment" with "nothing."  Instead we compare "treatment" with "other treatment."  The "other treatment" might be am actually placebo (e.g. pill with only inactive ingredients, or an injection of nothing but saline).  Or it might be some other "status quo" treatment.  This kind of experiment is called a _placebo-controlled_ trial.  
+Because of placebo effects, we often don’t compare "treatment" with "nothing."  Instead we compare "treatment" with "other treatment."  The "other treatment" might be an actual placebo (e.g. pill with only inactive ingredients, or an injection of nothing but saline).  Or it might be some other "status quo" treatment.  This kind of experiment is called a _placebo-controlled_ trial.  
 
-The first placebo-controlled trial seems to have taken place in 1784.  It was directed by none other than Benjamin Franklin, the American ambassador to the court of King Louis XVI of France.  A German doctor by the name of Franz Mesmer had gained some degree of notoriety in Europe for his claim to have discovered a new force of nature that he called, in French, "magnetisme animal," and which was said to have magical healing powers.  The demand for Dr. Mesmer's services soon took off among the ladies of Parisian high society, whom he would "Mesmerize" using a wild contraption involving ropes and magnetized iron rods.
+The first documented placebo-controlled trial in history seems to have taken place in 1784.  It was directed by none other than Benjamin Franklin, the American ambassador to the court of King Louis XVI of France.  A German doctor by the name of Franz Mesmer had gained some degree of notoriety in Europe for his claim to have discovered a new force of nature that he called, in French, "magnetisme animal," and which was said to have magical healing powers.  The demand for Dr. Mesmer's services soon took off among the aristocrats of Paris, whom he would "Mesmerize" using a wild contraption involving ropes and magnetized iron rods.
 
-Much to the king's dismay, his own wife, Marie Antoinette, was one of Mesmer's keenest followers.  The king found the whole Mesmerizing thing frankly a bit dubious, and presumably wished for his wife to have nothing to do with the doctor's "magnetisme animal."  So he convened several members of the French Academy of Sciences to investigate whether Dr. Mesmer had indeed discovered a new force of nature.  The panel included Antoine Lavoisier, the father of modern chemistry, along with Joseph Guillotin, whose own wild contraption was soon to put the King's difficulties with Mesmer into perspective.  Under Ben Franklin's supervision, the scientists set up an experiment to replicate some of Dr. Mesmer's prescribed treatments, substituting non-magnetic materials---history's first placebo---for half of the patients.  In many cases, even the patients in the control group would flail about and start talking in tongues anyway.  The panel concluded that the doctor's method produced no effect other than in the patients' own minds.  Mesmer was denounced as a charlatan, although he continues to exact his revenge, via the presense of "mesmerize" in the dictionary.
+Much to the king's dismay, his own wife, Marie Antoinette, was one of Mesmer's keenest followers.  The king found the whole Mesmerizing thing a bit dubious, and presumably wished for his wife to have nothing to do with the doctor's "magnetisme animal."  So he convened several members of the French Academy of Sciences to investigate whether Dr. Mesmer had indeed discovered a new force of nature.  The panel included Antoine Lavoisier, the father of modern chemistry, along with Joseph Guillotin, whose own wild contraption was soon to put the King's difficulties with Mesmer into perspective.  Under Ben Franklin's supervision, the scientists set up an experiment to replicate some of Dr. Mesmer's prescribed treatments, substituting non-magnetic materials---history's first placebo---for half of the patients.  In many cases, even the patients in the control group would flail about and start talking in tongues anyway.  The panel concluded that the doctor's method produced no effect other than in the patients' own minds.  Mesmer was denounced as a charlatan, although he continues to exact his revenge, via the presence of the word "mesmerize" in the dictionary.
 
-It's easy to laugh about the placebo effect, but it's strikingly common.  In fact, for most of human history, placebos were pretty much the only thing doctors had to offer.  Thomas Jefferson once wrote:
+Placebo effects are strikingly common.  In fact, for most of human history, placebos were pretty much the only thing doctors had to offer.  As Thomas Jefferson once wrote:
 
 > One of the most successful physicians I have ever known has assured me that he used more bread pills, drops of coloured water, and powders of hickory ashes, than of all other medicines put together.
 
-Placebos don't "cure" you, but they do genuinely make at least some people feel better, at least compared to doing nothing.  There's been quite a lot of research on placebos over the years, and we've learned a lot---in particular, we've learned that some placebos are more effective than others:  
+Placebos don't "cure" you in the sense that a doctor would understand the term, but they do genuinely make some people feel better, at least compared with doing nothing.  There's been quite a lot of research on placebos over the years, and we've learned a lot about them.  In particular, we've learned that some placebos are more effective than others.  For example:  
 
 - Two placebo pills are more effective than one.  
 - A placebo injection is more effective than a placebo pill.  
-- A brand-name placebo is more effective than an off-brand one.  
+- A brand-name placebo is more effective than an off-brand placebo.    
 
 Some doctors even do placebo surgery.  A recent and especially striking example comes from Thomas Freeman, director of the neural reconstruction unit at Tampa General Hospital in Florida.  Dr. Freeman performs _placebo brain surgery._  (You read that correctly.)  According to the British Medical Journal,
 
@@ -136,72 +144,210 @@ Some doctors even do placebo surgery.  A recent and especially striking example 
 
 ## Randomization
 
-The next key principle of good experimental design is __randomization,__ which means randomly assigning subjects to the treatment and control groups.  The randomization will ensure that, on average, there are no systematic differences between the two groups, other than the treatment itself.  The Latin phrase \textit{ceteris paribus}, which translates roughly as "everything else being equal," is often used to describe such a situation.  
+The next key principle of good experimental design is __randomization,__ which means randomly assigning subjects to the treatment and control groups.  The randomization will ensure that, on average, there are no systematic differences between the two groups, other than the treatment itself.  The Latin phrase _ceteris paribus_, which translates roughly as "with other conditions remaining the same," is often used to describe such a situation.  
 
-The basic mechanics of randomization look like this:  
+The mechanics of randomization look like this:  
 
 ```{r, echo=FALSE}
 knitr::include_graphics("images/basic_randomization.png")
 ```
 
-The basic idea here is that randomization makes confounders balance out, on average.  Imagine studying, for example, whether eating more broccoli ("treatment") improves your blood pressure, versus not eating it ("control").  The challenge here is that lots of other "nuisance" factors drive blood pressure:   
+The idea behind randomization is to create treatment and control groups that are _balanced_ with respect to possible confounders.  Imagine studying, for example, whether eating more broccoli ("treatment") improves your blood pressure, versus not eating it ("control").  The challenge here is that lots of other "nuisance" factors drive blood pressure.  One example is wealth: wealthier people experience fewer economic and life stresses, potentially lowering their blood pressure.  Moreover, it seems reasonable to assume that wealthier people have easier access to fresh foods and vegetables and therefore eat more broccoli than those less wealthy.  If that's true, then broccoli eating will _correlate_ with blood pressure differences, without necessarily causing them.  
 
-- Age: young people have lower average blood pressures than old people.  
-- Sex: males have higher average blood pressures than females.  
-- Income: wealthier people experience fewer economic and life stresses, potentially lowering their blood pressure.  
+So if you just observe the blood pressures of broccoli eaters versus non-eaters, you still have a control group.  But it's a really poor control group.  In comparing treated with control subjects, you’re implicitly comparing young vs. old, male vs. female, rich vs. poor... You’ve turned all these other nuisance factors that drive blood pressure into confounders: systematic differences between treatment and control groups that also affect the outcome (blood pressure).
 
-Now let;s suppose something that seems reasonable: younger/richer/female people eat more broccoli than older/poorer/male people.  If that's true, then broccoli will _correlate_ with blood pressure differences, without necessarily causing them.  
-
-So if you just observe the blood pressures of broccoli eaters versus non-eaters, you still have a control group.  But it's a really poor control group.  In comparing treated with control subjects, you’re implicitly comparing young vs. old, male vs. female, rich vs. poor... You’ve turned all these other nuisance factors that drive blood pressure into confounders: systematic differences between treatment and control groups that also affect the outcome.
-
-On the other hand, what happens if you randomize people to broccoli eating versus no-broccoli eating?  Well, sex/age/income differences still affect blood pressure.  But all these differences balance out, at least on average!  The nuisance factors are no longer confounders, because they're not correlated with whether you ate broccoli or not during the study period.  Because of randomization, the only _systematic_ difference between broccoli eaters and non-eaters is the treatment, i.e. the broccoli eating itself.  So if you see a systematic difference in outcomes, it must be the broccoli.
-
-Let's practice applying this principle
+On the other hand, what happens if you randomize people to broccoli eating versus no-broccoli eating?  Under randomization, sex/age/income differences still affect blood pressure.  But all these differences balance out, at least on average:  we'd expect the treatment and control groups to have similar characteristics for any possible nuisance factors.  Because of randomization, the only _systematic_ difference between broccoli eaters and non-eaters is the treatment, i.e. the broccoli eating itself.  So if you see a systematic difference in outcomes, it must have been caused by the broccoli.
 
 
-Let's practice here, by comparing two causal hypotheses arising from two different data sets.  The first comes from a clinical trial in the 1980's on a then-new form of adjuvant chemotherapy for treating colorectal cancer, a dreadful disease that, as of 2015, has a five-year survival rate of only 60-70\% in the developed world.
+Let's practice applying this principle, by comparing two causal hypotheses arising from two different data sets.
 
-%
-%      rx
-%status Obs Lev Lev+5FU
-%     0 138 138     185
-%     1 177 172     119
+__Example 1: effectiveness of chemotherapy__.  The first comes from a clinical trial in the 1980's on a then-new form of chemotherapy for treating colorectal cancer, a dreadful disease that has a five-year survival rate of only 60-70\% in high-income countries.
 
-%    married
-%cens   0   1
-%   0 436 116
-%   1 640 253
+The trial followed a simple protocol.  After surgical removal of their tumors, patients were randomly assigned to one of two different treatment regimes.  Some patients were treated with fluorouracil (the chemotherapy drug, also called 5-FU), while others received no chemotherapy. The researchers followed the patients for many years afterwards and tracked which ones suffered from a recurrence of colorectal cancer.
 
-The trial followed a simple protocol.  After surgical removal of their tumors, patients were randomly assigned to different treatment regimes.  Some patients were treated with fluorouracil (the chemotherapy drug, also called 5-FU), while others received no follow-up therapy. The researchers followed the patients for many years afterwards and tracked which ones suffered from a recurrence of colorectal cancer.
+The outcome of the trial are shown in the table below:  
 
-The outcome of the trial are in Table \ref{tab:colorectal}, below.  Among the patients who received chemotherapy, 39\% (119/304) had relapsed by the end of the study period, compared with 57\% of patients (177/315) in the group who received no therapy:
-\begin{table}
-\begin{center}
-\begin{tabular}{r r r r}
-\toprule
-\multicolumn{2}{r}{Chemotherapy?}			& 	Yes & No \\
-					\midrule
-\multirow{2}{*}{Recurrence?} & Yes & 119 &  177  \\
- 					&  No   &  185 &  138   \\
-\bottomrule
-\end{tabular}
-\end{center}
-\caption{\label{tab:colorectal} Data from: J.~A.~Laurie et.~al. Surgical adjuvant therapy of large-bowel carcinoma: An evaluation of levamisole and the combination of levamisole and fluorouracil. J.~Clinical Oncology, 7:1447--56, 1989.  There was also a third treatment arm of the study in which patient received a drug called levamisole, which isn't discussed here.  Survival statistics on colorectal cancer from Cunningham et. al (2010). ``Colorectal cancer.'' Lancet 375 (9719): 1030--47.}
-\end{table}
 
-The evidence strongly suggests that the chemotherapy reduced the risk of recurrence by a substantial amount: the relative risk of a relapse under the treatment group is $0.7$, with a 95\% confidence interval of $(0.59, 0.83)$. 
+|     | Surgery + chemo | Surgery alone | 
+|:------|:----------|:-------------|
+| Recurrence       | 119      | 177 |
+| No recurrence | 185      | 138 | 
+| __Total__ | __304__      | __315__ | 
 
-We can be confident that this evidence reflects causality, and not merely correlation, because patients were randomly assigned to the treatment and control groups.  Randomization ensures \textit{balance}: that is, it ensures that there are no systematic differences between the two groups with respect to any confounding factors that might be correlated with the patients' survival chances.  This would obviously not be true if we had non-randomly assigned all the healthiest patients to the treatment group, and all the sickest patients to the control group.
 
-It's worth emphasizing a key fact here.  Randomization ensures balance both for the possible confounders that we can measure (like a patient's age or baseline health status), as well as for the ones we might \textit{not} be able to measure (like a patient's will to live).  This is what makes randomization so powerful, and randomized experiments so compelling.  We don't even have to know what the possible confounding variables are in order for the experiment to give us reliable information about the causal effect of the treatment.  \textit{Randomization balances everything}, at least on average.
+Among the patients who received chemotherapy, 39\% (119/304) had relapsed by the end of the study period, compared with 57\% of patients (177/315) in the group who received no therapy.  The evidence strongly suggests that the chemotherapy reduced the risk of recurrence by a substantial amount. ^[J.A. Laurie et. al. Surgical adjuvant therapy of large-bowel carcinoma: An evaluation of levamisole and the combination of levamisole and fluorouracil. J. Clinical Oncology, 7:1447--56, 1989.]
+
+We can also type these numbers directly into `prop.test` if we want to get a confidence interval for the difference in proportions between treatment and control groups:
+
+```{r}
+recurrences = c(119, 177)  # first is treatment, second is control
+sample_size = c(304, 315)
+prop.test(x=recurrences, n=sample_size)
+```
+
+This command tells R that the number of recurrences (`x`) in the treatment and control groups were 119 and 177, respectively; while the sample sizes (`n`) in the two groups were 304 and 315, respectively.  The resulting output tells us that the recurrence rate is somewhere between 25% and 9% lower in the treatment group, with 95% confidence.  Moreover, we can be confident that this evidence reflects causality, and not merely correlation, because patients were randomly assigned to the treatment and control groups.
+
+It's worth emphasizing a key fact here.  Randomization ensures balance both for the possible confounders that we can measure (like a patient's age or baseline health status), as well as for the ones we might _not_ be able to measure.  This is what makes randomization so powerful, and randomized experiments so compelling.  We don't even have to know what the possible confounding variables are in order for the experiment to give us reliable information about the causal effect of the treatment.  _Randomization balances everything_, at least on average.
+
+
+__Example 2: HIV and circumcision__.  Next, let's examine data from a study from the 1990's conducted in sub-Saharan Africa about HIV, another dreadful disease which, at the time, was spreading across the continent with alarming speed.  Several studies in Kenya had found that men who were uncircumcised seemed to contract HIV in greater numbers.  This set off a debate among medical experts about the extent to which this apparent association had a plausible biological explanation.  
+
+
+|     | Circumcised | Not circumcised | 
+|:------|:----------|:-------------|
+| HIV positive       | 105      | 85 |
+| HIV negative | 527      | 93 | 
+| __Total__ | __632__      | __178__ | 
+
+
+The table above shows some data from one of these studies, which found that among those recruited for the survey, 48\% of uncircumcised men (85/178) were HIV-positive, versus only 17\% of circumcised men (105/632).  The evidence seems to suggest that circumcision reduced a Kenyan man's chance of contracting HIV by a factor of 3.
+
+But this was not an experiment.  Unlike in our first example, the researchers in this second study did not randomize study participants to be circumcised or not.  (Imagine trying to recruit participants for that study.)  Instead, they merely asked whether each man was circumcised.  In the parlance of epidemiology, this was an _observational study_.  It is therefore possible that the observed correlated is due to a confounder, or perhaps multiple confounders.  To give two plausible examples, a man's religious affiliation or age might affect both the likelihood that he is circumcised and the chances that he contracted HIV from unprotected sex.  If that were true, the observed correlation between circumcision and HIV status might be simply a byproduct of an imbalanced, unfair comparison, rather than a causal relationship.
+
+We'll talk more about observational studies later.  It _is_ possible to learn about cause and effect without actually running an experiment.  It's just very difficult, because of the possibility of confounders.  An experiment, with subjects properly randomized to treatment and control groups, is widely considered the gold standard of evidence in science, and for good reason: randomization balances confounders between the treatment and control groups, _even the confounders we don't know about._  
 
 
 ## Blocking
 
+Many cool research findings come from twins studies,  which are designed to settle "nature versus nurture" debates.  The classic form of twins study involves identical twins separated since birth and raised by different families; the assumption here is that similarities are more likely to be influenced by genetics, while differences between twins are more likely to be influenced by their environments.
+
+In many cases, the similarities in twins reared apart can be spooky.  In one [highly publicized case](https://www.nytimes.com/1979/12/09/archives/twins-reared-apart-a-living-lab.html) from the 1970s, the identical twins James Lewis and James Springer were separated when they were four weeks old and taken in by different adoptive families.  When the twins were reunited for the first time at age 39, it turned out that they shared a lot in common.  Both had named their childhood pets "Toy." Both had married (and divorced) women named Linda, and both had remarried women named Betty. Both were part-time deputy sheriffs in their towns. Both were smokers.  Both chewed their fingernails.  Both had given their firstborn sons the first name (James) _and_ the same middle name (Alan).  They even both took annual road trips with their families to the same three‐block‐long beach in St. Petersburg, Florida.  More medically relevant was the first that both Springer and Lewis suffered from a particular type of tension headache that can turn into a migraine.  They both manifested their headaches starting at age 18, and they suffered the same symptoms with the same frequency.  Scientists had not previously recognized a genetic component to these headaches, but the case of Springer and Lewis made them re-consider.  
+
+Most twins studies, of course, are _not_ experiments.  However, by way of analogy, they do give us a nice principle to help us reason more effectively about experimental design.  The principle is this: in the context of an experiment, the best-case scenario would be to assign treatment and control within a bunch of pairs of identical twins.  You'd give one twin the treatment and the other twin the control. If you then noticed that the "treated" twins differed systematically from the "control" twins in some outcome variable, you'd have pretty good evidence of causality.  Confounding would be impossible; we're talking about identical twins, so there would be no systematic differences, other than the treatment itself, that could explain the difference in outcomes.  
+
+This principle is called _blocking,_ and it's an idea originated in agricultural experiments.  Suppose you wanted to test two farming practices, A and B (different seeds, different fertilizers, different cultivation methods, etc.)  And suppose you had a big property with a bunch of different areas ("blocks") that varied enormously in their underlying growing conditions for crops, like this:  
 
 
-## Analyzing experimental data
+```{r, echo=FALSE}
+knitr::include_graphics("images/blocking1.png")
+```
 
-Suppose we're interested in the causal effect of one variable (x) on another variable (y).  To make things simple, let's suppose that x is a binary variable.  That is, it can only take on two values (0/1, no/yes, off/on, etc).  
+Suppose the six boxed-in areas are where you intend to run your experiment.  You _could_ simply randomize treatments A and B to these six areas.  Then you might get something like this:
+
+```{r, echo=FALSE}
+knitr::include_graphics("images/blocking2.png")
+```
+
+This is called _complete randomization_, i.e. assigning the treatments completely at random.  In this case, it looks like we ended up with 2/3 of the B plots on really great land, and 2/3 of the A plots are on not-so-great land.  This was just the luck of the draw, but it led to a noticeable imbalance that might lead us to conclude the B is better than A.  (This kind of imbalance would less likely to happen with complete randomization if you had more plots of land, but here there are only six.)  
+
+A better approach is blocking.  You split each area, thereby creating a pair of "identical twins".  You then randomly give half the block treatment A and the other half treatment B, like this:
+
+```{r, echo=FALSE}
+knitr::include_graphics("images/blocking3.png")
+```
+
+Now differences in underlying land quality can't drive the outcome, even by chance: the A's and the B's are _exactly_ balanced in terms of where they're planted.   
+
+In general, a _block design_ means arranging of experimental units (people, firms, plots of land, etc.) in groups that are similar to one another.  Blocking factors are typically known nuisance variables, like the age or sex of a patient in a clinical trial, or the quality of the plot of land in an agricultural experiment.  By blocking on nuisance factors, we eliminate them as a source of variation due to the randomization process, and we allow variation in the outcome caused by the treatment to stand out more. Of course, we can't block on everything, so we then randomize the treatment within blocks.  
+
+A natural question is: when should we block and when should we randomize?  In general, we use blocking to address to balance confounders that are both _known_ and _under the experimenter's control._  We then rely on randomization within blocks to balance all other confounders---that is, those that are either unknown or not under the experimenter's control.  Stated more succinctly: __block what you can, randomize what you cannot.__  Assuming you can actually do it, randomization within blocks is almost always an improvement over complete randomization.  Randomization gives us _implicit_ control over confounders; we are hoping that the random assignment hasn't created large imbalances, even though technically it _could_, just by chance.  This is why large samples are helpful: with a large sample, it's much less probable that random assignment would lead to large imbalances.  Blocking, on the other hand, gives us _explicit_ control over confounders.  If we block on a nuisance variable, we don't have to rely on large samples or probability.  We know that factor is _definitely_ balanced between treatment and control units, because we balanced it ourselves.  (Of course, there might also be confounders we don't know about, which is why we take the further step of randomizing _within_ blocks.)  
+
+Let's see a couple of real-world examples.  
+
+__Example 1:__  Mexico's Seguro Popular is a program that offers health insurance and regular/preventive medical care to 50 million uninsured Mexicans.  But one problem with Seguro Popular, like with all social insurance programs, is actually getting uninsured citizens to enroll and take advantage of free medical care.  So the key question studied by a group of researchers in Mexico was: can publicizing Seguro Popular with targeted messaging improve both enrollment and health outcomes?^[Public policy for the poor? A randomised assessment of the Mexican universal health insurance programme.  King et al, _Lancet_ 373: 9673, pg. 1447-1454 (2009).]
+
+The researchers identified 148 "health clusters" willing to participate in an experiment.  A health cluster consisted of residents within the catchment area for a single clinic or hospital.  They paired the health clusters into 74 groups of 2, ensuring that the facilities in a matched pair were as similar as possible to each other in terms of the socioeconomic and demographic background of their residents.  Within each pair, one facility received the treatment and the other the control.  For the "treated" areas, the study designers aggressively publicized people's new rights under Seguro Popular, and they undertook advertising and door-to-door messaging campaigns to get people to enroll in the program.  For the "control" areas, they did nothing.  The results were striking:   
+
+- 44% of residents in treated areas enrolled in the program, and only 4.3% had catastrophic out-of-pocket health-care costs (more than 30% of income).    
+- But only 7% of residents in the control areas enrolled in the program, while 9.5% had catastrophic out-of-pocket health-care costs.  
+
+The researchers _could_ have simply randomized the 148 health clusters to receive the treatment or control, irrespective of their characteristics.  By blocking, however, they can do better: they effectively eliminate the possibility of socio-economic or demographic imbalances that might, just by chance, have been introduced by complete randomization.  
+
+__Example 2:__ A major priority in education research is to develop cost-effective, scalable interventions that could improve the academic outcomes for school-age children.  To that end, [a 2019 study by Yeager et. al.](https://www.nature.com/articles/s41586-019-1466-y?fbclid=IwAR3eSTiOiVc3v8LARTfGwxTzlSDz4AiAFpLK-jK4VcJr57wI0eO8zyvwkEc) looked at the effectiveness of a so-called "growth mindset" intervention, in the form of a one-hour video.  I'll let the study authors themselves describe this intervention:
+
+> [The] growth mindset intervention communicates a memorable metaphor: that the brain is like a muscle that grows stronger and smarter when it undergoes rigorous learning experiences. Adolescents hear the metaphor in the context of the neuroscience of learning, they reflect on ways to strengthen their brains through schoolwork, and they internalize the message by teaching it to a future first-year ninth grade student who is struggling at the start of the year... A growth mindset can motivate students to take on more rigorous learning experiences and to persist when encountering difficulties.
+
+This study had both a treatment and control arm.  Again, quoting the authors:  
+
+- In the treatment arm, "students were presented with information about neural plasticity that (1) emphasized how brain functions can improve when one confronts new challenges and practices more difficult ways of thinking, and (2) completed writing exercises designed to help students understand and internalize the intervention message by applying the message to their own life and restating the message for a future student."
+- In the control arm, "[Students] did not learn about the brain’s malleability. Instead, they learn about basic brain functions and their localization, for example, the key functions associated with each cortical lobe. The experimental conditions were designed to look very similar so that students' instructors would remain blind to their condition assignment, and to discourage students from comparing their materials."  
+
+The experiment involved randomization within blocks, as follows.  The study involved a random sample of 65 regular public schools in the United States that enrolled 12,490 ninth-graders.  Each school was considered a block.  Students within schools were then randomized to either treatment or control. The median school had a participation rate of 98%.  By using a school as a block, the study team was able to eliminate the possibility of any school-level confounding---for example, the possibility that, just by chance, complete randomization let to more students from richer schools receiving the treatment.  
+
+The result of the study was that lower-achieving adolescents earned higher GPAs in core classes at the end of the ninth grade when assigned to the growth mindset intervention, versus the control (about 0.1 GPA points, on average).  
 
 
+## Example: labor market discrimination
+
+Let's now turn to an example where we actually analyze experimental data ourselves.  We'll look at a [famous experiment](https://www.nber.org/papers/w9873) run by Marianne Bertrand and Sendhil Mullainathan.  The researchers sent about 1300 fictitious resumes responding to job ads in Boston and Chicago.  To manipulate employer perceptions of race, they used census data on names.  For any name, census data tells us how many people in the U.S. have that name, broken down by birth year, sex, and self-identification of race/ethnicity.  So the researchers took 36 names: 18 names that were used disproportionately by people self-identifying as White, and another 18 names that were used disproportionately by people self-identifying as Black.  They randomized each resume to have either a "Black" or a "White" name, and they then tracked which resumes received a call-back from the employer placing the ad.
+
+The data from this experiment can be found in [ResumeNames.csv](data/ResumeNames.csv).  Please download this data and import it into RStudio.  For our purposes, the two relevant columns are `ethnicity`, for the randomly assigned ethnicity of the name on the resume; and `call`, which indicates whether the resume garnered a call-back from the employer placing the ad.  
+
+```{r, echo=FALSE, message=FALSE}
+library(tidyverse)
+library(mosaic)
+
+ResumeNames = read.csv('data/ResumeNames.csv')
+```
+
+The fundamental question was: do resumes randomized to receive a "White" (coded as `cauc`, for Caucasian) name receive more call-backs than resumes randomized to receive a "Black" name (coded as `afam`, for African-American)?  The answer, sadly, appears to be yes:  
+
+```{r}
+xtabs(~call + ethnicity, data=ResumeNames) %>%
+  prop.table(margin=2)
+```
+
+So about 6.4% of Black resumes got a call-back, versus 9.7% of White resumes.  That's a -3.3% difference, with a confidence interval of -4.7% to -1.6%, which we can get via `prop.test`:  
+
+```{r}
+prop.test(call ~ ethnicity, data=ResumeNames)
+```
+
+The p-value under the null hypothesis of equal call-back proportions is also tiny: $4.998 \times 10^{-5}$, or about 0.00005.  Remember, other than the names, the resumes were otherwise identical.  This is clear and compelling evidence of racial discrimination on the labor market.  A 3.3% difference may sound small, but keep in mind that the call-back rate is quite low overall, at only 6.4% for the Black resumes.  So in relative terms, the "discrimination effect" was huge: 3.3/6.4 is about 0.5, meaning that White-sounding resumes were nearly 50% more likely in relative terms to receive a call-back than White-sounding resumes. I'll let the authors of the study describe this result in their own words:
+
+>The results show significant discrimination against African-American names: White names receive 50 percent more callbacks for interviews. We also find that race affects the benefits of a better resume. For White names, a higher quality resume elicits 30 percent more callbacks whereas for African Americans, it elicits a far smaller increase. Applicants living in better neighborhoods receive more callbacks but, interestingly, this effect does not differ by race. The amount of discrimination is uniform across occupations and industries. Federal contractors and employers who list Equal Opportunity Employer' in their ad discriminate as much as other employers. We find little evidence that our results are driven by employers inferring something other than race, such as social class, from the names. These results suggest that racial discrimination is still a prominent feature of the labor market.
+
+If you'd like a review on how the `prop.test` command works and why it's appropriate here, please return to the lesson on [Beyond de Moivre's equation] in our chapter on [Large-sample inference].  
+
+## Study questions: experiments {-}
+
+```{exercise}
+Return to our hypothetical observational study in which we imagine measuring the blood pressure of broccoli eaters (treatment) versus non-broccoli-eaters (control), without randomizing subjects to the two groups.  We discussed one potential confounder here: wealth.  This was a potential confounder because it seems plausible that wealthier people might have lower blood pressure and eat more broccoli, thereby creating a correlation between broccoli eating and blood pressure that isn't necessarily causal.  
+
+Name two other potential confounders in this observational study, and explain why they're confounders.  Remember, in order to be a confounder, something should affect the outcome of interest (whether directly or indirectly) and _also_ be correlated with the treatment variable of interest.  
+```
+
+<br>
+
+```{exercise}
+Pfizer is conducting an experiment to test a new vaccine, developed to immunize people against a novel strain of the SARS-CoV-2 virus that causes Covid-19. To test the vaccine, Pfizer has 10000 volunteers, 5000 men and 5000 women. The participants range in age from 20 to 70. 
+
+A) What would a completely randomized experimental design look like in this situation?  
+B) What would randomization within blocks look like?  Why would this design be better than complete randomization?  
+  
+Remember the basic mantra of good experimental design!  Always use a control group.  Block what you can; randomize what you cannot.  
+```
+
+<br>
+
+```{exercise}
+Which of the following statements are true?
+
+1. Both completely randomized designs and block designs control for confounding variables, including confounding variables that we don't even know about.    
+2. In general, we'd expect that a completely randomized design controls for confounding variables better than randomization within blocks.  
+3. A randomized block design does not control for the placebo effect.
+4. In a block design, participants within each block receive the same treatment.
+```
+
+<br>
+
+```{exercise}
+Please download the data in [predimed.csv](data/predimed.csv).  This contains data from the PREDIMED trial, a famous study on heart health conducted by Spanish researchers that followed the lifestyle and diet habits of thousands of people over many years, beginning in 2003.  The main purpose of the PREDIMED trial was to assess the effect of a Mediterranean-style diet on the likelihood of someone experiencing a major cardiovascular event (defined by the researchers as a heart attack, stroke, or death from cardiovascular causes).  PREDIMED was a true experiment: subjects were randomized either to a Mediterranean diet or a control diet.  It also took a long time: the median follow-up time for subjects was nearly five years.
+
+For our purposes the relevant variables in this data set are:  
+  
+- `group`: which diet the subject was randomized to.  There are actually three levels here: `Control`, `MedDiet + VOO`, and `MedDiet + Nuts`.  There were actually two versions of the Mediterrean diet, one in which subjects were given nuts to use for snacks, and another in which subjects were given weekly supplementary bottles of extra-virgin olive oil and told that they could use as much as they wanted, however they wanted, in their meals.     
+- `event`: a yes-or-no variable indicating whether the subject experienced a serious cardiac event during the course of the study.  
+
+The question for you to answer is simple: did subjects following a Mediterranean diet experience cardiac events at a lower rate than subjects following the control diet?  If so, what is a 95% confidence interval for the difference?
+  
+  Note: to keep things simple, I recommend collapsing the two versions of the Mediterranean diet into a single `MedDietAny` category.  You can accomplish this easily using `ifelse` and `mutate`, like this:
+  
+```{r, eval=FALSE}
+predimed = mutate(predimed,
+                  med_diet_any = ifelse(group=='Control', yes="Control", no="MedDietAny"))
+```
+
+```
+
+<br>

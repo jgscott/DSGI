@@ -1,3 +1,36 @@
 # Grouped data
 
+If you've made it this far through these lessons, you've already analyzed a lot of grouped data.  Let's briefly review.  
+
+__Plots.__  To start with, you've learned some useful tools for visualizing grouped data, including box plots, faceted histograms, and bar plots.
+
+Take, for example, the data in [utsat.csv](data/utsat.csv), which contains SAT scores for all UT-Austin undergraduates who matriculated in the fall of 2000.  The boxplot below shows students' SAT math scores (`SAT.Q`) grouped by college of study (`School`):   
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", fig.asp = 0.65}
+library(mosaic)
+library(tidyverse)
+
+utsat = read.csv('data/utsat.csv')
+utsat = mutate(utsat, School = str_to_title(School))
+
+gf_boxplot(SAT.Q ~ School, data=utsat) +
+  coord_flip() + 
+  labs(title="SAT Math scores by school: UT-Austin")
+```
+
+Here our outcome variable is SAT math score, and our grouping variable is `School`.  You might remember back in our lesson on [Boxplots], we mentioned the following:
+
+> the most common use case for a box plot: to understand between-group differences placed in the context of the within-group variation.  
+
+Viewed in those terms, our boxplot shows that SAT scores vary much more within a college than they do between colleges. For example, there's about a 30-point difference in median SAT math scores between Liberal Arts students and Natural Science students (compare the middle lines in each box). But within Natural Sciences, the interquartile range (the width of the box) is about three times as large: roughly 100 points.
+
+
+__Summaries.__  In the lessons on [Summaries] and [Data wrangling], you also learned the basic data workflow required to calculate group-level summary statistics.  For example, suppose we wanted to calculate the mean and standard deviation for SAT math scores in each UT-Austin undergraduate college.  Remember "group/pipe/summarize" from our discussion of [Key data verbs]:
+
+```{r}
+utsat %>%
+  group_by(School) %>%
+  summarize(SAT.Q_mean = mean(SAT.Q),
+            SAT.Q_sd = sd(SAT.Q))
+```
 
