@@ -142,7 +142,9 @@ t2
 
 ## Joint probabilities
 
-Let's now look at a second question: how likely is a band to play both ACL Fest _and_ Lollapalooza?  You might recognize that kind of question as asking for a _joint probability_.   
+### P(A, B) {-}
+
+Let's now look at a second question: how likely is a band to play both ACL Fest _and_ Lollapalooza?  You might recognize that kind of question as asking for a _joint probability_ of the form P(A, B), or the probability that two events both occur.  
 
 We'll start off by tabulating the bands according to both of the relevant variables: whether they played at ACL (0 or 1), and whether they played at Lollapalooza (0 or 1).  This works as follows:
 
@@ -162,6 +164,7 @@ The result of calling `xtabs` gives us some numbers that represent joint frequen
 From here, we could actually stop and use use a calculator (or use R _as_ a calculator) to work out the relevant joint probability.  But as you'll see, it's less labor-intensive if we get R to do some of that work for us.  
 
 So instead, let's use `prop.table` again, to turn those counts into proportions.  As with the first example above, we'll do this using a pipe:  
+
 ```{r}
 xtabs(~acl + lollapalooza, data=aclfest) %>%
   prop.table %>%
@@ -175,12 +178,39 @@ These numbers now represent __proportions__, not counts.  Therefore, all the ent
 - P(ACL, not Lollapalooza) = 0.065
 - P(ACL, Lollapalooza) = 0.062
 
-And this last number, of course, is the answer to the question we set out to answer: P(ACL, Lollapalooza) = 0.062.  
+And this last number is the answer to the question we set out to answer: the chance that a randomly chosen band from this data set played both ACL and Lollapalooza is P(ACL, Lollapalooza) = 0.062.  
+
+### P(A or B) and the addition rule {-}
+
+Joint probabilities are also important in calculating probabilities of the form P(A or B), i.e. the probability that one of either A or B, but not necessarily both, occur.  Specifically, the __addition rule__ tells us that for any two events A and B,
+
+$$
+P(A \mbox{ or } B) = P(A) + P(B) - P(A, B)
+$$
+
+This equation says that if A and B are two possible outcomes, the probability that either A or B occurs can be built up in three pieces: you add together the individual probabilities for A and B, and then you subtract the probability that A and B both occur, which is like a correction for double-counting.
+
+```{r, echo=FALSE, out.width="100%"}
+knitr::include_graphics('images/prob_venndiagram.png')
+```
+
+You can visualize this in a Venn diagram like the one above.  Imagine throwing darts at this rectangular area.  What is P(A or B), the probability that a randomly thrown dart will land either in the blue oval (A) or the red oval (B)?  Let’s assume I’m really bad at darts, so that each point in the rectangle is equally likely. 
+
+If we assume that the outer rectangle has total area 1, then this probability is just the total area covered by the union of the two ovals.  To calculate this area, we can start by adding the areas of the blue oval and red ovals together.  But then we've double-counted the purple area of overlap: once for the A oval, and once for the B oval.  So we have to subtract this area back off, to correct for the double-counting.  This leaves us with the area of the A oval plus the area of the B oval, minus the area of their overlap.  
+
+For example, let's use this rule to calculate the probability that a band in our data set played either Bonnaroo or Coachella.  For this we need the joint probabilities:
+
+```{r}
+xtabs(~bonnaroo + coachella, data=aclfest) %>%
+  prop.table()
+```
 
 
 ## Conditional probabilities
 
-Let turn to our final question: what is P(played ACL | played Lollapalooza)?  Or said in English, what is the conditional probability that a band played ACL, given that they played Lollapalooza?  You might remember the following rule for conditional probabilities:
+### Calculating P(A | B) from data {-}
+
+What is P(played ACL | played Lollapalooza)?  Or said in English, what is the conditional probability that a band played ACL, given that they played Lollapalooza?  To calculate this, we'll use the following rule for conditional probabilities:
 
 $$
 P(A \mid B) = \frac{P(A,B)}{P(B)}
@@ -206,8 +236,6 @@ Let's use R as a calculator to express this as a decimal number:
 
 So about 0.176.
 
-#### Using `margin` {-}
-
 But as with the previous two examples, it's much more satisfying to get R to do the work for us.  We'll do this using `prop.table` again---but this time, with a twist.  Pay close attention to the middle line, where we call `prop.table`:
 
 ```{r}
@@ -225,6 +253,48 @@ So having specified that we want to condition on the `lollapalooza` variable, no
 
 And that second number is just the answer we were going for.   
 
+### Checking independence {-}
+
+In data science, two events are said to be __independent__ if the occurrence of one event does not impact the probability of the occurrence of the other event.  Using our conditional probability notation, Events A and B are independent if:
+
+$$
+P(A \mid B) = P(A \mid \mbox{not } B) = P(A) 
+$$
+
+This equation means that A and B convey no information about each other: knowing that B occurred does not change the probability of event A when these events are independent.  Consider, for example, flipping two fair coins. If we get heads on the first flip, this conveys no information about how likely we are to get heads on second flip: P(heads on flip 2 | heads on flip 1) = P(heads on flip 2 | tails on flip 1) = 0.5.  That's because the two coins are independent.  
+
+For two independent events A and B, we can calculate the joint probability that both A and B occur by multiplying the individual probabilities of each event, e.g. P(heads 1 and heads 2) = 0.5*0.5 = 0.25.  But we can't always take this shortcut. For example, we shouldn’t multiply the probability of rain times the probability of high winds to get the probability of both, because rain and high winds convey information about each other: P(rain | high winds) $\neq$ P(rain | no high winds).  Likewise in the case of two siblings. The probability that sibling 2 is colorblind changes if we introduce the information that sibling 1 is colorblind, because colorblindness is a genetic trait.  
+
+In general, we might not know whether two events are independent.  In that case, we need data!  The solution is to check whether B happening seems to change the probability of A happening, or vice versa.  That is, we attempt to verify using data whether P(A | B) = P(A | not B) = P(A). These probabilities won't be _exactly_ alike because of statistical fluctuations, especially with small samples.  (We'll cover this point more in the future lesson on [Statistical uncertainty.])  But with enough data they should be pretty close if A and B are independent. 
+
+For example, in our data on music festivals, suppose we want to check whether playing Coachella is independent of playing Bonnaroo.  To check this, we want to see if P(coachella = 1 | bonnaroo = 1) = P(coachella = 1 | bonnaroo = 0)---in other words, whether a band's playing Bonnaroo affects the probability that the same band plays Coachella.  So to check this, let's form a table of probabilities conditional on the `bonnaroo` variable:
+
+```{r}
+xtabs(~coachella + bonnaroo, data=aclfest) %>%
+  prop.table(margin=2)
+```
+
+From this table, it looks like:  
+
+- P(coachella = 1 | bonnaroo = 1) = 0.17
+- P(coachella = 1 | bonnaroo = 0) = 0.54
+
+The conclusion is that these two events are clearly _not_ independent.  A band that plays Bonnaroo is much less likely to play Coachella in the same year than a band that _doesn't_ play Bonnaroo.  
+
+
+On the other hand, let's examine the data on ACL and Outside Lands:
+
+```{r}
+xtabs(~acl + outsidelands, data=aclfest) %>%
+  prop.table(margin=2)
+```
+
+From this table, it looks like:  
+
+- P(acl = 1 | outsidelands = 1) = 0.126  
+- P(acl = 1 | outsidelands = 0) = 0.135
+
+These numbers are not _identical_, but they're very close, to the point that we might plausibly explain the difference as a small-sample fluctuation.  (Again, we'll cover the topic of small-sample fluctuations in a future lesson.)  So for now, we'd either say that playing ACL and playing Outside Lands look independent of one another, _or_ at the very least that they look _nearly_ independent of one another.  Either way, no matter how we choose to phrase our conclusion, it's clear that whether a band plays Outside Lands conveys little to no information about how likely that band is to play ACL.  
 
 ## Study questions {-}
 
@@ -237,5 +307,5 @@ And that second number is just the answer we were going for.
 
    A. For a randomly selected user, what are P(plays Franz Ferdinand) and P(plays Franz Ferdinand | plays the Killers)?    
    B. What are P(plays Bob Dylan) and P(plays Bob Dylan | plays the Beatles)?  
-   C. What are P(plays Rihanna) and P(plays Rihanna | plays Kanye West)?  
+   C. What are P(plays Rihanna) and P(plays Rihanna | plays Kanye West)?  Are the events "plays Rihanna" and "plays Kanye West" independent?
    D. What is P(plays Queen or plays David Bowie)?  Hint: for this one you'll need to know the addition rule, $P(A \mbox{ or } B) = P(A) + P(B) - P(A,B)$.  

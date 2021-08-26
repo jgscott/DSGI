@@ -231,5 +231,3 @@ rapidcity %>%
 
 In general, we think of $|z| \approx 2$ as the very lower limit of where a data point might be considered "unusual" or "surprising" relative to other numbers from the same distribution. That figure is based on the normal distribution: for normally distributed data, roughly 95% of the data points will fall within 2 standard deviations of the mean.  Of course, since most data sets aren't exactly or even approximately normal, this guideline is _very_ rough indeed.  But it at least gives you an order-of-magnitude sense for how to interpret a $z$-score.   A $z$-score of $\pm 1$, for example, is very typical and not at all surprising.  But a $z$ score of $\pm 10$ would be a _very_ unusual data point, pretty much no matter how the data are distributed.   
 
-
-## Study questions {-}  

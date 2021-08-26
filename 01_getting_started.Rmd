@@ -16,8 +16,8 @@ In this very first lesson, you'll learn how to:
 
 To begin using R, you'll need to download two pieces of software:
 
-1. Head to [cloud.r-project.org](http://cloud.r-project.org) to download and install the version of R appropriate for your computer (Windows, Mac, or Linux).  
-2. Head to [www.rstudio.com](http://www.rstudio.com) and download RStudio.  If the `Download` link there asks you to choose your version, you'll want "RStudio Desktop," which is free and, like R, available for Windows, Mac, and Linux.
+1. Head to [cloud.r-project.org](http://cloud.r-project.org) to download and install the version of R appropriate for your computer, whether Windows, Mac, or Linux.  Note that _if you have a newer MacBook with an Apple M1 chip,_ make sure to install the appropriate version of R (labeled `Apple silicon arm64` on the download page), and not the version designed for older Intel-based MacBooks.^[If you need to check what kind of chip your Mac has, choose "About this Mac" from the Apple menu in the upper left corner of your screen.  You'll see an entry for "Processor" that will tell you whether you've got an Intel chip or an Apple M1 chip inside your machine.]
+2. Head to [www.rstudio.com](https://www.rstudio.com/products/rstudio/download/) and download RStudio.  If prompted to choose your version, you'll want "RStudio Desktop," which is free and, like R, available for Windows, Mac, and Linux.
 
 Why two programs?  Well, R is the program that does most of the raw computational work, while RStudio is a graphical front end for R (called an "integrated development environment," or IDE) that offers a lot of creature comforts.  You'll work entirely within RStudio; meanwhile, RStudio will interface with R behind the scenes, without your ever needing to open the R program itself.  Loosely speaking, if you imagine that analyzing data is like driving a car, then RStudio is the steering wheel and the pedals, while R is the engine.^[This car analogy isn't quite right.  Strictly speaking, RStudio is optional, and you _could_ opt to use base R (i.e. only the "engine").  But RStudio is both free and great. I _highly_ recommend using it; it's really helpful for beginners, but it also has many wonderful features that cater to advanced users and that you might explore as your R skills mature.  From here on out, I'll assume you're using RStudio rather than base R.  On a practical level, this means that you'll start your R sessions by double-clicking the RStudio icon on your computer, rather than the R icon.]  That's why you need to install R in order for RStudio to work: if you try to drive a car without an engine, you're not going to get very far.  
 
@@ -338,6 +338,17 @@ Here are your best bets.
 
 Personally, I use option 1 about 70% of the time, option 3 about 30% of the time, and option 2 about 0% of the time (since all of R's help files are on the web anyway, and will come up in a web search if they're useful).
 
+### My advice {-}
+
+Now that we've covered the basics of R scripts and getting help, here's my advice for how best to use this book to learn R.
+
+1. Type out my commands into your own script.  __Don't just copy/paste__.  Copying and pasting is lazy, and you'll never build muscle memory that way, any more than you can learn to ride a bike by watching someone else ride a bike.   
+2. Execute the commands and compare your results to mine.  (Remember our convention on [How you'll get feedback] from above.)  
+3. Be an active learner.  Once you start to learn a bit of R, try executing variations on the commands I've given to see what you get.  Trying articulating _out loud in your own words_ what each command is doing and why it produces the behavior it does.  This is a great way to build familiarity with the R environment.  
+
+Invariably, I have students in my large data science classes at UT who _think_ they understand R on the basis of these lessons, but then do poorly on quizzes and tests.  When I talk with them about their study habits, more often than thought it turns out that they've been plowing through these walk-throughs, blindly copying/pasting commands and hitting command enter at high speed, without dwelling on _why_ the commands do what they do, and without absorbing the underlying ideas.  
+
+__You cannot expect to just "copy/paste/command-enter" your way through these walk-throughs__ and come away with an understanding of R or data science.  What's true of learning R is true of learning pretty much anything: becoming an independent learner means actively engaging in the material.
 
 
 ## Libraries {#sec_installing_library}
@@ -348,7 +359,7 @@ R has an [enormous](https://www.google.com/search?q=how+many+R+libraries+are+the
 
 Here we'll install two libraries that we'll use a lot in the lessons to follow: `tidyverse` and `mosaic`.
 
-The first minute of [this video](https://www.youtube.com/watch?v=u1r5XTqrCTQ) gives a walk-through of how to install a library. (It's with an older version of RStudio, thought the process is still the same).  But we'll explain the steps here, too.   Conveniently, libraries, also called "packages," are installed from within RStudio itself.
+The first minute of [this video](https://www.youtube.com/watch?v=u1r5XTqrCTQ) gives a walk-through of how to install a library. (It's with an older version of RStudio, though the process is still the same).  But we'll explain the steps here, too.   Conveniently, libraries, also called "packages," are installed from within RStudio itself.
 
 Here are the steps to install `tidyverse`.  The same process works for any library:
 

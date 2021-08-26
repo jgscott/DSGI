@@ -768,5 +768,3 @@ Here's a quick table wrapping up our discussion of "Beyond straight lines."
 | Relative proportional | Power law   | Demand vs. price  | `lm(log(y) ~ log(x), data=D)` | Elasticity | 
 
 If I had to summarize this table in a single phrase, it would be: additive change on the log scale is the same thing as multiplicative change on the original scale.  As long as you understand that basic principle, the whole table should fall into place.  
-
-## Study questions: fitting equations {-}

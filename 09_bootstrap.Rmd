@@ -1026,13 +1026,12 @@ Honestly, this is the kind of stuff you'd learn about in a more advanced statist
 
 ## Study questions: the bootstrap {-}
 
-```{exercise}
+
 Return to the `NHANES_sleep` data.  Use bootstrapping the answer the following questions.  
 
 (A) How does average sleep time differ for those with and without at least one depresssed day per month?  Calculate a 95% confidence interval for the difference in the mean of `SleepHrsNight` between the two groups.  Is the difference statistically significant at the 5% level?  In your opinion, is the difference practically significant?  
-(B) How does the frequency of depression differ by gender?  Calculate a 95% confidence interval for the difference in the proportion of `DepressedAny = TRUE` between the two groups.  Is the difference statistically significant at the 5% level?  In your opinion, is the difference practically significant?  
-```
 
-```{exercise}
-Question here.
-```
+(B) How does the frequency of depression differ by gender?  Calculate a 95% confidence interval for the difference in the proportion of `DepressedAny = TRUE` between the two groups.  Is the difference statistically significant at the 5% level?  In your opinion, is the difference practically significant?  
+
+
+

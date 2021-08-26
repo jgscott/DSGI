@@ -301,37 +301,34 @@ If you'd like a review on how the `prop.test` command works and why it's appropr
 
 ## Study questions: experiments {-}
 
-```{exercise}
+#### Broccoli {-}
+
 Return to our hypothetical observational study in which we imagine measuring the blood pressure of broccoli eaters (treatment) versus non-broccoli-eaters (control), without randomizing subjects to the two groups.  We discussed one potential confounder here: wealth.  This was a potential confounder because it seems plausible that wealthier people might have lower blood pressure and eat more broccoli, thereby creating a correlation between broccoli eating and blood pressure that isn't necessarily causal.  
 
 Name two other potential confounders in this observational study, and explain why they're confounders.  Remember, in order to be a confounder, something should affect the outcome of interest (whether directly or indirectly) and _also_ be correlated with the treatment variable of interest.  
-```
 
-<br>
 
-```{exercise}
+#### Vaccines {-}
+
 Pfizer is conducting an experiment to test a new vaccine, developed to immunize people against a novel strain of the SARS-CoV-2 virus that causes Covid-19. To test the vaccine, Pfizer has 10000 volunteers, 5000 men and 5000 women. The participants range in age from 20 to 70. 
 
 A) What would a completely randomized experimental design look like in this situation?  
 B) What would randomization within blocks look like?  Why would this design be better than complete randomization?  
   
 Remember the basic mantra of good experimental design!  Always use a control group.  Block what you can; randomize what you cannot.  
-```
 
-<br>
+#### True/false {-}
 
-```{exercise}
 Which of the following statements are true?
 
 1. Both completely randomized designs and block designs control for confounding variables, including confounding variables that we don't even know about.    
 2. In general, we'd expect that a completely randomized design controls for confounding variables better than randomization within blocks.  
 3. A randomized block design does not control for the placebo effect.
 4. In a block design, participants within each block receive the same treatment.
-```
 
-<br>
 
-```{exercise}
+#### PREDIMED {-}
+
 Please download the data in [predimed.csv](data/predimed.csv).  This contains data from the PREDIMED trial, a famous study on heart health conducted by Spanish researchers that followed the lifestyle and diet habits of thousands of people over many years, beginning in 2003.  The main purpose of the PREDIMED trial was to assess the effect of a Mediterranean-style diet on the likelihood of someone experiencing a major cardiovascular event (defined by the researchers as a heart attack, stroke, or death from cardiovascular causes).  PREDIMED was a true experiment: subjects were randomized either to a Mediterranean diet or a control diet.  It also took a long time: the median follow-up time for subjects was nearly five years.
 
 For our purposes the relevant variables in this data set are:  
@@ -347,7 +344,3 @@ The question for you to answer is simple: did subjects following a Mediterranean
 predimed = mutate(predimed,
                   med_diet_any = ifelse(group=='Control', yes="Control", no="MedDietAny"))
 ```
-
-```
-
-<br>

@@ -1,10 +1,12 @@
 # Data {#lesson_data}
 
-R is all about data.  So let's look at some!  In this lesson, you'll learn to:  
+R is all about data.  So let's look at some!  In this lesson, you'll learn:  
 
-- Import and view a data set.  
-- Understand the basic vocabulary of data.  
-- Conduct a short but complete data analysis by compute simple statistics and making a plot.  
+- The basic vocabulary of data.  
+- The difference between a sample and a population.  
+- Why the unit of analysis is a fundamental choice in data science.  
+- How to import and view a data set in R.  
+- Conduct a short but complete data analysis by computing simple statistics and making a plot.  
 
 To start, open RStudio and create a new script for this lesson (calling it, e.g., `lesson_data.R`, or whatever you want).  You'll use this script to type out some code chunks and see what results they produce.    
 
@@ -16,15 +18,395 @@ library(tidyverse)
 
 This will make all the functionality of the `tidyverse` library available when we need it down below.  
 
+
+## Data frames, cases, and variables
+
+Consider the dogs of the world, in all their variety:  
+
+```{r, echo=FALSE, out.width="100%"}
+knitr::include_graphics("images/dog_breeds.png")
+```
+
+All dogs exhibit some similarities: they bark, they have four legs and a fur coat, they like to sniff each other's butts, and so on.  Yet they also differ from one another in their specific features: some are large and others small; some have shaggy fur and others smooth; some have dark coats and others light.  Put simply, dogs _vary._  In data science, we study and try to understand this variation.  
+
+A data set is like the collection of dogs shown above.  It consists of __cases__, also known as __examples__---here, the individual dog breeds.  A collection of cases is called a __sample__, and the number of cases in the sample is called the __sample size__, usually denoted by the letter $n$.  Each case can be described in terms of its __variables__, also known as _features_ or _attributes_.  
+
+A data set records a specific set of variables across a specific collection of cases.  For instance, suppose we examine five specific dog breeds: border collie, Chihuahua, Siberian husky, beagle, and Bernese mountain dog.  That's our collection, or our _sample,_ or breeds.  Suppose, moreover, that we choose to record four pieces of information on each breed in the sample: (1) average height in inches, (2) average weight in pounds, (3) length of fur, and (4) country of origin.   Those are our _variables_, or features of interest.    
+
+Typically, the most convenient way to represent a data set is to use a tabular format called a __data frame__, also known as a _data table._   In a data frame, the rows correspond to individual cases in our sample, and the columns correspond to the variables, like this:
+
+Table: (\#tab:dogbreeds) A simple data frame showing a sample of five dog breeds.
+
+|                      | Height | Weight | Fur   | Origin      |
+|:---------------------|-------:|-------:|:------|:------------|
+| Border collie        | 20     | 35     | Long  | Britain     |
+| Chihuahua            | 8      | 5      | Short | Mexico      |
+| Siberian husky       | 22     | 45     | Long  | Russia      |
+| Beagle               | 15     | 22     | Short | Britain     |
+| Bernese mountain dog | 26     | 100    | Long  | Switzerland |
+
+
+Each row of our data frame is a case, here a dog breed.  Each breed has a unique name that identifies it, along with four other variables, or pieces of information about the breed.  A data frame has as many rows are there are cases in the sample (here 5), and as many columns as there are variables (here 4, or 5 if we include the row names that serve to identify the breed).
+
+__Numerical vs. categorical variables.__ Our data set on dogs in Table \@ref(tab:dogbreeds) has two different kinds of variables:
+
+- Some variables in our data set are actual numbers; appropriately enough, these are called __numerical variables__.  The numerical variables in this data set are `Height` and `Weight`.   
+- Other variables can only take on a limited number of possible values, like the answer to a multiple-choice question.  These are called __categorical variables.__  The categorical variables in this data set are `Fur` and `Origin`.
+
+This distinction between numerical and categorical variables is essential in data science, because only numerical variables have magnitudes that obey the rules of arithmetic.   Imagine, for example, that you had two Chihuahuas and a border collie.  You can add the weights of all three dogs and make meaningful statements about the sum: two Chihuahuas (2 $\times$ 5 = 10 lbs) plus one border collie (35 lbs) equals 45 lbs, which happens to be the weight of a single Siberian husky.  But you can't do the same kind of arithmetic with the dogs' countries of origin; it doesn't make sense to add two Mexicos and a Britain and say that this is somehow equal to Russia.  _Arithmetic makes sense with `Weight`, but not with `Country.`_  More generally, the fact that you can do arithmetic with numerical variables, but not categorical variables, has all sorts of downstream consequences for how we summarize, plot, and model our data---and we'll be exploring these consequences for much of the rest of the book.  
+
+__Code books.__  To complete our data set on dogs, we also need to provide some detail about each variable, in the form of a __code book__, like this:
+
+- _Height_: breed average height of adult dogs measured at the shoulders, in inches  
+- _Weight_: breed average weight of adult dogs, in pounds  
+- _Fur_: length of fur.  Levels: short, long.  
+- _Origin_: country of origin of the breed.    
+
+The code book is typically stored as a separate file or web page.  It provides all the necessary information to interpret each variable in the data set, answering questions like: what does the variable represent?  How is it measured?  If numerical, what are its units?  If categorical, what are the possible levels or categories of the variable?  
+
+## Samples versus populations
+
+We've referred to a sample as a collection of cases.  This brings us to an important distinction in data science: that of a sample versus a population.
+
+A __population__ refers the set of all the possible units that might have been included in the collection.  In our example above, the population was the set of all dog breeds.  For what it's worth, the World Canine Organization recognizes 339 distinct breeds of dog, so that's the size of our population here.
+
+The term population comes from the Latin root for "people," and indeed in many data-science situations, the population actually does consist of people.  But we have to interpret this term more broadly.  For example, we might refer to the "population" of all dog breeds, the "population" of all houses within the Austin city limits... or of all books in English, of all e-mails ever sent on Gmail, of all public companies in the U.S., of all squid in the ocean, and so on.   
+
+A __sample__, meanwhile, is a specific selection of cases from the population.  Samples run the gamut, from large to small, from [well-constructed surveys](https://www.census.gov/programs-surveys/cps.html) to [useless crap](https://en.wikipedia.org/wiki/Dewey_Defeats_Truman).   Throughout many of the lessons to follow, we'll return to this question of what distinguishes "good" from "bad" samples, so for now we'll just lay out some preliminary points to keep in mind.  
+
+In the small-sample extreme, your sample might consist only of a single observation.  "The vaccine gave me a rash!" says your Uncle Fred.  That's one data point, and not particularly useful for drawing conclusions.  After all, maybe Uncle Fred is just rashy anyway.  A single sample is basically just an anecdote in disguise.  
+
+In the other, large-sample extreme, your sample might consist of the entire population, in which case we'd call that sample a __census.__  For example, if you live in the U.S., you have probably filled out a census form and returned it to the federal government.  Theoretically, at least, this process results in a data set containing information on every person living in America (although people can and do [debate the accuracy](https://www.pewresearch.org/fact-tank/2020/12/14/how-accurate-will-the-2020-u-s-census-be-well-know-more-soon/) of the U.S. census).  This usage of the term census, to mean an enumeration of people, is quite old; in ancient Rome, for example, the "census" was a list that tracked all adult males fit for military service.  But the modern term "census", like the term "population", should be interpreted more generally.  For example, these days it's common enough for companies to have a census of some population relevant to their business interests:    
+
+- Google has data on every e-mail ever sent through a Gmail account.  
+- Amazon has data on every item ever purchased through its online platform.  
+- Lyft has data on every ride share ever hailed through its app.  
+
+And so on.   These are all censuses, i.e. data sets comprising the entire relevant population.   
+
+In between, we find samples that consist of some fraction of the overall population.  Often this fraction is quite small, if only for the reason that it would be too expensive or complex to get data on everyone or everything.  Take the example of a political poll, which is a very common kind of sample that makes the news every time an election comes around.  In a political poll, the population is the set of all registered voters, which in the U.S. numbers about 160 million people.  But the size of the sample itself rarely exceeds about 1,000 people, which is fewer than 1 poll respondent for every 100,000 voters.  (The question of how sample size relates to accuracy is one we'll return to in the lessons on [Statistical uncertainty] and [Large-sample inference].)
+
+The manner in which a sample is collected determines a lot about how useful that sample is for drawing conclusions about the broader population from which it was drawn.  A __random sample__ is one in which each member of the population is equally likely to be included.  One of the most important ideas in the history of statistics is the idea that a random sample will tend to be representative of the population from which it was drawn, and it can therefore allow us to _generalize_ from the sample to the population.  For any other type of sample (except a census, where generalization is unnecessary), this isn't necessarily true.  
+
+Collecting a true random sample is a lot harder than it sounds.  Collecting data aimlessly or arbitrarily is not the same as collecting it randomly.   If you're not using a computer to generate random numbers to decide which units to include in your sample, you're probably not taking a random sample.  
+
+In fact, many (most?) samples are __convenience samples__, collected in a way that minimizes effort rather than maximizes science.  For example:
+
+- The data on dog breeds in Table \@ref(tab:dogbreeds) is a convenience sample.  It consists of the first five dog breeds that I personally recognized from a Google image search for "dog breeds."  As a sample, it was useful for illustrating the concept of a data frame.  But scientifically speaking, it's pretty limited.  I guess we can use it to draw conclusions about the specific cases included in our sample---for example, that Huskies are heavier than Chihuahuas (after all, it says so right in our data frame).  But we certainly can't use this data to draw any broad conclusions about general trends among the whole population of dog breeds, like whether sight hounds tend to be taller than scent hounds.  To answer a question like that, we'd probably just take a census, e.g. look on Wikipedia for information about all 339 dog breeds, since the size of the population is pretty tractable.   
+- Online reviews of products or services tend to be convenience samples.  For example, Yelp reviews are submitted by people who bother to log on to Yelp and write out a review.  This is very convenient for Yelp, but not very scientific, since [Yelp reviewers](https://en.wikipedia.org/wiki/You%27re_Not_Yelping) are unlikely to be representative of the entire population of patrons at a particular restaurant.  
+- When I take a poll of students in one of my large stats classes at UT-Austin, you could think of that as either a census or a convenience sample, depending on the population of interest.  If the population is construed as "students in my class that semester," then the sample is a census.  But if the population of interest is construed as "all students at UT," then it's a convenience sample, since the students in my stats class are unlikely to be representative of all UT students.  
+
+Convenience samples can be fine for some purposes and disastrous for others---indeed, this is a running theme we'll encounter throughout the lessons to come, and so it's worth raising the point now.  The basic issue is that non-random samples (including convenience samples) can introduce __sampling bias__ into a data analysis: that is, systematic discrepancies between the sample and the population.   For example, many clinical trials of new drugs involve convenience samples---basically, whomever could be recruited to participate.  This potentially raises concerns about _external validity_, i.e. whether the [results gleaned from a sample](https://pubmed.ncbi.nlm.nih.gov/16857070/) can be generalized to the wider population.  
+
+The general advice in statistics is to use a random sample, where possible.  If it isn't possible, and if you believe that a non-random selection of cases may have introduced biases, be honest about it, and do what you can to correct for those biases after the fact.  (We'll learn some ways to do this in future lessons on [Observational studies] and [Regression].)  
+
+
+## The unit of analysis {#unit_of_analysis}
+
+We often collect data to study the relationship between different variables---for example, how people's gas consumption changes in response to changing gas prices, or how a student's performance depends upon the number of other students in a class.
+
+When doing so, a very important concept is the __unit of analysis,__ which refers to the type of entity you choose to focus on---whether dogs, people, states, countries, firms, houses, fruit flies, or something else entirely.  The unit of analysis is an absolutely fundamental choice, because it determines what kinds of questions your analysis is capable of answering:
+
+- Questions about _dog breeds_ are different than questions about individual _dogs._  
+- Questions about _companies_ are different than questions about _employees_ within those companies.  
+- Questions about U.S. _states_ are different than questions about the individual _people_ living with those states.  
+
+Sometimes, but not always, the unit of analysis will correspond to the cases in your data frame.  Suppose, for example, that we're interested in the relationship between average height and average weight among different breeds of dog.  In this case, we're asking a question at the breed level, and our unit of analysis should be a dog breed.  So (a larger version of) our toy data set on dogs in Table \@ref(tab:dogbreeds), reproduced below, would be perfect.  We're asking a breed-level question, and we have breed-level data in this data frame (reproduced below):  
+
+|                      | Height| Weight| Fur   | Origin      |
+|:---------------------|-------:|-------:|:------|:------------|
+| Border collie        | 20     | 35     | Long  | Britain     |
+| Chihuahua            | 8      | 5      | Short | Mexico      |
+| Siberian husky       | 22     | 45     | Long  | Russia      |
+| Beagle               | 15     | 22     | Short | Britain     |
+| Bernese mountain dog | 26     | 100    | Long  | Switzerland |
+
+ 
+But suppose we're interested in whether Frisbee-chasing behavior is more frequent in some breeds versus others, and that we had a data set on individual dogs, like this:  
+
+|            | Breed         | Age | City       | Chases frisbee |
+|:-----------|:--------------|----:|:---------- |:---------------|
+| Oscar      | Border collie | 14  | London     | Yes
+| Ray        | Welsh Corgi   | 5   | Austin     | No
+| Twix       | Beagle        | 2   | Houston    | No
+| Belle      | Bordie collie | 12  | Des Moines | Yes
+| Willow     | Welsh Corgi   | 9   | London     | Yes
+
+In this instance, we're still asking a simple descriptive question at the breed level: how does Frisbee-chasing frequency change across breeds? But now we have data on individual dogs, and `Breed` is a variable in that data set.  In other words, there's a mismatch between our desired unit of analysis (a breed) and the notion of a case embodied in our data set (an individual dog).  In situations like this, we often have to do some additional work---perhaps bringing together multiple data frames, or using our original data frame on dogs to create a new, derived data frame that has some breed-level summary statistics.  This process is often referred to as [Data wrangling]; we won't cover this topic in detail yet, but we'll return to it soon once we've laid the proper foundation of R skills.  
+
+The broader point is this: whenever you're using data to address a question, you need to be thoughtful and specific about what your unit of analysis is.  Moreover, you should also be aware of a potential mismatch between: A) the unit of analysis you care about, and B) the entities that form "cases" in your data frame.  In some situations, the "correct" unit of analysis might not be obvious---although a good general guideline would be to choose the finest unit of analysis that makes sense, e.g. students rather than classrooms in a study on educational outcomes.  In other cases, there might be multiple choices for the unit of analysis that are defensible.  And in still other cases you might be constrained in your choice by the availability of data.
+
+For example, suppose you want to understand the link between a person's educational attainment and income.  This is fundamentally a person-level question; we're interested in what would happen if we could compare the incomes of two people with different education levels but who are otherwise similar.  It's easy to imagine at least two different data frames, each with a different notion of a case, that you might think about using to address this question:
+
+1. A data frame where each case is a person, and the variables include that person's annual income and their highest degree (high school, college, master's, etc.), along with other features that effect income (like age, city of residence, etc).  
+2. A data frame where each case is a ZIP code, and the variables include the average income of that ZIP code's residents as well as the fraction of residents in that ZIP code with a college degree.    
+
+In this example, it would be far better to have the first data frame, if you could get it.  We're asking a person-level question about how someone's educational attainment affects their income, and so we should choose a person as our unit of analysis.  Therefore we'd like person-level data, i.e. where the cases in our data set are individual persons.  But you might not _have_ access to person-level data, perhaps for reasons of data privacy---whereas the second data frame would be straightforward to download from the [U.S. Census Bureau](https://data.census.gov/cedsci/).
+
+That might tempt you into choosing the ZIP code as your unit analysis, and using the second data frame to check whether ZIP-level income correlates with ZIP-level educational attainment.  But this is problematic because of the following mismatch:
+
+- The person-level question you care about is how strongly a person's education affects their income.   
+- But with the second data frame, the ZIP-code-level question you'd actually be asking is whether _rich ZIP codes_ tend also to be _ZIP codes with high average educational attainment._  This is a fundamentally different question, because it's a question about ZIP codes, not people!   
+
+This kind of "mismatched unit of analysis" problem is surprisingly common, especially when you're trying to answer questions about people.  To illustrate, let's see several real examples that show how problematic it can be when the question you're asking doesn't correspond to the unit of analysis you're working with.  
+
+### Example 1: politics {-}
+
+Let's start with a piece of common political knowledge.  Everyone knows that there's a correlation between income and party affiliation in the U.S.  The political analyst Thomas Frank may have crystallized the red-blue stereotypes most memorably: on one side there's "the average American, humble, long-suffering, working hard," who votes Republican; and on the other side, there are the "latte-sipping liberal elite," the "know-it-alls of Manhattan and Malibu" who "lord it over the peasantry with their fancy college degrees"^[T. Frank, What's the matter with liberals? New York Review of Books, May 12, 2005.] and who vote Democratic.
+
+The national political map initially seems to bear this idea out.  In pretty much every presidential election for a generation, the Republican has won more of the states in the south and middle of the country, which tend to be conservative and poorer.  The Democrat, meanwhile, has won more of the coastal states, which tend to be liberal and richer.  For example, here was the US electoral map in 2020:
+
+```{r, echo=FALSE, out.width="100%"}
+knitr::include_graphics("images/ElectoralCollege2020.png")
+```
+
+According to statistician and political scientist Andrew Gelman, of Columbia University, this correlation is not an illusion or a coincidence.  Democrats really do tend to perform better in richer parts of the country, while Republicans perform better in poorer parts of the country.
+
+However, Gelman asks, how are we to square this with the fact that Republicans tend to win the votes of individual rich people, but not individual poor people?  For example, in his 2004 election, George W. Bush won only 36\% of the votes of people who earn under \$15,000, and 41\% of the votes of those who earn between \$15,000 and \$30,000.  In contrast, he won 62\% of the vote of those who earn more than \$200,000.  And that broad trend holds in other elections.  In fact, no matter what state you're in, and no matter what presidential election you look at from 2000-2020, the higher up in the income distribution you go, the more likely you are to find someone who votes Republican.  Here's a figure from the [Pew Research Center](https://statmodeling.stat.columbia.edu/2012/11/14/richer-people-continue-to-vote-republican/), via Gelman, showing Republican vote share vs. personal income across four recent presidential elections:
+
+```{r, fig.align='center', out.width="50%", echo=FALSE}
+knitr::include_graphics('images/pewincome31.png')
+```
+
+And here is a bar plot from CNN showing the same basic relationship for the 2016 presidential election: support for the Republican candidate generally increases with personal income.  
+
+```{r, fig.align='center', out.width="100%", echo=FALSE}
+knitr::include_graphics('images/trump_clinton.png')
+```
+
+Given the fact that Democrats tend to win the richest states, this seems like a paradox.  As Gelman puts it,
+
+>Nowadays the Democrats win the rich states, but rich people vote Republican, just as they have for decades.  If poor people were a state, they would be bluer even than Massachusetts; if rich people were a state, they would be about as red as Alabama, Kansas, the Dakotas, or Texas.^[A. Gelman, _Red State, Blue State, Rich State, Poor State: Why Americans Vote the Way They Do._  Princeton University Press, 2010.]
+
+How can it be that rich people tend to vote Republican, but that rich _states_ tend to vote Democratic?  Gelman explains this "unit of analysis" paradox in terms of the increasing polarization of American politics.  Both parties are much more ideologically cohesive than they used to be.  Conservative Democrats and liberal Republicans have now essentially vanished:
+
+> The resolution of the paradox is that the more polarized playing field has driven rich conservative voters in poor states toward the Republicans and rich liberals in rich states toward the Democrats, thus turning the South red and New England and the West Coast blue...  What this means is that the political differences among states are driven by cultural issues, but within states, the traditional rich--poor divide remains.
+
+Of course, we're not doing justice to Gelman's full explanation of the paradox, from his book _Red State, Blue State, Rich State, Poor State: Why Americans Vote the Way They Do._  For example, one of his subtler points is that the rich-poor divide in blue states looks sociologically different, and statistically weaker, than it does in red states.  We encourage you to read the book.
+
+But the broader empirical lesson is this: even if a correlation holds strongly for states, that same correlation need not hold for people.  Sometimes state-level correlations and people-level correlations can run in completely opposite directions.  These correlations concern different units of analysis, and address fundamentally different questions about different populations (states vs. people).    
+
+What we're seeing here is sometimes called an _aggregation paradox._  You aggregate a data set and treat _groups_ as your unit of analysis (here, states), and you see one trend.  Then you disaggregate your data and focus on a finer unit of analysis (here, _people_), and you see a different trend---sometimes even the opposite trend.  Paradoxical or not, this happens all the time.  It illustrates how important it is to be specific and thoughtful about your unit of analysis when using data to examine relationships among variables.    
+
+
+### Example 2: baseball salaries {-}
+
+```{r, echo=FALSE, message=FALSE}
+library(tidyverse)
+baseball = read.csv('data/baseballsalary.csv')
+baseball$Class = factor(baseball$Class, levels=c("MLB", "AAA", "AA"))
+```
+
+Consider the following data frame on the batting averages and salaries of baseball players across three [professional classes](http://probaseballinsider.com/what-is-minor-league-baseball/): AA, AAA, and the Major League.  (AAA is the top minor league just below the Major Leagues, while AA is one one step below AAA.)  Batting average is a standard measure of offensive skill in baseball, while here salary is in US dollars.  The two columns of the table show league-wide averages across all three classes of play.  
+
+```{r, echo=FALSE, warning=FALSE}
+baseball = baseball %>%
+  mutate(Salary = round(10^Log10Salary, -3))
+
+league_summary = baseball %>%
+  group_by(Class) %>%
+  summarize(Mean_Salary = round(mean(Salary), 0),
+            Mean_BA = round(mean(BattingAverage), 3))
+
+league_summary %>%
+  knitr::kable() %>%
+  kableExtra::kable_styling(full_width=FALSE)
+```
+
+If we plot these three data points (one point per class of play), we see a negative trend.  It looks like salary _decreases_ with batting average, which seems paradoxical, since better offensive skill should, it seems, lead to a higher baseball salary.  
+
+```{r, echo=FALSE, fig.asp = 0.65, warning=FALSE}
+ggplot(league_summary) + 
+  geom_text(aes(x=Mean_BA, y=Mean_Salary, label=Class)) + 
+  scale_y_log10() + 
+  labs(x="League-wide Batting Average", y="Average Salary (log scale)")
+```
+
+But this is an artifact of treating _class of play_ (AA vs. AAA vs. Major League) as our unit of analysis.  The higher classes of play tend to have higher average salaries as well as lower batting averages overall, presumably because of higher overall defensive skill.  So at the league level, batting average correlates _negatively_ with salary.  
+
+But if we treat the individual baseball players as our unit of analysis, we see the expected trend: higher batting average predicts higher salary.  The plot below shows salary versus batting average for each class of play separately, where each dot is an individual player:  
+
+```{r, echo=FALSE, fig.asp = 0.5, message=FALSE, warning=FALSE}
+ggplot(baseball, aes(x=BattingAverage, y=Salary, color=Class, shape=Class)) + 
+  geom_point() + 
+  scale_y_log10() + 
+  scale_color_brewer(type="qual") +
+  #facet_wrap(~Class) +
+  labs(x="Batting Average", y="Salary (log scale)") + 
+  geom_smooth(method='lm', se=FALSE)
+```
+
+Clearly treating _class of play_ as our unit of analysis leads to a fundamentally different (and misleading) conclusion, versus treating the individual _players_ as our unit of analysis.  
+
+
+### Example 3: politics again {-}
+
+Let's see a third example of a "mismatched unit of analysis" problem, this time at the intersection of politics and demography.
+
+In America, marriage and fertility rates have been declining for decades, as people are having fewer children, on average, than their parents.  Moreover, among people that do decide to have children, many choose to remain uncoupled---or, sometimes, to live with their partner, but not to get married.  And those who do get married tend to do so later in life than previous generations.
+
+Different social commentators have different pet theories about why this is happening, from the declining influence of religious authority, to the more prominent role of women in most workplaces compared to generations past.  But one thing is clear: these social changes have provoked years of disagreement and discussion.  Many people, especially those in younger generations, view them benignly or positively, and wonder what the big deal is.  Some are ambivalent about them.  And some in a vocal minority, mostly on the political right, seem to view them [apocalyptically.](http://mediamatters.org/research/2005/06/03/oreilly-falsely-claimed-that-heterosexual-marri/133286)    
+
+In light of all this, it certainly seems plausible that the size of a person's family might correlate with their political attitudes.  Such a correlation would certainly fit with many common stereotypes, whether about singles in the city with their dating apps, or about families in the suburbs with their big back yards full of scampering children.  But if you'd perused the November 2012 edition of _New York_ magazine, you might have been surprised at just how strong that correlation seemed to be:
+
+> Almost invisibly over the past decade, family size in America has emerged as our deepest political dividing line.  Stunningly, the postponement of marriage and parenting---the factors that shrink the birth rate---is the __very best predictor of a person's politics in the United States__, over even income and education levels, a Belgian demographer named Ron Lesthaeghe has discovered.  Larger family size... correlates to early marriage and childbirth, lower women's employment, and opposition to gay rights---all social factors that lead voters to see red.^[L.Sandler.  ["Tell Me a State's Fertility Rate, and I'll Tell You How It Voted."](http://nymag.com/thecut/2012/11/states-conservative-as-their-women-are-fertile.html}{Link here.) New York Magazine, November 19, 2012. Emphasis added.]
+
+Family size as the _very best_ predictor of a person's politics?  More so than income?  That's a bold claim---one that, if true, has major implications for American party politics in the 21st century.  
+
+Here's the evidence for the claim.  The article measured "family size" using a state's fertility rate as a proxy: that is, the number of births in a state per 1,000 women between ages 15 and 44.  By this standard, here are the ten most fertile states in the country.
+
+
+| State         | Fertility Rate |
+|:--------------|:----------------|
+| Utah         | 83.6           |
+| Alaska       | 78.5           |
+| South Dakota | 77.1           |
+| North Dakota | 72.4           |
+| Idaho        | 72.3           |
+| Nebraska     | 72.0           |
+| Kansas       | 71.2           |
+| Oklahoma     | 70.4           |
+| Texas        | 69.8           |
+| Wyoming      | 69.1           |
+
+<br>
+
+And here are the ten least fertile states in the country:
+
+
+| State         | Fertility Rate |
+|---------------|----------------|
+| Rhode Island  | 51.5           |
+| Vermont       | 51.8           |
+| New Hampshire | 51.9           |
+| Maine         | 53.1           |
+| Connecticut   | 54.3           |
+| Massachusetts | 54.4           |
+| Pennsylvania  | 58.8           |
+| Oregon        | 59.4           |
+| Florida       | 59.6           |
+| New York      | 59.8           |
+
+<br>
+
+
+You can probably see the pattern if you know something about American politics: the most fertile states strongly tilt Republican, while the least fertile strongly tilt Democratic.  Moreover, the difference in red-state versus blue-state fertility is pretty large: 32 more babies per 1,000 women in first-place Utah compared to last-place Rhode Island.
+
+On the strength of this seemingly cut-and-dried evidence, the author of the _New York_ article went on to speculate about what the correlation between politics and family size might herald for American democracy:
+
+>Americans are increasingly rejecting traditional conservative power structures---the old models of authoritarian Church and State---as Europeans have for decades. "It’s amazing how once you get rid of obedience to the authority of institutions so much simply falls away," Lesthaeghe [the study author] told me over coffee at a conference in Vienna last year. He went on to predict that, despite the GOP backlash against it, Americans' adaptation toward a more liberal way of living could only encourage a political shift to the left.
+
+In other words, as families get smaller, America will get bluer.
+
+On the other hand, at least one newspaper had a very different prediction of what is likely to happen as a result of these social changes. Under the headline "Republicans are red-hot breeding machines," the San Francisco Chronicle argued that, since most kids grow up to hold the same politics as their parents, the red-blue fertility gap...
+
+> ... is invisibly working to guarantee the political right will outnumber the left by an ever-growing margin. Over the past three decades, conservatives have been procreating more than liberals—--continuing to seed the future with their genes by filling bassinets coast to coast with tiny Future Republicans of America.  "Liberals have got a big ‘baby problem,’ and it risks being the death of them," contends Arthur Brooks, professor at Syracuse University's Maxwell School of Public Affairs. He reckons that unless something gives, Democratic politicians in
+the future may not have many babies to kiss.  
+
+At least we finally have one thing that liberals and conservatives can agree on: that demography is destiny!  But who's correct here? By 2050, will changing social attitudes, even among conservative families, have colored the map blue?  Or will liberal families continue to have dogs instead of kids, and slow-breed themselves out of existence, one Labradoodle at a time?
+
+I'm not disputing the correlation between a state’s average fertility and its politics, which seems clear as day in those tables of the most fertile and least fertile states shown above. Nor am I trying to debunk the original research about state-level politics, by demographers Ron Lesthaeghe and Lisa Neidert, that was described in the _New York_ magazine article.
+But I do want to emphasize the most important word here: _state._  This line of reasoning suffers from a unit-of-analysis problem.  The tables, and the research, do show a correlation between fertility and politics---but at the _state_ level, not at the _person_ level. The difference is crucial: Oregon isn't a hipster, and Texas ain't a cowboy. _States aren't people._  
+
+Yes, it's true that _states_ with higher fertility rates tend to also be _states_ with higher levels of Republican support.  But as we learned on the previous example, a _state-level_ relationship doesn't necessarily tell us anything about the person-level relationship between someone's politics and how many kids they have.  To prove a person-level correlation, you have to compare persons---that is, you need a data frame that enables you to have a person as your unit of analysis.  
+
+It will not surprise you that social scientists actually _have_ examined people as their unit of analysis, and they have found that the relationship between politics and fertility is a bit more complicated than the caricature.  Here's one important finding: as recently as 2006, the average Democratic woman had 2.39 children, and the average Republican woman had 2.38.  This may have changed a bit since then, but not by much: at the person level, neither party currently has much of an advantage in fertility, despite the huge differences among the state-level averages.^[Kaufmann et.al.  American political affiliation, 2003-43: A cohort component projection.  Population Studies, 66:1, 53-67, 2012.]
+
+This directly answers our person-level question: is it even true that the size of someone's family correlates strongly with their politics?  No.  You cannot accurately predict a person's politics from their family size.  You'd do much better if you made your prediction using their income. 
+
+Moreover, while it is true that the two parties' relative fertility rates are changing, it is definitely not true that Republicans are "red-hot breeding machines" compared with Democrats.  In fact, Democratic women used to have a fertility edge, but the fertility rate of women in both parties has been declining for decades.  It has merely done so faster among Democrats, to the point that the two rates are now roughly equal.  If this trend continues---which is a big if---then Republicans will soon have an edge in fertility.  By mid-century, that advantage may even be sizable.  But then again, this may be more than offset by immigration, or changes in society that make the children of Republicans think more like Democrats, or vice versa.
+
+In fact, a group of demographers, led by Eric Kaufmann of the University of London, actually tried to do some honest-to-God demographic projections of party composition in America out to 2043.^[Kaufmann et. al., ibid.]  They built 11 different scenarios, reflecting many different combinations of assumptions about fertility, immigration, and the "stickiness" of party allegiance across generations.  Their conclusion: things probably won't change by much, but there's a lot of uncertainty!   Their baseline scenario predicts that by 2043, the Democrats will gain about 2.5 points in voter registration versus 2013.  But other scenarios give different numbers---and as the authors point out, all of their scenarios "assume no realignment of party allegiance or other social changes" over the ensuing three decades.  Reflect on the last 30 years, or even just the last 10, and ask yourself: how likely is that?
+
+
+### Example 4: getting older {-}
+
+Joe is an avid bicyclist, and he's been going on a long bike ride out into the Austin hill country most weekends for the last 30 years.  It's a big group ride, coordinated by a long-established local bike shop.  Folks have drifted in an out of the group over the years, but there are usually about 75 cyclists that join any given ride---and there's a core of group of serious cyclists, like Joe, that have been going on the same ride for decades.
+
+Once the group hits the road out of Austin, it usually splinters into smaller groups, some of whom go faster and some slower.  And Joe has noticed that, over the years, he's gotten slower.  Back in his early 20s, he would always be in the front group, and he might finish the ride in about 3 hours.  Now that he's in his 50s, he's more often in one of the back groups, pushing 4 hours.  Hey, it's just what happens as we get older, Joe tells himself.  We get slower.  
+
+But Joe is also really into data, and therefore he decides to check whether this general trend---that you tend to get slower as you age---holds for other people.  So one weekend, he collects a bunch of data on the ages and finish times of the other folks attending the group ride, and he plots a trend line.  (We'll learn how to estimate these trend lines in the upcoming lesson on [Fitting equations].)  He finds something surprising:
+
+```{r, bike-times, fig.cap="A cross-sectional sample of 75 bike riders showing their age in years and their finishing time on a long bike ride.", echo=FALSE, message=FALSE}
+bike_times = data.frame(Person = 1:75, Age = round(rnorm(75, 43, 10), 0))
+bike_times = bike_times %>%
+  mutate(Finish_Time = round(3.9 - 0.008*Age + rnorm(75, 0, 0.4), 1))
+
+ggplot(bike_times,aes(x = Age, y = Finish_Time)) + 
+  geom_point() + 
+  geom_smooth(method='lm', se=FALSE)
+```
+
+Contrary to what Joe expected, it looks like that, on average, people have a lower finishing time as they age---that is, they get faster.  Is there something wrong with him, Joe wonders?  Is he just an outlier---the rare bicyclist who actually gets slower with age, in the face of this trend?  
+
+Not so fast!  The data Joe has collected from his group ride is called a __cross-sectional__ sample.  It represents a snapshot at a single moment in time that includes people across a range of ages, like this:
+
+```{r, echo=FALSE}
+bike_times %>%
+  head(7) %>% knitr::kable() %>%
+  kableExtra::kable_styling(full_width=FALSE)
+```
+Here the unit of analysis is a person, and the population is the set of recreational bike riders.  
+
+But when Joe is thinking about his _own_ performance over time, he's thinking about a __longitudinal__ sample, where a single unit (in this case, Joe) is tracked _through_ time, with data recorded at many different time points, like this:
+
+
+```{r, echo=FALSE, message=FALSE, out.width="50%"}
+joe_times = data.frame(Joe_Age = c(20, 25, 30, 35, 40, 45, 50), 
+                       Joe_Finish_Time = c(3.1, 3.4, 3.36, 3.6, 3.73, 3.7, 3.93))
+
+joe_times %>% knitr::kable() %>%
+  kableExtra::kable_styling(full_width=FALSE)
+```
+
+Here the unit of analysis is a year, and the population is the set of all years from Joe's life.  It shows a clear upward trend in finishing time, just as he's noticed:
+
+```{r, echo=FALSE, warning=FALSE, fig.asp = 0.65, message=FALSE}
+ggplot(joe_times,aes(x = Joe_Age, y = Joe_Finish_Time)) + 
+  geom_point() + 
+  labs(x="Joe's Age", y= "Joe's Finishing Time (hours)") +
+  geom_smooth(method='lm', se=FALSE)
+```
+
+The cross-sectional sample and longitudinal sample are from different populations, involve different units of analysis, and address different questions.  If you're interested in a question like "How does a person's bicycling speed change with age?" then you really need to be looking at _within-person_ data over time, i.e. a longitudinal sample where the unit of analysis is a year.
+
+In this particular situation, why is the cross-sectional sample no good for drawing conclusions about what we should expect to happen to individual riders over time?  One very good reason is _survivorship bias._  It seems likely that the slower, less serious riders are more likely to quit bike-riding (or at least ride less often) as they get older.  If that's true, the older people in the sample are disproportionately faster, more-serious riders---and they have probably been that way their entire lives.  Therefore the older riders can be faster, on average, than the younger riders---even if each individual rider is, just like Joe, actually getting slower as they age.
+
+And while the example I've been discussing is hypothetical, this phenomenon does show up in real data sets on sports performance.  For example, here's a cross-sectional sample of 8636 runners who ran in the 2005 Cherry Blossom 10 Mile Road Race, held every spring in Washington, DC:
+
+```{r, echo=FALSE, message=FALSE}
+library(mosaic)
+data(TenMileRace) 
+
+ggplot(TenMileRace, aes(x=age, y=net/60))  + 
+  geom_point(alpha=0.1) + 
+  geom_smooth(se=FALSE, method='loess',size=2, col='red', span=0.6) + 
+  labs(x="Age (years)", y="Finishing Time (minutes)", 
+       title="Finish Times versus Age, Cherry Blossom 10 Mile Road Race",
+       subtitle = "n = 8636")
+```
+
+The red curve shows the trend in average finishing times as a function of age.  What's interesting here is the runners in their 30s and 40s: these runners are actually a bit faster, on average, than runners in their late 20s.  Why?  Are they hitting a late peak in their athletic lives?
+
+Probably not.  I'd conjecture that it's a form of survivorship bias: the runners in their 30s and 40s are disproportionately the serious lifelong runners.  After all, they're in a time of life when the demands of family and careers tend to peak.  At that age, if you're still making the effort to train for and run in a 10-mile road race, then you're probably more serious than the average recreational runner. So even if the individual 30 and 40-somethings are still getting slower over time (in a longitudinal sense), the cross-sectional relationship shown in this data doesn't necessarily reflect that.    
+
+This illustrates a point I made above and that I'll now repeat:  
+
+> The __unit of analysis__ is a fundamental choice in data science.  Be thoughtful and specific about about your unit of analysis is.  Always be aware of a potential mismatch between the unit of analysis you care about and the entities that form "cases" in your data frame.
+
 ## Importing a data set {#importing_data}
+
+Let's now turn to the nitty-gritty details of importing a data set into R.  
+
+A data frame is often stored on disk in a spreadsheet-like file, and in particular, a very common format is `.csv`, which stands for "comma-separated values."  Most of the data sets I'll provide you with in this book are in `.csv` format, since it's easily shareable across different computer platforms and software environments.   
 
 ```{r, echo=FALSE, message=FALSE}
 tvshows = read.csv('data/tvshows.csv')
 ```
 
-Let's see how to import a data set into R.  The way I'm going to describe here is very beginner friendly; another (totally optional and more advanced) way is described in "[Importing data from the command line]."
+Let's see how to import a .csv-formatted data set into R.  The way I'm going to describe here is very beginner friendly; another (totally optional and more advanced) way is described in "[Importing data from the command line]."
 
-Download the data set [tvshows.csv](data/tvshows.csv), which contains data on 40 shows that aired on major U.S. television networks.  A .csv file, like this one, is a common way of encoding tabular data in a way that can be easily shared across platforms.   
+Start by downloading the data set [tvshows.csv](data/tvshows.csv), which contains data on 40 shows that aired on major U.S. television networks.  
 
 > __Important public-service announcement__: don't open that .csv file with Excel first!  I see folks do this from time to time in my classes at UT-Austin, and it can produce bizarre errors.  Basically, if you open a .csv file with Excel and then hit `Control-S` to save (or let it auto-save), Excel might decide to barf under the rug in your file.  This effect will remain insidiously invisible within Excel itself, but can potentially render the file unreadable to RStudio.  If you've already done this, don't worry --- just delete the file and download a fresh copy.^[In my experience this behavior seems to depend on your platform and version of Excel.  It _is possible_ to safely open and edit .csv files within Excel, but then you have to _re-export_ them as .csv files again if you want to use them in RStudio.]
 
@@ -69,29 +451,39 @@ head(tvshows)
 
 I use this one all the time to get a quick peek at the data, but don't want the pop-up viewer window to take me away from my script---like, for example, when I need to remind myself what the columns are called.    
 
-## The vocabulary of data  
+Let's review the structure of this `tvshows` data set, as a way of reminding ourselves of some important vocabulary terms.  
 
-Let's talk about the structure of this `tvshows` data set, as a way of introducing some important vocabulary terms.  
+- The data is stored in a tabular format called a _data frame._
+- Each row of the data frame is called a _case_ or an _example_.  Here, each case is a TV show.  
+- Our collection of cases is called a _sample_, and the number of cases is called the _sample size_, denoted by the letter $n$.  Here $n=40$.  
+- Each column of the data frame is called a _variable_ or a _feature_.  Each variable conveys a specific piece of information about the cases.    
+- The first column of the data frame, `Show`, tells us which TV show we're talking about.  This is a unique identifier for each case.   
+- Some variables in the data set are actual numbers; these are _numerical variables_.  The numerical variables in this data set are `Duration`, `GRP` (["gross rating points"](https://marketing-dictionary.org/g/gross-rating-point/), a measure of audience size), and  `PE` (which stands for ["predicted engagement"](https://affect.media.mit.edu/pdfs/13.Hernandez.et_al.pdf) and measures whether the audience is actually paying attention to the show).  
+- Other variables in the data set can only take on a limited number of possible values.  These are _categorical variables._  The categorical variables in this data set are `Network` and `Genre`.^[You could also argue that `Duration`, despite being a number, should really be considered a categorical variable, since it only takes on a set of specific values like 30 and 60.]  
 
-- The typical way R stores data is in a tabular format called a __data frame.__
-- Each row of the data frame is called an __example__, a __case__, or an __observation__.  These three words can be used interchangeably.  Here, each example is a TV show.  
-- A collection of examples is called a __sample__, and the number of examples is called the __sample size__, usually denoted by the letter $n$.  Here our sample size is $n=40$.  
-- Each column of the data frame is called a __feature__ (or sometimes a __variable__).  Each feature conveys a specific piece of information about the examples.  
-- The first feature, `Show`, tells us which TV show we're talking about.  This type of feature is called a __unique identifier__, or just an __ID__.  
-- Some features in the data set are actual numbers; appropriately enough, these are called __numerical features__.  The numerical features in this data set are `Duration`, `GRP` (["gross rating points"](https://marketing-dictionary.org/g/gross-rating-point/), a measure of audience size), and  `PE` (which stands for ["predicted engagement"](https://affect.media.mit.edu/pdfs/13.Hernandez.et_al.pdf) and measures whether the audience is actually paying attention to the show).  
-- Other features in the data set can only take on a limited number of possible values, just like the answer to a multiple-choice question.  The categorical features in this data set are __categorical features.__  The categorical features in this data set are `Network` and `Genre`.^[You could also argue that `Duration`, despite being a number, should really be considered a categorical feature, since it only takes on a set of specific values like 30 and 60.]  
+If you want to know the size of your data set as well as the names of the variables, use the `str` command, like this:
 
-So, for example, a data set with 500 examples and 10 features would be stored in a data frame with 500 rows and 10 columns.  
+```{r}
+str(tvshows)
+```
 
-## A short, simple data analysis {#sec_example_analysis}
+This tells us we have a sample of $n=40$ TV shows, with $p=6$ variables about each TV show.  
 
-Once you've imported a data set and comprehended its basic structure (using, e.g., `view` or `head`), the next step is to try to learn something from the data by actually analyzing it.  We'll see many ways to do this in the lessons to come!  But for now, here's a quick preview of the two simplest ways: calculating summary statistics and making plots.  
+
+
+
+
+## Analyzing data: a short example {#sec_example_analysis}
+
+Once you've imported a data set and comprehended its basic structure (using, e.g., `view` or `head`), the next step is to try to learn something from the data by actually _analyzing_ it.  We'll see many ways to do this in the lessons to come!  But for now, here's a quick preview of two very common ways: calculating summary statistics and making plots.  
 
 A __statistic__ is any numerical summary of a data set.  Statistics are answers to questions like: How many reality shows in the sample are 60 minutes long?  Or: What is the average audience size, as measured by GRP, for comedies?  
 
-A __plot__, meanwhile, is exactly what it sounds like: per [Wikipedia](https://en.wikipedia.org/wiki/Plot_(graphics)), a "graphical technique for representing a data set, usually as a graph showing the relationship between two or more variables."  Plots can help us answer questions like: What is the nature of the the relationship between audience size (`GRP`) and audience engagement (`PE`)?  
+A __plot__ is exactly what it sounds like: per [Wikipedia](https://en.wikipedia.org/wiki/Plot_(graphics)), a "graphical technique for representing a data set, usually as a graph showing the relationship between two or more variables."  Plots can help us answer questions like: What is the nature of the the relationship between audience size (`GRP`) and audience engagement (`PE`)?  
 
-Let's see some examples, on a "mimic first, understand later" basis.  Just type out the code chunks into your `lesson_data.R` script and run them in the console, making sure that you can reproduce the results you see below.  
+<!-- Finally, a __model__ is a set of idealized assumptions about our data that help us to reason more clearly. Like all metaphors, models are approximations, and will never account for every last detail.  (In the words of the English statistician George Box: all models are wrong, but some are useful.)  Aerospace engineers work with airplane models---blueprints, computer simulations, wind-tunnel prototypes—--to help them understand a proposed airplane design.  Geneticists work with animal models—--fruit flies, mice, zebrafish--—to help them under- stand heredity.  In data science, we use statistical models to help us understand variation in data. -->
+
+Let's see some examples, on a "mimic first, understand later" basis.  Just type out the code chunks into your `lesson_data.R` script and run them in the console, making sure that you can reproduce the results you see below.  In all of these examples, our unit of analysis is an individual TV show (and, for example, individual TV _viewers_.)
 
 Our first question is: how many reality shows in the sample are 60 minutes long, versus 30?  As we'll learn in the upcoming lesson on [Counting](#contingency_tables), the `xtabs` function gets R to count for us:  
 
@@ -99,9 +491,9 @@ Our first question is: how many reality shows in the sample are 60 minutes long,
 xtabs(~Genre + Duration, data=tvshows)
 ```
 
-It looks like 8 reality shows are 60 minutes long (versus 9 that are 30 minutes long).  
+It looks like 8 reality shows are 60 minutes long, versus 9 that are 30 minutes long.  These numbers (8 and 9) are statistics: numerical summaries of the data set.  
 
-Let's answer a second question: what is the average audience size for comedies, as measured by `GRP`?  Calculating this summary actually requires multiple lines of R code chained together, and it relies upon functions defined in `tidyverse`, so it won't work if you haven't already loaded that library.  You might be able to guess what this code chunk is doing, but we'll understand it in detail in the upcoming lesson on [Summaries].    
+Let's answer a second question: what is the average audience size for comedies, as measured by `GRP`?  Calculating this requires multiple lines of R code chained together, and it relies upon functions defined in the `tidyverse` library, so it won't work if you haven't already loaded that library.  You might be able to guess what this code chunk is doing, but we'll understand it in detail in the upcoming lesson on [Summaries].    
 
 ```{r}
 tvshows %>%
@@ -109,9 +501,9 @@ tvshows %>%
   summarize(mean_GRP = mean(GRP))
 ```
 
-The result is a summary table with one column, called `mean_GRP`.  It looks like comedies tend to have middle-sized audiences: an average GRP of about 630, versus 401 for reality shows and 1243 for drama/adventure shows.  
+The result is a summary table with one column, called `mean_GRP`.  It looks like comedies tend to have middle-sized audiences: an average GRP of about 630, versus 401 for reality shows and 1243 for drama/adventure shows.  Again, these are _statistics_: numerical summaries of the data.  
 
-Finally, let's make a plot to understand the relationship between audience size (`GRP`) and audience engagement (`PE`).  We'll make this plot using a function called `ggplot`, which is made available by loading the `tidyverse`.  Again, don't sweat the details; we'll cover `ggplot` in detail in the upcoming [Plots] lesson.  Just copy/paste the statements into your script, run them, and observe the result:  
+Next, let's make a plot to understand the relationship between audience size (`GRP`) and audience engagement (`PE`).  We'll make this plot using a function called `ggplot`, which is made available by loading the `tidyverse`.  Again, don't sweat the details; we'll cover `ggplot` in detail in the upcoming [Plots] lesson.  Just type the statements into your script, run them, and observe the result:  
 
 ```{r first-example-plot, out.width="100%", fig.align='center'}
 ggplot(tvshows) + 
@@ -155,3 +547,5 @@ This statement reads the "tvshows.csv" file off my hard drive and stores it in o
 - `tvshows` is the name of the object we're creating with the call to `read.csv`. It's how we'll refer to the data set in subsequent statements.  
 
 R has a whole family of `read` functions for various data types, and they all follow more or less this structure.  I won't list them all here; [this overview](https://cran.r-project.org/doc/manuals/r-release/R-data.html) is terse but authoritative, while [this one](https://www.datacamp.com/community/tutorials/r-data-import-tutorial) is a bit friendlier-looking.   
+
+

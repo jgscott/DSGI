@@ -1,6 +1,5 @@
 # Observational studies
 
-
 In good experiments, we:  
 
 - _Use a control group_.  This gives us a basis for comparison.  
@@ -272,7 +271,4 @@ Cohort studies have both advantages and disadvantages.
 Finally, we'll briefly mention one more common form type of observational study design: the _case-control study._  A case-control study is sort of like the inverse of a cohort study.  In a cohort study, we enroll study participants according to their exposure status, ideally matching "exposed" individuals with "unexposed" individuals.  In a case-control study, we enroll study participants according to their outcomes.  That is, we find a group of people who have experienced a particular outcome of interest (say, stomach cancer), and another group of people who _haven't_ experienced the outcome.  We then look back to see what kinds of possible exposures might have explained the difference in outcomes between the two groups.  Case-control studies are inherently retrospective; they use existing records and are therefore relatively fast and inexpensive.  These studies are especially good for examining rare outcomes or outcomes with long latency (e.g. unusual forms of cancer, firm bankruptcy, etc.)  
 
 I mention case-control studies here mainly for the sake of completeness.  I'm not going to cover them in detail for the simple reason that, while they're relatively simple to run, they're more complex to analyze.  They require more advanced [statistical tools](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5840200/) than we cover here, and they also offer also a greater scope for subtle analytical errors that [introduce bias](https://www.bmj.com/content/352/bmj.i969).  So if you ever find yourself in a situation where you need to analyze data from a case-control study, my advice is to [read more](https://www.google.com/search?q=rothman+Epidemiology+An+Introduction) or consult an expert.    
-
-
-## Study questions: observational studies  {-}  
 

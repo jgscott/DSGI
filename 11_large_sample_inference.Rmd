@@ -1051,7 +1051,3 @@ Here's a table that covers these built-in R functions, together with their boots
 | Comparing two proportions     | `prop.test(y~group, data=D)`      | `do(10000)*prop(y~group, data=resample(D))` |
 | Regression model     | `lm(y~x, data=D)`, then `confint`     | `do(10000)*lm(y~x, data=resample(D))` |
 
-## Study questions: large-sample inference {-}  
-
-(1) etc. 
-(2) etc. 

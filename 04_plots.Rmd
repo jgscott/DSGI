@@ -546,7 +546,7 @@ As you can see, `geom_bar` only makes sense if you want a quick bar plot of how 
 
 `ggplot2` offers near infinite possibilities for customizing your plots.  If you can Google it, you can probably make it happen in ggplot, but I can't promise the code will be pretty!  (Unfortunately, with great power comes great complexity.)  In this section, we'll discuss a few of the most basic and important customization options. 
 
-In the beginning, these options may have the feel of mystical incantations you have to utter to get your plots to behave the right way.  That's OK, even normal; eventually you'll start to build muscle memory for `ggplot2`.  My advice is not to try to memorize anything.  If you want to customize a plot, just start from the code blocks below as templates, and copy and paste the relevant bits of customization code into your plot, changing the names of the data and variables as appropriate. 
+In the beginning, these options may have the feel of mystical incantations you have to utter to get your plots to behave the right way.  That's OK, even normal; eventually you'll start to build muscle memory for `ggplot2`.  My advice is not to try to memorize anything.  If you want to customize a plot, just start from the code blocks below as templates, and type the relevant bits of customization code into your plot, changing the names of the data and variables as appropriate. 
 
 
 ### Changing titles and labels {-}  
@@ -679,5 +679,3 @@ Now download the [gapminder2007](data/gapminder2007.csv) data, originally from [
    (A) Start from the code block above as a template.  Modify the code to produce a scatter plot of a country's life expectancy (`lifeExp`, $y$ variable) versus its per-capita GDP (`gdpPercap`, $x$ variable).  This should entail changing the data set name and the variable names, leaving the other elements of the code block as-is.  
    (B) Starting from the plot in (A), modify your scatter plot of `lifeExp` vs. `gdpPercap` so that the `continent` variable gets mapped to the color of each point.   
    (C) Starting from the plot in (B), modify your plot so that the population variable (`pop`) gets mapped to the size of each point.   Your points now encode four pieces of information about each country: GDP, life expectancy, continent, and population.  Can you guess which points correspond to China, India, and the United States?   
-
-4. Something here,.
