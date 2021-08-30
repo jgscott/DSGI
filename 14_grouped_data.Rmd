@@ -2,35 +2,176 @@
 
 If you've made it this far through these lessons, you've already analyzed a lot of grouped data.  Let's briefly review.  
 
-__Plots.__  To start with, you've learned some useful tools for visualizing grouped data, including box plots, faceted histograms, and bar plots.
+- To start with, you've learned some useful tools for visualizing grouped data, including [Boxplots], faceted [Histograms], and [Bar plots].
+- In the lessons on [Summaries] and [Data wrangling], you also learned the basic data workflow required to calculate group-level summary statistics.  (Remember "group/pipe/summarize" from our discussion of [Key data verbs].)  
+- From there we learned how to use [The bootstrap] and the tools of [Large-sample inference] to quantify our uncertainty about key group-level quantities when we want to generalize from samples to populations.  Recall, for example, the lessons on [Bootstrapping differences] and [Beyond de Moivre's equation].  These tools allowed us to get confidence intervals for quantities like the difference in proportions or means between two groups.  
 
-Take, for example, the data in [utsat.csv](data/utsat.csv), which contains SAT scores for all UT-Austin undergraduates who matriculated in the fall of 2000.  The boxplot below shows students' SAT math scores (`SAT.Q`) grouped by college of study (`School`):   
+Now we go one step further, by __fitting equations that describe grouped data.__  In effect, what we're doing here is to marry the concepts from our lessons on [Summaries] and [Data wrangling] with the concept of linear regression from the lesson on [Fitting equations].  As we will see below, this allows us to do several powerful things that we can't easily do with the tools we've learned so far.
 
-```{r, echo=FALSE, message=FALSE, out.width="100%", fig.asp = 0.65}
-library(mosaic)
-library(tidyverse)
+In this lesson, you'll learn to:  
 
-utsat = read.csv('data/utsat.csv')
-utsat = mutate(utsat, School = str_to_title(School))
+- understand "baseline/offset form" as a way of making statements about numbers.  
+- encode categorical data in terms of dummy variables.  
+- fit and interpret regression equations with dummy variables.  
+- model a numerical outcome in terms of multiple categorical predictors.  
+- interpret an analysis-of-variance (ANOVA) table as a way of partitioning credit among multiple predictors.    
+- understand the appropriate use and interpretation of interaction terms.  
 
-gf_boxplot(SAT.Q ~ School, data=utsat) +
-  coord_flip() + 
-  labs(title="SAT Math scores by school: UT-Austin")
+
+
+## Baseline/offset form  
+
+A very common goal in analyzing grouped data is to quantify differences in some outcome variable between levels of a categorical predictor variable:  
+
+- How much more cheese do people buy when you show them an ad for cheese, versus not showing them an ad?
+- How much less likely is a heart attack on a Mediterranean diet versus a low-fat diet?  
+- How much more quickly do video-gamers react to a bad guy popping up on the screen when the bad guy is large, rather than small?  
+
+These are all questions about _differences_---that is, questions about comparing some situation of interest versus a baseline situation.  In fact, these kinds of questions arise so frequently with grouped data that we typically build a model that allows us to make these comparisons directly, as opposed to making them indirectly, i.e. by computing a bunch of group-specific means or proportions and then taking differences.
+
+For this reason, we usually express models for grouped data in "baseline/offset" form, which is a way of expressing a set of numbers in terms of differences (or _offsets_) from some specific _baseline_ number.  
+
+
+### Example 1: heights {-}
+
+To understand baseline/offset form, let's start with an example involving three Texas sporting legends: Yao Ming, JJ Watt, and Simone Biles.  If you asked a normal person to tell you the heights of these three athletes in inches, they'd probably head to Google and come back a minute later to report these numbers:
+
+- Simone Biles is 56 inches tall.  
+- JJ Watt is 77 inches tall.   
+- Yao Ming is 90 inches tall.  
+
+And here are those numbers in a picture.
+
+```{r, echo=FALSE, message=FALSE, out.width="80%", fig.align="center"}
+knitr::include_graphics('images/heights_comparison1.png')
 ```
 
-Here our outcome variable is SAT math score, and our grouping variable is `School`.  You might remember back in our lesson on [Boxplots], we mentioned the following:
+This is a perfectly sensible way---indeed, it's the completely obvious way---to report the requested information on the athletes' heights.  We'll call it "raw-number" form, just to contrast it with what we're about to do.
 
-> the most common use case for a box plot: to understand between-group differences placed in the context of the within-group variation.  
+Now let's see how to report the same information in "baseline/offset" form, using Simone Biles' height as our baseline:  
 
-Viewed in those terms, our boxplot shows that SAT scores vary much more within a college than they do between colleges. For example, there's about a 30-point difference in median SAT math scores between Liberal Arts students and Natural Science students (compare the middle lines in each box). But within Natural Sciences, the interquartile range (the width of the box) is about three times as large: roughly 100 points.
+- Simone Biles is 56 inches tall (baseline = 56).  
+- JJ Watt is 21 inches taller than Simone Biles (offset = +21).   
+- Yao Ming is 34 inches taller than Simone Biles (offset = +34).  
 
+Or, if you prefer to see these numbers in a picture:  
 
-__Summaries.__  In the lessons on [Summaries] and [Data wrangling], you also learned the basic data workflow required to calculate group-level summary statistics.  For example, suppose we wanted to calculate the mean and standard deviation for SAT math scores in each UT-Austin undergraduate college.  Remember "group/pipe/summarize" from our discussion of [Key data verbs]:
+```{r, echo=FALSE, message=FALSE, out.width="80%", fig.align="center"}
+knitr::include_graphics('images/heights_comparison2.png')
+```
+
+Same three heights, just a different way of expressing them.  Instead of giving Watt's and Yao's heights as raw numbers, we express them as differences, or _offsets_, from Simone Biles' height (our _baseline_).  
+
+Moreover, it should also be clear that we can choose any of the three athletes as our baseline.  For example, here are the same three heights expressed in baseline/offset form using JJ Watt as the baseline.  
+
+- JJ Watt is 77 inches tall (baseline = 77).  
+- Simone Biles is 21 inches shorter than JJ Watt (offset = -21).   
+- Yao Ming is 13 inches taller than JJ Watt (offset = +13).  
+
+Or again, in a picture:
+
+```{r, echo=FALSE, message=FALSE, out.width="80%", fig.align="center"}
+knitr::include_graphics('images/heights_comparison3.png')
+```
+
+As before: same three heights, just a different way of expressing them with three numbers (one baseline + two offsets). 
+
+### Example 2: cheese {-}
+
+Let's see a second example of baseline/offset form.  We'll return to the data in [kroger.csv](data/kroger.csv), which we saw for the first time in the lesson on [Plots].  Import this data into R, and then load the `tidyverse` and `mosaic` libraries:
+
+```{r, echo=TRUE, message=FALSE}
+library(tidyverse)
+library(mosaic)
+```
+
+```{r, echo=FALSE, message=FALSE}
+kroger = read.csv('data/kroger.csv')
+```
+
+The first few lines of the `kroger` data look like this:
 
 ```{r}
-utsat %>%
-  group_by(School) %>%
-  summarize(SAT.Q_mean = mean(SAT.Q),
-            SAT.Q_sd = sd(SAT.Q))
+head(kroger)
 ```
+
+You may recall that this data shows the weekly sales volume of package sliced cheese over many weeks at 11 Kroger's grocery stores across the U.S.  Each case in the data frame corresponds to a single week of cheese sales at a single store.  The variables are:
+
+- `city`: which city the store is located in  
+- `price`: the average transaction price of cheese sold that week at that store  
+- `vol`: the sales volume that week, in packages of cheese  
+- `disp`: a categorical variable indicating whether the store set up a prominent marketing display for cheese near the entrance (presumably calling shoppers' attention to the various culinary adventures they might undertake with packaged, sliced cheese).   
+
+For now, we'll focus only on the sales data from the store in Dallas.  We'll use `filter` to pull out these observations into a separate data frame, and then make a jitter plot to show how the `disp` variable correlates with sales volume.  I'll also use a handy function called `stat_summary` to add an extra layer to the jitter plot, showing the group means as big red dots:  
+
+```{r, out.width="100%", fig.align="center", fig.asp = 0.65, warning=FALSE}
+kroger_dallas = kroger %>%
+  filter(city == 'Dallas')
+
+ggplot(kroger_dallas) + 
+  geom_jitter(aes(x = disp, y = vol), width=0.1) + 
+  stat_summary(aes(x = disp, y = vol), fun='mean', color='red', size=1)
+```
+
+This jitter plot shows that, in the 38 "display-on" weeks, sales were higher overall than in the 23 "display-off" weeks.  How much higher?  Let's use `mean` to find out:  
+
+```{r}
+mean(vol ~ disp, data=kroger_dallas) %>%
+  round(0)
+```
+
+That's a difference of $5577 - 2341 = 3236$, rounded to the nearest whole number.  So first, here's the information on average sales volume in "raw-number form":
+
+- In "display-off" weeks, average sales were 2341 units.  
+- In "display-on" weeks, average sales were 5577 units.  
+
+And now here' the same information expressed in baseline/offset form:  
+
+- In "display-off" weeks, average sales were 2341 units (baseline = 2341).  
+- In "display-on" weeks, average sales were 3236 units higher than in "display-off" weeks (offset = +3236).  
+
+Just as with our heights example, we see that baseline/offset form expresses the same information as "raw-number" form, just in a different way.  
+
+### Summary {-}
+
+So to recap: 
+
+1) You can express any set of numbers in baseline/offset form by picking one number as the baseline, and expressing all the other numbers as offsets (whether positive or negative) from that baseline.  
+2) The choice of baseline is arbitrary.  You are free to make any convenient choice.  If you pick a different baseline, just be aware that all the offsets will change accordingly to encode the same information.  
+3) If you have $N$ numbers in raw form, you'll still need $N$ numbers in baseline/offset form: one number to serve as the baseline, and $N-1$ offsets for all the other numbers.  
+
+Now, a very natural question here is: why on earth would we do this?  I acknowledge that it's not at all obvious---__yet.__  But rhere are two really good reasons to learn about baseline/offset form; we'll cover these reasons in detail below, but briefly:  
+
+- __Convenience.__  Expressing numbers in baseline/offset form the focus on _differences between situations_ (e.g. the difference in cheese sales between display and non-display weeks).  If we care about differences more than absolute numbers, this is convenient.  
+- __Generalizability.__ Once we learn about baseline/offset form, we can easily generalize to situations involving multiple categorical variables, or combinations of categorical and numerical variables.  This will eventually lead us to a full discussion of [Regression].  
+
+
+## Dummy variables
+
+But before we can return to the question of why we might might actually prefer baseline/offset form, there's one more crucial concept to cover: that of a __dummy variable__, also called an "indicator variable" or a "one-hot encoding."
+
+Dummy variables are a way of _representing categorical variables in terms of numbers_, so that we can use them in regression equations, just like the ones we introduced in the lesson on [Fitting equations].  
+
+::: {.definition}
+A _dummy variable_ is a variable that takes only two possible values, 1 or 0, and is used to indicate whether a case in your data frame does (1) or does not (0) fall into some specific category.  
+:::
+
+In other words, a dummy variable uses a number (either 1 or 0) to answer a yes-or-no question about your data.  As you'll see, dummy variables are intimately related to the concept of [Baseline/offset form] that we just covered.
+
+To illustrate the use of dummy variables, we'll return to the two examples from the previous section.  
+
+### Example 1: heights again {-}
+
+
+
+### Example 2: cheese again {-}
+
+Let's now see how to model this data using dummy variables.  
+
+```{r}
+head(kroger_dallas, 10) %>% knitr::kable()
+```
+
+
+
 

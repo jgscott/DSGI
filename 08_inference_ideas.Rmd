@@ -114,7 +114,7 @@ OK, so that's not the actual procedure that an actual statistician would recomme
 
 > If our data set had been different merely due to chance, how different might our answer have been?
 
-To oversimplify, but not by much: in statistical inference, we're "certain" of our answer if, when we ask the same question over and over again, we get the same answer each time.  If our answer fluctuates each time, we're uncertain---and the _amount_ by which those answers fluctuate from one another provides us a quantitative measure of our statistical uncertainty.
+To oversimplify, but not by much: in statistical inference, we're "certain" of our answer if, when we ask the same question over and over again, we get the same answer each time.  If our answer fluctuates each time, we're uncertain---and the _amount_ by which those answers fluctuate provides us a quantitative measure of our statistical uncertainty.
 
 
 The best way I know to build intuition for the concept of statistical uncertainty is to actually run the thought experiment.  In other words, let's pretend we actually _can_ collect thousands of different data sets, by using a computer to repeatedly simulate the random process that generated our data.  (This approach of using a computer to simulate a random process is called _Monte Carlo simulation_, named after the casino capital of Europe.)  

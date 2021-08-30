@@ -380,7 +380,7 @@ Let's practice loading the `tidyverse` library, which we'll lean on heavily in m
 library(tidyverse)
 ```
 
-If you see a similar set of messages to what's shown above after the `##` symbols, you're good to go!  Feel free to move on to the next lesson.  
+If you see a similar set of messages to what's shown above (possibly with some more rows called "Conflicts"), you're good to go!  Feel free to move on to the next lesson.  
 
 But if you haven't installed the `tidyverse` library, executing this command will give you an error like this:
 

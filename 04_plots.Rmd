@@ -449,6 +449,26 @@ ggplot(cheese) +
   coord_flip() 
 ```
 
+__Jitter plots.__  A jitter plot is a variation on a boxplot that's particularly useful for smaller data sets.  Instead of showing one box per group, a jitter plot shows each data point individually above a label for its corresponding group.  
+
+To illustrate jitter plots, let's focus only on the cheese sales from the store in Dallas.  We'll use `filter` to pull out these observations into a separate data frame:
+
+```{r}
+kroger_dallas = kroger %>%
+  filter(city == 'Dallas')
+```
+
+Let's now make a jitter plot to show how the `disp` correlates with sales volume.  (This `disp` variable indicates whether the store had a marketing display for cheese that week.) 
+
+```{r, out.width="100%", fig.align="center", fig.asp = 0.65}
+ggplot(kroger_dallas) + 
+  geom_jitter(aes(x = disp, y = vol), width=0.1)
+```
+
+Now you see each individual case plotted above, but not _exactly_ above, its group label.  The points don't line up _exactly_ above the the "yes" or "no" labels because we added a bit of meaningless random "jitter" to the dots, which allows the eye to distinguish the individual cases more easily.  (The `width` parameter controls how much jitter is added.)  Don't worry; we haven't messed with the original data; the jitter is added _solely_ for plotting purposes.  
+
+Jitter plots are a nice alternative to boxplots when you want to show each data point individually, but when you want to avoid _overplotting_, which is what happens when the data points in a plot overlap (and therefore obscure) each other..  
+
 ### Bar plots {-}
 
 __Bar plots__ are typically used to __visualize group-level summary statistics__, like counts, averages, or proportions.  Thus unlike any of our previous plots, the typical workflow to make a bar plot actually has two distinct stages:  
