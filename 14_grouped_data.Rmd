@@ -21,7 +21,7 @@ In this lesson, you'll learn to:
 
 ## Baseline/offset form  
 
-A very common goal in analyzing grouped data is to quantify differences in some outcome variable between levels of a categorical predictor variable:  
+A very common goal in analyzing grouped data is to quantify differences in some outcome variable across different groups, i.e. different levels of some categorical variable:  
 
 - How much more cheese do people buy when you show them an ad for cheese, versus not showing them an ad?
 - How much less likely is a heart attack on a Mediterranean diet versus a low-fat diet?  
@@ -29,7 +29,7 @@ A very common goal in analyzing grouped data is to quantify differences in some 
 
 These are all questions about _differences_---that is, questions about comparing some situation of interest versus a baseline situation.  In fact, these kinds of questions arise so frequently with grouped data that we typically build a model that allows us to make these comparisons directly, as opposed to making them indirectly, i.e. by computing a bunch of group-specific means or proportions and then taking differences.
 
-For this reason, we usually express models for grouped data in "baseline/offset" form, which is a way of expressing a set of numbers in terms of differences (or _offsets_) from some specific _baseline_ number.  
+For this reason, we usually fit models for grouped data in "baseline/offset" form, which is a way of expressing a set of numbers in terms of differences (or _offsets_) from some specific _baseline_ number.  
 
 
 ### Example 1: heights {-}
@@ -76,6 +76,7 @@ knitr::include_graphics('images/heights_comparison3.png')
 
 As before: same three heights, just a different way of expressing them with three numbers (one baseline + two offsets). 
 
+
 ### Example 2: cheese {-}
 
 Let's see a second example of baseline/offset form.  We'll return to the data in [kroger.csv](data/kroger.csv), which we saw for the first time in the lesson on [Plots].  Import this data into R, and then load the `tidyverse` and `mosaic` libraries:
@@ -120,58 +121,250 @@ mean(vol ~ disp, data=kroger_dallas) %>%
   round(0)
 ```
 
-That's a difference of $5577 - 2341 = 3236$, rounded to the nearest whole number.  So first, here's the information on average sales volume in "raw-number form":
+That's a difference of $5577 - 2341 = 3236$, rounded to the nearest whole number.  So first, here's the information on average sales volume in raw-number form:
 
 - In "display-off" weeks, average sales were 2341 units.  
 - In "display-on" weeks, average sales were 5577 units.  
 
-And now here' the same information expressed in baseline/offset form:  
+And now here's the same information expressed in baseline/offset form:  
 
 - In "display-off" weeks, average sales were 2341 units (baseline = 2341).  
 - In "display-on" weeks, average sales were 3236 units higher than in "display-off" weeks (offset = +3236).  
 
-Just as with our heights example, we see that baseline/offset form expresses the same information as "raw-number" form, just in a different way.  
+Just as with our heights example, we see that baseline/offset form expresses the same information as raw-number form, just in a different way.  
 
-### Summary {-}
+
+So to recap what we've learned so far:  
+
+1) You can express any set of numbers in baseline/offset form by picking one number as the baseline, and expressing all the other numbers as offsets (whether positive or negative) from that baseline.   
+2) The choice of baseline is arbitrary.  You are free to make any convenient choice.  If you pick a different baseline, just be aware that all the offsets will change accordingly to encode the same information.  
+3) If you have $N$ numbers in raw form, you'll still need $N$ numbers in baseline/offset form: one number to serve as the baseline, and $N-1$ offsets for all the other numbers.  
+    - In our heights example, we had 3 heights to report: 1 baseline, and 2 offsets.  .  
+    - In our cheese example, we had 2 averages to report: 1 baseline, and 1 offset.  
+
+
+### Why do this? {-}
+
+Now, a very natural question here is: why on earth would we do this?  It feels needlessly complex.  After all, when you ask a normal human being for a set of numbers, they usually just give you the numbers.  In particular, they _don't_ do what we've done: choose one number as a baseline, run off to a laptop for a few quiet minutes, calculate a bunch of offsets from that baseline, and come back to report the numbers you asked for in this perfectly understandable but kinda-strange-and-roundabout "baseline/offset" way.   Why would we do that here?  
+
+I acknowledge that it's not at all obvious _why_ we'd use baseline/offset form---__yet.__  But the gist of it is this.  Baseline/offset form is _slightly_ more complex and annoying to work with when you've got a simple data set with only a few groups.  But it's _radically simpler_ to work with when you've got a complex data set involving dozens, hundreds, or thousands of groups. It's kind of like what happened when your parents took off the training wheels on your first bike: initially it seemed strange, and you might have even wondered why anybody would willingly make their bike harder to ride by removing a couple of wheels.  But eventually, once you got the hang of it, you were able to go further and faster.  
+
+More specifically, here are two advantages of baseline/offset form:  
+
+- __Convenience.__  Expressing numbers in baseline/offset form puts the focus on _differences between situations_ (e.g. the difference in average cheese sales between display and non-display weeks).  Since we often care about differences more than absolute numbers, this is convenient.  
+- __Generalizability.__ Once we understand baseline/offset form, we can easily generalize it to situations involving multiple categorical variables, or combinations of categorical and numerical variables.  This will eventually lead us to a full discussion of [Regression].  
+
+We'll cover these advantages in detail below.
+
+## Models with dummy variables 
+
+But before we can return to the question of why we might might actually prefer baseline/offset form, there's one more crucial concept to cover: that of a __dummy variable__, also called an "indicator variable" or a "one-hot encoding."  Dummy variables are a way of _representing categorical variables in terms of numbers_, so that we can use them in regression equations, just like the ones we introduced in the lesson on [Fitting equations].  As you'll see, dummy variables are intimately related to the concept of [Baseline/offset form] that we just covered.  
+
+::: {.definition}
+A _dummy variable_, or a _dummy_ for short, is a variable that takes only two possible values, 1 or 0.  It is used to indicate whether a case in your data frame does (1) or does not (0) fall into some specific category.  In other words, a dummy variable uses a number (either 1 or 0) to answer a yes-or-no question about your data.  
+:::
+
+There are typically two steps involved in building a model using dummy variables:
+
+1) _Encoding_ categorical variables using dummies.  
+2) _Fitting_ a regression model using those dummies as predictors.  
+
+We'll cover both of these steps in the examples below.  (Although these steps are conceptually distinct, we'll see that it's often possible to collapse them both into a single line of R code, as long as you know what you're doing.)  
+
+
+### Example 1: cheese again {-}
+
+To illustrate dummy variables, we'll return to the cheese example from the previous section.  The goal of this analysis is the same as it was before: to understand how the `disp` variable correlates with sales volume.  But now we're going to fit a regression model with a dummy variable, rather than compute the means directly and take their difference.  For now, focus on _what_ we're doing, postponing for now the question of _why_ we're doing it this way.  
+
+__Step 1: Encoding__.   Here are the first ten lines of our data on the Dallas-area Kroger store:  
+
+```{r, echo=FALSE}
+head(kroger_dallas, 10) %>%
+  knitr::kable() %>%
+  kableExtra::kable_styling(full_width=FALSE)
+```
+
+Now let's use `mutate` to add a new column to this data frame containing a dummy variable, called `dispyes`.  This dummy variable will take the value 1 if the corresponding case was was a "display-on" week, and 0 otherwise.  
+
+```{r}
+kroger_dallas = kroger_dallas %>%
+  mutate(dispyes = ifelse(disp == 'yes', 1, 0))
+```
+
+And now here are the first ten lines of our augmented data frame, which includes this newly defined dummy variable. 
+
+```{r, echo=FALSE}
+kroger_dallas %>%
+  head(10) %>%
+  knitr::kable() %>%
+  kableExtra::kable_styling(full_width=FALSE)
+```
+
+As you can see, the dummy variable `dispyes` has _encoded_ the answer to our yes-or-no question (was there a display that week?) in terms of a number, where 1 means yes and 0 means no.  
+
+__Step 2: Fitting.__  Let's now see what happens when we fit a regression model for `vol`, using `dispyes`, our dummy variable, as a predictor.  We'll fit the model using `lm`, just as we learned to do in the lesson on [Fitting equations].  Then we'll print out the coefficients, rounding them to the nearest whole number:  
+
+```{r}
+model1_vol = lm(vol ~ dispyes, data=kroger_dallas)
+coef(model1_vol) %>%
+  round(0)
+```
+
+These coefficients are telling us that equation of our fitted regression model is:
+
+$$
+\mbox{vol} = 2341 + 3236 \cdot \mbox{dispyes} + e
+$$
+
+where $e$ is the residual or "model error" term.  But since `dispyes` is a dummy variable, it can only take the value 0 or 1.  Therefore there are only two fitted values that our regression model can produce: one value when `dispyes` = 0, and another when `dispyes` = 1.
+
+Let's take these two cases one by one.  When `dispyes == 0`, the expected sales volume is 
+
+$$
+\mbox{expected vol} = 2341 + 3236 \cdot 0 = 2341
+$$
+When the `dispyes` dummy variable is 0, it zeroes out the entire second term of $3246 \cdot 0$.  Thus all we're left with is the intercept of 2341.  This is our _baseline_, i.e. our expected sales volume in "display-off" weeks.  
+
+On the other hand, when `dispyes == 1`, the expected sales volume is 
+
+$$
+\mbox{expected vol} = 2341 + 3236 \cdot 1 = 5577
+$$
+This is our expected sales volume in "display-on" weeks, expressed in the form of our baseline of 2341, plus an _offset_ of 3236, to give a total of 5577.  This offset is the _coefficient on our dummy variable_ in the fitted regression model.  
+
+Moreover, you can interpret both this baseline of 2341 and this offset of 3236 graphically.  In the figure below, the baseline of 2341 is the red dot (for display-on weeks), while the offset of 3236 is the difference between the blue and red dots, i.e. the means of the display-on weeks and the display-off weeks:
+
+```{r, echo=FALSE, out.width="40%", fig.align="center"}
+knitr::include_graphics("images/cheese_display_kroger.png")
+```
 
 So to recap: 
 
-1) You can express any set of numbers in baseline/offset form by picking one number as the baseline, and expressing all the other numbers as offsets (whether positive or negative) from that baseline.  
-2) The choice of baseline is arbitrary.  You are free to make any convenient choice.  If you pick a different baseline, just be aware that all the offsets will change accordingly to encode the same information.  
-3) If you have $N$ numbers in raw form, you'll still need $N$ numbers in baseline/offset form: one number to serve as the baseline, and $N-1$ offsets for all the other numbers.  
-
-Now, a very natural question here is: why on earth would we do this?  I acknowledge that it's not at all obvious---__yet.__  But rhere are two really good reasons to learn about baseline/offset form; we'll cover these reasons in detail below, but briefly:  
-
-- __Convenience.__  Expressing numbers in baseline/offset form the focus on _differences between situations_ (e.g. the difference in cheese sales between display and non-display weeks).  If we care about differences more than absolute numbers, this is convenient.  
-- __Generalizability.__ Once we learn about baseline/offset form, we can easily generalize to situations involving multiple categorical variables, or combinations of categorical and numerical variables.  This will eventually lead us to a full discussion of [Regression].  
+- Dummy variables encode categorical variables as numbers, in the form of an answer to a yes-or-no question: 1 means yes, 0 means no.  
+- Once you've encoded a categorical variable using dummy variables, you can use those dummy variables as _predictors in a regression model_, just like you did in the lesson on [Fitting equations].  
+- The coefficients in a regression model involving dummy variables will encode information about your response ($y$) variable, expressed in [Baseline/offset form].  The intercept corresponds to a baseline, and the coefficient on a dummy variable corresponds to an offset, i.e. what should be added to the baseline whenever the dummy variable is "on" (1).  
 
 
-## Dummy variables
+### R can create dummy variables for you {-}
 
-But before we can return to the question of why we might might actually prefer baseline/offset form, there's one more crucial concept to cover: that of a __dummy variable__, also called an "indicator variable" or a "one-hot encoding."
+I'll get to some more examples shortly here.  But first I want to pause for a short digression about a nice feature of R that can save you a lot of needless coding effort down the line.  
 
-Dummy variables are a way of _representing categorical variables in terms of numbers_, so that we can use them in regression equations, just like the ones we introduced in the lesson on [Fitting equations].  
+In the previous example, we explicitly separated the two different steps involved in working with dummy variables: (1) _encoding_ a categorical variable using a dummy variable, and (2) _fitting_ a model with the dummy variable as a predictor.  We accomplished the first step using the statement `mutate(dispyes = ifelse(disp == 'yes', 1, 0))`, which added a dummy variable to our original `kroger_dallas` data frame.  Then in step 2, we fed this `dispyes` variable into `lm` in order to fit the model.  
 
-::: {.definition}
-A _dummy variable_ is a variable that takes only two possible values, 1 or 0, and is used to indicate whether a case in your data frame does (1) or does not (0) fall into some specific category.  
-:::
+But it turns out that we can get R to handle step 1 for us automatically.  The basic rule of thumb is this: if you provide `lm` with a categorical variable as a predictor, it will  recognize it as such, and it will automatically create dummy variables for you.  This is a nice feature; it enables us to handle the _encoding_ and _fitting_ steps in a single line of R code.  
 
-In other words, a dummy variable uses a number (either 1 or 0) to answer a yes-or-no question about your data.  As you'll see, dummy variables are intimately related to the concept of [Baseline/offset form] that we just covered.
+Let's return to our original `kroger_dallas` data frame, minus the dummy variable we created, which looked like this:
 
-To illustrate the use of dummy variables, we'll return to the two examples from the previous section.  
+```{r, echo=FALSE}
+kroger_dallas %>%
+  select(-dispyes) %>%
+  head(10) %>%
+  knitr::kable() %>%
+  kableExtra::kable_styling(full_width=FALSE)
+```
 
-### Example 1: heights again {-}
-
-
-
-### Example 2: cheese again {-}
-
-Let's now see how to model this data using dummy variables.  
+Clearly the original `disp` variable is expressed as an English word (no or yes), rather than as a dummy variable (0 or 1).  So you wouldn't think it would be suitable to include in a regression model.  But watch what happens when we blindly charge ahead, throwing `disp` into `lm` as our predictor variable:
 
 ```{r}
-head(kroger_dallas, 10) %>% knitr::kable()
+model2_vol = lm(vol ~ disp, data=kroger_dallas)
+coef(model2_vol) %>% 
+  round(0)
+```
+
+We get the exact same coefficients as before: a baseline of 2341 and an offset of 3236.  What's happened is that, behind the scenes, R has encoded the original `disp` variable as a dummy variable (which it called `dispyes`) and then fit the model using `dispyes` as a predictor.  That's helpful, because it saves us the trouble of using `mutate` and `ifelse` to create the dummy variable by hand.
+
+You might ask: how did R know to choose `disp == no` as the baseline case, and to make a dummy variable for `dispyes`, rather than the other way around?  The answer is simple: by default, R will choose the baseline to correspond to whatever level of your categorical variable comes first, alphabetically.  Since `no` precedes `yes` in the dictionary, `disp == no` becomes the baseline case, and `disp == yes` gets represented using a dummy variable.  
+
+### Example 2: video games {-}
+
+Let's see a second example of dummy variables in action.  This one is about video games---and it's the first example where we'll really begin to appreciate the advantages of using dummy variables and working in baseline/offset form.  
+
+#### The data {-}
+
+Making a best-selling video game is hard.  Not only do you need [a lot of cash](https://en.wikipedia.org/wiki/List_of_most_expensive_video_games_to_develop), a good story, and a deep roster of artists, but you also need to make the game fun to play.
+
+Take Mario Kart for the Super Nintendo, my favorite video game from childhood.  In Mario Kart, you had to react quickly to dodge banana peels and [Koopa shells](https://www.google.com/search?q=koopa+shell+8+bit) launched by your opponents, as you all raced virtual go-karts around a track.  The game was calibrated just right in terms of the reaction time it demanded from players.  If the required reaction time had been just a little slower, the game would have been too easy, and therefore boring.  But if the required reaction time had been a little bit faster, the game would have been too hard, and therefore also boring.
+
+Human reaction time to visual stimuli is a big deal to video game makers.  They spend a lot of time studying it and adjusting their games according to what they find.  And the data in [rxntime.csv](data/rxntime.csv) shows the results of one such study, conducted by a major British video-game manufacturer.  Subjects in the study were presented with a scene on a computer monitor, and asked to react (by pressing a button) when they saw an animated figure appear in the scene.  The outcome of interest was each subject's reaction time.  The experimenters varied the conditions of the scene: some were cluttered, while others were relatively open; in some, the figure appeared far away in the scene, while in others it appeared close up.  They presented all combinations of these conditions to each participant many times over.  Essentially the company was measuring how quickly people could react to a bad guy popping up on the screen in a video game, as the conditions of the game varied.  
+
+```{r, echo=FALSE, message=FALSE}
+rxntime = read.csv('data/rxntime.csv')
+```
+
+If you want to follow along, download the [reaction time data](data/rxntime.csv) and import it into RStudio.  Here's a random sample of 10 rows from this data frame:
+
+```{r, echo=FALSE}
+sample_n(rxntime, 10) %>%
+  arrange(Subject, Session, Trial) %>%
+  knitr::kable()
+```
+
+The variables here are as follows:
+
+- Subject: a numerical ID for each subject in the trial  
+- Session and Trial: the trials were arrange in four sessions of 40 trials each.  These two entries tell us which trial in which session each row represents.  
+- FarAway: a dummy variable for whether the stimulus (i.e. the "bad guy" popping up on the screen) was near (0) or far away (1) within the visual scene.  
+- Littered: a dummy variable for whether the visual scene was cluttered (1) or not (0) with other objects or not.  (Note: I don't think there was actual litter, in the sense of roadside trash, in the scene.  I guess "littered" is how the Brits would say "cluttered," and since this is data from a British games-maker, their lingo goes.)   
+- PictureTarget.RT: the reaction time, in milliseconds, of the subject.  This is the response variable of interest in the study.  
+- Side: which side of the visual scene the stimulus was presented on.  
+
+
+#### Model 1: FarAway + Littered {-}
+
+Let's first build a model that incorporates the effect of both the `FarAway` and the `Littered` variables.  This is where you'll really begin to see the use of dummy variables become advantageous, by allowing us to simultaneously model the effect of more than one categorical variable on the response.  
+
+As you see in the code block below, this is as simple as adding both variables as predictors in `lm`, on the right-hand side of the `~` symbol:
+
+```{r}
+games_model1 = lm(PictureTarget.RT ~ FarAway + Littered, data=rxntime)
+coef(games_model1) %>%
+  round(0)
+```
+
+What we've done here is to write an equation for reaction time $y$ that looks like this:
+
+$$
+\hat{y} = 482 + 50 \cdot \mbox{FarAway} + 87 \cdot \mbox{Littered}
+$$
+
+where we recall that $\hat{y}$ is our notation for "fitted y" or "expected y."  This single equation encodes all four possible combinations of the two dummy variables.  Specifically, it says that: 
+
+- If FarAway=0 and Littered=0, $\hat{y} = 482$.
+- If FarAway=1 and Littered=0, $\hat{y} = 482 + 50$.
+- If FarAway=0 and Littered=1, $\hat{y} = 482 + 87$.
+- If FarAway=0 and Littered=1, $\hat{y} = 482 + 50 + 87$.
+
+Recall that coefficients on the dummy variables are interpretable as offsets from the "FarAway=0, Littered=0" baseline.  If the scene was littered, the average reaction time became 87 milliseconds slower; while if the stimulus was far away, the average reaction time became 50 milliseconds slower.
+
+
+#### Model 2: FarAway + Littered + Subject Effects {-}
+
+Once you understand the basic recipe for incorporating two categorical predictors, you can easily extend that recipe to build a model involving more than two. For example, in our video games data, we see large differences in average reaction time between subjects, as the boxplot below demonstrates.  
+
+```{r}
+ggplot(rxntime) + 
+  geom_boxplot(aes(x=Subject, y=PictureTarget.RT))
+```
+
+Subjects 6, 10, and 18, for example, tend to be slower across the board than Subjects 9, 13, and 20.
+
+Let's now build a model that incorporates these between-subject differences.  We'll do this by adding subject as a categorical predictor to our model.  
+
+
+```{r}
+# Tell R that Subject is categorical, not numerical
+rxntime = mutate(rxntime, Subject = factor(Subject))
+```
+
+```{r}
+games_model2 = lm(PictureTarget.RT ~ FarAway + Littered + Side + Subject, data=rxntime)
+coef(games_model2) %>%
+  round(0)
 ```
 
 
 
+To recap what we've learned:
 
+- If you have a categorical variable with 2 levels (e.g. near versus far away), you represent it with 1 dummy variable.  This can initially seem confusing, but remember: one level of your categorical variable corresponds to the baseline, and so you need only one offset (and therefore one dummy variable) to represent the other level.      
+- More generally, if your categorical variable has more than two levels, you represent it in terms of more than one dummy variable.  Specifically, for a categorical variable with K levels, you  will need  K-1 dummy variables, and at most _one_ of these K−1 dummy variables is ever "active" (i.e. equal to 1) for a given row of your data frame.  

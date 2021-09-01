@@ -9,7 +9,7 @@ This lesson is about getting R to do the work of counting for us, so that we can
 - use those tables to estimate simple probabilities (including conditional and joint probabilities).  
 - use the pipe operator (`%>%`) as a way of chaining together computations.      
 
-For this lesson, you'll need to download [aclfest.csv](http://jgscott.github.io/teaching/data/aclfest.csv), which contains data on some bands that played at several major U.S. music festivals (including our own ACL Fest here in Austin).  You'll also want to create a new R script and name it something (e.g. `lesson_tables.R`).  That way, you can practice the advice from an earlier lesson on [Scripts]: write statements in scripts, not directly in the console.
+For this lesson, you'll need to download [aclfest.csv](data/aclfest.csv), which contains data on some bands that played at several major U.S. music festivals (including our own ACL Fest here in Austin).  You'll also want to create a new R script and name it something (e.g. `lesson_tables.R`).  That way, you can practice the advice from an earlier lesson on [Scripts]: write statements in scripts, not directly in the console.
 
 ## Getting started: ACL Fest
 
