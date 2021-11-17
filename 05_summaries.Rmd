@@ -1,11 +1,13 @@
 # Summaries
 
-In this lesson, you'll learn to calculate basic summary statistics, including:  
+In this lesson, you'll learn to calculate basic summary statistics for numerical variables, including:  
 
 - means and medians to measure the typical value in a data set.  
 - standard deviations and IQRs to measure variation from the typical value.   
 - min, max, and, and quantiles to measure the extremes.   
 - $z$-scores, to make standardized comparisons of fundamentally different types of quantities.  
+
+This lesson is all about numerical variables.  It's therefore analogous to our lesson on [Counting], which focused on summarizing categorical variables by making tables of counts and proportions.  Between this lesson and that one, you'll have covered the most common data summaries for the two basic types of variables (numerical and categorical).   
 
 To get started, create a fresh new script, and then load the `tidyverse` library by placing the following line at the top of your script and running it in the console:
 

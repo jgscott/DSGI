@@ -1,0 +1,1823 @@
+id,trim,subTrim,condition,isOneOwner,mileage,year,color,displacement,fuel,state,region,soundSystem,wheelType,wheelSize,featureCount,price,miles1K
+177,550,unsp,CPO,f,30851,2011,Black,5.5 L,Gasoline,TX,WSC,unsp,Alloy,unsp,57,55695,30.851
+178,550,unsp,Used,f,30351,2011,White,5.5 L,Gasoline,CA,Pac,Harman Kardon,Alloy,unsp,56,52888,30.351
+179,550,unsp,Used,t,20425,2011,Black,5.5 L,Gasoline,NC,SoA,Harman Kardon,Alloy,unsp,84,58995,20.425
+183,550,unsp,Used,f,51066,2011,Black,5.5 L,Gasoline,GA,SoA,Harman Kardon,unsp,unsp,60,44999,51.066
+187,550,unsp,Used,f,28752,2011,White,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,77,56995,28.752
+192,550,unsp,Used,f,24922,2011,Silver,5.5 L,Gasoline,CA,Pac,Harman Kardon,Alloy,unsp,38,56971,24.922
+193,550,unsp,Used,f,30714,2011,Black,5.5 L,Gasoline,CA,Pac,Harman Kardon,Alloy,unsp,56,45000,30.714
+194,550,unsp,CPO,f,32905,2011,Black,5.5 L,Gasoline,CA,Pac,Harman Kardon,Alloy,unsp,73,55999,32.905
+198,550,unsp,Used,t,32886,2011,Silver,5.5 L,Gasoline,FL,SoA,Premium,Alloy,18,72,38999,32.886
+202,550,unsp,CPO,f,31167,2011,Black,5.5 L,Gasoline,GA,SoA,Premium,Alloy,unsp,84,48992,31.167
+203,550,unsp,CPO,f,29025,2011,Black,5.5 L,Gasoline,GA,SoA,Premium,Alloy,unsp,109,49992,29.025
+206,550,unsp,Used,t,27481,2011,Silver,5.5 L,Gasoline,GA,SoA,unsp,unsp,unsp,0,56877,27.481
+207,550,unsp,Used,f,59478,2011,Black,5.5 L,Gasoline,FL,SoA,Harman Kardon,unsp,unsp,22,47991,59.478
+238,63 AMG,unsp,Used,f,53500,2011,Black,5.5 L,Gasoline,OK,WSC,Premium,Alloy,unsp,78,64000,53.5
+292,550,unsp,Used,f,36031,2011,Black,5.5 L,Gasoline,GA,SoA,Premium,Premium,unsp,52,46994,36.031
+297,550,unsp,Used,t,35309,2011,Black,5.5 L,Gasoline,GA,SoA,Harman Kardon,Alloy,unsp,70,49900,35.309
+298,550,unsp,CPO,t,12974,2011,Black,5.5 L,Gasoline,NY,Mid,unsp,Alloy,unsp,79,52991,12.974
+300,550,unsp,Used,f,61053,2011,Silver,5.5 L,Gasoline,MD,SoA,unsp,unsp,unsp,29,43295,61.053
+301,550,unsp,CPO,f,33893,2011,Silver,5.5 L,Gasoline,NJ,Mid,Harman Kardon,Alloy,unsp,80,54948,33.893
+308,550,unsp,Used,t,39315,2011,Gray,5.5 L,Gasoline,FL,SoA,unsp,Alloy,unsp,30,42999,39.315
+309,550,unsp,Used,t,42571,2011,Silver,5.5 L,Gasoline,FL,SoA,Premium,Alloy,18,74,37999,42.571
+310,550,unsp,Used,f,30948,2011,White,5.5 L,Gasoline,OH,ENC,unsp,unsp,unsp,0,51659,30.948
+312,550,unsp,Used,f,38920,2011,Gray,5.5 L,Gasoline,AL,ESC,Premium,unsp,unsp,36,51995,38.92
+314,550,unsp,Used,t,61005,2011,White,5.5 L,Gasoline,NJ,Mid,Harman Kardon,unsp,unsp,50,36000,61.005
+315,550,unsp,Used,t,8556,2011,Silver,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,18,61,47995,8.556
+319,550,unsp,Used,f,49725,2011,Silver,5.5 L,Gasoline,MD,SoA,unsp,Alloy,unsp,60,40935,49.725
+321,550,unsp,Used,f,29150,2011,Silver,5.5 L,Gasoline,MS,ESC,unsp,Alloy,unsp,66,53800,29.15
+322,550,unsp,Used,t,30490,2011,White,5.5 L,Gasoline,NY,Mid,unsp,Alloy,unsp,22,42995,30.49
+842,550,unsp,Used,t,23159,2011,Black,5.5 L,Gasoline,TX,WSC,Harman Kardon,unsp,unsp,33,47838,23.159
+848,550,unsp,CPO,f,29640,2011,Black,5.5 L,Gasoline,TN,ESC,unsp,unsp,unsp,1,60471,29.64
+852,550,unsp,Used,f,58677,2011,Black,5.5 L,Gasoline,GA,SoA,Harman Kardon,Alloy,unsp,62,42995,58.677
+854,550,unsp,CPO,t,19757,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,57,62888,19.757
+860,550,unsp,Used,f,22856,2011,Black,5.5 L,Gasoline,VA,SoA,Harman Kardon,Alloy,unsp,53,42777,22.856
+861,550,unsp,Used,t,32004,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,0,67500,32.004
+863,550,unsp,Used,f,43233,2011,Silver,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,27,48900,43.233
+867,550,unsp,Used,f,28942,2011,Silver,5.5 L,Gasoline,MS,ESC,unsp,Alloy,unsp,66,63800,28.942
+868,550,unsp,Used,f,34118,2011,White,5.5 L,Gasoline,AL,ESC,unsp,unsp,unsp,34,46995,34.118
+869,550,unsp,CPO,t,17468,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,Alloy,unsp,41,59988,17.468
+903,63 AMG,unsp,CPO,f,14813,2011,Black,5.5 L,Gasoline,GA,SoA,Premium,Alloy,unsp,73,89991,14.813
+956,550,unsp,CPO,f,37843,2011,Black,5.5 L,Gasoline,MD,SoA,unsp,Alloy,unsp,78,49999,37.843
+959,550,unsp,CPO,f,1753,2011,Black,5.5 L,Gasoline,NY,Mid,unsp,unsp,unsp,1,68900,1.753
+960,550,unsp,Used,t,48500,2011,unsp,5.5 L,Gasoline,TX,WSC,unsp,Alloy,unsp,54,42995,48.5
+961,550,unsp,Used,t,27329,2011,White,5.5 L,Gasoline,IL,ENC,Harman Kardon,Alloy,unsp,23,63991,27.329
+962,550,unsp,Used,f,27647,2011,Black,5.5 L,Gasoline,NY,Mid,Premium,Alloy,unsp,84,42995,27.647
+965,550,unsp,CPO,t,47005,2011,White,5.5 L,Gasoline,PA,Mid,Premium,Alloy,unsp,74,55859,47.005
+967,550,unsp,Used,f,49022,2011,White,5.5 L,Gasoline,KY,ESC,unsp,unsp,unsp,18,51990,49.022
+968,550,unsp,Used,f,22443,2011,Black,5.5 L,Gasoline,OH,ENC,unsp,Alloy,unsp,58,61991,22.443
+969,550,unsp,Used,f,21553,2011,Blue,5.5 L,Gasoline,PA,Mid,Harman Kardon,Alloy,unsp,69,41900,21.553
+972,550,unsp,CPO,f,35430,2011,Silver,5.5 L,Gasoline,NH,New,Premium,Alloy,unsp,66,52988,35.43
+973,550,unsp,CPO,f,21141,2011,Gray,5.5 L,Gasoline,NY,Mid,Bang Olufsen,Alloy,unsp,53,56900,21.141
+975,550,unsp,Used,t,24602,2011,White,5.5 L,Gasoline,IL,ENC,Harman Kardon,Alloy,unsp,81,44995,24.602
+976,550,unsp,CPO,f,26669,2011,Black,5.5 L,Gasoline,TN,ESC,Harman Kardon,unsp,unsp,20,46473,26.669
+981,550,unsp,CPO,t,24870,2011,Silver,5.5 L,Gasoline,CO,Mtn,Premium,Alloy,unsp,69,57991,24.87
+982,550,unsp,Used,f,38274,2011,Black,5.5 L,Gasoline,NY,Mid,Premium,Alloy,unsp,83,43998,38.274
+985,550,unsp,Used,t,49372,2011,Black,5.5 L,Gasoline,NH,New,Harman Kardon,Alloy,unsp,72,38988,49.372
+1473,550,unsp,Used,f,28795,2011,unsp,5.5 L,Gasoline,AZ,Mtn,Premium,Alloy,unsp,67,57888,28.795
+1475,550,unsp,Used,f,35886,2011,White,5.5 L,Gasoline,TN,ESC,Harman Kardon,Alloy,unsp,65,53471,35.886
+1477,550,unsp,CPO,f,46803,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,Alloy,19,19,49888,46.803
+1478,550,unsp,CPO,f,29924,2011,unsp,5.5 L,Gasoline,CA,Pac,unsp,Alloy,unsp,81,49970,29.924
+1480,550,unsp,Used,f,8085,2011,Silver,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,54,61900,8.085
+1482,550,unsp,Used,f,64908,2011,Black,5.5 L,Gasoline,FL,SoA,Premium,Alloy,unsp,37,41989,64.908
+1486,550,unsp,Used,t,21357,2011,Silver,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,10,50992,21.357
+1489,550,unsp,CPO,t,35292,2011,Gray,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,71,53991,35.292
+1490,550,unsp,Used,t,47955,2011,Black,5.5 L,Gasoline,NY,Mid,Harman Kardon,unsp,unsp,24,40990,47.955
+1585,550,unsp,CPO,f,31845,2011,Black,5.5 L,Gasoline,NY,Mid,unsp,Alloy,unsp,57,59991,31.845
+1588,550,unsp,Used,f,25247,2011,Black,5.5 L,Gasoline,NY,Mid,unsp,unsp,unsp,33,43200,25.247
+1593,550,unsp,CPO,t,31334,2011,Black,5.5 L,Gasoline,CO,Mtn,unsp,unsp,unsp,3,45981,31.334
+1594,550,unsp,CPO,f,17678,2011,White,5.5 L,Gasoline,MO,WNC,Harman Kardon,unsp,unsp,52,59950,17.678
+1597,550,unsp,CPO,f,54297,2011,Black,5.5 L,Gasoline,NY,Mid,Premium,Alloy,unsp,68,39000,54.297
+1598,550,unsp,CPO,t,51289,2011,Black,5.5 L,Gasoline,FL,SoA,Premium,Alloy,18,76,33999,51.289
+1607,550,unsp,Used,f,73199,2011,Gray,5.5 L,Gasoline,NY,Mid,unsp,Alloy,unsp,22,35995,73.199
+2072,550,unsp,Used,t,31931,2011,Black,5.5 L,Gasoline,AZ,Mtn,Premium,Premium,unsp,27,52918,31.931
+2074,550,unsp,CPO,f,19533,2011,White,5.5 L,Gasoline,TX,WSC,unsp,unsp,unsp,11,59995,19.533
+2076,550,unsp,CPO,f,33219,2011,Black,5.5 L,Gasoline,GA,SoA,Premium,Alloy,unsp,79,48988,33.219
+2077,550,unsp,CPO,t,42709,2011,Silver,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,60,48998,42.709
+2079,550,unsp,CPO,f,46781,2011,Black,5.5 L,Gasoline,FL,SoA,Harman Kardon,Alloy,unsp,56,52991,46.781
+2082,550,unsp,Used,f,45118,2011,Red,5.5 L,Gasoline,FL,SoA,Premium,Alloy,unsp,68,46000,45.118
+2084,550,unsp,CPO,f,30824,2011,Black,5.5 L,Gasoline,NC,SoA,Premium,Alloy,20,67,56989,30.824
+2086,550,unsp,Used,f,21131,2011,Gray,5.5 L,Gasoline,GA,SoA,Harman Kardon,Premium,18,52,50994,21.131
+2088,550,unsp,Used,f,44934,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,0,47995,44.934
+2090,550,unsp,Used,f,31536,2011,White,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,37,49900,31.536
+2093,550,unsp,Used,t,6366,2011,Black,5.5 L,Gasoline,CA,Pac,Harman Kardon,Premium,unsp,12,60879,6.366
+2094,550,unsp,Used,t,72163,2011,Black,5.5 L,Gasoline,AL,ESC,unsp,Alloy,unsp,35,39900,72.163
+2131,63 AMG,unsp,Used,f,34967,2011,Black,5.5 L,Gasoline,OR,Pac,Bang Olufsen,unsp,unsp,9,69950,34.967
+2132,63 AMG,unsp,Used,f,19781,2011,Brown,5.5 L,Gasoline,FL,SoA,unsp,Alloy,unsp,52,85999,19.781
+2134,63 AMG,unsp,Used,f,55032,2011,White,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,80,59850,55.032
+2135,63 AMG,unsp,Used,f,39467,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,Alloy,unsp,76,73444,39.467
+2192,550,unsp,CPO,t,18320,2011,Black,5.5 L,Gasoline,NJ,Mid,Premium,Alloy,unsp,75,51001,18.32
+2193,550,unsp,CPO,f,52340,2011,Gray,5.5 L,Gasoline,IL,ENC,Premium,Alloy,unsp,74,41900,52.34
+2197,550,unsp,Used,t,24504,2011,White,5.5 L,Gasoline,MA,New,Harman Kardon,Alloy,18,116,51998,24.504
+2198,550,unsp,Used,f,23197,2011,Black,5.5 L,Gasoline,IL,ENC,Premium,Alloy,unsp,81,54991,23.197
+2199,550,unsp,Used,f,50989,2011,Black,5.5 L,Gasoline,GA,SoA,Harman Kardon,Alloy,unsp,74,40995,50.989
+2200,550,unsp,CPO,f,42561,2011,Black,5.5 L,Gasoline,NJ,Mid,Premium,Alloy,unsp,71,48997,42.561
+2202,550,unsp,CPO,t,38510,2011,White,5.5 L,Gasoline,OH,ENC,unsp,unsp,unsp,87,48900,38.51
+2203,550,unsp,Used,t,48861,2011,Black,5.5 L,Gasoline,CO,Mtn,unsp,Alloy,unsp,60,52480,48.861
+2206,550,unsp,Used,f,13737,2011,Gray,5.5 L,Gasoline,PA,Mid,unsp,Alloy,unsp,82,47981,13.737
+2209,550,unsp,Used,f,67377,2011,Black,5.5 L,Gasoline,IL,ENC,Harman Kardon,Alloy,unsp,73,38900,67.377
+2210,550,unsp,Used,t,38175,2011,Black,5.5 L,Gasoline,OH,ENC,unsp,Alloy,unsp,80,45495,38.175
+2217,550,unsp,Used,f,41437,2011,Black,5.5 L,Gasoline,IL,ENC,unsp,Alloy,unsp,36,49988,41.437
+2225,550,unsp,CPO,f,24466,2011,White,5.5 L,Gasoline,NY,Mid,unsp,unsp,unsp,28,59991,24.466
+2228,550,unsp,Used,t,26657,2011,Silver,5.5 L,Gasoline,VA,SoA,Harman Kardon,Alloy,unsp,63,50000,26.657
+2721,550,unsp,Used,f,50636,2011,Silver,5.5 L,Gasoline,CA,Pac,Harman Kardon,Alloy,unsp,58,39988,50.636
+2723,550,unsp,CPO,f,32114,2011,Silver,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,12,56988,32.114
+2738,550,unsp,CPO,f,30846,2011,Black,5.5 L,Gasoline,NC,SoA,Harman Kardon,Alloy,unsp,85,49995,30.846
+2766,63 AMG,unsp,CPO,f,26959,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,2,70984,26.959
+2768,63 AMG,unsp,CPO,f,29745,2011,Black,5.5 L,Gasoline,GA,SoA,Premium,Alloy,unsp,92,76992,29.745
+2824,550,unsp,Used,f,15191,2011,Black,5.5 L,Gasoline,FL,SoA,Harman Kardon,Alloy,unsp,68,67900,15.191
+2825,550,unsp,Used,f,21721,2011,White,5.5 L,Gasoline,MD,SoA,Premium,Alloy,unsp,103,51555,21.721
+2830,550,unsp,Used,t,22624,2011,White,5.5 L,Gasoline,IL,ENC,unsp,unsp,unsp,0,64980,22.624
+2833,550,unsp,CPO,f,32653,2011,Black,5.5 L,Gasoline,CO,Mtn,unsp,unsp,unsp,4,51981,32.653
+2834,550,unsp,Used,f,53716,2011,White,5.5 L,Gasoline,IL,ENC,Harman Kardon,Alloy,unsp,86,43999,53.716
+2837,550,unsp,Used,t,35118,2011,Blue,5.5 L,Gasoline,FL,SoA,Harman Kardon,unsp,unsp,22,54991,35.118
+2838,550,unsp,CPO,f,25512,2011,Silver,5.5 L,Gasoline,NY,Mid,unsp,unsp,unsp,64,54495,25.512
+2839,550,unsp,Used,f,26726,2011,White,5.5 L,Gasoline,TN,ESC,Premium,Alloy,unsp,76,51481,26.726
+2841,550,unsp,Used,t,49780,2011,Black,5.5 L,Gasoline,NY,Mid,Premium,unsp,unsp,40,35980,49.78
+2845,550,unsp,Used,t,63200,2011,White,5.5 L,Gasoline,NY,Mid,Premium,Alloy,unsp,67,41995,63.2
+3349,550,unsp,Used,f,29783,2011,Black,5.5 L,Gasoline,CA,Pac,Premium,unsp,unsp,13,47888,29.783
+3355,550,unsp,Used,f,23878,2011,Silver,5.5 L,Gasoline,NC,SoA,unsp,unsp,unsp,5,54981,23.878
+3356,550,unsp,Used,f,10925,2011,Silver,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,0,50991,10.925
+3357,550,unsp,Used,t,33443,2011,White,5.5 L,Gasoline,CA,Pac,Premium,Alloy,unsp,69,49900,33.443
+3359,550,unsp,Used,t,48074,2011,Silver,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,74,37990,48.074
+3364,550,unsp,CPO,f,35701,2011,Black,5.5 L,Gasoline,FL,SoA,Premium,Alloy,unsp,76,54000,35.701
+3372,550,unsp,Used,f,15225,2011,Black,5.5 L,Gasoline,CA,Pac,Harman Kardon,unsp,unsp,8,51989,15.225
+3379,550,unsp,Used,t,21821,2011,White,5.5 L,Gasoline,FL,SoA,unsp,Alloy,unsp,6,55290,21.821
+3380,550,unsp,Used,t,36487,2011,Black,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,32,48994,36.487
+3417,63 AMG,unsp,Used,t,13435,2011,Black,5.5 L,Gasoline,OH,ENC,Harman Kardon,Alloy,unsp,77,84900,13.435
+3466,550,unsp,CPO,f,28741,2011,Black,5.5 L,Gasoline,NY,Mid,Premium,Alloy,unsp,70,56309,28.741
+3467,550,unsp,CPO,f,43465,2011,Black,5.5 L,Gasoline,MA,New,Premium,Alloy,unsp,80,47500,43.465
+3468,550,unsp,Used,f,36291,2011,Black,5.5 L,Gasoline,FL,SoA,Premium,Alloy,18,74,41999,36.291
+3470,550,unsp,CPO,f,14346,2011,Brown,5.5 L,Gasoline,PA,Mid,Premium,Alloy,unsp,74,51900,14.346
+3471,550,unsp,Used,f,68917,2011,Black,5.5 L,Gasoline,NJ,Mid,unsp,unsp,unsp,50,34995,68.917
+3472,550,unsp,Used,t,15393,2011,Blue,5.5 L,Gasoline,FL,SoA,Harman Kardon,Alloy,18,75,40999,15.393
+3473,550,unsp,CPO,t,35065,2011,Black,5.5 L,Gasoline,MD,SoA,Premium,Alloy,unsp,73,54550,35.065
+3476,550,unsp,Used,t,41381,2011,White,5.5 L,Gasoline,GA,SoA,unsp,unsp,unsp,6,42990,41.381
+3478,550,unsp,Used,f,21042,2011,Brown,5.5 L,Gasoline,PA,Mid,Premium,Alloy,unsp,78,48381,21.042
+3480,550,unsp,Used,t,31137,2011,Black,5.5 L,Gasoline,GA,SoA,unsp,unsp,unsp,6,41995,31.137
+3483,550,unsp,Used,t,16038,2011,Black,5.5 L,Gasoline,NJ,Mid,Premium,Alloy,unsp,71,59880,16.038
+3484,550,unsp,Used,f,37955,2011,Black,5.5 L,Gasoline,FL,SoA,Harman Kardon,Alloy,unsp,54,40750,37.955
+3487,550,unsp,Used,t,49931,2011,White,5.5 L,Gasoline,IL,ENC,Harman Kardon,Alloy,unsp,81,43995,49.931
+3489,550,unsp,Used,f,50233,2011,Black,5.5 L,Gasoline,MD,SoA,unsp,Alloy,unsp,59,37975,50.233
+3491,550,unsp,CPO,f,15519,2011,Black,5.5 L,Gasoline,NY,Mid,unsp,unsp,unsp,6,56900,15.519
+4032,550,unsp,Used,f,55986,2011,Silver,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,74,41999,55.986
+4033,550,unsp,Used,t,34633,2011,Gray,5.5 L,Gasoline,TX,WSC,Premium,Alloy,unsp,82,48995,34.633
+4037,550,unsp,Used,f,24215,2011,unsp,5.5 L,Gasoline,FL,SoA,Premium,Alloy,unsp,73,58999,24.215
+4038,550,unsp,Used,t,17804,2011,Black,5.5 L,Gasoline,TN,ESC,Harman Kardon,unsp,unsp,44,51990,17.804
+4042,550,unsp,CPO,t,33444,2011,unsp,5.5 L,Gasoline,CA,Pac,Harman Kardon,Alloy,unsp,71,48555,33.444
+4044,550,unsp,CPO,t,10096,2011,White,5.5 L,Gasoline,CA,Pac,Harman Kardon,unsp,unsp,80,62888,10.096
+4046,550,unsp,Used,f,43811,2011,Black,5.5 L,Gasoline,CA,Pac,Harman Kardon,Premium,unsp,13,57964,43.811
+4049,550,unsp,Used,t,49579,2011,Blue,5.5 L,Gasoline,IL,ENC,Harman Kardon,Alloy,unsp,77,41999,49.579
+4050,550,unsp,CPO,t,17998,2011,Gray,5.5 L,Gasoline,LA,WSC,Premium,Alloy,unsp,69,56977,17.998
+4110,63 AMG,unsp,CPO,f,30614,2011,Black,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,66,75888,30.614
+4112,63 AMG,unsp,Used,t,30342,2011,White,5.5 L,Gasoline,CA,Pac,Harman Kardon,Premium,unsp,30,85888,30.342
+4154,550,unsp,CPO,t,39235,2011,Black,5.5 L,Gasoline,MD,SoA,Premium,Alloy,unsp,73,51950,39.235
+4156,550,unsp,CPO,f,36318,2011,Black,5.5 L,Gasoline,WI,ENC,Premium,Alloy,unsp,66,53900,36.318
+4161,550,unsp,CPO,t,38698,2011,Silver,5.5 L,Gasoline,TN,ESC,unsp,unsp,unsp,86,43846,38.698
+4165,550,unsp,CPO,f,31028,2011,Black,5.5 L,Gasoline,PA,Mid,unsp,unsp,unsp,6,55991,31.028
+4169,550,unsp,CPO,t,46674,2011,White,5.5 L,Gasoline,OH,ENC,Bang Olufsen,Alloy,unsp,67,54899,46.674
+4174,550,unsp,Used,t,48125,2011,Silver,5.5 L,Gasoline,IL,ENC,Premium,Alloy,unsp,76,46991,48.125
+4176,550,unsp,CPO,t,33001,2011,Black,5.5 L,Gasoline,MD,SoA,unsp,Alloy,unsp,49,49997,33.001
+4177,550,unsp,Used,f,45692,2011,Silver,5.5 L,Gasoline,MD,SoA,Harman Kardon,Alloy,18,51,44900,45.692
+4763,550,unsp,CPO,f,29932,2011,Gray,5.5 L,Gasoline,MS,ESC,unsp,unsp,unsp,1,59800,29.932
+4764,550,unsp,Used,f,12601,2011,Red,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,12,51792,12.601
+4768,550,unsp,Used,f,28371,2011,Black,5.5 L,Gasoline,NV,Mtn,Premium,Alloy,unsp,37,62995,28.371
+4776,550,unsp,Used,t,53887,2011,White,5.5 L,Gasoline,GA,SoA,Harman Kardon,Alloy,unsp,66,43990,53.887
+4780,550,unsp,Used,f,43465,2011,Black,5.5 L,Gasoline,NJ,Mid,unsp,unsp,unsp,3,38993,43.465
+4782,550,unsp,Used,f,17198,2011,White,5.5 L,Gasoline,PA,Mid,unsp,unsp,unsp,33,56995,17.198
+4784,550,unsp,Used,t,21425,2011,White,5.5 L,Gasoline,TX,WSC,Harman Kardon,unsp,unsp,22,58991,21.425
+4785,550,unsp,CPO,t,23332,2011,White,5.5 L,Gasoline,CA,Pac,Harman Kardon,Alloy,unsp,68,58991,23.332
+4891,550,unsp,Used,f,50762,2011,Black,5.5 L,Gasoline,NY,Mid,Harman Kardon,unsp,unsp,21,39995,50.762
+4893,550,unsp,Used,t,47829,2011,Blue,5.5 L,Gasoline,NY,Mid,Harman Kardon,Alloy,unsp,94,49900,47.829
+4895,550,unsp,Used,f,55000,2011,Gray,5.5 L,Gasoline,MA,New,unsp,Alloy,unsp,53,39990,55
+4900,550,unsp,Used,f,43275,2011,Black,5.5 L,Gasoline,VA,SoA,Harman Kardon,unsp,unsp,40,42500,43.275
+4903,550,unsp,Used,f,68425,2011,Gray,5.5 L,Gasoline,NJ,Mid,unsp,Alloy,unsp,59,41995,68.425
+4909,550,unsp,Used,f,21210,2011,Black,5.5 L,Gasoline,NY,Mid,unsp,unsp,unsp,2,61501,21.21
+4911,550,unsp,CPO,f,57952,2011,White,5.5 L,Gasoline,VA,SoA,unsp,unsp,unsp,0,56681,57.952
+4912,550,unsp,CPO,t,37998,2011,Black,5.5 L,Gasoline,NY,Mid,Premium,Alloy,unsp,69,44495,37.998
+4913,550,unsp,Used,f,40399,2011,Silver,5.5 L,Gasoline,OH,ENC,unsp,Alloy,unsp,78,39995,40.399
+4914,550,unsp,Used,t,67508,2011,Black,5.5 L,Gasoline,NY,Mid,unsp,Alloy,unsp,19,35490,67.508
+4918,550,unsp,Used,f,25005,2011,unsp,5.5 L,Gasoline,IL,ENC,Bang Olufsen,Alloy,unsp,75,52985,25.005
+4920,550,unsp,CPO,f,20260,2011,Black,5.5 L,Gasoline,OH,ENC,unsp,unsp,unsp,55,59900,20.26
+4921,550,unsp,Used,f,53346,2011,Black,5.5 L,Gasoline,GA,SoA,Harman Kardon,Alloy,unsp,54,38499,53.346
+4923,550,unsp,CPO,t,32160,2011,Black,5.5 L,Gasoline,NJ,Mid,Premium,Alloy,18,76,45994,32.16
+4927,550,unsp,CPO,f,35005,2011,Black,5.5 L,Gasoline,NJ,Mid,unsp,unsp,unsp,54,59890,35.005
+4929,550,unsp,Used,f,47873,2011,Black,5.5 L,Gasoline,GA,SoA,unsp,Alloy,unsp,34,42999,47.873
+5460,550,unsp,Used,f,14479,2011,White,5.5 L,Gasoline,FL,SoA,unsp,Alloy,unsp,18,47881,14.479
+5464,550,unsp,Used,f,37179,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,12,51991,37.179
+5465,550,unsp,CPO,t,35342,2011,Black,5.5 L,Gasoline,CA,Pac,Premium,Alloy,unsp,72,54888,35.342
+5466,550,unsp,Used,t,29293,2011,Black,5.5 L,Gasoline,TN,ESC,Harman Kardon,unsp,unsp,46,51990,29.293
+5469,550,unsp,Used,f,32051,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,3,49981,32.051
+5470,550,unsp,Used,f,46607,2011,Black,5.5 L,Gasoline,NJ,Mid,Premium,Alloy,unsp,52,44000,46.607
+5471,550,unsp,CPO,t,39537,2011,White,5.5 L,Gasoline,CA,Pac,Harman Kardon,Alloy,unsp,27,49994,39.537
+5472,550,unsp,Used,f,32330,2011,White,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,0,49995,32.33
+5474,550,unsp,Used,t,7470,2011,White,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,0,54881,7.47
+5475,550,unsp,CPO,f,18506,2011,Black,5.5 L,Gasoline,MD,SoA,Premium,Alloy,unsp,72,55909,18.506
+5480,550,unsp,CPO,f,31169,2011,Silver,5.5 L,Gasoline,FL,SoA,Harman Kardon,unsp,unsp,99,46900,31.169
+5482,550,unsp,CPO,f,33638,2011,Silver,5.5 L,Gasoline,FL,SoA,Premium,Alloy,unsp,72,49991,33.638
+5537,63 AMG,unsp,Used,f,34771,2011,Silver,5.5 L,Gasoline,CA,Pac,Harman Kardon,unsp,unsp,106,69895,34.771
+5586,550,unsp,CPO,t,41056,2011,Black,5.5 L,Gasoline,NY,Mid,Premium,Alloy,unsp,74,43989,41.056
+5588,550,unsp,Used,f,48778,2011,Silver,5.5 L,Gasoline,NJ,Mid,unsp,Alloy,unsp,49,42995,48.778
+5591,550,unsp,Used,f,46311,2011,Silver,5.5 L,Gasoline,OH,ENC,Premium,Alloy,unsp,60,49500,46.311
+5592,550,unsp,Used,f,47298,2011,Brown,5.5 L,Gasoline,NJ,Mid,Premium,Alloy,unsp,68,53891,47.298
+5593,550,unsp,Used,t,35876,2011,Black,5.5 L,Gasoline,FL,SoA,Premium,Alloy,18,72,36999,35.876
+5599,550,unsp,CPO,f,20458,2011,Black,5.5 L,Gasoline,OH,ENC,Premium,Alloy,unsp,42,49494,20.458
+5600,550,unsp,Used,f,16096,2011,Black,5.5 L,Gasoline,NY,Mid,unsp,unsp,unsp,4,52900,16.096
+5608,550,unsp,Used,t,46643,2011,Black,5.5 L,Gasoline,MA,New,Harman Kardon,unsp,19,76,44900,46.643
+5612,550,unsp,Used,f,50000,2011,Silver,5.5 L,Gasoline,MD,SoA,unsp,unsp,unsp,29,53750,50
+5614,550,unsp,Used,t,39187,2011,Red,5.5 L,Gasoline,GA,SoA,Harman Kardon,Premium,unsp,50,44991,39.187
+5615,550,unsp,Used,f,50269,2011,Gray,5.5 L,Gasoline,GA,SoA,Premium,Alloy,unsp,45,44499,50.269
+5616,550,unsp,CPO,f,28321,2011,Silver,5.5 L,Gasoline,IL,ENC,Premium,Alloy,unsp,74,53998,28.321
+6134,550,unsp,Used,f,38276,2011,Black,5.5 L,Gasoline,FL,SoA,Harman Kardon,unsp,unsp,67,54988,38.276
+6140,550,unsp,Used,t,43907,2011,Black,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,57,48800,43.907
+6142,550,unsp,CPO,t,36018,2011,Black,5.5 L,Gasoline,SC,SoA,Premium,Alloy,unsp,73,50800,36.018
+6145,550,unsp,Used,f,20792,2011,Silver,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,0,59995,20.792
+6147,550,unsp,CPO,t,49665,2011,Gray,5.5 L,Gasoline,CA,Pac,Premium,Alloy,unsp,83,43986,49.665
+6148,550,unsp,CPO,f,14277,2011,White,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,1,59888,14.277
+6155,550,unsp,CPO,t,36205,2011,White,5.5 L,Gasoline,FL,SoA,Premium,Alloy,unsp,73,55991,36.205
+6159,550,unsp,CPO,f,30337,2011,White,5.5 L,Gasoline,SC,SoA,Premium,Alloy,unsp,74,47877,30.337
+6160,550,unsp,CPO,f,49281,2011,Black,5.5 L,Gasoline,CA,Pac,Harman Kardon,unsp,unsp,7,44981,49.281
+6197,63 AMG,unsp,Used,f,20267,2011,Black,5.5 L,Gasoline,VA,SoA,unsp,unsp,unsp,5,71995,20.267
+6201,63 AMG,unsp,Used,f,37723,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,0,72941,37.723
+6241,550,unsp,Used,f,31019,2011,Black,5.5 L,Gasoline,NJ,Mid,unsp,unsp,unsp,8,50000,31.019
+6244,550,unsp,Used,f,22692,2011,Black,5.5 L,Gasoline,MA,New,unsp,unsp,unsp,3,46999,22.692
+6250,550,unsp,Used,t,55927,2011,Black,5.5 L,Gasoline,NJ,Mid,Harman Kardon,unsp,unsp,103,37952,55.927
+6251,550,unsp,Used,f,21817,2011,unsp,5.5 L,Gasoline,MI,ENC,unsp,unsp,unsp,73,49981,21.817
+6254,550,unsp,Used,t,23314,2011,Black,5.5 L,Gasoline,NY,Mid,unsp,unsp,unsp,16,40995,23.314
+6256,550,unsp,Used,f,51756,2011,Black,5.5 L,Gasoline,GA,SoA,Premium,Alloy,unsp,42,42988,51.756
+6258,550,unsp,CPO,f,27400,2011,White,5.5 L,Gasoline,KS,WNC,Premium,Alloy,unsp,74,54900,27.4
+6261,550,unsp,Used,t,37575,2011,Black,5.5 L,Gasoline,NY,Mid,Premium,Alloy,unsp,67,49995,37.575
+6262,550,unsp,Used,f,36958,2011,Gray,5.5 L,Gasoline,NJ,Mid,Harman Kardon,Alloy,unsp,53,35995,36.958
+6263,550,unsp,Used,t,16393,2011,Black,5.5 L,Gasoline,NC,SoA,unsp,unsp,unsp,20,54000,16.393
+6265,550,unsp,Used,t,31574,2011,Black,5.5 L,Gasoline,TX,WSC,Premium,Alloy,unsp,54,49995,31.574
+6266,550,unsp,CPO,f,45438,2011,Black,5.5 L,Gasoline,CT,New,Harman Kardon,Alloy,unsp,76,49800,45.438
+6755,550,unsp,Used,f,77306,2011,Black,5.5 L,Gasoline,GA,SoA,Premium,Premium,unsp,49,35994,77.306
+6758,550,unsp,Used,t,30710,2011,Black,5.5 L,Gasoline,CA,Pac,Premium,Alloy,unsp,11,46500,30.71
+6764,550,unsp,CPO,f,42037,2011,Gray,5.5 L,Gasoline,CA,Pac,Harman Kardon,Alloy,unsp,33,45888,42.037
+6773,550,unsp,Used,t,22874,2011,Silver,5.5 L,Gasoline,FL,SoA,Premium,Alloy,unsp,84,59899,22.874
+6777,550,unsp,CPO,f,46315,2011,unsp,5.5 L,Gasoline,AL,ESC,Premium,Alloy,unsp,70,46489,46.315
+6779,550,unsp,Used,t,34019,2011,Gray,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,71,53662,34.019
+6783,550,unsp,CPO,f,47509,2011,Black,5.5 L,Gasoline,CA,Pac,Harman Kardon,Premium,unsp,30,52961,47.509
+6784,550,unsp,Used,t,41493,2011,Black,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,0,42900,41.493
+6785,550,unsp,Used,f,40664,2011,Silver,5.5 L,Gasoline,TX,WSC,unsp,unsp,unsp,1,49950,40.664
+6789,550,unsp,CPO,f,34913,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,15,59770,34.913
+6790,550,unsp,Used,t,15850,2011,Black,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,80,49998,15.85
+6792,550,unsp,CPO,f,48284,2011,Black,5.5 L,Gasoline,VA,SoA,unsp,unsp,unsp,39,47231,48.284
+6840,63 AMG,unsp,Used,f,15621,2011,Gray,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,62,73995,15.621
+6885,550,unsp,Used,f,12821,2011,Black,5.5 L,Gasoline,GA,SoA,Harman Kardon,Alloy,unsp,82,48800,12.821
+6886,550,unsp,CPO,t,28392,2011,Black,5.5 L,Gasoline,NC,SoA,unsp,unsp,unsp,3,56952,28.392
+6888,550,unsp,CPO,f,19784,2011,Black,5.5 L,Gasoline,OH,ENC,Harman Kardon,Alloy,unsp,65,57995,19.784
+6895,550,unsp,Used,f,21882,2011,Gray,5.5 L,Gasoline,WA,Pac,unsp,unsp,unsp,13,49880,21.882
+6897,550,unsp,Used,t,34944,2011,Gray,5.5 L,Gasoline,NY,Mid,Premium,unsp,unsp,50,44995,34.944
+6898,550,unsp,Used,f,20756,2011,Black,5.5 L,Gasoline,MA,New,unsp,unsp,unsp,49,55998,20.756
+6900,550,unsp,CPO,t,25056,2011,Black,5.5 L,Gasoline,NH,New,Premium,Alloy,unsp,67,59994,25.056
+6901,550,unsp,Used,f,26349,2011,Black,5.5 L,Gasoline,TN,ESC,unsp,Alloy,18,6,51425,26.349
+6902,550,unsp,Used,t,64291,2011,Gray,5.5 L,Gasoline,GA,SoA,Harman Kardon,Alloy,unsp,50,37499,64.291
+6904,550,unsp,Used,f,49227,2011,Black,5.5 L,Gasoline,NH,New,Harman Kardon,unsp,unsp,49,47988,49.227
+6908,550,unsp,CPO,f,21225,2011,Silver,5.5 L,Gasoline,NY,Mid,unsp,unsp,unsp,1,63500,21.225
+7432,550,unsp,Used,f,31828,2011,Black,5.5 L,Gasoline,TX,WSC,Harman Kardon,unsp,unsp,24,52991,31.828
+7433,550,unsp,Used,f,38751,2011,Silver,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,55,45809,38.751
+7435,550,unsp,Used,t,26278,2011,Silver,5.5 L,Gasoline,FL,SoA,Harman Kardon,Alloy,unsp,78,36750,26.278
+7437,550,unsp,Used,t,29979,2011,White,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,0,54992,29.979
+7440,550,unsp,Used,f,18279,2011,Gray,5.5 L,Gasoline,FL,SoA,Harman Kardon,Alloy,18,53,59991,18.279
+7441,550,unsp,CPO,f,35574,2011,Silver,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,12,48888,35.574
+7447,550,unsp,Used,t,51507,2011,White,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,66,41500,51.507
+7451,550,unsp,CPO,t,39854,2011,Black,5.5 L,Gasoline,FL,SoA,Premium,Alloy,unsp,84,45956,39.854
+7452,550,unsp,Used,t,29237,2011,Black,5.5 L,Gasoline,GA,SoA,Harman Kardon,Alloy,unsp,81,49990,29.237
+7539,550,unsp,Used,f,19704,2011,Black,5.5 L,Gasoline,MA,New,unsp,unsp,unsp,0,51748,19.704
+7541,550,unsp,Used,t,60364,2011,Silver,5.5 L,Gasoline,NJ,Mid,Harman Kardon,unsp,unsp,97,36942,60.364
+7545,550,unsp,Used,f,58176,2011,Silver,5.5 L,Gasoline,IL,ENC,unsp,unsp,unsp,9,44980,58.176
+7546,550,unsp,CPO,f,68790,2011,Silver,5.5 L,Gasoline,IN,ENC,unsp,Alloy,unsp,82,40889,68.79
+7548,550,unsp,CPO,f,46902,2011,Silver,5.5 L,Gasoline,CO,Mtn,Premium,Alloy,unsp,76,49991,46.902
+7557,550,unsp,Used,t,45734,2011,Black,5.5 L,Gasoline,FL,SoA,Premium,Alloy,18,72,35999,45.734
+7561,550,unsp,Used,f,44366,2011,Black,5.5 L,Gasoline,VA,SoA,unsp,unsp,unsp,6,40995,44.366
+7562,550,unsp,CPO,f,25374,2011,Gray,5.5 L,Gasoline,NC,SoA,Premium,Alloy,unsp,69,53900,25.374
+8076,550,unsp,Used,f,71576,2011,Black,5.5 L,Gasoline,CA,Pac,Premium,Alloy,unsp,31,33995,71.576
+8078,550,unsp,CPO,f,45630,2011,Black,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,29,47994,45.63
+8083,550,unsp,Used,t,35930,2011,Black,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,5,54800,35.93
+8084,550,unsp,Used,f,47980,2011,Black,5.5 L,Gasoline,FL,SoA,Harman Kardon,unsp,unsp,63,41988,47.98
+8087,550,unsp,CPO,f,38421,2011,Black,5.5 L,Gasoline,CA,Pac,Harman Kardon,Alloy,unsp,79,54780,38.421
+8089,550,unsp,CPO,t,37546,2011,White,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,0,53988,37.546
+8092,550,unsp,CPO,t,48541,2011,Gray,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,0,50895,48.541
+8099,550,unsp,Used,f,40879,2011,White,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,62,43999,40.879
+8101,550,unsp,Used,f,17313,2011,Black,5.5 L,Gasoline,TN,ESC,unsp,unsp,unsp,32,50995,17.313
+8103,550,unsp,Used,f,34490,2011,Gray,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,85,47995,34.49
+8105,550,unsp,CPO,t,37655,2011,Black,5.5 L,Gasoline,CA,Pac,Premium,Alloy,unsp,74,52988,37.655
+8215,550,unsp,Used,f,34169,2011,unsp,5.5 L,Gasoline,NJ,Mid,Harman Kardon,Alloy,unsp,78,47995,34.169
+8217,550,unsp,CPO,t,39913,2011,Silver,5.5 L,Gasoline,NY,Mid,unsp,unsp,unsp,58,56959,39.913
+8218,550,unsp,Used,f,52033,2011,Black,5.5 L,Gasoline,GA,SoA,Harman Kardon,Alloy,unsp,48,41799,52.033
+8221,550,unsp,Used,f,43364,2011,Brown,5.5 L,Gasoline,MD,SoA,unsp,unsp,unsp,29,56700,43.364
+8223,550,unsp,Used,f,48233,2011,Black,5.5 L,Gasoline,NY,Mid,Harman Kardon,unsp,unsp,22,40995,48.233
+8230,550,unsp,Used,f,49992,2011,Black,5.5 L,Gasoline,MD,SoA,unsp,unsp,unsp,37,42988,49.992
+8235,550,unsp,Used,f,34021,2011,Black,5.5 L,Gasoline,CT,New,unsp,Alloy,unsp,36,55990,34.021
+8238,550,unsp,Used,t,44465,2011,White,5.5 L,Gasoline,NJ,Mid,unsp,unsp,unsp,3,47995,44.465
+8239,550,unsp,CPO,f,20505,2011,Black,5.5 L,Gasoline,VA,SoA,Premium,Alloy,unsp,39,54922,20.505
+8725,550,unsp,Used,f,24378,2011,Black,5.5 L,Gasoline,TX,WSC,unsp,unsp,unsp,3,48950,24.378
+8729,550,unsp,Used,f,59080,2011,Black,5.5 L,Gasoline,SC,SoA,Harman Kardon,Alloy,unsp,72,49989,59.08
+8730,550,unsp,Used,t,22504,2011,White,5.5 L,Gasoline,AL,ESC,Premium,Alloy,unsp,73,52288,22.504
+8736,550,unsp,CPO,f,22180,2011,Black,5.5 L,Gasoline,TX,WSC,unsp,unsp,unsp,30,59995,22.18
+8738,550,unsp,Used,t,56761,2011,Silver,5.5 L,Gasoline,CA,Pac,unsp,unsp,22,10,39990,56.761
+8739,550,unsp,Used,t,33565,2011,Black,5.5 L,Gasoline,FL,SoA,Harman Kardon,Alloy,unsp,71,43999,33.565
+8743,550,unsp,Used,f,23691,2011,Black,5.5 L,Gasoline,TX,WSC,Premium,Alloy,unsp,52,50995,23.691
+8749,550,unsp,CPO,f,35113,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,Alloy,unsp,82,51970,35.113
+8750,550,unsp,Used,t,32316,2011,Black,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,0,46991,32.316
+8751,550,unsp,CPO,f,11936,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,64,54984,11.936
+8804,63 AMG,unsp,Used,t,42869,2011,Black,5.5 L,Gasoline,NJ,Mid,Bang Olufsen,Alloy,unsp,78,68900,42.869
+8865,550,unsp,Used,f,40745,2011,Black,5.5 L,Gasoline,VA,SoA,Premium,unsp,unsp,41,51950,40.745
+8866,550,unsp,Used,f,49308,2011,Black,5.5 L,Gasoline,NY,Mid,unsp,Alloy,unsp,24,40995,49.308
+8867,550,unsp,Used,t,39239,2011,Silver,5.5 L,Gasoline,MA,New,unsp,unsp,unsp,1,49998,39.239
+8876,550,unsp,Used,f,71754,2011,Gray,5.5 L,Gasoline,NJ,Mid,Harman Kardon,Alloy,unsp,75,37900,71.754
+8878,550,unsp,Used,f,43568,2011,Black,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,82,47995,43.568
+8880,550,unsp,CPO,f,21503,2011,Silver,5.5 L,Gasoline,MO,WNC,unsp,unsp,unsp,73,56500,21.503
+8882,550,unsp,Used,f,29529,2011,Black,5.5 L,Gasoline,WA,Pac,Premium,unsp,unsp,53,43500,29.529
+8884,550,unsp,Used,t,6175,2011,Black,5.5 L,Gasoline,OH,ENC,Harman Kardon,Alloy,unsp,79,44999,6.175
+8887,550,unsp,Used,f,28605,2011,Black,5.5 L,Gasoline,NY,Mid,Premium,Alloy,unsp,66,53950,28.605
+8888,550,unsp,CPO,f,18267,2011,Silver,5.5 L,Gasoline,VA,SoA,unsp,Alloy,unsp,81,49989,18.267
+8890,550,unsp,Used,f,27212,2011,Black,5.5 L,Gasoline,NY,Mid,unsp,Alloy,unsp,25,39995,27.212
+8891,550,unsp,Used,t,22246,2011,Black,5.5 L,Gasoline,IL,ENC,Harman Kardon,Alloy,unsp,23,62992,22.246
+8893,550,unsp,CPO,t,56955,2011,Black,5.5 L,Gasoline,MI,ENC,unsp,unsp,unsp,69,52995,56.955
+8894,550,unsp,Used,t,47781,2011,Black,5.5 L,Gasoline,NJ,Mid,Harman Kardon,Alloy,unsp,69,49900,47.781
+8896,550,unsp,CPO,t,23656,2011,White,5.5 L,Gasoline,NY,Mid,unsp,Alloy,unsp,58,57991,23.656
+9363,550,unsp,Used,t,9158,2011,Black,5.5 L,Gasoline,OK,WSC,Premium,Alloy,unsp,72,60000,9.158
+9374,550,unsp,Used,f,31023,2011,Black,5.5 L,Gasoline,CA,Pac,Harman Kardon,Alloy,20,75,52980,31.023
+9376,550,unsp,Used,f,35011,2011,Black,5.5 L,Gasoline,NC,SoA,unsp,unsp,unsp,12,49981,35.011
+9377,550,unsp,Used,f,18587,2011,Gray,5.5 L,Gasoline,NC,SoA,Harman Kardon,unsp,unsp,32,51000,18.587
+9381,550,unsp,Used,f,19071,2011,White,5.5 L,Gasoline,FL,SoA,Bang Olufsen,Alloy,unsp,56,49991,19.071
+9382,550,unsp,CPO,f,22236,2011,White,5.5 L,Gasoline,GA,SoA,Premium,Alloy,unsp,82,49991,22.236
+9423,63 AMG,unsp,Used,t,8112,2011,Silver,5.5 L,Gasoline,IL,ENC,Harman Kardon,Alloy,unsp,75,86876,8.112
+9424,63 AMG,unsp,Used,f,55030,2011,Black,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,28,61991,55.03
+9476,550,unsp,Used,f,41590,2011,Silver,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,80,45888,41.59
+9484,550,unsp,Used,t,38394,2011,White,5.5 L,Gasoline,GA,SoA,Premium,Alloy,unsp,68,49950,38.394
+9495,550,unsp,CPO,t,29256,2011,White,5.5 L,Gasoline,NY,Mid,Harman Kardon,Alloy,unsp,67,56991,29.256
+9496,550,unsp,CPO,t,33201,2011,Silver,5.5 L,Gasoline,VA,SoA,unsp,unsp,unsp,35,64995,33.201
+9497,550,unsp,Used,t,33234,2011,Black,5.5 L,Gasoline,OH,ENC,Premium,Alloy,unsp,87,56588,33.234
+9498,550,unsp,Used,t,18613,2011,Silver,5.5 L,Gasoline,FL,SoA,Premium,Alloy,19,72,44999,18.613
+9983,550,unsp,CPO,f,37326,2011,Silver,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,74,49900,37.326
+9984,550,unsp,Used,f,33713,2011,White,5.5 L,Gasoline,TX,WSC,Harman Kardon,unsp,unsp,22,55991,33.713
+9988,550,unsp,CPO,t,16607,2011,Black,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,18,26,61950,16.607
+9989,550,unsp,Used,t,18115,2011,Gray,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,54,51995,18.115
+9993,550,unsp,CPO,t,42960,2011,Silver,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,2,46981,42.96
+9998,550,unsp,CPO,t,34268,2011,Black,5.5 L,Gasoline,FL,SoA,unsp,Alloy,unsp,58,49995,34.268
+9999,550,unsp,Used,t,50211,2011,Silver,5.5 L,Gasoline,GA,SoA,Premium,Alloy,unsp,69,39880,50.211
+10000,550,unsp,CPO,t,19692,2011,White,5.5 L,Gasoline,CA,Pac,Harman Kardon,Alloy,unsp,59,62910,19.692
+10002,550,unsp,CPO,f,24237,2011,Black,5.5 L,Gasoline,CA,Pac,Harman Kardon,Alloy,unsp,69,56981,24.237
+10003,550,unsp,Used,t,22521,2011,Black,5.5 L,Gasoline,GA,SoA,Harman Kardon,Alloy,unsp,57,41995,22.521
+10006,550,unsp,CPO,f,24355,2011,Black,5.5 L,Gasoline,CA,Pac,Premium,Alloy,unsp,80,43998,24.355
+10009,550,unsp,CPO,t,37031,2011,Black,5.5 L,Gasoline,FL,SoA,Harman Kardon,unsp,unsp,32,57994,37.031
+10109,550,unsp,Used,t,51221,2011,Silver,5.5 L,Gasoline,VA,SoA,Premium,Alloy,unsp,37,42995,51.221
+10111,550,unsp,Used,t,58014,2011,White,5.5 L,Gasoline,GA,SoA,Harman Kardon,unsp,unsp,7,41990,58.014
+10113,550,unsp,Used,f,57482,2011,Black,5.5 L,Gasoline,MI,ENC,Premium,Alloy,unsp,50,40988,57.482
+10116,550,unsp,CPO,t,37552,2011,Black,5.5 L,Gasoline,NY,Mid,Harman Kardon,Alloy,20,77,45995,37.552
+10117,550,unsp,Used,t,36673,2011,Black,5.5 L,Gasoline,IL,ENC,Premium,Alloy,unsp,70,51991,36.673
+10118,550,unsp,Used,f,52658,2011,Silver,5.5 L,Gasoline,IL,ENC,Harman Kardon,Alloy,unsp,77,41998,52.658
+10120,550,unsp,CPO,f,36542,2011,Silver,5.5 L,Gasoline,VA,SoA,unsp,unsp,unsp,0,60891,36.542
+10124,550,unsp,Used,t,40444,2011,Silver,5.5 L,Gasoline,IL,ENC,Premium,Alloy,unsp,74,52900,40.444
+10125,550,unsp,CPO,f,27685,2011,Black,5.5 L,Gasoline,PA,Mid,Premium,Alloy,unsp,54,55991,27.685
+10127,550,unsp,Used,f,42326,2011,Black,5.5 L,Gasoline,VA,SoA,unsp,unsp,unsp,0,47995,42.326
+10129,550,unsp,Used,f,28319,2011,Black,5.5 L,Gasoline,GA,SoA,Harman Kardon,Premium,unsp,46,55991,28.319
+10130,550,unsp,Used,t,38212,2011,Black,5.5 L,Gasoline,GA,SoA,Harman Kardon,Premium,unsp,47,42999,38.212
+10134,550,unsp,Used,t,56909,2011,Black,5.5 L,Gasoline,NY,Mid,unsp,unsp,unsp,0,44995,56.909
+10135,550,unsp,Used,f,18227,2011,Black,5.5 L,Gasoline,IL,ENC,Harman Kardon,unsp,unsp,24,57991,18.227
+10641,550,unsp,CPO,f,12777,2011,Black,5.5 L,Gasoline,CA,Pac,Harman Kardon,Alloy,unsp,74,52988,12.777
+10646,550,unsp,CPO,t,53959,2011,White,5.5 L,Gasoline,CA,Pac,Harman Kardon,Alloy,unsp,27,49991,53.959
+10649,550,unsp,CPO,t,30870,2011,White,5.5 L,Gasoline,FL,SoA,unsp,Alloy,unsp,68,52995,30.87
+10658,550,unsp,Used,f,48012,2011,Blue,5.5 L,Gasoline,GA,SoA,Premium,unsp,unsp,58,40999,48.012
+10703,63 AMG,unsp,Used,f,40681,2011,Gray,5.5 L,Gasoline,TX,WSC,Bang Olufsen,Alloy,unsp,67,73995,40.681
+10704,63 AMG,unsp,CPO,f,1452,2011,Black,5.5 L,Gasoline,GA,SoA,unsp,unsp,unsp,96,79992,1.452
+10708,63 AMG,unsp,CPO,t,23195,2011,White,5.5 L,Gasoline,CA,Pac,Harman Kardon,Alloy,unsp,31,78888,23.195
+10752,550,unsp,Used,t,26900,2011,Silver,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,92,45950,26.9
+10753,550,unsp,CPO,f,23311,2011,Black,5.5 L,Gasoline,VA,SoA,Harman Kardon,Alloy,unsp,56,54914,23.311
+10757,550,unsp,CPO,t,26448,2011,Black,5.5 L,Gasoline,NJ,Mid,Premium,Alloy,unsp,73,49993,26.448
+10759,550,unsp,Used,f,47134,2011,Black,5.5 L,Gasoline,IL,ENC,Harman Kardon,Alloy,unsp,36,57995,47.134
+10765,550,unsp,CPO,t,30626,2011,Black,5.5 L,Gasoline,MD,SoA,unsp,unsp,unsp,58,60790,30.626
+10767,550,unsp,CPO,f,42590,2011,Black,5.5 L,Gasoline,DE,SoA,unsp,unsp,unsp,11,45900,42.59
+10771,550,unsp,CPO,f,43899,2011,Black,5.5 L,Gasoline,NC,SoA,unsp,unsp,unsp,11,49994,43.899
+10772,550,unsp,Used,f,67040,2011,Black,5.5 L,Gasoline,GA,SoA,unsp,unsp,18,45,40988,67.04
+10778,550,unsp,Used,f,43274,2011,Black,5.5 L,Gasoline,GA,SoA,unsp,Alloy,unsp,44,43988,43.274
+10779,550,unsp,CPO,t,36004,2011,White,5.5 L,Gasoline,WI,ENC,Premium,Alloy,unsp,73,51900,36.004
+10781,550,unsp,CPO,t,30535,2011,Black,5.5 L,Gasoline,NY,Mid,Premium,Alloy,unsp,66,64346,30.535
+10782,550,unsp,Used,f,27052,2011,Black,5.5 L,Gasoline,NJ,Mid,unsp,unsp,unsp,4,44795,27.052
+11291,550,unsp,Used,t,30926,2011,Black,5.5 L,Gasoline,OK,WSC,Premium,Alloy,unsp,73,49988,30.926
+11296,550,unsp,Used,t,43385,2011,Black,5.5 L,Gasoline,NV,Mtn,unsp,unsp,unsp,0,44987,43.385
+11298,550,unsp,Used,f,13724,2011,Black,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,0,49991,13.724
+11301,550,unsp,Used,t,43450,2011,Gray,5.5 L,Gasoline,AZ,Mtn,Premium,unsp,unsp,45,47999,43.45
+11305,550,unsp,CPO,f,13513,2011,Green,5.5 L,Gasoline,IL,ENC,Harman Kardon,Alloy,unsp,52,54991,13.513
+11310,550,unsp,Used,f,56063,2011,White,5.5 L,Gasoline,GA,SoA,Premium,Alloy,unsp,69,46997,56.063
+11311,550,unsp,CPO,t,38294,2011,Black,5.5 L,Gasoline,NC,SoA,unsp,Alloy,20,84,49863,38.294
+11353,63 AMG,unsp,CPO,t,48520,2011,Black,5.5 L,Gasoline,FL,SoA,Harman Kardon,unsp,unsp,34,73992,48.52
+11358,63 AMG,unsp,CPO,f,36924,2011,Black,5.5 L,Gasoline,NY,Mid,Premium,Alloy,unsp,76,58889,36.924
+11362,63 AMG,unsp,CPO,f,23373,2011,Gray,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,1,105995,23.373
+11363,63 AMG,unsp,Used,f,36419,2011,Black,5.5 L,Gasoline,AL,ESC,unsp,unsp,unsp,0,64725,36.419
+11364,63 AMG,unsp,Used,f,32098,2011,Black,5.5 L,Gasoline,MO,WNC,unsp,Alloy,unsp,45,64991,32.098
+11420,550,unsp,Used,f,22775,2011,White,5.5 L,Gasoline,WI,ENC,unsp,unsp,unsp,0,52995,22.775
+11422,550,unsp,CPO,f,24784,2011,Black,5.5 L,Gasoline,NY,Mid,Harman Kardon,Alloy,unsp,90,47888,24.784
+11425,550,unsp,Used,f,35088,2011,Black,5.5 L,Gasoline,IL,ENC,Harman Kardon,Alloy,unsp,80,46700,35.088
+11430,550,unsp,Used,t,64319,2011,Black,5.5 L,Gasoline,GA,SoA,Premium,unsp,unsp,44,39499,64.319
+11431,550,unsp,Used,t,64760,2011,Silver,5.5 L,Gasoline,OH,ENC,Premium,Alloy,unsp,68,42111,64.76
+11435,550,unsp,CPO,f,39127,2011,Black,5.5 L,Gasoline,OH,ENC,Premium,Alloy,unsp,79,55994,39.127
+11439,550,unsp,Used,f,43742,2011,Silver,5.5 L,Gasoline,MS,ESC,Premium,Alloy,unsp,65,54777,43.742
+11442,550,unsp,Used,f,24000,2011,Black,5.5 L,Gasoline,IA,WNC,unsp,unsp,unsp,16,51000,24
+11443,550,unsp,CPO,f,43516,2011,Black,5.5 L,Gasoline,NC,SoA,Premium,Alloy,unsp,61,45998,43.516
+11444,550,unsp,Used,f,45205,2011,Silver,5.5 L,Gasoline,GA,SoA,Harman Kardon,Alloy,unsp,93,40998,45.205
+11445,550,unsp,CPO,f,34058,2011,Silver,5.5 L,Gasoline,NY,Mid,unsp,unsp,unsp,4,59900,34.058
+11446,550,unsp,Used,f,20977,2011,Black,5.5 L,Gasoline,VA,SoA,Premium,unsp,unsp,38,59950,20.977
+11447,550,unsp,Used,f,33819,2011,Gray,5.5 L,Gasoline,GA,SoA,unsp,unsp,unsp,29,46995,33.819
+11450,550,unsp,Used,f,51269,2011,White,5.5 L,Gasoline,NJ,Mid,unsp,unsp,unsp,5,49995,51.269
+11452,550,unsp,Used,t,50363,2011,Black,5.5 L,Gasoline,GA,SoA,Harman Kardon,Alloy,unsp,54,39999,50.363
+11453,550,unsp,CPO,f,13214,2011,Black,5.5 L,Gasoline,MO,WNC,Harman Kardon,Alloy,18,53,60961,13.214
+11935,550,unsp,CPO,t,62595,2011,Silver,5.5 L,Gasoline,GA,SoA,unsp,unsp,unsp,4,44508,62.595
+11936,550,unsp,CPO,t,28744,2011,Black,5.5 L,Gasoline,OK,WSC,Harman Kardon,unsp,unsp,3,58988,28.744
+11938,550,unsp,Used,f,46968,2011,White,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,38,47991,46.968
+11943,550,unsp,Used,f,30994,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,0,48995,30.994
+11947,550,unsp,Used,t,49916,2011,Black,5.5 L,Gasoline,FL,SoA,Premium,Alloy,18,71,39999,49.916
+11951,550,unsp,Used,t,37658,2011,Gray,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,86,47999,37.658
+11953,550,unsp,CPO,f,37770,2011,Silver,5.5 L,Gasoline,TN,ESC,Harman Kardon,Alloy,unsp,67,55500,37.77
+11954,550,unsp,CPO,f,40759,2011,Gray,5.5 L,Gasoline,CA,Pac,Harman Kardon,Alloy,unsp,76,51991,40.759
+11955,550,unsp,Used,f,42928,2011,Gray,5.5 L,Gasoline,FL,SoA,Harman Kardon,Alloy,unsp,77,37850,42.928
+11957,550,unsp,CPO,t,20686,2011,Gray,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,44,59950,20.686
+11958,550,unsp,Used,f,60662,2011,Red,5.5 L,Gasoline,AR,WSC,Premium,Alloy,unsp,70,52990,60.662
+11996,63 AMG,unsp,CPO,t,42338,2011,White,5.5 L,Gasoline,OR,Pac,unsp,Alloy,unsp,79,75900,42.338
+11998,63 AMG,unsp,CPO,f,28390,2011,Blue,5.5 L,Gasoline,CA,Pac,unsp,unsp,20,29,74998,28.39
+12001,63 AMG,unsp,CPO,t,26887,2011,Silver,5.5 L,Gasoline,NY,Mid,unsp,unsp,unsp,3,83900,26.887
+12003,63 AMG,unsp,CPO,f,55953,2011,Black,5.5 L,Gasoline,VA,SoA,Bang Olufsen,Alloy,unsp,61,67986,55.953
+12053,550,unsp,CPO,f,39265,2011,Silver,5.5 L,Gasoline,NY,Mid,Harman Kardon,Alloy,unsp,39,56900,39.265
+12057,550,unsp,CPO,f,23307,2011,Black,5.5 L,Gasoline,NJ,Mid,Premium,Alloy,unsp,73,47992,23.307
+12060,550,unsp,Used,t,32588,2011,Black,5.5 L,Gasoline,FL,SoA,Harman Kardon,Alloy,unsp,72,40999,32.588
+12061,550,unsp,CPO,f,48903,2011,Black,5.5 L,Gasoline,NC,SoA,Premium,Alloy,unsp,43,49757,48.903
+12064,550,unsp,CPO,t,46597,2011,Black,5.5 L,Gasoline,IL,ENC,Premium,Alloy,unsp,67,54998,46.597
+12068,550,unsp,CPO,f,54819,2011,Silver,5.5 L,Gasoline,MA,New,unsp,Alloy,unsp,61,51991,54.819
+12069,550,unsp,CPO,f,44720,2011,Black,5.5 L,Gasoline,OH,ENC,Premium,Alloy,unsp,84,47991,44.72
+12072,550,unsp,CPO,t,32085,2011,Black,5.5 L,Gasoline,NY,Mid,unsp,Alloy,unsp,77,49998,32.085
+12073,550,unsp,Used,f,29930,2011,Black,5.5 L,Gasoline,MA,New,Harman Kardon,Alloy,unsp,22,51990,29.93
+12584,550,unsp,Used,f,33805,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,Alloy,unsp,52,41995,33.805
+12588,550,unsp,Used,t,35266,2011,Silver,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,67,48850,35.266
+12594,550,unsp,CPO,f,33831,2011,Gray,5.5 L,Gasoline,SC,SoA,Harman Kardon,Alloy,unsp,90,49990,33.831
+12595,550,unsp,CPO,f,21552,2011,Gray,5.5 L,Gasoline,CA,Pac,Premium,Alloy,unsp,68,59910,21.552
+12660,63 AMG,unsp,Used,f,39183,2011,Black,5.5 L,Gasoline,FL,SoA,Bang Olufsen,Alloy,unsp,6,66293,39.183
+12664,63 AMG,unsp,Used,f,20091,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,2,74991,20.091
+12711,550,unsp,Used,t,22338,2011,White,5.5 L,Gasoline,OH,ENC,Premium,Alloy,unsp,60,48999,22.338
+12712,550,unsp,CPO,f,38086,2011,Black,5.5 L,Gasoline,PA,Mid,Premium,Alloy,unsp,85,48799,38.086
+12716,550,unsp,Used,f,38260,2011,Silver,5.5 L,Gasoline,MA,New,unsp,unsp,unsp,58,47877,38.26
+12717,550,unsp,CPO,f,33755,2011,Silver,5.5 L,Gasoline,NJ,Mid,Premium,Alloy,unsp,74,49292,33.755
+12718,550,unsp,Used,t,76295,2011,Black,5.5 L,Gasoline,NY,Mid,unsp,unsp,unsp,15,36495,76.295
+12719,550,unsp,Used,t,53547,2011,Silver,5.5 L,Gasoline,GA,SoA,Harman Kardon,Alloy,unsp,74,39995,53.547
+12723,550,unsp,Used,f,40000,2011,unsp,5.5 L,Gasoline,CO,Mtn,Premium,Alloy,unsp,68,46980,40
+12726,550,unsp,Used,f,14138,2011,Black,5.5 L,Gasoline,IL,ENC,Premium,Alloy,unsp,60,58944,14.138
+12727,550,unsp,Used,f,12319,2011,Black,5.5 L,Gasoline,MN,WNC,unsp,Alloy,unsp,45,49800,12.319
+12733,550,unsp,CPO,f,40908,2011,Blue,5.5 L,Gasoline,MA,New,unsp,unsp,unsp,56,52998,40.908
+12734,550,unsp,CPO,t,24473,2011,Black,5.5 L,Gasoline,NY,Mid,Harman Kardon,Alloy,unsp,26,56900,24.473
+12740,550,unsp,Used,t,20736,2011,Black,5.5 L,Gasoline,CO,Mtn,Harman Kardon,unsp,unsp,57,59900,20.736
+12741,550,unsp,Used,f,42251,2011,Black,5.5 L,Gasoline,NY,Mid,unsp,Alloy,unsp,17,43995,42.251
+12742,550,unsp,CPO,t,23009,2011,Silver,5.5 L,Gasoline,NY,Mid,unsp,Alloy,unsp,82,49884,23.009
+13278,550,unsp,Used,f,8300,2011,White,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,0,58991,8.3
+13279,550,unsp,Used,f,41003,2011,Silver,5.5 L,Gasoline,AL,ESC,unsp,unsp,unsp,34,49994,41.003
+13283,550,unsp,CPO,f,30651,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,1,64795,30.651
+13285,550,unsp,CPO,t,26820,2011,Black,5.5 L,Gasoline,CA,Pac,Harman Kardon,Alloy,unsp,70,59991,26.82
+13288,550,unsp,Used,t,19677,2011,Black,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,0,55391,19.677
+13289,550,unsp,CPO,f,26543,2011,White,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,0,56380,26.543
+13298,550,unsp,CPO,t,38601,2011,Silver,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,78,55991,38.601
+13300,550,unsp,Used,t,36780,2011,Black,5.5 L,Gasoline,CA,Pac,Harman Kardon,unsp,unsp,17,48981,36.78
+13340,63 AMG,unsp,Used,f,22817,2011,Black,5.5 L,Gasoline,NH,New,Premium,Alloy,unsp,72,79988,22.817
+13383,550,unsp,Used,f,19088,2011,Green,5.5 L,Gasoline,NY,Mid,unsp,unsp,unsp,33,47000,19.088
+13384,550,unsp,Used,f,29952,2011,Black,5.5 L,Gasoline,OK,WSC,unsp,unsp,unsp,0,61988,29.952
+13387,550,unsp,Used,f,15723,2011,Black,5.5 L,Gasoline,MA,New,unsp,unsp,unsp,0,48998,15.723
+13388,550,unsp,CPO,t,29669,2011,White,5.5 L,Gasoline,NJ,Mid,Premium,Alloy,unsp,71,59823,29.669
+13389,550,unsp,Used,f,48607,2011,Black,5.5 L,Gasoline,LA,WSC,unsp,Alloy,unsp,58,37995,48.607
+13392,550,unsp,Used,f,39616,2011,Black,5.5 L,Gasoline,AL,ESC,unsp,unsp,unsp,41,45995,39.616
+13394,550,unsp,Used,t,48597,2011,Silver,5.5 L,Gasoline,GA,SoA,unsp,unsp,unsp,7,36990,48.597
+13401,550,unsp,Used,f,39683,2011,Black,5.5 L,Gasoline,AL,ESC,unsp,unsp,unsp,41,38995,39.683
+13403,550,unsp,Used,t,60050,2011,Black,5.5 L,Gasoline,FL,SoA,Harman Kardon,Alloy,unsp,71,37999,60.05
+13404,550,unsp,Used,t,44313,2011,Gray,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,5,36777,44.313
+13406,550,unsp,Used,f,49624,2011,Silver,5.5 L,Gasoline,IL,ENC,unsp,unsp,unsp,7,47980,49.624
+13936,550,unsp,CPO,f,30788,2011,Black,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,39,47991,30.788
+13938,550,unsp,CPO,f,13542,2011,Black,5.5 L,Gasoline,FL,SoA,Harman Kardon,unsp,unsp,77,55900,13.542
+13941,550,unsp,Used,f,7714,2011,Black,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,0,64900,7.714
+13942,550,unsp,Used,t,39219,2011,Black,5.5 L,Gasoline,FL,SoA,Bang Olufsen,unsp,unsp,49,39999,39.219
+13946,550,unsp,CPO,f,31918,2011,Black,5.5 L,Gasoline,FL,SoA,Harman Kardon,Alloy,unsp,28,49994,31.918
+13948,550,unsp,Used,f,48697,2011,Silver,5.5 L,Gasoline,GA,SoA,Harman Kardon,Alloy,unsp,83,44999,48.697
+13952,550,unsp,CPO,f,24855,2011,Silver,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,0,56895,24.855
+13988,63 AMG,unsp,CPO,f,3275,2011,Blue,5.5 L,Gasoline,VA,SoA,Bang Olufsen,Alloy,unsp,62,92990,3.275
+14024,550,unsp,Used,f,35497,2011,Black,5.5 L,Gasoline,UT,Mtn,Harman Kardon,unsp,unsp,89,53881,35.497
+14025,550,unsp,Used,f,27613,2011,Black,5.5 L,Gasoline,NY,Mid,unsp,Alloy,unsp,61,49995,27.613
+14032,550,unsp,CPO,f,10599,2011,Black,5.5 L,Gasoline,NY,Mid,unsp,unsp,unsp,3,59900,10.599
+14035,550,unsp,Used,f,76366,2011,Black,5.5 L,Gasoline,NY,Mid,unsp,Alloy,unsp,54,37995,76.366
+14037,550,unsp,Used,t,13966,2011,Black,5.5 L,Gasoline,NY,Mid,Premium,Alloy,unsp,64,51950,13.966
+14039,550,unsp,Used,t,51015,2011,Black,5.5 L,Gasoline,GA,SoA,unsp,unsp,unsp,9,40990,51.015
+14043,550,unsp,Used,f,30125,2011,Black,5.5 L,Gasoline,GA,SoA,Premium,Premium,unsp,50,43999,30.125
+14046,550,unsp,Used,t,31833,2011,Silver,5.5 L,Gasoline,NY,Mid,Harman Kardon,unsp,unsp,20,45995,31.833
+14556,550,unsp,Used,f,41754,2011,Black,5.5 L,Gasoline,CA,Pac,Premium,Alloy,unsp,34,40495,41.754
+14557,550,unsp,CPO,f,36475,2011,Silver,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,12,52888,36.475
+14561,550,unsp,Used,f,74244,2011,Black,5.5 L,Gasoline,TX,WSC,Harman Kardon,unsp,unsp,24,42991,74.244
+14562,550,unsp,Used,f,31030,2011,Gray,5.5 L,Gasoline,FL,SoA,Premium,unsp,unsp,37,48656,31.03
+14563,550,unsp,CPO,f,12207,2011,White,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,73,56991,12.207
+14568,550,unsp,Used,f,50128,2011,White,5.5 L,Gasoline,CA,Pac,Premium,unsp,unsp,6,42995,50.128
+14572,550,unsp,CPO,f,29200,2011,Brown,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,11,52980,29.2
+14573,550,unsp,CPO,f,2416,2011,White,5.5 L,Gasoline,GA,SoA,Harman Kardon,unsp,unsp,36,59991,2.416
+14576,550,unsp,Used,f,23727,2011,Silver,5.5 L,Gasoline,TX,WSC,Premium,Alloy,unsp,75,58995,23.727
+14577,550,unsp,CPO,f,40931,2011,Silver,5.5 L,Gasoline,NC,SoA,unsp,Alloy,unsp,61,53964,40.931
+14629,63 AMG,unsp,Used,t,63020,2011,Black,5.5 L,Gasoline,CA,Pac,Bang Olufsen,Alloy,unsp,17,56888,63.02
+14683,550,unsp,Used,t,46000,2011,Black,5.5 L,Gasoline,MI,ENC,Harman Kardon,unsp,unsp,83,47995,46
+14685,550,unsp,Used,f,12681,2011,Black,5.5 L,Gasoline,NY,Mid,unsp,unsp,unsp,56,63888,12.681
+14687,550,unsp,CPO,f,36685,2011,Black,5.5 L,Gasoline,OH,ENC,Premium,Alloy,unsp,79,51991,36.685
+14688,550,unsp,CPO,t,43767,2011,Black,5.5 L,Gasoline,NJ,Mid,Harman Kardon,unsp,unsp,60,60890,43.767
+14697,550,unsp,CPO,f,40758,2011,Black,5.5 L,Gasoline,OH,ENC,Premium,Alloy,unsp,79,55998,40.758
+14698,550,unsp,Used,f,61337,2011,Black,5.5 L,Gasoline,GA,SoA,Harman Kardon,Premium,unsp,56,45996,61.337
+14699,550,unsp,Used,t,11570,2011,unsp,5.5 L,Gasoline,NY,Mid,unsp,unsp,unsp,0,61450,11.57
+14700,550,unsp,Used,f,29603,2011,Silver,5.5 L,Gasoline,FL,SoA,Harman Kardon,Alloy,18,73,44999,29.603
+14704,550,unsp,Used,f,39829,2011,Black,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,45,54999,39.829
+14712,550,unsp,CPO,t,33391,2011,Black,5.5 L,Gasoline,CO,Mtn,Premium,Alloy,unsp,70,49991,33.391
+14714,550,unsp,Used,f,22332,2011,Black,5.5 L,Gasoline,NY,Mid,unsp,Alloy,unsp,22,39995,22.332
+15227,550,unsp,CPO,f,44641,2011,Silver,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,11,51980,44.641
+15228,550,unsp,CPO,t,35216,2011,Silver,5.5 L,Gasoline,LA,WSC,Premium,Alloy,unsp,63,61900,35.216
+15229,550,unsp,Used,t,62861,2011,Black,5.5 L,Gasoline,FL,SoA,Harman Kardon,unsp,unsp,34,46991,62.861
+15230,550,unsp,Used,f,77157,2011,Black,5.5 L,Gasoline,MN,WNC,Premium,Alloy,unsp,61,37990,77.157
+15231,550,unsp,Used,t,49654,2011,Black,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,74,43487,49.654
+15234,550,unsp,Used,f,53283,2011,White,5.5 L,Gasoline,IL,ENC,Bang Olufsen,Alloy,unsp,72,52999,53.283
+15235,550,unsp,Used,f,35715,2011,Black,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,11,39881,35.715
+15236,550,unsp,Used,t,79100,2011,White,5.5 L,Gasoline,FL,SoA,Harman Kardon,unsp,unsp,70,39900,79.1
+15237,550,unsp,Used,f,23893,2011,Black,5.5 L,Gasoline,FL,SoA,unsp,Alloy,unsp,57,50991,23.893
+15238,550,unsp,CPO,f,56810,2011,Black,5.5 L,Gasoline,TX,WSC,unsp,unsp,unsp,54,48900,56.81
+15239,550,unsp,Used,t,46837,2011,White,5.5 L,Gasoline,AL,ESC,Premium,unsp,unsp,36,51995,46.837
+15240,550,unsp,CPO,f,52193,2011,Gray,5.5 L,Gasoline,TX,WSC,unsp,unsp,unsp,2,49993,52.193
+15245,550,unsp,CPO,t,35272,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,57,59888,35.272
+15246,550,unsp,Used,f,59873,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,Alloy,unsp,54,36988,59.873
+15247,550,unsp,CPO,f,36130,2011,Black,5.5 L,Gasoline,VA,SoA,unsp,Alloy,unsp,61,57900,36.13
+15249,550,unsp,Used,t,20101,2011,Silver,5.5 L,Gasoline,NV,Mtn,Harman Kardon,Alloy,unsp,27,52999,20.101
+15290,63 AMG,unsp,CPO,f,11726,2011,Black,5.5 L,Gasoline,NY,Mid,unsp,unsp,unsp,5,79900,11.726
+15294,63 AMG,unsp,CPO,f,10405,2011,White,5.5 L,Gasoline,NV,Mtn,unsp,unsp,unsp,58,92995,10.405
+15295,63 AMG,unsp,CPO,t,33352,2011,Black,5.5 L,Gasoline,AZ,Mtn,Premium,Alloy,unsp,74,71888,33.352
+15296,63 AMG,unsp,CPO,f,29808,2011,Black,5.5 L,Gasoline,CA,Pac,Harman Kardon,Premium,unsp,44,79971,29.808
+15347,550,unsp,Used,f,34343,2011,unsp,5.5 L,Gasoline,MD,SoA,Bang Olufsen,unsp,unsp,18,62852,34.343
+15348,550,unsp,Used,f,13852,2011,Black,5.5 L,Gasoline,MS,ESC,unsp,unsp,unsp,73,53800,13.852
+15352,550,unsp,Used,t,20338,2011,Black,5.5 L,Gasoline,OH,ENC,Premium,unsp,unsp,50,42893,20.338
+15353,550,unsp,Used,f,59569,2011,Blue,5.5 L,Gasoline,NY,Mid,Premium,unsp,unsp,40,32980,59.569
+15354,550,unsp,CPO,f,23851,2011,Black,5.5 L,Gasoline,CT,New,unsp,Alloy,unsp,44,54490,23.851
+15362,550,unsp,Used,t,34640,2011,White,5.5 L,Gasoline,GA,SoA,Harman Kardon,unsp,unsp,5,45990,34.64
+15363,550,unsp,Used,f,55540,2011,Silver,5.5 L,Gasoline,NY,Mid,unsp,unsp,unsp,16,38995,55.54
+15364,550,unsp,Used,f,33709,2011,Black,5.5 L,Gasoline,KY,ESC,Harman Kardon,Alloy,unsp,70,48810,33.709
+15367,550,unsp,Used,t,27861,2011,Black,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,61,47999,27.861
+15370,550,unsp,Used,f,46225,2011,Black,5.5 L,Gasoline,GA,SoA,Premium,Premium,unsp,48,39999,46.225
+15371,550,unsp,Used,t,47535,2011,Black,5.5 L,Gasoline,NY,Mid,Harman Kardon,Alloy,unsp,68,53995,47.535
+15902,550,unsp,CPO,f,28126,2011,Silver,5.5 L,Gasoline,CA,Pac,Harman Kardon,Alloy,unsp,33,54888,28.126
+15903,550,unsp,CPO,f,16829,2011,Black,5.5 L,Gasoline,LA,WSC,Premium,Alloy,unsp,78,58910,16.829
+15907,550,unsp,CPO,t,31301,2011,Gray,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,71,56991,31.301
+15908,550,unsp,Used,f,25541,2011,Black,5.5 L,Gasoline,GA,SoA,Premium,unsp,unsp,49,45999,25.541
+15910,550,unsp,Used,f,12271,2011,White,5.5 L,Gasoline,TX,WSC,unsp,unsp,unsp,0,64991,12.271
+15914,550,unsp,Used,f,38870,2011,Black,5.5 L,Gasoline,CA,Pac,Bang Olufsen,unsp,unsp,8,51991,38.87
+15916,550,unsp,Used,f,29252,2011,Black,5.5 L,Gasoline,GA,SoA,Harman Kardon,Alloy,unsp,80,46645,29.252
+15924,550,unsp,CPO,f,43622,2011,Black,5.5 L,Gasoline,WA,Pac,Harman Kardon,Alloy,unsp,41,57777,43.622
+15963,63 AMG,unsp,Used,f,10912,2011,Black,5.5 L,Gasoline,FL,SoA,Harman Kardon,unsp,unsp,68,88980,10.912
+16028,550,unsp,Used,t,59324,2011,Black,5.5 L,Gasoline,NJ,Mid,Harman Kardon,Alloy,unsp,77,38995,59.324
+16029,550,unsp,Used,f,33867,2011,Black,5.5 L,Gasoline,WA,Pac,Premium,unsp,unsp,52,43500,33.867
+16031,550,unsp,CPO,f,43338,2011,Black,5.5 L,Gasoline,VA,SoA,unsp,unsp,unsp,0,60495,43.338
+16034,550,unsp,Used,t,40634,2011,Black,5.5 L,Gasoline,GA,SoA,unsp,unsp,unsp,6,39995,40.634
+16039,550,unsp,CPO,t,36835,2011,Black,5.5 L,Gasoline,TN,ESC,unsp,unsp,unsp,53,58999,36.835
+16041,550,unsp,CPO,f,27528,2011,Blue,5.5 L,Gasoline,OH,ENC,unsp,Alloy,unsp,82,54491,27.528
+16042,550,unsp,CPO,t,10708,2011,Silver,5.5 L,Gasoline,PA,Mid,unsp,unsp,unsp,51,59126,10.708
+16045,550,unsp,CPO,f,12540,2011,Black,5.5 L,Gasoline,DE,SoA,unsp,Alloy,unsp,62,65900,12.54
+16542,550,unsp,Used,t,32421,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,0,46500,32.421
+16553,550,unsp,CPO,f,32550,2011,White,5.5 L,Gasoline,TX,WSC,unsp,Alloy,unsp,39,56100,32.55
+16558,550,unsp,CPO,f,42983,2011,Black,5.5 L,Gasoline,TN,ESC,Harman Kardon,unsp,unsp,9,42473,42.983
+16564,550,unsp,Used,t,32113,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,13,53990,32.113
+16567,550,unsp,CPO,f,23741,2011,Silver,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,9,56975,23.741
+16668,550,unsp,Used,f,44421,2011,Blue,5.5 L,Gasoline,CT,New,unsp,Alloy,unsp,41,53490,44.421
+16669,550,unsp,Used,f,70333,2011,Black,5.5 L,Gasoline,VA,SoA,unsp,Alloy,unsp,14,41557,70.333
+16673,550,unsp,Used,f,67613,2011,Black,5.5 L,Gasoline,MI,ENC,Premium,Alloy,unsp,50,47900,67.613
+16674,550,unsp,Used,f,32664,2011,White,5.5 L,Gasoline,MD,SoA,Premium,Alloy,unsp,93,53955,32.664
+16675,550,unsp,Used,f,25031,2011,Black,5.5 L,Gasoline,TN,ESC,Harman Kardon,unsp,18,102,49900,25.031
+16676,550,unsp,CPO,f,38157,2011,Black,5.5 L,Gasoline,KS,WNC,Premium,Alloy,unsp,82,55900,38.157
+16678,550,unsp,CPO,f,14315,2011,Black,5.5 L,Gasoline,NJ,Mid,unsp,Alloy,unsp,58,62991,14.315
+16680,550,unsp,Used,t,31153,2011,White,5.5 L,Gasoline,PA,Mid,Harman Kardon,Alloy,18,74,46995,31.153
+16681,550,unsp,Used,t,45126,2011,Gray,5.5 L,Gasoline,NC,SoA,Harman Kardon,Alloy,unsp,85,42000,45.126
+16683,550,unsp,Used,f,36833,2011,Black,5.5 L,Gasoline,TN,ESC,Harman Kardon,Alloy,unsp,70,48880,36.833
+16684,550,unsp,Used,f,46235,2011,White,5.5 L,Gasoline,VA,SoA,unsp,unsp,unsp,5,49995,46.235
+16686,550,unsp,CPO,f,22166,2011,Black,5.5 L,Gasoline,NJ,Mid,Harman Kardon,Alloy,unsp,81,50784,22.166
+16687,550,unsp,Used,f,16679,2011,White,5.5 L,Gasoline,MA,New,unsp,Premium,unsp,10,59998,16.679
+16692,550,unsp,CPO,f,49256,2011,Black,5.5 L,Gasoline,WV,SoA,Premium,Alloy,unsp,79,44919,49.256
+16693,550,unsp,Used,f,29431,2011,White,5.5 L,Gasoline,FL,SoA,Premium,Alloy,18,74,38999,29.431
+16694,550,unsp,CPO,f,13283,2011,Black,5.5 L,Gasoline,OK,WSC,Premium,Alloy,unsp,74,54000,13.283
+17241,550,unsp,CPO,t,35048,2011,Gray,5.5 L,Gasoline,TX,WSC,unsp,unsp,unsp,5,59911,35.048
+17245,550,unsp,Used,f,29090,2011,Black,5.5 L,Gasoline,TX,WSC,Premium,Alloy,unsp,53,48995,29.09
+17251,550,unsp,CPO,f,49514,2011,White,5.5 L,Gasoline,TN,ESC,unsp,unsp,unsp,71,51623,49.514
+17254,550,unsp,Used,t,38229,2011,Gray,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,57,48800,38.229
+17256,550,unsp,Used,f,14966,2011,Silver,5.5 L,Gasoline,AZ,Mtn,unsp,Alloy,unsp,56,58999,14.966
+17296,63 AMG,unsp,CPO,f,16496,2011,White,5.5 L,Gasoline,OH,ENC,Premium,Alloy,unsp,72,82995,16.496
+17348,550,unsp,CPO,t,33106,2011,Black,5.5 L,Gasoline,CT,New,Harman Kardon,Alloy,19,78,53777,33.106
+17350,550,unsp,Used,f,40386,2011,Black,5.5 L,Gasoline,GA,SoA,unsp,unsp,unsp,13,42999,40.386
+17351,550,unsp,CPO,f,3598,2011,White,5.5 L,Gasoline,CO,Mtn,unsp,Alloy,unsp,80,63000,3.598
+17352,550,unsp,Used,t,48944,2011,Green,5.5 L,Gasoline,VA,SoA,Premium,Alloy,unsp,68,50989,48.944
+17353,550,unsp,Used,f,42821,2011,Black,5.5 L,Gasoline,MS,ESC,unsp,unsp,unsp,56,53800,42.821
+17354,550,unsp,Used,f,33955,2011,Black,5.5 L,Gasoline,MI,ENC,unsp,unsp,unsp,3,48995,33.955
+17355,550,unsp,CPO,f,7551,2011,Black,5.5 L,Gasoline,NY,Mid,Premium,Alloy,unsp,64,61989,7.551
+17356,550,unsp,CPO,f,31109,2011,Gray,5.5 L,Gasoline,MD,SoA,Bang Olufsen,Alloy,unsp,74,50998,31.109
+17359,550,unsp,CPO,f,44364,2011,Gray,5.5 L,Gasoline,CO,Mtn,unsp,Alloy,unsp,6,43994,44.364
+17360,550,unsp,Used,f,23354,2011,Black,5.5 L,Gasoline,KS,WNC,Premium,Alloy,unsp,76,64956,23.354
+17362,550,unsp,Used,f,29801,2011,White,5.5 L,Gasoline,NC,SoA,unsp,unsp,unsp,33,44376,29.801
+17363,550,unsp,CPO,t,38122,2011,Black,5.5 L,Gasoline,NJ,Mid,Premium,Alloy,18,72,53395,38.122
+17367,550,unsp,CPO,f,26138,2011,Silver,5.5 L,Gasoline,MD,SoA,Premium,Alloy,unsp,73,48993,26.138
+17370,550,unsp,Used,f,23223,2011,Black,5.5 L,Gasoline,PA,Mid,Premium,Alloy,unsp,69,56993,23.223
+17371,550,unsp,Used,f,59518,2011,Black,5.5 L,Gasoline,NY,Mid,unsp,Alloy,unsp,19,40995,59.518
+17893,550,unsp,Used,f,7503,2011,Red,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,0,58491,7.503
+17894,550,unsp,Used,f,32396,2011,Black,5.5 L,Gasoline,FL,SoA,Premium,unsp,unsp,50,40500,32.396
+17898,550,unsp,CPO,f,39210,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,Alloy,unsp,69,48998,39.21
+17899,550,unsp,Used,t,40021,2011,unsp,5.5 L,Gasoline,MS,ESC,Premium,Alloy,unsp,68,44995,40.021
+17900,550,unsp,CPO,t,30401,2011,Green,5.5 L,Gasoline,MO,WNC,Harman Kardon,unsp,unsp,38,59961,30.401
+17901,550,unsp,Used,t,39308,2011,Black,5.5 L,Gasoline,FL,SoA,Harman Kardon,unsp,unsp,36,55792,39.308
+17902,550,unsp,CPO,t,15794,2011,White,5.5 L,Gasoline,HI,Pac,Premium,Alloy,unsp,70,61000,15.794
+17903,550,unsp,CPO,t,18517,2011,White,5.5 L,Gasoline,FL,SoA,Premium,Alloy,unsp,66,57991,18.517
+17905,550,unsp,Used,f,25751,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,12,57990,25.751
+17957,63 AMG,unsp,CPO,f,52480,2011,Silver,5.5 L,Gasoline,NY,Mid,Premium,Alloy,unsp,68,66988,52.48
+17958,63 AMG,unsp,Used,f,5300,2011,Black,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,5,86995,5.3
+18028,550,unsp,Used,f,56686,2011,Black,5.5 L,Gasoline,NC,SoA,Harman Kardon,unsp,unsp,35,42991,56.686
+18035,550,unsp,CPO,f,31582,2011,unsp,5.5 L,Gasoline,ME,New,unsp,Alloy,unsp,58,56791,31.582
+18038,550,unsp,Used,f,45957,2011,Black,5.5 L,Gasoline,NY,Mid,unsp,Alloy,unsp,21,41995,45.957
+18039,550,unsp,CPO,t,48396,2011,Silver,5.5 L,Gasoline,OH,ENC,unsp,unsp,unsp,5,48500,48.396
+18041,550,unsp,Used,f,23078,2011,Black,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,61,47777,23.078
+18545,550,unsp,Used,t,30478,2011,Silver,5.5 L,Gasoline,CA,Pac,Harman Kardon,unsp,unsp,13,42990,30.478
+18546,550,unsp,Used,f,42776,2011,White,5.5 L,Gasoline,GA,SoA,unsp,unsp,unsp,62,55000,42.776
+18549,550,unsp,CPO,f,14238,2011,Black,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,72,59991,14.238
+18552,550,unsp,CPO,t,35896,2011,Black,5.5 L,Gasoline,GA,SoA,unsp,unsp,unsp,68,54877,35.896
+18560,550,unsp,Used,f,30249,2011,Silver,5.5 L,Gasoline,NC,SoA,Harman Kardon,Alloy,unsp,60,50922,30.249
+18561,550,unsp,CPO,f,28141,2011,White,5.5 L,Gasoline,FL,SoA,Harman Kardon,Alloy,unsp,25,54991,28.141
+18564,550,unsp,CPO,t,23653,2011,Black,5.5 L,Gasoline,SC,SoA,Premium,Alloy,unsp,71,58800,23.653
+18567,550,unsp,Used,f,80293,2011,Black,5.5 L,Gasoline,NY,Mid,unsp,Alloy,unsp,20,35995,80.293
+18615,63 AMG,unsp,CPO,f,27810,2011,Black,5.5 L,Gasoline,CA,Pac,Harman Kardon,Premium,unsp,38,79882,27.81
+18666,550,unsp,Used,f,31072,2011,Gray,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,73,47850,31.072
+18667,550,unsp,Used,f,41049,2011,White,5.5 L,Gasoline,IN,ENC,unsp,Alloy,unsp,54,49914,41.049
+18669,550,unsp,CPO,f,32624,2011,Black,5.5 L,Gasoline,MI,ENC,unsp,unsp,unsp,55,56492,32.624
+18670,550,unsp,Used,f,59587,2011,Blue,5.5 L,Gasoline,GA,SoA,Harman Kardon,Alloy,unsp,55,36999,59.587
+18672,550,unsp,Used,f,35503,2011,Black,5.5 L,Gasoline,MD,SoA,Harman Kardon,Alloy,18,45,51900,35.503
+18674,550,unsp,Used,t,38898,2011,Black,5.5 L,Gasoline,NY,Mid,Harman Kardon,unsp,unsp,22,41995,38.898
+18679,550,unsp,Used,t,31439,2011,Black,5.5 L,Gasoline,FL,SoA,Premium,Alloy,unsp,74,36999,31.439
+18683,550,unsp,Used,f,43193,2011,Gray,5.5 L,Gasoline,NY,Mid,Harman Kardon,Alloy,unsp,77,41999,43.193
+18684,550,unsp,Used,f,48133,2011,Black,5.5 L,Gasoline,MD,SoA,unsp,unsp,unsp,33,40695,48.133
+18687,550,unsp,Used,f,28432,2011,Black,5.5 L,Gasoline,WA,Pac,Harman Kardon,unsp,unsp,13,52480,28.432
+18693,550,unsp,Used,t,68484,2011,Black,5.5 L,Gasoline,NJ,Mid,Harman Kardon,unsp,unsp,102,37652,68.484
+18699,550,unsp,CPO,t,33919,2011,Black,5.5 L,Gasoline,CT,New,Premium,Alloy,unsp,68,49990,33.919
+18700,550,unsp,Used,t,56585,2011,Black,5.5 L,Gasoline,NY,Mid,unsp,Alloy,unsp,18,36995,56.585
+18702,550,unsp,Used,f,51777,2011,Blue,5.5 L,Gasoline,GA,SoA,Harman Kardon,Premium,unsp,54,40999,51.777
+18704,550,unsp,CPO,f,38252,2011,Black,5.5 L,Gasoline,NY,Mid,Harman Kardon,Alloy,18,105,49900,38.252
+18705,550,unsp,Used,f,30248,2011,Black,5.5 L,Gasoline,IL,ENC,Harman Kardon,Alloy,unsp,79,47998,30.248
+18711,550,unsp,Used,f,67006,2011,Black,5.5 L,Gasoline,NJ,Mid,Bang Olufsen,Alloy,unsp,71,39995,67.006
+18713,550,unsp,Used,f,41096,2011,Black,5.5 L,Gasoline,GA,SoA,unsp,unsp,unsp,53,42999,41.096
+18715,550,unsp,CPO,t,35829,2011,Black,5.5 L,Gasoline,NY,Mid,Harman Kardon,Alloy,18,73,57991,35.829
+19250,550,unsp,Used,t,41219,2011,Gray,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,0,46988,41.219
+19251,550,unsp,Used,t,20205,2011,Black,5.5 L,Gasoline,CA,Pac,Premium,Alloy,unsp,72,59888,20.205
+19253,550,unsp,CPO,f,27608,2011,White,5.5 L,Gasoline,TX,WSC,unsp,Alloy,unsp,58,59995,27.608
+19256,550,unsp,Used,t,17590,2011,Black,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,77,48999,17.59
+19267,550,unsp,Used,f,59379,2011,Black,5.5 L,Gasoline,GA,SoA,Harman Kardon,Premium,unsp,55,47994,59.379
+19268,550,unsp,Used,t,38418,2011,White,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,0,52991,38.418
+19269,550,unsp,CPO,f,8845,2011,Black,5.5 L,Gasoline,VA,SoA,unsp,unsp,unsp,0,65461,8.845
+19270,550,unsp,Used,f,21356,2011,Black,5.5 L,Gasoline,FL,SoA,Harman Kardon,Alloy,unsp,58,46994,21.356
+19275,550,unsp,CPO,f,15116,2011,White,5.5 L,Gasoline,FL,SoA,Premium,Alloy,unsp,80,54900,15.116
+19276,550,unsp,Used,f,17632,2011,Silver,5.5 L,Gasoline,MT,Mtn,unsp,Alloy,unsp,53,49995,17.632
+19277,550,unsp,Used,t,27317,2011,Silver,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,0,46487,27.317
+19278,550,unsp,Used,f,43680,2011,Black,5.5 L,Gasoline,FL,SoA,Premium,Alloy,unsp,69,49891,43.68
+19323,63 AMG,unsp,Used,f,34362,2011,Black,5.5 L,Gasoline,MD,SoA,Premium,Alloy,unsp,41,73988,34.362
+19325,63 AMG,unsp,Used,t,10369,2011,Black,5.5 L,Gasoline,CA,Pac,Harman Kardon,unsp,unsp,106,89995,10.369
+19377,550,unsp,Used,f,57654,2011,Black,5.5 L,Gasoline,NY,Mid,Harman Kardon,unsp,unsp,21,37995,57.654
+19379,550,unsp,CPO,f,34716,2011,White,5.5 L,Gasoline,IL,ENC,Harman Kardon,unsp,unsp,57,57900,34.716
+19380,550,unsp,Used,f,30178,2011,Black,5.5 L,Gasoline,NY,Mid,Harman Kardon,Alloy,unsp,101,54900,30.178
+19384,550,unsp,Used,t,55590,2011,Black,5.5 L,Gasoline,NY,Mid,unsp,Alloy,unsp,22,42995,55.59
+19385,550,unsp,Used,t,36419,2011,Black,5.5 L,Gasoline,MD,SoA,Harman Kardon,Alloy,18,42,41900,36.419
+19386,550,unsp,Used,f,25400,2011,Black,5.5 L,Gasoline,NJ,Mid,Premium,Alloy,unsp,69,59999,25.4
+19387,550,unsp,Used,f,46170,2011,Black,5.5 L,Gasoline,GA,SoA,unsp,unsp,unsp,12,40799,46.17
+19388,550,unsp,CPO,f,30599,2011,Black,5.5 L,Gasoline,MA,New,unsp,unsp,unsp,14,54998,30.599
+19389,550,unsp,Used,f,47450,2011,Black,5.5 L,Gasoline,NC,SoA,Harman Kardon,Alloy,unsp,75,46000,47.45
+19391,550,unsp,Used,t,37806,2011,Gray,5.5 L,Gasoline,NY,Mid,Premium,Alloy,unsp,33,38000,37.806
+19392,550,unsp,Used,f,48706,2011,White,5.5 L,Gasoline,NY,Mid,Harman Kardon,Alloy,unsp,94,46900,48.706
+19399,550,unsp,CPO,f,30000,2011,Red,5.5 L,Gasoline,MD,SoA,Premium,Alloy,unsp,70,51993,30
+19400,550,unsp,Used,f,57891,2011,Silver,5.5 L,Gasoline,GA,SoA,Harman Kardon,Alloy,unsp,68,41995,57.891
+19921,550,unsp,Used,f,61730,2011,Gray,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,0,37495,61.73
+19922,550,unsp,Used,f,15198,2011,Gray,5.5 L,Gasoline,GA,SoA,unsp,Alloy,unsp,76,57795,15.198
+19925,550,unsp,Used,f,56021,2011,Gray,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,0,43888,56.021
+19926,550,unsp,Used,f,17693,2011,Silver,5.5 L,Gasoline,TX,WSC,unsp,unsp,unsp,38,56995,17.693
+19928,550,unsp,CPO,f,20683,2011,Brown,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,11,54970,20.683
+19932,550,unsp,Used,t,32010,2011,Black,5.5 L,Gasoline,CA,Pac,Premium,unsp,unsp,13,49995,32.01
+19934,550,unsp,Used,f,10944,2011,Black,5.5 L,Gasoline,CA,Pac,Bang Olufsen,Alloy,unsp,52,59988,10.944
+19937,550,unsp,Used,f,43409,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,0,53991,43.409
+19939,550,unsp,CPO,f,14675,2011,Silver,5.5 L,Gasoline,CA,Pac,Premium,Alloy,unsp,79,56980,14.675
+19941,550,unsp,Used,f,41800,2011,White,5.5 L,Gasoline,FL,SoA,Premium,unsp,unsp,55,42490,41.8
+20045,550,unsp,CPO,f,8933,2011,Silver,5.5 L,Gasoline,NY,Mid,unsp,unsp,unsp,0,69900,8.933
+20048,550,unsp,Used,f,31668,2011,Black,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,48,45998,31.668
+20049,550,unsp,Used,f,24008,2011,Black,5.5 L,Gasoline,NJ,Mid,unsp,unsp,unsp,2,46990,24.008
+20053,550,unsp,Used,f,33727,2011,White,5.5 L,Gasoline,MA,New,unsp,Alloy,unsp,71,54992,33.727
+20063,550,unsp,CPO,t,36609,2011,Black,5.5 L,Gasoline,PA,Mid,Premium,Alloy,unsp,67,60678,36.609
+20607,550,unsp,Used,f,45000,2011,White,5.5 L,Gasoline,CA,Pac,Premium,Premium,unsp,45,42492,45
+20608,550,unsp,CPO,f,34462,2011,Silver,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,5,46981,34.462
+20610,550,unsp,Used,f,42763,2011,Gray,5.5 L,Gasoline,CA,Pac,Harman Kardon,Alloy,unsp,72,52988,42.763
+20615,550,unsp,Used,f,29152,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,0,48995,29.152
+20616,550,unsp,Used,f,81200,2011,Black,5.5 L,Gasoline,TX,WSC,Premium,unsp,unsp,43,38888,81.2
+20620,550,unsp,CPO,f,17405,2011,Black,5.5 L,Gasoline,FL,SoA,unsp,Alloy,unsp,65,59900,17.405
+20621,550,unsp,Used,f,48778,2011,Silver,5.5 L,Gasoline,AZ,Mtn,Premium,Alloy,unsp,68,48500,48.778
+20624,550,unsp,Used,f,26495,2011,Black,5.5 L,Gasoline,TX,WSC,unsp,Alloy,unsp,78,51495,26.495
+20629,550,unsp,CPO,f,18519,2011,Silver,5.5 L,Gasoline,GA,SoA,Harman Kardon,unsp,unsp,41,53991,18.519
+20658,63 AMG,unsp,Used,t,38542,2011,Black,5.5 L,Gasoline,GA,SoA,Harman Kardon,Alloy,unsp,53,63990,38.542
+20659,63 AMG,unsp,CPO,t,18927,2011,Silver,5.5 L,Gasoline,FL,SoA,Premium,Alloy,unsp,68,81991,18.927
+20707,550,unsp,Used,f,34280,2011,Gray,5.5 L,Gasoline,IL,ENC,Harman Kardon,unsp,unsp,30,40900,34.28
+20708,550,unsp,Used,f,35375,2011,Black,5.5 L,Gasoline,IL,ENC,unsp,Alloy,unsp,19,52991,35.375
+20710,550,unsp,Used,f,44766,2011,Silver,5.5 L,Gasoline,NY,Mid,unsp,unsp,unsp,32,47989,44.766
+20711,550,unsp,Used,f,25535,2011,Black,5.5 L,Gasoline,MD,SoA,Harman Kardon,Alloy,18,56,49995,25.535
+20714,550,unsp,Used,f,66509,2011,Silver,5.5 L,Gasoline,AL,ESC,unsp,unsp,unsp,34,43900,66.509
+20717,550,unsp,Used,f,59999,2011,Blue,5.5 L,Gasoline,MD,SoA,unsp,Alloy,unsp,51,39995,59.999
+20721,550,unsp,Used,t,29266,2011,Black,5.5 L,Gasoline,MD,SoA,unsp,unsp,unsp,39,46986,29.266
+20722,550,unsp,CPO,t,37893,2011,Black,5.5 L,Gasoline,NJ,Mid,Premium,Alloy,unsp,69,49001,37.893
+20724,550,unsp,CPO,f,35655,2011,Black,5.5 L,Gasoline,NY,Mid,unsp,Alloy,unsp,95,46592,35.655
+20725,550,unsp,Used,f,26342,2011,Black,5.5 L,Gasoline,NY,Mid,Premium,Alloy,unsp,30,46000,26.342
+20728,550,unsp,Used,t,38855,2011,White,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,54,42998,38.855
+20729,550,unsp,Used,t,43439,2011,White,5.5 L,Gasoline,GA,SoA,unsp,unsp,unsp,8,41990,43.439
+21246,550,unsp,Used,t,49947,2011,White,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,57,45979,49.947
+21247,550,unsp,Used,f,32690,2011,Gray,5.5 L,Gasoline,TX,WSC,Harman Kardon,unsp,unsp,24,52991,32.69
+21248,550,unsp,Used,f,51064,2011,White,5.5 L,Gasoline,CA,Pac,unsp,Alloy,unsp,53,44888,51.064
+21254,550,unsp,CPO,t,30604,2011,Black,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,82,56991,30.604
+21255,550,unsp,Used,f,32825,2011,Black,5.5 L,Gasoline,FL,SoA,Bang Olufsen,unsp,20,7,46800,32.825
+21256,550,unsp,Used,t,26215,2011,unsp,5.5 L,Gasoline,AZ,Mtn,Premium,Alloy,unsp,69,58888,26.215
+21258,550,unsp,Used,f,11662,2011,Black,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,18,60,53995,11.662
+21259,550,unsp,CPO,t,42645,2011,Black,5.5 L,Gasoline,TN,ESC,Harman Kardon,Alloy,18,104,54999,42.645
+21263,550,unsp,Used,f,25566,2011,Black,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,70,49999,25.566
+21264,550,unsp,CPO,f,41446,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,1,46981,41.446
+21265,550,unsp,Used,t,25162,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,0,59988,25.162
+21271,550,unsp,CPO,f,33900,2011,Black,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,29,53991,33.9
+21312,63 AMG,unsp,Used,t,20015,2011,Gray,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,77,67850,20.015
+21361,550,unsp,Used,t,60789,2011,Black,5.5 L,Gasoline,IL,ENC,Premium,Alloy,19,69,43984,60.789
+21362,550,unsp,CPO,f,25833,2011,Silver,5.5 L,Gasoline,NY,Mid,unsp,unsp,unsp,56,54750,25.833
+21366,550,unsp,Used,f,43490,2011,Gray,5.5 L,Gasoline,NY,Mid,Premium,Alloy,unsp,84,38995,43.49
+21368,550,unsp,Used,t,42797,2011,Red,5.5 L,Gasoline,FL,SoA,unsp,Alloy,unsp,30,40999,42.797
+21370,550,unsp,Used,f,28073,2011,White,5.5 L,Gasoline,NY,Mid,unsp,unsp,unsp,29,53995,28.073
+21373,550,unsp,Used,f,10542,2011,Gray,5.5 L,Gasoline,MA,New,unsp,unsp,unsp,10,50678,10.542
+21375,550,unsp,Used,t,54060,2011,Black,5.5 L,Gasoline,NY,Mid,Premium,Alloy,unsp,67,46995,54.06
+21380,550,unsp,CPO,f,38966,2011,Silver,5.5 L,Gasoline,NJ,Mid,Premium,Alloy,18,74,54001,38.966
+21381,550,unsp,CPO,t,14473,2011,Black,5.5 L,Gasoline,NY,Mid,unsp,Alloy,unsp,78,55997,14.473
+21382,550,unsp,Used,f,32274,2011,Black,5.5 L,Gasoline,KY,ESC,unsp,unsp,unsp,1,57810,32.274
+21868,550,unsp,Used,f,34608,2011,Silver,5.5 L,Gasoline,TX,WSC,Harman Kardon,unsp,unsp,22,51991,34.608
+21872,550,unsp,Used,f,23500,2011,White,5.5 L,Gasoline,WA,Pac,unsp,unsp,unsp,26,57963,23.5
+21879,550,unsp,Used,t,42154,2011,Red,5.5 L,Gasoline,CA,Pac,unsp,Alloy,unsp,52,46888,42.154
+21882,550,unsp,Used,f,47842,2011,Black,5.5 L,Gasoline,TX,WSC,unsp,unsp,unsp,3,40950,47.842
+21883,550,unsp,CPO,t,43449,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,1,52487,43.449
+21885,550,unsp,Used,t,47528,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,0,53986,47.528
+21886,550,unsp,Used,f,23954,2011,Gray,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,80,53995,23.954
+21889,550,unsp,CPO,f,23554,2011,Black,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,39,52991,23.554
+21890,550,unsp,Used,t,38253,2011,White,5.5 L,Gasoline,FL,SoA,Premium,Alloy,unsp,75,39999,38.253
+21896,550,unsp,Used,f,73250,2011,White,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,9,48451,73.25
+21941,63 AMG,unsp,CPO,f,38120,2011,Black,5.5 L,Gasoline,CA,Pac,Bang Olufsen,unsp,unsp,4,79998,38.12
+21943,63 AMG,unsp,CPO,f,28803,2011,Black,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,78,75859,28.803
+21994,550,unsp,Used,f,44769,2011,Black,5.5 L,Gasoline,NJ,Mid,unsp,Alloy,unsp,24,46500,44.769
+22000,550,unsp,Used,f,43621,2011,Black,5.5 L,Gasoline,GA,SoA,Harman Kardon,Premium,unsp,52,41699,43.621
+22009,550,unsp,Used,t,38237,2011,Black,5.5 L,Gasoline,NJ,Mid,unsp,Alloy,unsp,11,52000,38.237
+22010,550,unsp,CPO,f,29156,2011,Black,5.5 L,Gasoline,NJ,Mid,Premium,Alloy,unsp,66,56501,29.156
+22011,550,unsp,Used,f,41487,2011,Black,5.5 L,Gasoline,NY,Mid,Harman Kardon,unsp,unsp,22,41995,41.487
+22012,550,unsp,Used,f,14098,2011,Black,5.5 L,Gasoline,MA,New,unsp,Alloy,unsp,62,58990,14.098
+22015,550,unsp,Used,f,34905,2011,Black,5.5 L,Gasoline,FL,SoA,Harman Kardon,Alloy,18,72,41999,34.905
+22020,550,unsp,Used,f,54834,2011,White,5.5 L,Gasoline,MD,SoA,unsp,Alloy,unsp,55,42035,54.834
+22022,550,unsp,Used,f,59072,2011,Silver,5.5 L,Gasoline,GA,SoA,Premium,unsp,unsp,47,40800,59.072
+22024,550,unsp,Used,t,38852,2011,Black,5.5 L,Gasoline,GA,SoA,Harman Kardon,unsp,unsp,56,42999,38.852
+22572,550,unsp,Used,f,27650,2011,Black,5.5 L,Gasoline,SC,SoA,Premium,Alloy,unsp,62,51989,27.65
+22579,550,unsp,CPO,t,16652,2011,Black,5.5 L,Gasoline,AZ,Mtn,Premium,Alloy,unsp,71,51888,16.652
+22583,550,unsp,Used,t,61343,2011,Black,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,49,42997,61.343
+22584,550,unsp,Used,f,42656,2011,Black,5.5 L,Gasoline,TN,ESC,Harman Kardon,Alloy,unsp,81,49974,42.656
+22587,550,unsp,CPO,f,46987,2011,Black,5.5 L,Gasoline,AL,ESC,unsp,Alloy,unsp,59,55900,46.987
+22629,63 AMG,unsp,Used,f,18774,2011,Black,5.5 L,Gasoline,GA,SoA,Premium,Alloy,unsp,69,84500,18.774
+22684,550,unsp,Used,t,34195,2011,Red,5.5 L,Gasoline,AL,ESC,unsp,unsp,unsp,41,43994,34.195
+22686,550,unsp,Used,f,21216,2011,Black,5.5 L,Gasoline,VA,SoA,unsp,Alloy,unsp,56,49750,21.216
+22691,550,unsp,Used,f,29019,2011,Gray,5.5 L,Gasoline,VA,SoA,unsp,unsp,unsp,31,49995,29.019
+22692,550,unsp,CPO,t,16722,2011,Black,5.5 L,Gasoline,MO,WNC,Harman Kardon,unsp,unsp,79,59850,16.722
+22697,550,unsp,CPO,f,27163,2011,White,5.5 L,Gasoline,VA,SoA,unsp,Alloy,unsp,77,54900,27.163
+22699,550,unsp,Used,f,47421,2011,Silver,5.5 L,Gasoline,IL,ENC,Premium,Alloy,unsp,73,52900,47.421
+22703,550,unsp,Used,f,42139,2011,Black,5.5 L,Gasoline,NJ,Mid,Harman Kardon,Alloy,unsp,77,38900,42.139
+22704,550,unsp,Used,f,55949,2011,White,5.5 L,Gasoline,NY,Mid,Premium,Alloy,unsp,72,47900,55.949
+22705,550,unsp,CPO,f,45661,2011,Gray,5.5 L,Gasoline,MA,New,unsp,unsp,unsp,0,52998,45.661
+22707,550,unsp,CPO,t,35147,2011,Black,5.5 L,Gasoline,IL,ENC,Harman Kardon,Alloy,unsp,33,51991,35.147
+22713,550,unsp,Used,f,51546,2011,unsp,5.5 L,Gasoline,OH,ENC,Harman Kardon,Alloy,unsp,67,53399,51.546
+22716,550,unsp,Used,f,17410,2011,White,5.5 L,Gasoline,FL,SoA,Harman Kardon,Alloy,unsp,58,49990,17.41
+22717,550,unsp,Used,f,37921,2011,Black,5.5 L,Gasoline,NJ,Mid,Premium,Alloy,unsp,66,49998,37.921
+23249,550,unsp,Used,f,76030,2011,Black,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,61,43900,76.03
+23252,550,unsp,CPO,f,21455,2011,White,5.5 L,Gasoline,CA,Pac,Premium,unsp,unsp,6,52981,21.455
+23254,550,unsp,Used,t,31019,2011,Black,5.5 L,Gasoline,AL,ESC,unsp,unsp,unsp,37,49995,31.019
+23255,550,unsp,CPO,t,26666,2011,Silver,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,75,57991,26.666
+23259,550,unsp,Used,f,18250,2011,Gray,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,6,53825,18.25
+23261,550,unsp,CPO,f,34308,2011,White,5.5 L,Gasoline,NC,SoA,unsp,Alloy,unsp,84,58934,34.308
+23265,550,unsp,CPO,f,52682,2011,Silver,5.5 L,Gasoline,LA,WSC,Premium,Alloy,unsp,77,45977,52.682
+23266,550,unsp,Used,f,25505,2011,Black,5.5 L,Gasoline,NV,Mtn,unsp,unsp,unsp,3,62995,25.505
+23321,63 AMG,unsp,CPO,f,13423,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,75,78981,13.423
+23369,550,unsp,Used,t,34053,2011,Silver,5.5 L,Gasoline,MD,SoA,Harman Kardon,Alloy,unsp,69,49999,34.053
+23370,550,unsp,Used,f,22059,2011,Black,5.5 L,Gasoline,WA,Pac,Harman Kardon,unsp,unsp,50,41880,22.059
+23372,550,unsp,Used,f,53958,2011,Brown,5.5 L,Gasoline,GA,SoA,Premium,unsp,unsp,47,40900,53.958
+23373,550,unsp,Used,f,45604,2011,Red,5.5 L,Gasoline,GA,SoA,unsp,Alloy,unsp,45,44988,45.604
+23374,550,unsp,Used,f,42941,2011,Black,5.5 L,Gasoline,PA,Mid,Premium,Alloy,18,73,49997,42.941
+23377,550,unsp,CPO,t,26032,2011,Blue,5.5 L,Gasoline,CT,New,Bang Olufsen,Alloy,unsp,74,54990,26.032
+23380,550,unsp,CPO,f,40070,2011,Black,5.5 L,Gasoline,VA,SoA,unsp,Alloy,unsp,68,49989,40.07
+23382,550,unsp,Used,f,21515,2011,Black,5.5 L,Gasoline,OH,ENC,Premium,unsp,unsp,45,61480,21.515
+23384,550,unsp,CPO,f,30268,2011,unsp,5.5 L,Gasoline,FL,SoA,Harman Kardon,unsp,unsp,32,58991,30.268
+23387,550,unsp,Used,t,31089,2011,Black,5.5 L,Gasoline,OH,ENC,Premium,Alloy,unsp,101,49000,31.089
+23389,550,unsp,CPO,f,44593,2011,Silver,5.5 L,Gasoline,OH,ENC,unsp,unsp,unsp,9,43982,44.593
+23394,550,unsp,Used,f,28580,2011,Bronze,5.5 L,Gasoline,TX,WSC,unsp,unsp,unsp,59,65000,28.58
+23395,550,unsp,CPO,t,15000,2011,White,5.5 L,Gasoline,NJ,Mid,Premium,Alloy,unsp,72,58999,15
+23398,550,unsp,CPO,f,27503,2011,Silver,5.5 L,Gasoline,MD,SoA,Premium,Alloy,unsp,70,53550,27.503
+23401,550,unsp,Used,t,50700,2011,Black,5.5 L,Gasoline,GA,SoA,Premium,unsp,unsp,49,40400,50.7
+23899,550,unsp,Used,t,17775,2011,Gray,5.5 L,Gasoline,CA,Pac,unsp,Alloy,unsp,55,48995,17.775
+23906,550,unsp,Used,f,28097,2011,Silver,5.5 L,Gasoline,CA,Pac,Harman Kardon,Premium,unsp,34,54888,28.097
+23908,550,unsp,Used,f,18890,2011,Gray,5.5 L,Gasoline,TX,WSC,Premium,Alloy,unsp,51,50995,18.89
+23909,550,unsp,Used,t,26883,2011,White,5.5 L,Gasoline,TN,ESC,unsp,unsp,unsp,0,53908,26.883
+23911,550,unsp,CPO,f,38000,2011,Black,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,5,44994,38
+23917,550,unsp,Used,f,42422,2011,White,5.5 L,Gasoline,FL,SoA,unsp,Alloy,unsp,63,47950,42.422
+23962,63 AMG,unsp,Used,f,4603,2011,Silver,5.5 L,Gasoline,TX,WSC,Bang Olufsen,unsp,unsp,44,98900,4.603
+23963,63 AMG,unsp,CPO,f,31315,2011,Black,5.5 L,Gasoline,NY,Mid,Premium,Alloy,20,73,82995,31.315
+23966,63 AMG,unsp,Used,f,26326,2011,Black,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,11,77900,26.326
+24029,550,unsp,Used,f,39345,2011,Black,5.5 L,Gasoline,GA,SoA,Harman Kardon,unsp,unsp,56,42999,39.345
+24033,550,unsp,CPO,t,51979,2011,Blue,5.5 L,Gasoline,NY,Mid,Harman Kardon,Alloy,unsp,72,46998,51.979
+24034,550,unsp,Used,f,30379,2011,Black,5.5 L,Gasoline,TX,WSC,unsp,Alloy,unsp,11,49998,30.379
+24035,550,unsp,Used,f,54557,2011,Black,5.5 L,Gasoline,GA,SoA,Harman Kardon,Alloy,unsp,53,39999,54.557
+24038,550,unsp,Used,f,45144,2011,Black,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,3,42900,45.144
+24046,550,unsp,CPO,t,29426,2011,Silver,5.5 L,Gasoline,CO,Mtn,Premium,Alloy,unsp,80,43995,29.426
+24047,550,unsp,Used,f,63270,2011,Silver,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,87,37988,63.27
+24052,550,unsp,Used,t,67623,2011,White,5.5 L,Gasoline,NY,Mid,Harman Kardon,unsp,unsp,19,43995,67.623
+24058,550,unsp,CPO,f,21985,2011,Black,5.5 L,Gasoline,OH,ENC,Premium,Alloy,unsp,67,53999,21.985
+24059,550,unsp,CPO,t,37129,2011,Black,5.5 L,Gasoline,MO,WNC,Harman Kardon,Alloy,18,104,49997,37.129
+24060,550,unsp,CPO,t,13383,2011,Black,5.5 L,Gasoline,MD,SoA,Premium,Alloy,unsp,69,49971,13.383
+24062,550,unsp,Used,t,20267,2011,Black,5.5 L,Gasoline,OH,ENC,Harman Kardon,Alloy,unsp,87,45999,20.267
+24063,550,unsp,Used,t,32151,2011,Silver,5.5 L,Gasoline,VA,SoA,Harman Kardon,unsp,unsp,36,41995,32.151
+24065,550,unsp,Used,t,23346,2011,White,5.5 L,Gasoline,IL,ENC,Harman Kardon,unsp,unsp,14,56980,23.346
+24066,550,unsp,CPO,f,30203,2011,Black,5.5 L,Gasoline,NJ,Mid,Harman Kardon,unsp,unsp,66,56625,30.203
+24540,550,unsp,Used,t,25939,2011,Black,5.5 L,Gasoline,GA,SoA,Premium,Alloy,unsp,69,45444,25.939
+24542,550,unsp,CPO,f,30401,2011,White,5.5 L,Gasoline,FL,SoA,unsp,Alloy,unsp,20,53980,30.401
+24547,550,unsp,Used,f,30037,2011,Black,5.5 L,Gasoline,NV,Mtn,unsp,unsp,unsp,2,45900,30.037
+24549,550,unsp,Used,f,36144,2011,Silver,5.5 L,Gasoline,CA,Pac,Harman Kardon,unsp,unsp,9,49888,36.144
+24551,550,unsp,Used,f,19886,2011,Silver,5.5 L,Gasoline,FL,SoA,Premium,Alloy,unsp,60,56995,19.886
+24552,550,unsp,Used,f,17612,2011,White,5.5 L,Gasoline,TN,ESC,Premium,Alloy,unsp,64,55991,17.612
+24594,63 AMG,unsp,Used,t,38969,2011,Black,5.5 L,Gasoline,OH,ENC,unsp,Alloy,unsp,73,64900,38.969
+24599,63 AMG,unsp,CPO,f,47623,2011,Silver,5.5 L,Gasoline,NY,Mid,unsp,unsp,unsp,58,72991,47.623
+24652,550,unsp,Used,f,33849,2011,White,5.5 L,Gasoline,VA,SoA,unsp,unsp,unsp,3,49995,33.849
+24653,550,unsp,Used,f,37178,2011,Silver,5.5 L,Gasoline,UT,Mtn,Harman Kardon,unsp,unsp,100,44950,37.178
+24657,550,unsp,Used,t,53335,2011,Black,5.5 L,Gasoline,MD,SoA,unsp,unsp,unsp,33,43995,53.335
+24658,550,unsp,Used,f,45952,2011,Black,5.5 L,Gasoline,FL,SoA,Premium,Alloy,unsp,69,39999,45.952
+24659,550,unsp,CPO,f,20104,2011,Black,5.5 L,Gasoline,NY,Mid,unsp,unsp,unsp,6,47900,20.104
+24661,550,unsp,CPO,t,35810,2011,White,5.5 L,Gasoline,MD,SoA,unsp,unsp,unsp,13,55954,35.81
+24662,550,unsp,Used,f,42603,2011,Black,5.5 L,Gasoline,NY,Mid,Harman Kardon,unsp,unsp,21,38995,42.603
+24664,550,unsp,Used,f,39385,2011,Black,5.5 L,Gasoline,AL,ESC,Premium,unsp,unsp,36,62995,39.385
+24667,550,unsp,CPO,t,38988,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,Alloy,unsp,80,46998,38.988
+24671,550,unsp,Used,f,59134,2011,Green,5.5 L,Gasoline,MD,SoA,unsp,Alloy,unsp,54,45995,59.134
+24673,550,unsp,Used,t,29996,2011,Gray,5.5 L,Gasoline,TN,ESC,Harman Kardon,unsp,19,87,51900,29.996
+24674,550,unsp,Used,f,47499,2011,White,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,54,47850,47.499
+24675,550,unsp,Used,f,65811,2011,Black,5.5 L,Gasoline,MD,SoA,Premium,Alloy,unsp,83,40000,65.811
+24676,550,unsp,Used,f,41580,2011,Black,5.5 L,Gasoline,TN,ESC,Premium,unsp,unsp,53,43950,41.58
+25199,550,unsp,Used,f,50272,2011,Black,5.5 L,Gasoline,NY,Mid,unsp,unsp,unsp,0,43995,50.272
+25200,550,unsp,CPO,t,29044,2011,Silver,5.5 L,Gasoline,CA,Pac,Harman Kardon,Alloy,unsp,75,49988,29.044
+25207,550,unsp,Used,t,31187,2011,White,5.5 L,Gasoline,FL,SoA,unsp,Alloy,unsp,70,50900,31.187
+25211,550,unsp,Used,f,43288,2011,Silver,5.5 L,Gasoline,AL,ESC,unsp,unsp,unsp,38,47995,43.288
+25212,550,unsp,Used,f,18100,2011,Green,5.5 L,Gasoline,FL,SoA,Harman Kardon,Alloy,unsp,70,62900,18.1
+25218,550,unsp,Used,t,18892,2011,Gray,5.5 L,Gasoline,TX,WSC,unsp,Alloy,unsp,10,46996,18.892
+25221,550,unsp,CPO,t,25164,2011,Black,5.5 L,Gasoline,CA,Pac,Harman Kardon,Premium,unsp,35,50792,25.164
+25222,550,unsp,Used,t,14287,2011,Black,5.5 L,Gasoline,AZ,Mtn,Harman Kardon,Alloy,unsp,66,53000,14.287
+25224,550,unsp,CPO,f,65938,2011,Black,5.5 L,Gasoline,FL,SoA,Bang Olufsen,Alloy,unsp,71,48991,65.938
+25225,550,unsp,CPO,t,27679,2011,Silver,5.5 L,Gasoline,GA,SoA,Premium,Alloy,unsp,65,48232,27.679
+25226,550,unsp,Used,f,14984,2011,Black,5.5 L,Gasoline,LA,WSC,Premium,Alloy,unsp,66,56977,14.984
+25227,550,unsp,Used,t,48047,2011,Black,5.5 L,Gasoline,GA,SoA,Harman Kardon,Alloy,unsp,66,43995,48.047
+25229,550,unsp,CPO,t,32211,2011,unsp,5.5 L,Gasoline,AZ,Mtn,unsp,unsp,unsp,11,56999,32.211
+25230,550,unsp,CPO,f,22668,2011,Gray,5.5 L,Gasoline,AZ,Mtn,unsp,unsp,unsp,60,53995,22.668
+25309,550,unsp,Used,f,40797,2011,Silver,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,86,46995,40.797
+25314,550,unsp,CPO,f,28724,2011,Black,5.5 L,Gasoline,IL,ENC,Harman Kardon,unsp,unsp,73,48899,28.724
+25315,550,unsp,Used,f,24981,2011,Red,5.5 L,Gasoline,VA,SoA,unsp,unsp,unsp,0,49995,24.981
+25317,550,unsp,CPO,f,51278,2011,Black,5.5 L,Gasoline,OH,ENC,unsp,Alloy,unsp,59,46991,51.278
+25319,550,unsp,CPO,t,30548,2011,White,5.5 L,Gasoline,NJ,Mid,Premium,Alloy,unsp,72,55994,30.548
+25320,550,unsp,Used,f,33043,2011,Black,5.5 L,Gasoline,NJ,Mid,Premium,unsp,20,52,53000,33.043
+25326,550,unsp,CPO,f,21715,2011,Silver,5.5 L,Gasoline,NY,Mid,unsp,unsp,unsp,7,52900,21.715
+25327,550,unsp,CPO,f,47609,2011,Black,5.5 L,Gasoline,MD,SoA,unsp,Alloy,unsp,49,45998,47.609
+25331,550,unsp,Used,f,11681,2011,Black,5.5 L,Gasoline,AZ,Mtn,unsp,unsp,unsp,9,58500,11.681
+25332,550,unsp,Used,t,27252,2011,Black,5.5 L,Gasoline,NY,Mid,Premium,Alloy,unsp,68,49900,27.252
+25337,550,unsp,CPO,t,26527,2011,unsp,5.5 L,Gasoline,MD,SoA,Premium,Alloy,unsp,78,49991,26.527
+25339,550,unsp,CPO,f,20513,2011,Gray,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,11,57975,20.513
+25342,550,unsp,Used,f,74745,2011,Gray,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,93,37999,74.745
+25343,550,unsp,Used,f,23820,2011,Black,5.5 L,Gasoline,WA,Pac,Premium,unsp,unsp,53,44880,23.82
+25866,550,unsp,CPO,f,13489,2011,Black,5.5 L,Gasoline,TN,ESC,Harman Kardon,Alloy,unsp,83,61999,13.489
+25868,550,unsp,CPO,f,40611,2011,White,5.5 L,Gasoline,GA,SoA,unsp,unsp,unsp,3,53400,40.611
+25869,550,unsp,Used,f,14060,2011,Black,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,79,55995,14.06
+25871,550,unsp,Used,f,46967,2011,White,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,21,48689,46.967
+25876,550,unsp,Used,f,36957,2011,Black,5.5 L,Gasoline,TN,ESC,Harman Kardon,unsp,unsp,87,48500,36.957
+25879,550,unsp,CPO,f,29007,2011,unsp,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,75,46982,29.007
+25885,550,unsp,Used,t,30020,2011,Silver,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,67,44999,30.02
+25886,550,unsp,Used,t,49208,2011,Black,5.5 L,Gasoline,TX,WSC,unsp,unsp,unsp,11,42588,49.208
+25887,550,unsp,CPO,f,21139,2011,Silver,5.5 L,Gasoline,FL,SoA,unsp,Alloy,unsp,59,47949,21.139
+25891,550,unsp,Used,t,24737,2011,Gray,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,67,48850,24.737
+25893,550,unsp,Used,f,72236,2011,White,5.5 L,Gasoline,MS,ESC,unsp,unsp,unsp,83,44800,72.236
+25940,63 AMG,unsp,Used,t,37947,2011,Silver,5.5 L,Gasoline,IN,ENC,Harman Kardon,unsp,unsp,17,73990,37.947
+25942,63 AMG,unsp,CPO,f,14348,2011,Black,5.5 L,Gasoline,WV,SoA,Premium,Alloy,unsp,78,84919,14.348
+26001,550,unsp,Used,f,37011,2011,Black,5.5 L,Gasoline,TN,ESC,Premium,unsp,unsp,52,45800,37.011
+26007,550,unsp,Used,f,9924,2011,Black,5.5 L,Gasoline,WI,ENC,unsp,unsp,unsp,2,65750,9.924
+26010,550,unsp,Used,f,38364,2011,Black,5.5 L,Gasoline,GA,SoA,Harman Kardon,Premium,unsp,50,42591,38.364
+26011,550,unsp,CPO,f,23000,2011,Black,5.5 L,Gasoline,NJ,Mid,Premium,Alloy,unsp,74,55999,23
+26014,550,unsp,Used,f,13289,2011,Black,5.5 L,Gasoline,WI,ENC,Harman Kardon,Alloy,unsp,44,58990,13.289
+26018,550,unsp,CPO,t,25017,2011,Black,5.5 L,Gasoline,MD,SoA,Premium,Alloy,unsp,72,62991,25.017
+26021,550,unsp,CPO,t,19822,2011,Black,5.5 L,Gasoline,NJ,Mid,unsp,unsp,unsp,9,64972,19.822
+26027,550,unsp,Used,f,56850,2011,Gray,5.5 L,Gasoline,MA,New,Harman Kardon,Alloy,18,84,49798,56.85
+26028,550,unsp,Used,f,68920,2011,Silver,5.5 L,Gasoline,CA,Pac,Premium,unsp,unsp,9,38888,68.92
+26029,550,unsp,Used,f,21754,2011,Black,5.5 L,Gasoline,NJ,Mid,unsp,Alloy,unsp,49,39995,21.754
+26030,550,unsp,CPO,f,15723,2011,Black,5.5 L,Gasoline,NJ,Mid,Premium,Alloy,18,71,57503,15.723
+26033,550,unsp,Used,t,11358,2011,Black,5.5 L,Gasoline,IL,ENC,Harman Kardon,Alloy,unsp,23,57494,11.358
+26034,550,unsp,Used,f,64005,2011,Black,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,81,38850,64.005
+26524,550,unsp,CPO,f,32891,2011,unsp,5.5 L,Gasoline,NV,Mtn,unsp,unsp,unsp,4,62995,32.891
+26525,550,unsp,Used,f,19990,2011,Silver,5.5 L,Gasoline,AL,ESC,Premium,unsp,unsp,36,58995,19.99
+26528,550,unsp,Used,f,4452,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,0,62986,4.452
+26530,550,unsp,Used,t,19676,2011,Gray,5.5 L,Gasoline,CA,Pac,Harman Kardon,Alloy,unsp,62,54995,19.676
+26533,550,unsp,Used,f,51378,2011,Black,5.5 L,Gasoline,GA,SoA,Harman Kardon,unsp,20,59,39991,51.378
+26534,550,unsp,Used,t,31024,2011,White,5.5 L,Gasoline,OK,WSC,Premium,Alloy,unsp,67,55000,31.024
+26535,550,unsp,Used,t,29900,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,0,62910,29.9
+26540,550,unsp,Used,f,24812,2011,White,5.5 L,Gasoline,TX,WSC,Premium,Alloy,18,52,49995,24.812
+26546,550,unsp,CPO,t,20141,2011,Black,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,2,59900,20.141
+26662,550,unsp,Used,t,43577,2011,Silver,5.5 L,Gasoline,NJ,Mid,unsp,unsp,unsp,3,43900,43.577
+26666,550,unsp,CPO,f,38393,2011,Black,5.5 L,Gasoline,NY,Mid,Premium,Alloy,unsp,70,47900,38.393
+26669,550,unsp,CPO,t,36211,2011,Black,5.5 L,Gasoline,NJ,Mid,unsp,unsp,unsp,93,51995,36.211
+26672,550,unsp,Used,t,57375,2011,Black,5.5 L,Gasoline,NY,Mid,Harman Kardon,unsp,unsp,21,41995,57.375
+26673,550,unsp,Used,f,26100,2011,White,5.5 L,Gasoline,AZ,Mtn,Harman Kardon,unsp,unsp,79,39000,26.1
+26674,550,unsp,Used,f,52997,2011,Black,5.5 L,Gasoline,VA,SoA,unsp,Alloy,unsp,57,38699,52.997
+26675,550,unsp,CPO,f,17705,2011,Black,5.5 L,Gasoline,NY,Mid,unsp,unsp,unsp,2,48900,17.705
+26676,550,unsp,CPO,f,16763,2011,unsp,5.5 L,Gasoline,CT,New,Harman Kardon,Alloy,unsp,77,55863,16.763
+26677,550,unsp,CPO,t,26030,2011,Black,5.5 L,Gasoline,MO,WNC,Harman Kardon,unsp,unsp,83,53850,26.03
+26680,550,unsp,CPO,f,29110,2011,White,5.5 L,Gasoline,IL,ENC,Premium,Alloy,unsp,69,55900,29.11
+26681,550,unsp,CPO,t,33551,2011,White,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,30,58950,33.551
+26685,550,unsp,CPO,f,38981,2011,Silver,5.5 L,Gasoline,NJ,Mid,Harman Kardon,Alloy,unsp,78,52991,38.981
+26688,550,unsp,CPO,f,19097,2011,Silver,5.5 L,Gasoline,NJ,Mid,unsp,Alloy,unsp,63,61993,19.097
+27231,550,unsp,Used,f,64012,2011,Black,5.5 L,Gasoline,GA,SoA,Harman Kardon,unsp,unsp,49,37499,64.012
+27235,550,unsp,Used,f,45540,2011,Black,5.5 L,Gasoline,IL,ENC,unsp,unsp,unsp,8,40980,45.54
+27236,550,unsp,CPO,f,36957,2011,Black,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,0,55995,36.957
+27237,550,unsp,CPO,f,19850,2011,Black,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,1,55995,19.85
+27242,550,unsp,CPO,f,33111,2011,White,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,63,53888,33.111
+27243,550,unsp,Used,t,22639,2011,Silver,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,0,54991,22.639
+27244,550,unsp,Used,t,30748,2011,White,5.5 L,Gasoline,CA,Pac,Harman Kardon,unsp,unsp,103,56995,30.748
+27245,550,unsp,Used,t,43600,2011,Black,5.5 L,Gasoline,CA,Pac,Premium,unsp,unsp,45,41995,43.6
+27248,550,unsp,Used,t,28317,2011,Black,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,58,45981,28.317
+27250,550,unsp,Used,f,34249,2011,Black,5.5 L,Gasoline,HI,Pac,Premium,unsp,unsp,49,49888,34.249
+27253,550,unsp,CPO,f,23940,2011,Gray,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,49,68789,23.94
+27255,550,unsp,Used,f,8775,2011,White,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,73,55900,8.775
+27256,550,unsp,Used,f,73901,2011,Black,5.5 L,Gasoline,CA,Pac,Harman Kardon,Alloy,unsp,29,38988,73.901
+27258,550,unsp,CPO,f,48686,2011,Silver,5.5 L,Gasoline,NC,SoA,Premium,Alloy,unsp,88,49623,48.686
+27259,550,unsp,Used,t,58712,2011,Black,5.5 L,Gasoline,AL,ESC,unsp,Alloy,unsp,61,37995,58.712
+27343,550,unsp,Used,f,39568,2011,Black,5.5 L,Gasoline,NY,Mid,Premium,Alloy,unsp,64,49995,39.568
+27344,550,unsp,Used,f,22096,2011,Black,5.5 L,Gasoline,MA,New,unsp,Alloy,unsp,80,46500,22.096
+27345,550,unsp,Used,f,36447,2011,Gray,5.5 L,Gasoline,NY,Mid,Premium,Alloy,unsp,68,44495,36.447
+27347,550,unsp,CPO,f,39350,2011,Silver,5.5 L,Gasoline,KS,WNC,Premium,Alloy,unsp,63,55650,39.35
+27350,550,unsp,CPO,f,57518,2011,Gray,5.5 L,Gasoline,OH,ENC,unsp,unsp,unsp,55,49900,57.518
+27352,550,unsp,Used,t,44187,2011,Gray,5.5 L,Gasoline,AL,ESC,Premium,Alloy,unsp,47,44995,44.187
+27356,550,unsp,Used,t,49943,2011,Black,5.5 L,Gasoline,MA,New,unsp,unsp,18,15,43698,49.943
+27357,550,unsp,Used,t,21170,2011,Black,5.5 L,Gasoline,IL,ENC,Harman Kardon,Alloy,unsp,70,54995,21.17
+27361,550,unsp,Used,f,41504,2011,White,5.5 L,Gasoline,NY,Mid,Harman Kardon,Alloy,unsp,78,47222,41.504
+27363,550,unsp,CPO,t,31833,2011,Black,5.5 L,Gasoline,IL,ENC,Harman Kardon,Alloy,unsp,86,62900,31.833
+27365,550,unsp,Used,t,51713,2011,Black,5.5 L,Gasoline,FL,SoA,unsp,Alloy,unsp,30,38999,51.713
+27368,550,unsp,CPO,f,30054,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,9,64888,30.054
+27371,550,unsp,CPO,t,26900,2011,Silver,5.5 L,Gasoline,NC,SoA,unsp,Alloy,unsp,60,58934,26.9
+27375,550,unsp,CPO,f,29209,2011,unsp,5.5 L,Gasoline,VA,SoA,unsp,unsp,unsp,1,47995,29.209
+27892,550,unsp,Used,f,32800,2011,Gray,5.5 L,Gasoline,FL,SoA,Premium,unsp,unsp,41,48995,32.8
+27893,550,unsp,Used,f,34581,2011,Black,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,15,49991,34.581
+27898,550,unsp,Used,f,40625,2011,White,5.5 L,Gasoline,CA,Pac,Premium,unsp,unsp,43,48777,40.625
+27901,550,unsp,Used,t,35688,2011,Silver,5.5 L,Gasoline,CA,Pac,Premium,unsp,unsp,42,42999,35.688
+27902,550,unsp,CPO,f,45428,2011,Black,5.5 L,Gasoline,FL,SoA,unsp,Alloy,unsp,82,49000,45.428
+27903,550,unsp,Used,t,32805,2011,Black,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,82,43699,32.805
+27907,550,unsp,CPO,f,40562,2011,White,5.5 L,Gasoline,CA,Pac,Harman Kardon,Alloy,unsp,77,49991,40.562
+27908,550,unsp,Used,t,48899,2011,Black,5.5 L,Gasoline,FL,SoA,Premium,Alloy,unsp,72,39999,48.899
+27911,550,unsp,CPO,t,29862,2011,Black,5.5 L,Gasoline,CA,Pac,Harman Kardon,Alloy,unsp,29,53993,29.862
+27913,550,unsp,Used,t,27495,2011,Red,5.5 L,Gasoline,NJ,Mid,Harman Kardon,unsp,unsp,84,45977,27.495
+27948,63 AMG,unsp,CPO,t,9266,2011,Silver,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,2,85900,9.266
+27952,63 AMG,unsp,Used,f,21082,2011,Black,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,3,81995,21.082
+27953,63 AMG,unsp,Used,t,28474,2011,Black,5.5 L,Gasoline,TX,WSC,Bang Olufsen,Alloy,unsp,84,69995,28.474
+27955,63 AMG,unsp,Used,f,15360,2011,Black,5.5 L,Gasoline,NY,Mid,Harman Kardon,Alloy,unsp,74,64977,15.36
+28010,550,unsp,Used,f,9469,2011,White,5.5 L,Gasoline,WI,ENC,Harman Kardon,Alloy,unsp,41,56995,9.469
+28012,550,unsp,Used,f,25438,2011,Gray,5.5 L,Gasoline,NC,SoA,Premium,Alloy,unsp,37,54327,25.438
+28017,550,unsp,Used,f,47293,2011,Black,5.5 L,Gasoline,IL,ENC,unsp,Alloy,unsp,59,50700,47.293
+28021,550,unsp,CPO,t,12294,2011,Black,5.5 L,Gasoline,NY,Mid,Harman Kardon,Alloy,unsp,70,61999,12.294
+28022,550,unsp,Used,f,35050,2011,Black,5.5 L,Gasoline,MD,SoA,Bang Olufsen,unsp,unsp,13,56994,35.05
+28025,550,unsp,Used,f,48283,2011,White,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,76,49988,48.283
+28030,550,unsp,CPO,f,21104,2011,Black,5.5 L,Gasoline,NY,Mid,unsp,unsp,unsp,4,58900,21.104
+28558,550,unsp,CPO,f,29047,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,66,51984,29.047
+28559,550,unsp,Used,f,15442,2011,White,5.5 L,Gasoline,FL,SoA,Premium,Alloy,unsp,68,49000,15.442
+28560,550,unsp,Used,t,39529,2011,Black,5.5 L,Gasoline,FL,SoA,Premium,Alloy,20,71,35999,39.529
+28563,550,unsp,Used,t,62650,2011,Black,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,0,37507,62.65
+28564,550,unsp,CPO,f,16507,2011,White,5.5 L,Gasoline,NC,SoA,unsp,Alloy,unsp,83,57634,16.507
+28570,550,unsp,Used,f,22823,2011,White,5.5 L,Gasoline,TX,WSC,Harman Kardon,unsp,unsp,22,59992,22.823
+28573,550,unsp,Used,t,43867,2011,Black,5.5 L,Gasoline,GA,SoA,unsp,Alloy,unsp,56,52003,43.867
+28576,550,unsp,Used,f,55531,2011,Gray,5.5 L,Gasoline,FL,SoA,Alpine,Alloy,unsp,49,37990,55.531
+28577,550,unsp,Used,t,34643,2011,Black,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,76,44750,34.643
+28580,550,unsp,CPO,f,39006,2011,Black,5.5 L,Gasoline,ME,New,unsp,Alloy,unsp,15,53893,39.006
+28628,63 AMG,unsp,Used,f,29054,2011,White,5.5 L,Gasoline,WA,Pac,Bang Olufsen,Alloy,unsp,78,75887,29.054
+28678,550,unsp,CPO,f,28927,2011,Gray,5.5 L,Gasoline,CT,New,unsp,Alloy,unsp,31,47895,28.927
+28680,550,unsp,CPO,f,21274,2011,White,5.5 L,Gasoline,NJ,Mid,unsp,unsp,unsp,55,64972,21.274
+28684,550,unsp,Used,t,47138,2011,Black,5.5 L,Gasoline,FL,SoA,unsp,Alloy,unsp,30,39999,47.138
+28686,550,unsp,Used,f,34028,2011,White,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,52,55900,34.028
+28687,550,unsp,Used,t,35783,2011,Black,5.5 L,Gasoline,GA,SoA,Harman Kardon,Alloy,unsp,84,45990,35.783
+28691,550,unsp,CPO,t,27435,2011,White,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,2,55900,27.435
+28693,550,unsp,CPO,f,17745,2011,Silver,5.5 L,Gasoline,VA,SoA,unsp,Alloy,unsp,57,55900,17.745
+29190,550,unsp,Used,f,32450,2011,Black,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,73,45899,32.45
+29191,550,unsp,CPO,t,31700,2011,Black,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,76,51991,31.7
+29195,550,unsp,Used,t,45805,2011,Black,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,86,51900,45.805
+29199,550,unsp,Used,t,52952,2011,Silver,5.5 L,Gasoline,FL,SoA,Premium,Alloy,18,73,33999,52.952
+29206,550,unsp,CPO,t,36010,2011,Black,5.5 L,Gasoline,GA,SoA,Harman Kardon,unsp,unsp,41,59991,36.01
+29207,550,unsp,Used,t,44198,2011,Silver,5.5 L,Gasoline,FL,SoA,unsp,Alloy,unsp,66,36999,44.198
+29208,550,unsp,CPO,t,36691,2011,Black,5.5 L,Gasoline,TX,WSC,Premium,Alloy,unsp,85,55995,36.691
+29209,550,unsp,Used,t,32935,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,0,41888,32.935
+29212,550,unsp,Used,t,28040,2011,Black,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,91,48950,28.04
+29213,550,unsp,Used,t,49343,2011,Black,5.5 L,Gasoline,CA,Pac,Premium,Alloy,unsp,66,48992,49.343
+29215,550,unsp,Used,f,10686,2011,Black,5.5 L,Gasoline,NC,SoA,unsp,Alloy,unsp,60,59981,10.686
+29315,550,unsp,Used,t,25897,2011,White,5.5 L,Gasoline,NY,Mid,unsp,Alloy,unsp,68,54495,25.897
+29319,550,unsp,CPO,f,25446,2011,White,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,0,56981,25.446
+29320,550,unsp,Used,t,32678,2011,Black,5.5 L,Gasoline,NY,Mid,Premium,Alloy,unsp,64,44995,32.678
+29321,550,unsp,Used,f,9614,2011,Black,5.5 L,Gasoline,IL,ENC,Harman Kardon,unsp,unsp,54,64900,9.614
+29322,550,unsp,CPO,t,45586,2011,Black,5.5 L,Gasoline,PA,Mid,Premium,Alloy,unsp,66,52981,45.586
+29323,550,unsp,Used,f,52931,2011,Black,5.5 L,Gasoline,GA,SoA,Harman Kardon,Alloy,unsp,59,37400,52.931
+29324,550,unsp,CPO,f,27700,2011,Black,5.5 L,Gasoline,DE,SoA,unsp,unsp,unsp,15,53900,27.7
+29326,550,unsp,Used,t,49350,2011,Black,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,95,43900,49.35
+29331,550,unsp,Used,t,37772,2011,Black,5.5 L,Gasoline,GA,SoA,unsp,unsp,unsp,6,40990,37.772
+29335,550,unsp,Used,f,36634,2011,Silver,5.5 L,Gasoline,NC,SoA,Premium,Alloy,unsp,94,53000,36.634
+29337,550,unsp,Used,t,47894,2011,Black,5.5 L,Gasoline,NY,Mid,unsp,unsp,unsp,17,43995,47.894
+29340,550,unsp,Used,f,41445,2011,Black,5.5 L,Gasoline,NC,SoA,Harman Kardon,Alloy,unsp,88,46000,41.445
+29341,550,unsp,Used,f,31991,2011,Silver,5.5 L,Gasoline,IL,ENC,Harman Kardon,unsp,unsp,24,52991,31.991
+29343,550,unsp,Used,t,43923,2011,Black,5.5 L,Gasoline,NY,Mid,Harman Kardon,unsp,unsp,70,49995,43.923
+29348,550,unsp,Used,f,33901,2011,Black,5.5 L,Gasoline,FL,SoA,unsp,Alloy,unsp,49,44995,33.901
+29349,550,unsp,Used,f,31246,2011,White,5.5 L,Gasoline,OH,ENC,Harman Kardon,Alloy,unsp,67,59900,31.246
+29861,550,unsp,Used,t,41842,2011,Silver,5.5 L,Gasoline,SC,SoA,Harman Kardon,Alloy,unsp,64,52989,41.842
+29862,550,unsp,Used,f,44958,2011,Black,5.5 L,Gasoline,FL,SoA,Harman Kardon,unsp,unsp,21,49991,44.958
+29873,550,unsp,Used,f,36897,2011,Black,5.5 L,Gasoline,CA,Pac,Harman Kardon,Premium,unsp,34,50882,36.897
+29874,550,unsp,Used,f,32652,2011,Blue,5.5 L,Gasoline,AL,ESC,Premium,unsp,unsp,49,41995,32.652
+29878,550,unsp,Used,f,50994,2011,Silver,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,8,38995,50.994
+29881,550,unsp,CPO,f,42071,2011,Black,5.5 L,Gasoline,FL,SoA,Premium,Alloy,unsp,22,55992,42.071
+29884,550,unsp,CPO,t,34946,2011,Silver,5.5 L,Gasoline,LA,WSC,Premium,Alloy,unsp,63,61900,34.946
+29886,550,unsp,Used,f,17493,2011,Black,5.5 L,Gasoline,FL,SoA,Harman Kardon,Alloy,unsp,61,49991,17.493
+29889,550,unsp,Used,f,46253,2011,Black,5.5 L,Gasoline,GA,SoA,Premium,Alloy,unsp,64,54900,46.253
+29890,550,unsp,CPO,f,39813,2011,Blue,5.5 L,Gasoline,GA,SoA,unsp,unsp,unsp,49,51993,39.813
+29894,550,unsp,Used,t,18859,2011,Silver,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,0,60988,18.859
+29934,63 AMG,unsp,Used,f,30800,2011,White,5.5 L,Gasoline,PA,Mid,Premium,Alloy,unsp,77,78977,30.8
+29935,63 AMG,unsp,CPO,f,24742,2011,Black,5.5 L,Gasoline,CA,Pac,Harman Kardon,Premium,unsp,31,82961,24.742
+29936,63 AMG,unsp,CPO,t,22995,2011,unsp,5.5 L,Gasoline,CA,Pac,Bang Olufsen,Premium,unsp,34,87992,22.995
+29974,550,unsp,Used,f,57342,2011,Black,5.5 L,Gasoline,NJ,Mid,Premium,Alloy,unsp,68,38987,57.342
+29975,550,unsp,CPO,t,37172,2011,White,5.5 L,Gasoline,MI,ENC,unsp,unsp,unsp,78,49100,37.172
+29976,550,unsp,Used,f,30629,2011,Black,5.5 L,Gasoline,VA,SoA,unsp,unsp,unsp,3,49995,30.629
+29978,550,unsp,Used,t,28232,2011,Black,5.5 L,Gasoline,OH,ENC,Premium,Alloy,unsp,95,55000,28.232
+29979,550,unsp,CPO,f,36776,2011,Black,5.5 L,Gasoline,NY,Mid,Premium,Alloy,unsp,65,53929,36.776
+29980,550,unsp,Used,f,25167,2011,Black,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,14,45996,25.167
+29981,550,unsp,Used,t,20093,2011,White,5.5 L,Gasoline,NY,Mid,Premium,Alloy,unsp,56,65990,20.093
+29983,550,unsp,Used,f,71604,2011,Black,5.5 L,Gasoline,NY,Mid,Harman Kardon,unsp,unsp,22,41995,71.604
+29984,550,unsp,Used,f,47772,2011,Black,5.5 L,Gasoline,NC,SoA,unsp,unsp,unsp,75,47988,47.772
+29987,550,unsp,Used,f,54984,2011,White,5.5 L,Gasoline,GA,SoA,Harman Kardon,unsp,unsp,46,41531,54.984
+29988,550,unsp,CPO,f,28440,2011,Black,5.5 L,Gasoline,VA,SoA,Harman Kardon,Alloy,18,64,50995,28.44
+29990,550,unsp,CPO,f,34337,2011,Silver,5.5 L,Gasoline,WV,SoA,Premium,Alloy,unsp,71,45919,34.337
+29991,550,unsp,Used,f,44386,2011,Black,5.5 L,Gasoline,GA,SoA,Premium,unsp,unsp,54,44988,44.386
+29993,550,unsp,Used,f,42879,2011,Black,5.5 L,Gasoline,GA,SoA,Harman Kardon,Alloy,unsp,54,38499,42.879
+29995,550,unsp,Used,f,42202,2011,Black,5.5 L,Gasoline,NY,Mid,Harman Kardon,Alloy,unsp,69,39900,42.202
+29996,550,unsp,CPO,f,32892,2011,Black,5.5 L,Gasoline,PA,Mid,Premium,Alloy,unsp,72,53991,32.892
+29997,550,unsp,CPO,f,38125,2011,Gray,5.5 L,Gasoline,MO,WNC,Premium,Alloy,unsp,77,48500,38.125
+29999,550,unsp,Used,t,42371,2011,Black,5.5 L,Gasoline,AL,ESC,unsp,unsp,unsp,42,44995,42.371
+30471,550,unsp,CPO,f,49634,2011,Black,5.5 L,Gasoline,GA,SoA,Harman Kardon,Alloy,unsp,74,49893,49.634
+30472,550,unsp,Used,f,17811,2011,Silver,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,32,53693,17.811
+30474,550,unsp,Used,t,37198,2011,Silver,5.5 L,Gasoline,GA,SoA,Harman Kardon,Alloy,unsp,77,43500,37.198
+30475,550,unsp,CPO,f,26191,2011,Black,5.5 L,Gasoline,LA,WSC,unsp,unsp,unsp,37,64217,26.191
+30483,550,unsp,CPO,t,43910,2011,Silver,5.5 L,Gasoline,NC,SoA,Harman Kardon,Alloy,unsp,84,45995,43.91
+30484,550,unsp,Used,f,38522,2011,Red,5.5 L,Gasoline,FL,SoA,Premium,Alloy,unsp,73,49991,38.522
+30521,63 AMG,unsp,Used,f,26347,2011,Black,5.5 L,Gasoline,OH,ENC,Harman Kardon,Alloy,unsp,46,79900,26.347
+30580,550,unsp,CPO,f,39609,2011,Black,5.5 L,Gasoline,IN,ENC,Premium,unsp,unsp,81,49998,39.609
+30583,550,unsp,CPO,f,36374,2011,Silver,5.5 L,Gasoline,OH,ENC,Premium,Alloy,unsp,28,55799,36.374
+30585,550,unsp,CPO,f,14971,2011,Black,5.5 L,Gasoline,NY,Mid,unsp,unsp,unsp,1,49900,14.971
+30590,550,unsp,Used,f,36347,2011,Black,5.5 L,Gasoline,OH,ENC,Harman Kardon,Alloy,unsp,82,40999,36.347
+30594,550,unsp,Used,t,43000,2011,White,5.5 L,Gasoline,MA,New,unsp,unsp,unsp,0,51998,43
+30595,550,unsp,Used,f,41150,2011,White,5.5 L,Gasoline,CO,Mtn,Harman Kardon,Alloy,unsp,78,43000,41.15
+30596,550,unsp,CPO,f,37932,2011,Silver,5.5 L,Gasoline,OH,ENC,unsp,unsp,unsp,64,42985,37.932
+30597,550,unsp,Used,f,26647,2011,Black,5.5 L,Gasoline,CT,New,unsp,Alloy,unsp,34,54990,26.647
+30598,550,unsp,Used,t,24016,2011,Black,5.5 L,Gasoline,NJ,Mid,unsp,unsp,unsp,13,49995,24.016
+30603,550,unsp,Used,f,53419,2011,Black,5.5 L,Gasoline,GA,SoA,unsp,Alloy,unsp,36,40999,53.419
+30605,550,unsp,Used,f,48265,2011,Gray,5.5 L,Gasoline,MD,SoA,Bang Olufsen,Alloy,unsp,81,44985,48.265
+30606,550,unsp,CPO,f,11754,2011,Green,5.5 L,Gasoline,WA,Pac,unsp,Alloy,unsp,62,52867,11.754
+31152,550,unsp,Used,t,17655,2011,White,5.5 L,Gasoline,TX,WSC,unsp,Alloy,unsp,60,50000,17.655
+31155,550,unsp,CPO,t,27725,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,13,58888,27.725
+31159,550,unsp,Used,f,44767,2011,Black,5.5 L,Gasoline,AZ,Mtn,Premium,unsp,unsp,43,43999,44.767
+31161,550,unsp,CPO,f,19557,2011,Blue,5.5 L,Gasoline,TN,ESC,unsp,unsp,unsp,58,52976,19.557
+31162,550,unsp,CPO,t,21075,2011,unsp,5.5 L,Gasoline,AZ,Mtn,unsp,unsp,unsp,11,58999,21.075
+31168,550,unsp,Used,f,19697,2011,Silver,5.5 L,Gasoline,FL,SoA,Premium,unsp,unsp,41,56995,19.697
+31169,550,unsp,CPO,f,44693,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,1,43941,44.693
+31173,550,unsp,CPO,t,23616,2011,Silver,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,6,50994,23.616
+31174,550,unsp,Used,t,53777,2011,Gray,5.5 L,Gasoline,FL,SoA,unsp,Alloy,unsp,53,37995,53.777
+31175,550,unsp,Used,t,30925,2011,Silver,5.5 L,Gasoline,AR,WSC,Premium,unsp,unsp,43,56995,30.925
+31176,550,unsp,Used,t,15797,2011,Black,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,4,59290,15.797
+31178,550,unsp,CPO,f,42619,2011,White,5.5 L,Gasoline,NC,SoA,Premium,unsp,unsp,83,47995,42.619
+31211,63 AMG,unsp,Used,f,42138,2011,Gray,5.5 L,Gasoline,NC,SoA,Premium,unsp,unsp,46,62950,42.138
+31212,63 AMG,unsp,Used,t,28151,2011,Black,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,15,76900,28.151
+31215,63 AMG,unsp,CPO,f,39331,2011,White,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,3,73982,39.331
+31217,63 AMG,unsp,Used,f,6025,2011,White,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,3,92499,6.025
+31257,550,unsp,Used,f,53723,2011,Silver,5.5 L,Gasoline,GA,SoA,Harman Kardon,Alloy,unsp,78,46900,53.723
+31259,550,unsp,Used,f,40723,2011,White,5.5 L,Gasoline,NJ,Mid,unsp,Alloy,unsp,39,49900,40.723
+31260,550,unsp,Used,f,30309,2011,Gray,5.5 L,Gasoline,TX,WSC,unsp,unsp,unsp,5,43950,30.309
+31265,550,unsp,Used,f,31894,2011,Gray,5.5 L,Gasoline,NY,Mid,unsp,unsp,unsp,6,39995,31.894
+31269,550,unsp,CPO,f,35587,2011,White,5.5 L,Gasoline,MD,SoA,Premium,Alloy,unsp,76,48993,35.587
+31270,550,unsp,Used,t,62384,2011,Blue,5.5 L,Gasoline,NJ,Mid,Harman Kardon,Alloy,unsp,79,39995,62.384
+31271,550,unsp,CPO,t,31634,2011,Black,5.5 L,Gasoline,CT,New,unsp,Alloy,unsp,36,52477,31.634
+31273,550,unsp,CPO,f,45695,2011,Black,5.5 L,Gasoline,NC,SoA,Premium,Alloy,unsp,47,47989,45.695
+31275,550,unsp,Used,t,63898,2011,White,5.5 L,Gasoline,GA,SoA,unsp,unsp,unsp,6,40990,63.898
+31276,550,unsp,CPO,f,38300,2011,Black,5.5 L,Gasoline,MA,New,unsp,Alloy,unsp,60,53992,38.3
+31279,550,unsp,Used,t,31099,2011,Gray,5.5 L,Gasoline,AL,ESC,Premium,Alloy,unsp,68,54888,31.099
+31282,550,unsp,Used,f,43630,2011,Black,5.5 L,Gasoline,NY,Mid,Harman Kardon,Alloy,unsp,76,44999,43.63
+31284,550,unsp,CPO,f,49504,2011,Black,5.5 L,Gasoline,RI,New,unsp,unsp,unsp,79,45500,49.504
+31285,550,unsp,Used,f,22996,2011,Silver,5.5 L,Gasoline,MA,New,unsp,Alloy,unsp,24,55000,22.996
+31286,550,unsp,Used,t,38959,2011,Black,5.5 L,Gasoline,FL,SoA,Premium,Alloy,18,72,38999,38.959
+31287,550,unsp,Used,f,13329,2011,White,5.5 L,Gasoline,OH,ENC,Harman Kardon,unsp,unsp,32,51995,13.329
+31289,550,unsp,Used,f,49398,2011,Gray,5.5 L,Gasoline,NJ,Mid,unsp,unsp,unsp,7,43495,49.398
+31802,550,unsp,Used,f,27003,2011,Blue,5.5 L,Gasoline,AZ,Mtn,Premium,unsp,unsp,12,49000,27.003
+31803,550,unsp,Used,f,39232,2011,Black,5.5 L,Gasoline,NC,SoA,unsp,unsp,unsp,0,50988,39.232
+31806,550,unsp,Used,t,62731,2011,White,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,8,38990,62.731
+31808,550,unsp,Used,f,52038,2011,Black,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,74,42899,52.038
+31809,550,unsp,CPO,f,15472,2011,White,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,31,59812,15.472
+31811,550,unsp,CPO,f,31240,2011,Black,5.5 L,Gasoline,NV,Mtn,unsp,unsp,unsp,5,54995,31.24
+31812,550,unsp,CPO,t,26793,2011,Red,5.5 L,Gasoline,GA,SoA,Premium,Alloy,unsp,85,58993,26.793
+31813,550,unsp,Used,f,24309,2011,Black,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,6,55991,24.309
+31819,550,unsp,Used,f,26508,2011,Black,5.5 L,Gasoline,MS,ESC,Premium,Alloy,unsp,52,59900,26.508
+31820,550,unsp,Used,f,29857,2011,Black,5.5 L,Gasoline,FL,SoA,Harman Kardon,unsp,unsp,63,43917,29.857
+31821,550,unsp,Used,f,33201,2011,Black,5.5 L,Gasoline,NJ,Mid,unsp,Alloy,unsp,55,44995,33.201
+31822,550,unsp,Used,t,40766,2011,White,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,75,39999,40.766
+31924,550,unsp,CPO,f,36015,2011,Silver,5.5 L,Gasoline,DE,SoA,unsp,Alloy,unsp,81,49900,36.015
+31925,550,unsp,Used,f,46715,2011,Black,5.5 L,Gasoline,MD,SoA,Harman Kardon,Alloy,18,56,44900,46.715
+31927,550,unsp,Used,t,29695,2011,Black,5.5 L,Gasoline,FL,SoA,Premium,Alloy,18,75,36999,29.695
+31928,550,unsp,CPO,f,23619,2011,Black,5.5 L,Gasoline,MI,ENC,unsp,unsp,unsp,0,55981,23.619
+31931,550,unsp,Used,f,14120,2011,Black,5.5 L,Gasoline,NY,Mid,unsp,unsp,unsp,61,59900,14.12
+31935,550,unsp,CPO,f,28726,2011,Blue,5.5 L,Gasoline,NJ,Mid,unsp,unsp,unsp,1,51994,28.726
+31936,550,unsp,Used,f,17119,2011,Black,5.5 L,Gasoline,GA,SoA,Harman Kardon,Premium,unsp,51,49991,17.119
+31940,550,unsp,Used,f,41578,2011,Black,5.5 L,Gasoline,IL,ENC,Premium,Alloy,unsp,76,51991,41.578
+31941,550,unsp,CPO,t,27607,2011,Black,5.5 L,Gasoline,IL,ENC,Harman Kardon,Alloy,18,110,49950,27.607
+31943,550,unsp,Used,t,54438,2011,Black,5.5 L,Gasoline,TN,ESC,Premium,unsp,unsp,12,39995,54.438
+31953,550,unsp,CPO,t,32367,2011,Silver,5.5 L,Gasoline,NY,Mid,Premium,Alloy,unsp,63,46889,32.367
+32504,550,unsp,CPO,f,34958,2011,Red,5.5 L,Gasoline,NC,SoA,Premium,Alloy,unsp,40,57344,34.958
+32505,550,unsp,Used,f,27701,2011,Black,5.5 L,Gasoline,TX,WSC,Premium,Alloy,unsp,52,53995,27.701
+32506,550,unsp,CPO,t,21797,2011,Gray,5.5 L,Gasoline,LA,WSC,Premium,Alloy,unsp,64,68764,21.797
+32507,550,unsp,Used,f,12981,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,0,56991,12.981
+32510,550,unsp,Used,f,29348,2011,Black,5.5 L,Gasoline,HI,Pac,unsp,unsp,unsp,35,59900,29.348
+32511,550,unsp,Used,f,18917,2011,Black,5.5 L,Gasoline,FL,SoA,unsp,Alloy,unsp,64,59900,18.917
+32514,550,unsp,CPO,f,29207,2011,White,5.5 L,Gasoline,NC,SoA,unsp,Alloy,unsp,61,62934,29.207
+32519,550,unsp,Used,f,27135,2011,Gray,5.5 L,Gasoline,AZ,Mtn,Harman Kardon,Alloy,unsp,75,45900,27.135
+32520,550,unsp,Used,f,15199,2011,unsp,5.5 L,Gasoline,FL,SoA,unsp,Alloy,unsp,12,68992,15.199
+32525,550,unsp,CPO,f,48805,2011,Black,5.5 L,Gasoline,AL,ESC,Premium,Alloy,unsp,80,49995,48.805
+32526,550,unsp,CPO,t,19680,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,7,53983,19.68
+32528,550,unsp,Used,t,57295,2011,Gray,5.5 L,Gasoline,WA,Pac,unsp,Alloy,unsp,64,42995,57.295
+32529,550,unsp,Used,f,41080,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,11,45363,41.08
+32530,550,unsp,Used,t,31563,2011,Black,5.5 L,Gasoline,CA,Pac,Harman Kardon,Premium,unsp,81,49980,31.563
+32533,550,unsp,CPO,f,29847,2011,Black,5.5 L,Gasoline,TX,WSC,unsp,unsp,unsp,0,58981,29.847
+32538,550,unsp,Used,f,71165,2011,White,5.5 L,Gasoline,NY,Mid,Harman Kardon,unsp,unsp,22,42995,71.165
+32539,550,unsp,CPO,t,24896,2011,Silver,5.5 L,Gasoline,CA,Pac,unsp,Alloy,unsp,60,59988,24.896
+32573,63 AMG,unsp,CPO,t,16757,2011,Black,5.5 L,Gasoline,NV,Mtn,Bang Olufsen,Alloy,unsp,25,87995,16.757
+32574,63 AMG,unsp,CPO,f,29930,2011,Black,5.5 L,Gasoline,MD,SoA,Premium,Alloy,unsp,75,68998,29.93
+32621,550,unsp,Used,f,32462,2011,Gray,5.5 L,Gasoline,NY,Mid,Premium,Alloy,unsp,67,38900,32.462
+32622,550,unsp,Used,f,26267,2011,Silver,5.5 L,Gasoline,FL,SoA,Premium,Alloy,18,71,37999,26.267
+32623,550,unsp,CPO,f,16037,2011,White,5.5 L,Gasoline,MA,New,unsp,Alloy,unsp,66,59991,16.037
+32631,550,unsp,CPO,f,36644,2011,Brown,5.5 L,Gasoline,FL,SoA,Premium,Alloy,20,73,37999,36.644
+32636,550,unsp,CPO,f,14926,2011,Silver,5.5 L,Gasoline,NY,Mid,unsp,unsp,unsp,3,58900,14.926
+32638,550,unsp,CPO,f,25284,2011,Black,5.5 L,Gasoline,OH,ENC,Premium,Alloy,unsp,66,49995,25.284
+32643,550,unsp,CPO,t,37147,2011,Silver,5.5 L,Gasoline,PA,Mid,Premium,Alloy,unsp,71,51981,37.147
+32648,550,unsp,Used,f,44385,2011,Black,5.5 L,Gasoline,NY,Mid,unsp,unsp,unsp,17,38995,44.385
+32649,550,unsp,Used,f,39447,2011,Silver,5.5 L,Gasoline,VA,SoA,unsp,unsp,unsp,1,44777,39.447
+32651,550,unsp,CPO,f,23252,2011,White,5.5 L,Gasoline,NJ,Mid,unsp,unsp,unsp,57,69900,23.252
+33160,550,unsp,CPO,t,26411,2011,Silver,5.5 L,Gasoline,CA,Pac,Harman Kardon,unsp,unsp,42,49988,26.411
+33163,550,unsp,CPO,f,16292,2011,Red,5.5 L,Gasoline,TN,ESC,Harman Kardon,Alloy,unsp,79,50974,16.292
+33164,550,unsp,Used,f,17478,2011,Black,5.5 L,Gasoline,WA,Pac,unsp,unsp,unsp,12,43880,17.478
+33165,550,unsp,CPO,f,22348,2011,White,5.5 L,Gasoline,AZ,Mtn,unsp,Alloy,unsp,60,59999,22.348
+33172,550,unsp,CPO,t,44848,2011,Silver,5.5 L,Gasoline,SC,SoA,Premium,Alloy,18,72,47800,44.848
+33175,550,unsp,Used,t,28766,2011,Black,5.5 L,Gasoline,FL,SoA,Harman Kardon,Alloy,unsp,83,57900,28.766
+33177,550,unsp,Used,f,31558,2011,Black,5.5 L,Gasoline,FL,SoA,Premium,Alloy,unsp,68,53500,31.558
+33178,550,unsp,Used,f,37385,2011,Black,5.5 L,Gasoline,FL,SoA,Harman Kardon,unsp,unsp,91,45500,37.385
+33181,550,unsp,Used,f,59003,2011,White,5.5 L,Gasoline,NY,Mid,Harman Kardon,unsp,unsp,21,41995,59.003
+33183,550,unsp,CPO,f,27215,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,23,59860,27.215
+33269,550,unsp,Used,f,44891,2011,Black,5.5 L,Gasoline,NJ,Mid,Harman Kardon,unsp,unsp,79,44682,44.891
+33270,550,unsp,CPO,f,46367,2011,Black,5.5 L,Gasoline,NY,Mid,Premium,Alloy,unsp,65,49359,46.367
+33271,550,unsp,Used,f,13100,2011,Silver,5.5 L,Gasoline,MA,New,unsp,Alloy,unsp,58,58995,13.1
+33275,550,unsp,CPO,f,13594,2011,White,5.5 L,Gasoline,MI,ENC,unsp,Alloy,unsp,56,63995,13.594
+33278,550,unsp,CPO,f,29957,2011,Gray,5.5 L,Gasoline,OH,ENC,unsp,unsp,unsp,54,62995,29.957
+33281,550,unsp,Used,f,13981,2011,Black,5.5 L,Gasoline,OK,WSC,unsp,Alloy,unsp,70,55000,13.981
+33285,550,unsp,CPO,t,21813,2011,Black,5.5 L,Gasoline,CT,New,unsp,Alloy,unsp,25,52990,21.813
+33286,550,unsp,CPO,t,16301,2011,Black,5.5 L,Gasoline,NJ,Mid,unsp,unsp,unsp,54,69900,16.301
+33290,550,unsp,Used,f,31841,2011,Gray,5.5 L,Gasoline,MA,New,Premium,Alloy,unsp,44,44995,31.841
+33812,550,unsp,CPO,t,32354,2011,White,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,74,48769,32.354
+33818,550,unsp,Used,t,46938,2011,White,5.5 L,Gasoline,GA,SoA,Harman Kardon,Alloy,unsp,84,48990,46.938
+33821,550,unsp,CPO,f,35082,2011,Black,5.5 L,Gasoline,SC,SoA,Premium,Alloy,unsp,75,52800,35.082
+33822,550,unsp,CPO,f,24715,2011,Black,5.5 L,Gasoline,NV,Mtn,unsp,unsp,unsp,5,59995,24.715
+33828,550,unsp,Used,f,54675,2011,Black,5.5 L,Gasoline,TX,WSC,Premium,Alloy,unsp,46,42980,54.675
+33829,550,unsp,Used,f,26802,2011,Black,5.5 L,Gasoline,FL,SoA,Harman Kardon,unsp,unsp,22,49981,26.802
+33831,550,unsp,Used,f,35188,2011,unsp,5.5 L,Gasoline,FL,SoA,Premium,Alloy,unsp,66,57991,35.188
+33832,550,unsp,Used,t,50561,2011,White,5.5 L,Gasoline,CA,Pac,unsp,Alloy,unsp,17,53991,50.561
+33836,550,unsp,Used,f,16503,2011,Black,5.5 L,Gasoline,FL,SoA,unsp,Alloy,unsp,13,55500,16.503
+33837,550,unsp,Used,f,56156,2011,Silver,5.5 L,Gasoline,TX,WSC,Harman Kardon,unsp,unsp,46,49999,56.156
+33842,550,unsp,Used,f,46555,2011,White,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,73,47777,46.555
+33940,550,unsp,CPO,t,24995,2011,Black,5.5 L,Gasoline,PA,Mid,unsp,unsp,unsp,51,58500,24.995
+33943,550,unsp,CPO,f,9838,2011,Blue,5.5 L,Gasoline,NY,Mid,unsp,Alloy,unsp,5,49900,9.838
+33945,550,unsp,Used,f,47049,2011,Black,5.5 L,Gasoline,CT,New,unsp,Alloy,unsp,35,50490,47.049
+33946,550,unsp,Used,f,56188,2011,Silver,5.5 L,Gasoline,CT,New,unsp,unsp,unsp,0,39990,56.188
+33952,550,unsp,Used,f,67000,2011,Black,5.5 L,Gasoline,IN,ENC,unsp,unsp,unsp,7,39995,67
+33956,550,unsp,CPO,t,41305,2011,Black,5.5 L,Gasoline,MD,SoA,Premium,Alloy,unsp,71,57950,41.305
+33958,550,unsp,Used,f,23447,2011,Green,5.5 L,Gasoline,MA,New,unsp,Alloy,unsp,56,57151,23.447
+33959,550,unsp,CPO,t,25400,2011,Black,5.5 L,Gasoline,NY,Mid,Harman Kardon,Alloy,unsp,38,49900,25.4
+33962,550,unsp,CPO,f,50899,2011,Black,5.5 L,Gasoline,OH,ENC,unsp,Alloy,unsp,58,55991,50.899
+33965,550,unsp,Used,f,37671,2011,Silver,5.5 L,Gasoline,NJ,Mid,unsp,Alloy,unsp,54,46995,37.671
+33966,550,unsp,Used,f,17896,2011,Black,5.5 L,Gasoline,IL,ENC,Premium,Alloy,unsp,71,62900,17.896
+33971,550,unsp,Used,t,42683,2011,Blue,5.5 L,Gasoline,NY,Mid,unsp,unsp,unsp,0,46888,42.683
+33972,550,unsp,Used,f,34239,2011,Silver,5.5 L,Gasoline,FL,SoA,Premium,Alloy,18,73,42999,34.239
+34463,550,unsp,Used,f,62489,2011,White,5.5 L,Gasoline,SC,SoA,unsp,unsp,unsp,5,39991,62.489
+34465,550,unsp,Used,f,47280,2011,Silver,5.5 L,Gasoline,VA,SoA,Harman Kardon,unsp,unsp,32,41495,47.28
+34468,550,unsp,Used,f,41088,2011,Black,5.5 L,Gasoline,FL,SoA,Premium,Alloy,unsp,71,41484,41.088
+34469,550,unsp,CPO,f,22223,2011,Black,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,1,51881,22.223
+34470,550,unsp,CPO,t,38606,2011,Black,5.5 L,Gasoline,CA,Pac,Premium,Alloy,unsp,74,47881,38.606
+34516,63 AMG,unsp,Used,t,9841,2011,Black,5.5 L,Gasoline,NJ,Mid,Premium,unsp,unsp,46,76995,9.841
+34564,550,unsp,CPO,f,18598,2011,Black,5.5 L,Gasoline,UT,Mtn,Harman Kardon,unsp,unsp,100,48950,18.598
+34565,550,unsp,Used,f,34300,2011,White,5.5 L,Gasoline,PA,Mid,Harman Kardon,Alloy,unsp,45,40451,34.3
+34573,550,unsp,Used,t,40401,2011,Blue,5.5 L,Gasoline,GA,SoA,Harman Kardon,unsp,unsp,6,39990,40.401
+34581,550,unsp,CPO,t,27579,2011,unsp,5.5 L,Gasoline,IL,ENC,unsp,Alloy,unsp,8,56991,27.579
+34582,550,unsp,CPO,t,27189,2011,Gray,5.5 L,Gasoline,VA,SoA,unsp,unsp,unsp,0,65995,27.189
+34584,550,unsp,CPO,f,12243,2011,Silver,5.5 L,Gasoline,VA,SoA,Premium,Alloy,unsp,82,57990,12.243
+35114,550,unsp,Used,f,47217,2011,Black,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,75,44998,47.217
+35115,550,unsp,Used,t,62214,2011,Red,5.5 L,Gasoline,AL,ESC,Bang Olufsen,Alloy,20,21,46900,62.214
+35116,550,unsp,Used,f,41706,2011,Black,5.5 L,Gasoline,GA,SoA,Premium,unsp,unsp,69,44999,41.706
+35122,550,unsp,Used,t,44964,2011,Silver,5.5 L,Gasoline,GA,SoA,Bang Olufsen,Alloy,unsp,69,53994,44.964
+35125,550,unsp,Used,t,59482,2011,Black,5.5 L,Gasoline,FL,SoA,Harman Kardon,Alloy,unsp,72,41900,59.482
+35126,550,unsp,Used,t,27185,2011,Gray,5.5 L,Gasoline,NC,SoA,unsp,unsp,unsp,0,58988,27.185
+35129,550,unsp,Used,t,26624,2011,Gray,5.5 L,Gasoline,CA,Pac,Harman Kardon,Alloy,unsp,82,47900,26.624
+35133,550,unsp,CPO,f,60812,2011,Black,5.5 L,Gasoline,VA,SoA,unsp,Alloy,unsp,80,46415,60.812
+35134,550,unsp,CPO,t,32872,2011,Silver,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,15,51883,32.872
+35136,550,unsp,Used,f,38004,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,Alloy,unsp,62,43900,38.004
+35178,63 AMG,unsp,Used,f,29515,2011,Black,5.5 L,Gasoline,CA,Pac,Premium,unsp,unsp,46,69999,29.515
+35179,63 AMG,unsp,CPO,f,45843,2011,Gray,5.5 L,Gasoline,NV,Mtn,Bang Olufsen,Alloy,unsp,22,64900,45.843
+35225,550,unsp,Used,f,46276,2011,Black,5.5 L,Gasoline,NY,Mid,Premium,Alloy,unsp,64,49995,46.276
+35226,550,unsp,Used,f,45667,2011,Black,5.5 L,Gasoline,MS,ESC,unsp,unsp,unsp,56,54800,45.667
+35227,550,unsp,Used,t,17465,2011,Black,5.5 L,Gasoline,NY,Mid,unsp,unsp,unsp,62,43995,17.465
+35233,550,unsp,CPO,f,24774,2011,White,5.5 L,Gasoline,NV,Mtn,Harman Kardon,unsp,unsp,31,59995,24.774
+35235,550,unsp,Used,f,16219,2011,Silver,5.5 L,Gasoline,AL,ESC,Premium,unsp,unsp,40,57995,16.219
+35236,550,unsp,Used,t,27548,2011,Gray,5.5 L,Gasoline,NY,Mid,Premium,Alloy,unsp,56,62888,27.548
+35242,550,unsp,Used,f,24399,2011,White,5.5 L,Gasoline,WI,ENC,unsp,unsp,unsp,51,59836,24.399
+35243,550,unsp,Used,f,40639,2011,Black,5.5 L,Gasoline,FL,SoA,Premium,Alloy,unsp,76,36999,40.639
+35244,550,unsp,CPO,t,10639,2011,Blue,5.5 L,Gasoline,NY,Mid,unsp,unsp,unsp,6,53900,10.639
+35245,550,unsp,Used,f,56078,2011,Black,5.5 L,Gasoline,GA,SoA,Premium,Premium,unsp,47,40499,56.078
+35246,550,unsp,CPO,f,24124,2011,Black,5.5 L,Gasoline,NJ,Mid,Bang Olufsen,Alloy,unsp,72,69999,24.124
+35766,550,unsp,Used,f,14639,2011,White,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,51,69900,14.639
+35769,550,unsp,Used,t,31085,2011,Black,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,63,48995,31.085
+35770,550,unsp,Used,t,40665,2011,Black,5.5 L,Gasoline,FL,SoA,Premium,Alloy,19,73,36999,40.665
+35772,550,unsp,Used,t,50462,2011,Silver,5.5 L,Gasoline,CA,Pac,Harman Kardon,Alloy,unsp,58,47999,50.462
+35776,550,unsp,Used,f,31000,2011,Black,5.5 L,Gasoline,CA,Pac,Harman Kardon,Alloy,unsp,62,44995,31
+35778,550,unsp,Used,f,40120,2011,Blue,5.5 L,Gasoline,FL,SoA,Harman Kardon,Alloy,18,73,42999,40.12
+35779,550,unsp,Used,t,45382,2011,Silver,5.5 L,Gasoline,GA,SoA,Harman Kardon,Premium,unsp,57,43991,45.382
+35781,550,unsp,Used,f,44625,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,Alloy,unsp,31,33995,44.625
+35786,550,unsp,Used,f,73217,2011,Silver,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,5,34256,73.217
+35833,63 AMG,unsp,CPO,f,23826,2011,White,5.5 L,Gasoline,CA,Pac,Harman Kardon,Alloy,unsp,71,92991,23.826
+35835,63 AMG,unsp,Used,f,56440,2011,White,5.5 L,Gasoline,NC,SoA,unsp,unsp,unsp,38,56437,56.44
+35836,63 AMG,unsp,CPO,f,25506,2011,Black,5.5 L,Gasoline,LA,WSC,Premium,Alloy,unsp,80,70531,25.506
+35837,63 AMG,unsp,Used,f,33096,2011,Black,5.5 L,Gasoline,TN,ESC,Harman Kardon,Alloy,unsp,77,60950,33.096
+35897,550,unsp,Used,t,45320,2011,White,5.5 L,Gasoline,NJ,Mid,Harman Kardon,Alloy,unsp,77,45900,45.32
+35898,550,unsp,CPO,t,34923,2011,Black,5.5 L,Gasoline,VA,SoA,Harman Kardon,Alloy,unsp,63,48795,34.923
+35902,550,unsp,Used,t,43877,2011,Black,5.5 L,Gasoline,NJ,Mid,unsp,Alloy,unsp,55,47995,43.877
+35905,550,unsp,CPO,f,33136,2011,Silver,5.5 L,Gasoline,WI,ENC,unsp,unsp,unsp,13,58599,33.136
+35911,550,unsp,Used,t,68667,2011,Blue,5.5 L,Gasoline,VA,SoA,unsp,unsp,unsp,42,40980,68.667
+35913,550,unsp,CPO,t,26284,2011,White,5.5 L,Gasoline,NJ,Mid,Premium,Alloy,unsp,73,49991,26.284
+35916,550,unsp,Used,t,32449,2011,Silver,5.5 L,Gasoline,NJ,Mid,Premium,Alloy,unsp,73,54991,32.449
+35917,550,unsp,CPO,f,41856,2011,Black,5.5 L,Gasoline,RI,New,Premium,Alloy,unsp,43,58000,41.856
+35918,550,unsp,Used,f,26831,2011,Black,5.5 L,Gasoline,MA,New,unsp,Alloy,unsp,59,55992,26.831
+35921,550,unsp,CPO,f,27677,2011,Black,5.5 L,Gasoline,NY,Mid,unsp,Alloy,unsp,80,48895,27.677
+35922,550,unsp,CPO,t,30565,2011,Silver,5.5 L,Gasoline,NJ,Mid,Premium,Alloy,unsp,73,47993,30.565
+35923,550,unsp,Used,f,35475,2011,Blue,5.5 L,Gasoline,FL,SoA,Premium,Alloy,20,71,43999,35.475
+35924,550,unsp,Used,f,48190,2011,Black,5.5 L,Gasoline,MD,SoA,Premium,Alloy,unsp,83,42986,48.19
+35925,550,unsp,Used,f,48532,2011,Black,5.5 L,Gasoline,GA,SoA,Premium,Alloy,unsp,48,43799,48.532
+35927,550,unsp,Used,f,50476,2011,Black,5.5 L,Gasoline,GA,SoA,Harman Kardon,Alloy,unsp,54,38999,50.476
+35928,550,unsp,Used,f,35670,2011,Silver,5.5 L,Gasoline,GA,SoA,Harman Kardon,Premium,unsp,45,40991,35.67
+35929,550,unsp,Used,f,31750,2011,Black,5.5 L,Gasoline,MD,SoA,Harman Kardon,Alloy,18,58,48975,31.75
+35930,550,unsp,CPO,t,31375,2011,Black,5.5 L,Gasoline,OH,ENC,unsp,Alloy,unsp,58,56993,31.375
+35931,550,unsp,CPO,t,15824,2011,Black,5.5 L,Gasoline,OH,ENC,Premium,Alloy,unsp,67,58990,15.824
+36432,550,unsp,Used,f,28532,2011,Brown,5.5 L,Gasoline,CA,Pac,Harman Kardon,Alloy,unsp,58,47888,28.532
+36434,550,unsp,Used,f,53651,2011,Silver,5.5 L,Gasoline,CA,Pac,Premium,Alloy,unsp,53,38995,53.651
+36435,550,unsp,Used,t,43050,2011,Silver,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,0,51991,43.05
+36440,550,unsp,Used,t,40372,2011,White,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,3,49888,40.372
+36441,550,unsp,CPO,t,20831,2011,Silver,5.5 L,Gasoline,FL,SoA,unsp,Alloy,unsp,68,47995,20.831
+36442,550,unsp,CPO,t,48689,2011,Black,5.5 L,Gasoline,NC,SoA,unsp,unsp,unsp,68,50877,48.689
+36444,550,unsp,Used,f,62285,2011,Black,5.5 L,Gasoline,GA,SoA,Premium,unsp,unsp,52,37999,62.285
+36445,550,unsp,CPO,t,18358,2011,Silver,5.5 L,Gasoline,LA,WSC,Premium,Alloy,unsp,64,63616,18.358
+36446,550,unsp,Used,f,35971,2011,White,5.5 L,Gasoline,TX,WSC,Premium,Alloy,unsp,72,55491,35.971
+36447,550,unsp,Used,f,14600,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,Alloy,unsp,66,56995,14.6
+36449,550,unsp,CPO,t,30380,2011,Silver,5.5 L,Gasoline,GA,SoA,Premium,Alloy,unsp,108,49992,30.38
+36454,550,unsp,Used,f,20503,2011,Black,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,60,49900,20.503
+36455,550,unsp,Used,f,44423,2011,Silver,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,18,73,44950,44.423
+36506,63 AMG,unsp,Used,f,36083,2011,White,5.5 L,Gasoline,TX,WSC,Bang Olufsen,unsp,unsp,8,78995,36.083
+36507,63 AMG,unsp,Used,f,10947,2011,Black,5.5 L,Gasoline,NJ,Mid,unsp,unsp,unsp,4,78990,10.947
+36508,63 AMG,unsp,Used,f,34829,2011,Black,5.5 L,Gasoline,MS,ESC,unsp,unsp,unsp,0,76900,34.829
+36511,63 AMG,unsp,Used,f,6062,2011,Black,5.5 L,Gasoline,NC,SoA,unsp,Alloy,unsp,62,92962,6.062
+36560,550,unsp,Used,f,19053,2011,Black,5.5 L,Gasoline,NY,Mid,Premium,Alloy,unsp,26,49839,19.053
+36565,550,unsp,CPO,f,20571,2011,Black,5.5 L,Gasoline,MA,New,Harman Kardon,unsp,unsp,26,54998,20.571
+36566,550,unsp,Used,f,24461,2011,Black,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,5,59290,24.461
+36567,550,unsp,Used,f,38254,2011,Blue,5.5 L,Gasoline,VA,SoA,Premium,unsp,unsp,55,42777,38.254
+36570,550,unsp,Used,f,18404,2011,Black,5.5 L,Gasoline,PA,Mid,Harman Kardon,Alloy,unsp,68,51246,18.404
+36572,550,unsp,Used,f,41127,2011,Black,5.5 L,Gasoline,PA,Mid,Premium,Alloy,unsp,73,49937,41.127
+36573,550,unsp,Used,t,21436,2011,Black,5.5 L,Gasoline,FL,SoA,unsp,Alloy,unsp,78,41495,21.436
+36574,550,unsp,Used,f,39062,2011,White,5.5 L,Gasoline,MO,WNC,Premium,unsp,unsp,36,52950,39.062
+36575,550,unsp,Used,f,27201,2011,Black,5.5 L,Gasoline,GA,SoA,Harman Kardon,unsp,unsp,57,44991,27.201
+36576,550,unsp,Used,f,34166,2011,Black,5.5 L,Gasoline,OH,ENC,Harman Kardon,unsp,unsp,51,46880,34.166
+36577,550,unsp,Used,t,33900,2011,Black,5.5 L,Gasoline,NJ,Mid,unsp,Alloy,unsp,61,44995,33.9
+36578,550,unsp,CPO,t,27029,2011,Silver,5.5 L,Gasoline,NJ,Mid,Premium,Alloy,unsp,76,53992,27.029
+36580,550,unsp,CPO,t,41847,2011,Black,5.5 L,Gasoline,MD,SoA,Premium,Alloy,unsp,74,51950,41.847
+36581,550,unsp,CPO,t,24638,2011,Black,5.5 L,Gasoline,NJ,Mid,Premium,Alloy,unsp,72,60995,24.638
+36582,550,unsp,Used,f,47754,2011,Black,5.5 L,Gasoline,NJ,Mid,Premium,unsp,unsp,54,37900,47.754
+36583,550,unsp,Used,f,41623,2011,Black,5.5 L,Gasoline,MD,SoA,unsp,unsp,unsp,14,53878,41.623
+36589,550,unsp,Used,f,60416,2011,Black,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,0,43991,60.416
+36591,550,unsp,CPO,t,37078,2011,Silver,5.5 L,Gasoline,WI,ENC,unsp,Alloy,unsp,82,46899,37.078
+36595,550,unsp,CPO,t,27526,2011,Black,5.5 L,Gasoline,VA,SoA,unsp,unsp,unsp,7,53022,27.526
+37119,550,unsp,CPO,f,12951,2011,Silver,5.5 L,Gasoline,CA,Pac,Harman Kardon,unsp,unsp,68,59981,12.951
+37123,550,unsp,Used,t,27514,2011,Black,5.5 L,Gasoline,AL,ESC,unsp,unsp,unsp,37,49994,27.514
+37124,550,unsp,Used,f,65221,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,5,44991,65.221
+37126,550,unsp,Used,f,12824,2011,Black,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,0,54991,12.824
+37127,550,unsp,Used,f,19686,2011,unsp,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,0,51991,19.686
+37128,550,unsp,Used,f,52826,2011,White,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,72,39950,52.826
+37134,550,unsp,Used,f,46255,2011,Silver,5.5 L,Gasoline,GA,SoA,Premium,Premium,unsp,55,39499,46.255
+37135,550,unsp,Used,f,51805,2011,Black,5.5 L,Gasoline,NC,SoA,unsp,unsp,unsp,0,42995,51.805
+37136,550,unsp,Used,f,45374,2011,White,5.5 L,Gasoline,CA,Pac,unsp,Alloy,unsp,78,50889,45.374
+37138,550,unsp,Used,t,12692,2011,Gray,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,0,63986,12.692
+37139,550,unsp,Used,f,29307,2011,Black,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,73,47995,29.307
+37187,63 AMG,unsp,CPO,f,14980,2011,unsp,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,1,81895,14.98
+37188,63 AMG,unsp,Used,f,12953,2011,White,5.5 L,Gasoline,FL,SoA,Bang Olufsen,Alloy,unsp,86,79900,12.953
+37252,550,unsp,CPO,f,20095,2011,Black,5.5 L,Gasoline,MO,WNC,unsp,Alloy,unsp,47,58961,20.095
+37254,550,unsp,Used,f,69714,2011,Gray,5.5 L,Gasoline,GA,SoA,unsp,Alloy,unsp,36,37988,69.714
+37255,550,unsp,CPO,f,33665,2011,Black,5.5 L,Gasoline,MD,SoA,Premium,Alloy,unsp,77,49985,33.665
+37256,550,unsp,Used,f,37094,2011,White,5.5 L,Gasoline,OH,ENC,Harman Kardon,Alloy,unsp,85,46990,37.094
+37264,550,unsp,CPO,f,24871,2011,Black,5.5 L,Gasoline,WI,ENC,unsp,unsp,unsp,14,60900,24.871
+37265,550,unsp,Used,f,47458,2011,Black,5.5 L,Gasoline,GA,SoA,Harman Kardon,Alloy,unsp,64,54994,47.458
+37269,550,unsp,Used,f,45624,2011,Gray,5.5 L,Gasoline,VA,SoA,Harman Kardon,Alloy,unsp,53,43777,45.624
+37281,550,unsp,Used,f,34795,2011,Black,5.5 L,Gasoline,FL,SoA,Premium,Alloy,unsp,72,44999,34.795
+37283,550,unsp,Used,f,49553,2011,Black,5.5 L,Gasoline,NY,Mid,Premium,Alloy,unsp,68,52995,49.553
+37812,550,unsp,Used,t,29184,2011,Gray,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,77,44850,29.184
+37824,550,unsp,CPO,f,37687,2011,Silver,5.5 L,Gasoline,WA,Pac,Harman Kardon,Alloy,19,77,47995,37.687
+37831,550,unsp,CPO,t,20350,2011,Black,5.5 L,Gasoline,AL,ESC,Harman Kardon,Alloy,unsp,74,59995,20.35
+37868,63 AMG,unsp,Used,t,26894,2011,White,5.5 L,Gasoline,CA,Pac,Premium,Alloy,20,79,69980,26.894
+37870,63 AMG,unsp,Used,f,43519,2011,Gray,5.5 L,Gasoline,NJ,Mid,Bang Olufsen,Alloy,unsp,77,68900,43.519
+37916,550,unsp,Used,t,56760,2011,Black,5.5 L,Gasoline,TX,WSC,unsp,Alloy,unsp,61,46538,56.76
+37926,550,unsp,Used,f,48751,2011,Silver,5.5 L,Gasoline,MD,SoA,unsp,Alloy,unsp,59,39990,48.751
+37927,550,unsp,Used,t,59733,2011,Black,5.5 L,Gasoline,IL,ENC,Premium,Alloy,unsp,68,41800,59.733
+37928,550,unsp,CPO,f,38325,2011,Black,5.5 L,Gasoline,VA,SoA,Harman Kardon,unsp,unsp,72,56458,38.325
+37930,550,unsp,CPO,t,37417,2011,White,5.5 L,Gasoline,NY,Mid,Harman Kardon,Alloy,unsp,75,58991,37.417
+37931,550,unsp,Used,t,34880,2011,Black,5.5 L,Gasoline,CA,Pac,Premium,Alloy,unsp,61,44900,34.88
+37932,550,unsp,CPO,f,37214,2011,Black,5.5 L,Gasoline,MD,SoA,unsp,Alloy,unsp,83,48390,37.214
+37933,550,unsp,CPO,f,38287,2011,Black,5.5 L,Gasoline,IL,ENC,Harman Kardon,Alloy,unsp,78,50991,38.287
+37938,550,unsp,Used,f,38911,2011,Black,5.5 L,Gasoline,NJ,Mid,Harman Kardon,Alloy,unsp,96,44995,38.911
+37940,550,unsp,Used,t,35758,2011,Black,5.5 L,Gasoline,IL,ENC,Premium,Alloy,unsp,72,45900,35.758
+37943,550,unsp,Used,t,60426,2011,Black,5.5 L,Gasoline,IL,ENC,Harman Kardon,Alloy,unsp,81,38955,60.426
+37945,550,unsp,Used,t,34256,2011,Gray,5.5 L,Gasoline,NY,Mid,unsp,unsp,unsp,1,52753,34.256
+37946,550,unsp,Used,t,41699,2011,Blue,5.5 L,Gasoline,IL,ENC,Premium,unsp,unsp,53,44980,41.699
+37947,550,unsp,Used,f,42295,2011,Black,5.5 L,Gasoline,NY,Mid,Harman Kardon,unsp,unsp,49,53953,42.295
+38491,550,unsp,Used,t,24969,2011,unsp,5.5 L,Gasoline,HI,Pac,unsp,Alloy,unsp,54,48900,24.969
+38492,550,unsp,CPO,f,21878,2011,White,5.5 L,Gasoline,CA,Pac,Premium,Alloy,unsp,70,61995,21.878
+38493,550,unsp,CPO,f,27803,2011,Black,5.5 L,Gasoline,NV,Mtn,unsp,unsp,unsp,1,53995,27.803
+38497,550,unsp,Used,f,26732,2011,Black,5.5 L,Gasoline,GA,SoA,unsp,unsp,unsp,48,52994,26.732
+38498,550,unsp,Used,f,48187,2011,Black,5.5 L,Gasoline,AZ,Mtn,unsp,Alloy,unsp,7,45000,48.187
+38499,550,unsp,CPO,t,33573,2011,Gray,5.5 L,Gasoline,CA,Pac,Harman Kardon,Alloy,unsp,68,56988,33.573
+38502,550,unsp,Used,t,59645,2011,White,5.5 L,Gasoline,MD,SoA,unsp,unsp,unsp,28,48495,59.645
+38506,550,unsp,CPO,t,22446,2011,Silver,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,74,48577,22.446
+38509,550,unsp,CPO,t,53762,2011,Black,5.5 L,Gasoline,FL,SoA,Bang Olufsen,Alloy,unsp,70,51891,53.762
+38543,63 AMG,unsp,CPO,f,33631,2011,Black,5.5 L,Gasoline,NY,Mid,unsp,unsp,unsp,0,79900,33.631
+38594,550,unsp,Used,f,28050,2011,Black,5.5 L,Gasoline,IL,ENC,unsp,unsp,unsp,6,49900,28.05
+38595,550,unsp,Used,f,39150,2011,Black,5.5 L,Gasoline,MD,SoA,Harman Kardon,Premium,unsp,55,46900,39.15
+38598,550,unsp,CPO,f,31215,2011,Gray,5.5 L,Gasoline,MN,WNC,unsp,Alloy,unsp,50,47990,31.215
+38599,550,unsp,Used,f,59160,2011,Gray,5.5 L,Gasoline,GA,SoA,Premium,Premium,18,54,38799,59.16
+38605,550,unsp,Used,f,40647,2011,Blue,5.5 L,Gasoline,MA,New,unsp,unsp,unsp,23,47988,40.647
+38609,550,unsp,CPO,t,18981,2011,Black,5.5 L,Gasoline,NY,Mid,Harman Kardon,Alloy,unsp,87,47294,18.981
+38611,550,unsp,Used,f,52436,2011,Black,5.5 L,Gasoline,GA,SoA,Premium,Premium,unsp,51,38999,52.436
+38612,550,unsp,Used,f,41299,2011,Black,5.5 L,Gasoline,VA,SoA,unsp,Alloy,unsp,53,45999,41.299
+38616,550,unsp,CPO,f,16664,2011,Black,5.5 L,Gasoline,MA,New,unsp,unsp,unsp,1,59998,16.664
+38617,550,unsp,Used,f,52616,2011,Gold,5.5 L,Gasoline,CA,Pac,Harman Kardon,Alloy,unsp,13,49998,52.616
+38620,550,unsp,Used,t,57360,2011,Silver,5.5 L,Gasoline,NY,Mid,unsp,Alloy,unsp,22,41995,57.36
+38621,550,unsp,CPO,t,44610,2011,Blue,5.5 L,Gasoline,CO,Mtn,unsp,unsp,unsp,4,46484,44.61
+38624,550,unsp,Used,f,38993,2011,Black,5.5 L,Gasoline,NH,New,unsp,Alloy,unsp,77,49998,38.993
+39109,550,unsp,Used,f,32671,2011,Gray,5.5 L,Gasoline,GA,SoA,unsp,unsp,unsp,32,44991,32.671
+39110,550,unsp,CPO,f,37908,2011,Black,5.5 L,Gasoline,TN,ESC,unsp,unsp,unsp,82,52855,37.908
+39115,550,unsp,Used,f,44085,2011,White,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,1,46000,44.085
+39116,550,unsp,Used,t,50246,2011,Silver,5.5 L,Gasoline,OR,Pac,unsp,Alloy,unsp,82,41500,50.246
+39117,550,unsp,Used,t,54046,2011,White,5.5 L,Gasoline,CA,Pac,Premium,unsp,unsp,8,44500,54.046
+39120,550,unsp,CPO,f,18356,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,16,67980,18.356
+39126,550,unsp,Used,f,22475,2011,unsp,5.5 L,Gasoline,TX,WSC,Premium,Alloy,unsp,82,55200,22.475
+39130,550,unsp,CPO,f,45003,2011,Gray,5.5 L,Gasoline,CA,Pac,unsp,unsp,20,4,47981,45.003
+39173,63 AMG,unsp,Used,f,16826,2011,Gray,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,4,67995,16.826
+39215,550,unsp,Used,t,54178,2011,Silver,5.5 L,Gasoline,FL,SoA,Premium,Alloy,unsp,68,33999,54.178
+39218,550,unsp,CPO,f,29305,2011,Black,5.5 L,Gasoline,GA,SoA,unsp,unsp,unsp,88,46900,29.305
+39222,550,unsp,Used,f,50052,2011,Black,5.5 L,Gasoline,GA,SoA,Harman Kardon,Alloy,unsp,59,38999,50.052
+39223,550,unsp,Used,f,53736,2011,Silver,5.5 L,Gasoline,MN,WNC,unsp,Alloy,unsp,60,39499,53.736
+39224,550,unsp,Used,t,44693,2011,Black,5.5 L,Gasoline,MD,SoA,unsp,unsp,unsp,59,42995,44.693
+39231,550,unsp,CPO,t,23053,2011,Silver,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,80,51991,23.053
+39233,550,unsp,Used,f,58944,2011,Silver,5.5 L,Gasoline,NJ,Mid,Premium,Alloy,unsp,68,39999,58.944
+39236,550,unsp,Used,f,20501,2011,White,5.5 L,Gasoline,UT,Mtn,Premium,Alloy,unsp,86,52998,20.501
+39241,550,unsp,Used,t,43168,2011,Gray,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,90,43750,43.168
+39243,550,unsp,Used,f,44300,2011,Black,5.5 L,Gasoline,PA,Mid,Harman Kardon,Alloy,unsp,47,45000,44.3
+39244,550,unsp,Used,t,62502,2011,Black,5.5 L,Gasoline,TX,WSC,Harman Kardon,unsp,unsp,113,39995,62.502
+39764,550,unsp,CPO,f,21952,2011,Silver,5.5 L,Gasoline,CA,Pac,Harman Kardon,Alloy,unsp,74,50555,21.952
+39765,550,unsp,CPO,t,33312,2011,Silver,5.5 L,Gasoline,CA,Pac,unsp,Alloy,unsp,31,54992,33.312
+39766,550,unsp,Used,t,22158,2011,Black,5.5 L,Gasoline,TX,WSC,unsp,Alloy,unsp,62,60445,22.158
+39767,550,unsp,CPO,f,26431,2011,Black,5.5 L,Gasoline,TX,WSC,unsp,unsp,unsp,0,62981,26.431
+39770,550,unsp,CPO,t,26583,2011,Black,5.5 L,Gasoline,NC,SoA,unsp,unsp,unsp,44,57875,26.583
+39773,550,unsp,Used,f,52721,2011,Black,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,30,38700,52.721
+39774,550,unsp,Used,f,38217,2011,Silver,5.5 L,Gasoline,GA,SoA,Harman Kardon,Alloy,unsp,72,45999,38.217
+39775,550,unsp,Used,t,31069,2011,Black,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,0,54990,31.069
+39776,550,unsp,CPO,f,24191,2011,unsp,5.5 L,Gasoline,CA,Pac,Harman Kardon,Alloy,unsp,66,56988,24.191
+39783,550,unsp,Used,t,26742,2011,Silver,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,5,55290,26.742
+39785,550,unsp,CPO,f,58430,2011,Black,5.5 L,Gasoline,VA,SoA,unsp,unsp,unsp,39,44000,58.43
+39786,550,unsp,Used,f,11555,2011,Black,5.5 L,Gasoline,TX,WSC,Harman Kardon,unsp,unsp,22,58991,11.555
+39818,63 AMG,unsp,Used,f,13149,2011,Silver,5.5 L,Gasoline,FL,SoA,Harman Kardon,Alloy,unsp,65,66975,13.149
+39820,63 AMG,unsp,CPO,f,25051,2011,Black,5.5 L,Gasoline,MI,ENC,unsp,Alloy,unsp,52,82684,25.051
+39861,550,unsp,CPO,f,38439,2011,Black,5.5 L,Gasoline,KS,WNC,Premium,Alloy,unsp,74,53900,38.439
+39863,550,unsp,Used,f,67869,2011,Silver,5.5 L,Gasoline,TX,WSC,Harman Kardon,unsp,unsp,75,39995,67.869
+39864,550,unsp,Used,f,54663,2011,Black,5.5 L,Gasoline,CA,Pac,Premium,Alloy,unsp,59,46900,54.663
+39868,550,unsp,Used,t,46529,2011,White,5.5 L,Gasoline,NJ,Mid,Premium,unsp,unsp,41,49994,46.529
+39869,550,unsp,Used,f,29132,2011,Black,5.5 L,Gasoline,GA,SoA,Harman Kardon,Alloy,unsp,58,39900,29.132
+39872,550,unsp,Used,f,33568,2011,Black,5.5 L,Gasoline,MA,New,unsp,unsp,unsp,18,46998,33.568
+39873,550,unsp,CPO,f,44618,2011,Black,5.5 L,Gasoline,OH,ENC,Premium,Alloy,unsp,79,47991,44.618
+39876,550,unsp,CPO,f,37900,2011,Black,5.5 L,Gasoline,NJ,Mid,unsp,Alloy,unsp,57,58991,37.9
+39877,550,unsp,Used,f,33754,2011,Black,5.5 L,Gasoline,NJ,Mid,Premium,Alloy,unsp,68,45999,33.754
+39878,550,unsp,CPO,f,31781,2011,Silver,5.5 L,Gasoline,OH,ENC,unsp,Alloy,unsp,68,48997,31.781
+39879,550,unsp,Used,f,47044,2011,Black,5.5 L,Gasoline,NJ,Mid,unsp,Alloy,unsp,54,39995,47.044
+39880,550,unsp,Used,t,30577,2011,Silver,5.5 L,Gasoline,MA,New,Harman Kardon,Alloy,18,112,53998,30.577
+39882,550,unsp,CPO,t,26294,2011,Black,5.5 L,Gasoline,MA,New,Harman Kardon,unsp,unsp,38,50998,26.294
+39883,550,unsp,Used,f,41352,2011,Silver,5.5 L,Gasoline,MN,WNC,Harman Kardon,Alloy,unsp,42,51990,41.352
+39884,550,unsp,Used,f,19118,2011,Black,5.5 L,Gasoline,IN,ENC,Harman Kardon,Alloy,unsp,79,49990,19.118
+39885,550,unsp,CPO,f,34119,2011,Silver,5.5 L,Gasoline,KS,WNC,Premium,Alloy,unsp,24,58900,34.119
+39888,550,unsp,CPO,f,23245,2011,White,5.5 L,Gasoline,VA,SoA,unsp,unsp,unsp,36,65995,23.245
+40383,550,unsp,Used,f,22258,2011,Blue,5.5 L,Gasoline,KY,ESC,Harman Kardon,Alloy,unsp,44,48500,22.258
+40387,550,unsp,Used,f,22488,2011,White,5.5 L,Gasoline,PA,Mid,Harman Kardon,unsp,unsp,72,50000,22.488
+40391,550,unsp,CPO,f,22699,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,unsp,20,2,52975,22.699
+40392,550,unsp,Used,t,31306,2011,Black,5.5 L,Gasoline,TX,WSC,unsp,unsp,unsp,18,49900,31.306
+40393,550,unsp,Used,f,16006,2011,Gray,5.5 L,Gasoline,TX,WSC,Premium,Alloy,unsp,51,49995,16.006
+40400,550,unsp,Used,f,15609,2011,Black,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,53,50995,15.609
+40402,550,unsp,CPO,f,50848,2011,Black,5.5 L,Gasoline,NC,SoA,Premium,Alloy,unsp,58,47433,50.848
+40403,550,unsp,Used,f,34235,2011,Black,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,0,47995,34.235
+40441,63 AMG,unsp,Used,t,34098,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,Alloy,unsp,53,72995,34.098
+40445,63 AMG,unsp,Used,f,49627,2011,Silver,5.5 L,Gasoline,FL,SoA,unsp,Alloy,unsp,67,77991,49.627
+40498,550,unsp,Used,f,47971,2011,Black,5.5 L,Gasoline,VA,SoA,Premium,Alloy,unsp,32,48888,47.971
+40501,550,unsp,Used,f,32685,2011,White,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,89,45950,32.685
+40507,550,unsp,Used,f,69075,2011,Gray,5.5 L,Gasoline,NJ,Mid,unsp,Alloy,unsp,60,44995,69.075
+40509,550,unsp,CPO,f,42410,2011,Silver,5.5 L,Gasoline,VA,SoA,unsp,unsp,unsp,5,45995,42.41
+40516,550,unsp,Used,t,8593,2011,Black,5.5 L,Gasoline,MD,SoA,Premium,Alloy,unsp,73,57950,8.593
+40518,550,unsp,Used,t,49580,2011,Black,5.5 L,Gasoline,NY,Mid,Harman Kardon,unsp,unsp,21,40995,49.58
+40521,550,unsp,CPO,f,21509,2011,White,5.5 L,Gasoline,IL,ENC,Premium,Alloy,unsp,72,62998,21.509
+40522,550,unsp,CPO,t,26911,2011,Black,5.5 L,Gasoline,IL,ENC,Harman Kardon,Alloy,unsp,68,62998,26.911
+41043,550,unsp,Used,t,31007,2011,Black,5.5 L,Gasoline,GA,SoA,Premium,unsp,unsp,46,40999,31.007
+41045,550,unsp,Used,f,58776,2011,Gray,5.5 L,Gasoline,GA,SoA,Harman Kardon,Premium,unsp,49,43994,58.776
+41047,550,unsp,CPO,t,25153,2011,Silver,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,2,49981,25.153
+41049,550,unsp,CPO,t,32988,2011,Black,5.5 L,Gasoline,GA,SoA,Harman Kardon,Alloy,unsp,74,58757,32.988
+41050,550,unsp,Used,f,65816,2011,Black,5.5 L,Gasoline,TN,ESC,unsp,Alloy,unsp,24,39930,65.816
+41052,550,unsp,Used,f,40400,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,0,44991,40.4
+41054,550,unsp,Used,t,19180,2011,Black,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,81,46699,19.18
+41056,550,unsp,Used,f,48952,2011,Gray,5.5 L,Gasoline,FL,SoA,Harman Kardon,Alloy,18,81,43911,48.952
+41061,550,unsp,Used,f,16498,2011,Black,5.5 L,Gasoline,FL,SoA,unsp,Alloy,unsp,62,59900,16.498
+41063,550,unsp,Used,t,20614,2011,Silver,5.5 L,Gasoline,FL,SoA,Harman Kardon,Alloy,unsp,53,54991,20.614
+41104,63 AMG,unsp,CPO,f,28085,2011,Blue,5.5 L,Gasoline,NJ,Mid,unsp,Alloy,19,38,65999,28.085
+41105,63 AMG,unsp,Used,t,36017,2011,Gray,5.5 L,Gasoline,IL,ENC,Bang Olufsen,Alloy,unsp,72,71890,36.017
+41106,63 AMG,unsp,Used,f,44842,2011,Black,5.5 L,Gasoline,IL,ENC,Harman Kardon,Alloy,unsp,55,63980,44.842
+41146,550,unsp,Used,f,61653,2011,Black,5.5 L,Gasoline,GA,SoA,Harman Kardon,Alloy,unsp,55,36800,61.653
+41147,550,unsp,CPO,t,47340,2011,Gray,5.5 L,Gasoline,NC,SoA,unsp,unsp,unsp,47,52985,47.34
+41148,550,unsp,Used,t,28989,2011,Black,5.5 L,Gasoline,OH,ENC,Premium,Alloy,unsp,64,42777,28.989
+41150,550,unsp,Used,f,51175,2011,Black,5.5 L,Gasoline,NJ,Mid,unsp,Alloy,unsp,60,44995,51.175
+41152,550,unsp,Used,t,54421,2011,Black,5.5 L,Gasoline,VA,SoA,Harman Kardon,Alloy,unsp,33,43995,54.421
+41159,550,unsp,Used,t,43811,2011,Silver,5.5 L,Gasoline,FL,SoA,Premium,Alloy,18,74,34999,43.811
+41161,550,unsp,Used,f,56794,2011,Gray,5.5 L,Gasoline,NY,Mid,Harman Kardon,Alloy,unsp,69,47995,56.794
+41164,550,unsp,Used,f,38755,2011,Black,5.5 L,Gasoline,VA,SoA,unsp,unsp,unsp,4,44777,38.755
+41165,550,unsp,Used,t,19104,2011,Black,5.5 L,Gasoline,FL,SoA,unsp,Alloy,20,13,58900,19.104
+41166,550,unsp,Used,f,50585,2011,Black,5.5 L,Gasoline,MO,WNC,Premium,Alloy,unsp,70,50987,50.585
+41168,550,unsp,Used,f,29587,2011,Black,5.5 L,Gasoline,TX,WSC,Harman Kardon,unsp,unsp,54,49995,29.587
+41169,550,unsp,CPO,t,18085,2011,Black,5.5 L,Gasoline,OH,ENC,Harman Kardon,Alloy,unsp,79,58995,18.085
+41174,550,unsp,Used,t,65002,2011,Black,5.5 L,Gasoline,IL,ENC,Premium,Alloy,unsp,76,44991,65.002
+41698,550,unsp,CPO,t,21739,2011,Black,5.5 L,Gasoline,CA,Pac,Harman Kardon,Premium,unsp,35,54892,21.739
+41704,550,unsp,Used,f,32000,2011,Black,5.5 L,Gasoline,MS,ESC,Harman Kardon,Alloy,unsp,52,49900,32
+41706,550,unsp,Used,t,45918,2011,Silver,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,69,43850,45.918
+41707,550,unsp,CPO,f,24957,2011,Black,5.5 L,Gasoline,NC,SoA,Premium,Alloy,unsp,63,58961,24.957
+41713,550,unsp,Used,f,43277,2011,White,5.5 L,Gasoline,FL,SoA,Harman Kardon,unsp,unsp,7,42959,43.277
+41714,550,unsp,Used,f,48323,2011,Black,5.5 L,Gasoline,GA,SoA,Premium,Alloy,unsp,47,44999,48.323
+41717,550,unsp,Used,t,34408,2011,Black,5.5 L,Gasoline,AL,ESC,unsp,unsp,unsp,37,43995,34.408
+41718,550,unsp,CPO,f,17056,2011,Blue,5.5 L,Gasoline,TX,WSC,unsp,Alloy,unsp,17,57991,17.056
+41719,550,unsp,Used,f,37517,2011,Silver,5.5 L,Gasoline,MO,WNC,Harman Kardon,Alloy,unsp,84,48993,37.517
+41721,550,unsp,CPO,t,46330,2011,Black,5.5 L,Gasoline,CA,Pac,Premium,unsp,unsp,3,53888,46.33
+41723,550,unsp,Used,f,54448,2011,Black,5.5 L,Gasoline,GA,SoA,Premium,unsp,unsp,47,38999,54.448
+41753,63 AMG,unsp,CPO,f,18532,2011,Black,5.5 L,Gasoline,TN,ESC,Harman Kardon,Alloy,20,102,87999,18.532
+41810,550,unsp,Used,f,41275,2011,White,5.5 L,Gasoline,NJ,Mid,Premium,Alloy,unsp,66,55535,41.275
+41816,550,unsp,CPO,f,31350,2011,Blue,5.5 L,Gasoline,NY,Mid,Premium,Alloy,unsp,64,42000,31.35
+41819,550,unsp,Used,f,31115,2011,Black,5.5 L,Gasoline,SC,SoA,Harman Kardon,unsp,unsp,71,54990,31.115
+41821,550,unsp,CPO,t,20147,2011,Black,5.5 L,Gasoline,NY,Mid,unsp,Alloy,unsp,58,55998,20.147
+41826,550,unsp,Used,f,29810,2011,Black,5.5 L,Gasoline,NJ,Mid,unsp,unsp,unsp,4,52895,29.81
+41829,550,unsp,Used,f,30490,2011,White,5.5 L,Gasoline,GA,SoA,Premium,Alloy,unsp,26,52877,30.49
+41831,550,unsp,Used,t,30731,2011,Black,5.5 L,Gasoline,GA,SoA,unsp,unsp,unsp,7,46990,30.731
+42366,550,unsp,Used,f,39578,2011,Black,5.5 L,Gasoline,FL,SoA,Premium,Alloy,unsp,21,51992,39.578
+42367,550,unsp,Used,t,25476,2011,Brown,5.5 L,Gasoline,FL,SoA,Harman Kardon,Alloy,19,73,45999,25.476
+42368,550,unsp,Used,f,18642,2011,Silver,5.5 L,Gasoline,TX,WSC,unsp,Alloy,unsp,53,54995,18.642
+42371,550,unsp,CPO,t,21968,2011,Black,5.5 L,Gasoline,OK,WSC,Bang Olufsen,Alloy,unsp,74,58000,21.968
+42372,550,unsp,Used,f,10840,2011,Gray,5.5 L,Gasoline,TX,WSC,Harman Kardon,unsp,unsp,30,52991,10.84
+42377,550,unsp,Used,t,29924,2011,Black,5.5 L,Gasoline,TX,WSC,Harman Kardon,unsp,unsp,22,56991,29.924
+42378,550,unsp,Used,f,9016,2011,Blue,5.5 L,Gasoline,CA,Pac,Bang Olufsen,unsp,unsp,3,56981,9.016
+42379,550,unsp,Used,f,33842,2011,Black,5.5 L,Gasoline,FL,SoA,Premium,Alloy,unsp,64,44990,33.842
+42381,550,unsp,Used,f,32709,2011,White,5.5 L,Gasoline,FL,SoA,Harman Kardon,unsp,20,69,52900,32.709
+42466,550,unsp,Used,f,53172,2011,Silver,5.5 L,Gasoline,NY,Mid,Harman Kardon,unsp,unsp,21,40995,53.172
+42469,550,unsp,Used,t,46663,2011,Silver,5.5 L,Gasoline,NJ,Mid,Bang Olufsen,Alloy,unsp,76,37900,46.663
+42472,550,unsp,CPO,f,38532,2011,Silver,5.5 L,Gasoline,PA,Mid,Premium,Alloy,18,73,54850,38.532
+42473,550,unsp,Used,t,25097,2011,unsp,5.5 L,Gasoline,MD,SoA,unsp,Alloy,unsp,50,54999,25.097
+42474,550,unsp,Used,t,32379,2011,Black,5.5 L,Gasoline,NJ,Mid,Premium,Alloy,unsp,76,51880,32.379
+42482,550,unsp,CPO,f,60743,2011,Silver,5.5 L,Gasoline,OR,Pac,unsp,Alloy,unsp,79,39700,60.743
+42483,550,unsp,CPO,f,47129,2011,Green,5.5 L,Gasoline,VA,SoA,unsp,unsp,unsp,85,49994,47.129
+42484,550,unsp,Used,f,45991,2011,Silver,5.5 L,Gasoline,IN,ENC,Premium,unsp,unsp,17,52990,45.991
+42485,550,unsp,CPO,f,36445,2011,Black,5.5 L,Gasoline,OH,ENC,Premium,Alloy,unsp,80,47991,36.445
+42486,550,unsp,Used,t,34812,2011,Black,5.5 L,Gasoline,NY,Mid,unsp,unsp,unsp,46,54800,34.812
+42487,550,unsp,Used,t,29522,2011,Black,5.5 L,Gasoline,VA,SoA,Premium,Alloy,unsp,62,55989,29.522
+42491,550,unsp,Used,t,36261,2011,Silver,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,88,46900,36.261
+42495,550,unsp,Used,t,47496,2011,Black,5.5 L,Gasoline,GA,SoA,Harman Kardon,unsp,unsp,74,37771,47.496
+43011,550,unsp,Used,f,33731,2011,White,5.5 L,Gasoline,FL,SoA,Premium,Alloy,unsp,85,48561,33.731
+43013,550,unsp,Used,f,17343,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,0,59995,17.343
+43017,550,unsp,Used,f,22259,2011,Black,5.5 L,Gasoline,FL,SoA,unsp,Alloy,unsp,65,52900,22.259
+43022,550,unsp,CPO,t,37727,2011,Gray,5.5 L,Gasoline,AZ,Mtn,Premium,Alloy,unsp,76,50888,37.727
+43023,550,unsp,Used,f,46887,2011,Black,5.5 L,Gasoline,GA,SoA,Premium,Alloy,unsp,81,44998,46.887
+43028,550,unsp,Used,f,41427,2011,unsp,5.5 L,Gasoline,NC,SoA,Harman Kardon,Alloy,unsp,87,47987,41.427
+43031,550,unsp,CPO,f,35961,2011,Silver,5.5 L,Gasoline,CA,Pac,Harman Kardon,Alloy,unsp,82,53900,35.961
+43032,550,unsp,Used,f,41450,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,41,47566,41.45
+43033,550,unsp,CPO,f,58469,2011,Black,5.5 L,Gasoline,MS,ESC,unsp,unsp,unsp,86,41994,58.469
+43035,550,unsp,Used,f,23599,2011,Gray,5.5 L,Gasoline,CA,Pac,unsp,Alloy,unsp,79,56428,23.599
+43036,550,unsp,Used,t,20785,2011,Gray,5.5 L,Gasoline,CA,Pac,Harman Kardon,unsp,unsp,14,46990,20.785
+43078,63 AMG,unsp,Used,t,32513,2011,Black,5.5 L,Gasoline,GA,SoA,Harman Kardon,Alloy,unsp,78,67990,32.513
+43136,550,unsp,CPO,f,31711,2011,Black,5.5 L,Gasoline,NY,Mid,unsp,Alloy,unsp,98,53487,31.711
+43140,550,unsp,CPO,t,46201,2011,Silver,5.5 L,Gasoline,MD,SoA,Premium,Alloy,unsp,74,53950,46.201
+43141,550,unsp,CPO,t,17297,2011,Gray,5.5 L,Gasoline,CT,New,unsp,Alloy,unsp,36,63446,17.297
+43144,550,unsp,Used,f,41827,2011,Black,5.5 L,Gasoline,FL,SoA,Harman Kardon,Alloy,19,74,43999,41.827
+43149,550,unsp,Used,f,53501,2011,Gray,5.5 L,Gasoline,NY,Mid,unsp,Alloy,unsp,21,43995,53.501
+43150,550,unsp,Used,f,10500,2011,Silver,5.5 L,Gasoline,PA,Mid,Premium,Alloy,unsp,52,52900,10.5
+43156,550,unsp,CPO,f,38948,2011,White,5.5 L,Gasoline,NJ,Mid,Premium,Alloy,unsp,72,59001,38.948
+43157,550,unsp,Used,t,38868,2011,Black,5.5 L,Gasoline,NJ,Mid,Premium,Alloy,unsp,73,51992,38.868
+43159,550,unsp,Used,t,27952,2011,Silver,5.5 L,Gasoline,VA,SoA,Harman Kardon,Alloy,unsp,74,48888,27.952
+43161,550,unsp,Used,f,24674,2011,unsp,5.5 L,Gasoline,UT,Mtn,Harman Kardon,unsp,unsp,63,60881,24.674
+43162,550,unsp,CPO,t,31355,2011,Silver,5.5 L,Gasoline,NJ,Mid,unsp,Alloy,unsp,61,48995,31.355
+43697,550,unsp,Used,f,40117,2011,White,5.5 L,Gasoline,IL,ENC,Harman Kardon,Alloy,20,79,49995,40.117
+43700,550,unsp,Used,f,57256,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,1,43887,57.256
+43710,550,unsp,CPO,t,28338,2011,Black,5.5 L,Gasoline,CA,Pac,Premium,Alloy,unsp,75,57988,28.338
+43714,550,unsp,CPO,t,45014,2011,Gray,5.5 L,Gasoline,FL,SoA,Harman Kardon,unsp,unsp,18,51991,45.014
+43715,550,unsp,Used,f,45769,2011,Black,5.5 L,Gasoline,GA,SoA,Harman Kardon,unsp,unsp,45,46391,45.769
+43753,63 AMG,unsp,Used,f,20040,2011,Black,5.5 L,Gasoline,GA,SoA,Bang Olufsen,Alloy,unsp,81,75750,20.04
+43758,63 AMG,unsp,CPO,f,5795,2011,Black,5.5 L,Gasoline,NY,Mid,unsp,unsp,unsp,4,86900,5.795
+43820,550,unsp,CPO,f,36710,2011,Black,5.5 L,Gasoline,RI,New,unsp,unsp,unsp,6,49875,36.71
+43821,550,unsp,Used,f,24266,2011,Gray,5.5 L,Gasoline,NC,SoA,unsp,Alloy,unsp,15,47995,24.266
+43823,550,unsp,Used,f,55823,2011,Black,5.5 L,Gasoline,GA,SoA,Harman Kardon,unsp,unsp,60,37999,55.823
+43824,550,unsp,CPO,f,22405,2011,Black,5.5 L,Gasoline,GA,SoA,unsp,Alloy,unsp,82,60991,22.405
+43826,550,unsp,Used,f,42000,2011,Black,5.5 L,Gasoline,MI,ENC,Harman Kardon,unsp,unsp,91,42995,42
+43828,550,unsp,CPO,t,27889,2011,Silver,5.5 L,Gasoline,OH,ENC,unsp,Alloy,unsp,39,51890,27.889
+43829,550,unsp,Used,f,33572,2011,Silver,5.5 L,Gasoline,CT,New,unsp,Alloy,unsp,40,57990,33.572
+43830,550,unsp,Used,f,35604,2011,Black,5.5 L,Gasoline,NJ,Mid,Harman Kardon,unsp,unsp,71,43877,35.604
+43831,550,unsp,Used,f,45564,2011,White,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,0,45992,45.564
+43834,550,unsp,Used,f,58913,2011,Silver,5.5 L,Gasoline,NJ,Mid,unsp,unsp,unsp,62,55900,58.913
+43835,550,unsp,Used,t,43220,2011,Blue,5.5 L,Gasoline,MA,New,Harman Kardon,unsp,unsp,7,45998,43.22
+43836,550,unsp,Used,f,29410,2011,Black,5.5 L,Gasoline,NY,Mid,Harman Kardon,unsp,unsp,22,43995,29.41
+43842,550,unsp,Used,f,36450,2011,Black,5.5 L,Gasoline,NJ,Mid,Premium,Alloy,unsp,68,45794,36.45
+43845,550,unsp,Used,f,32886,2011,Black,5.5 L,Gasoline,NJ,Mid,Premium,Alloy,unsp,69,49991,32.886
+43846,550,unsp,Used,t,37519,2011,Silver,5.5 L,Gasoline,NY,Mid,unsp,unsp,unsp,33,51531,37.519
+43853,550,unsp,CPO,f,31058,2011,Silver,5.5 L,Gasoline,NY,Mid,unsp,unsp,unsp,2,57500,31.058
+44366,550,unsp,Used,f,60214,2011,Black,5.5 L,Gasoline,FL,SoA,Harman Kardon,unsp,unsp,28,44888,60.214
+44371,550,unsp,Used,f,34438,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,5,47593,34.438
+44374,550,unsp,CPO,t,23827,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,Alloy,unsp,60,58888,23.827
+44376,550,unsp,Used,f,66903,2011,White,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,70,47888,66.903
+44377,550,unsp,CPO,f,41546,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,13,52981,41.546
+44378,550,unsp,Used,t,29842,2011,Gray,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,0,57986,29.842
+44379,550,unsp,Used,f,45800,2011,Gray,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,75,48995,45.8
+44382,550,unsp,Used,t,35199,2011,Black,5.5 L,Gasoline,AL,ESC,unsp,unsp,unsp,37,49994,35.199
+44385,550,unsp,Used,t,14960,2011,White,5.5 L,Gasoline,FL,SoA,Harman Kardon,unsp,unsp,22,55991,14.96
+44387,550,unsp,CPO,f,43097,2011,Black,5.5 L,Gasoline,GA,SoA,Premium,Alloy,unsp,86,51873,43.097
+44389,550,unsp,Used,t,20441,2011,Gray,5.5 L,Gasoline,CA,Pac,Harman Kardon,Alloy,unsp,62,54995,20.441
+44391,550,unsp,Used,t,18607,2011,Silver,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,86,45450,18.607
+44392,550,unsp,Used,f,23807,2011,Gray,5.5 L,Gasoline,TX,WSC,unsp,Alloy,unsp,66,52995,23.807
+44425,63 AMG,unsp,Used,f,43050,2011,Silver,5.5 L,Gasoline,NV,Mtn,Premium,Alloy,unsp,73,98991,43.05
+44477,550,unsp,Used,f,49604,2011,Black,5.5 L,Gasoline,NY,Mid,Premium,unsp,unsp,17,58592,49.604
+44480,550,unsp,Used,t,63700,2011,Silver,5.5 L,Gasoline,DE,SoA,Premium,Alloy,unsp,64,49906,63.7
+44482,550,unsp,Used,f,31442,2011,Black,5.5 L,Gasoline,MD,SoA,Harman Kardon,Alloy,unsp,60,49500,31.442
+44483,550,unsp,CPO,f,18227,2011,Black,5.5 L,Gasoline,NY,Mid,unsp,unsp,unsp,74,50995,18.227
+44487,550,unsp,CPO,f,36847,2011,White,5.5 L,Gasoline,FL,SoA,Harman Kardon,unsp,unsp,12,48991,36.847
+44488,550,unsp,CPO,f,21381,2011,Black,5.5 L,Gasoline,CT,New,unsp,Alloy,unsp,36,57488,21.381
+44491,550,unsp,Used,f,53892,2011,Black,5.5 L,Gasoline,GA,SoA,Harman Kardon,Alloy,unsp,68,40995,53.892
+44492,550,unsp,Used,f,31241,2011,Silver,5.5 L,Gasoline,OK,WSC,Harman Kardon,unsp,unsp,2,64988,31.241
+44495,550,unsp,Used,f,35694,2011,Silver,5.5 L,Gasoline,GA,SoA,Harman Kardon,Alloy,unsp,64,42995,35.694
+44496,550,unsp,CPO,f,30589,2011,Black,5.5 L,Gasoline,NJ,Mid,unsp,Alloy,unsp,60,55995,30.589
+44501,550,unsp,Used,f,51826,2011,Black,5.5 L,Gasoline,NC,SoA,Premium,Alloy,unsp,81,37000,51.826
+45029,550,unsp,CPO,f,31469,2011,White,5.5 L,Gasoline,FL,SoA,Premium,Alloy,unsp,67,53991,31.469
+45034,550,unsp,Used,t,25667,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,0,55986,25.667
+45040,550,unsp,Used,f,27923,2011,Black,5.5 L,Gasoline,CA,Pac,Premium,Premium,unsp,49,49900,27.923
+45041,550,unsp,Used,f,78433,2011,Silver,5.5 L,Gasoline,TX,WSC,Premium,unsp,unsp,41,39888,78.433
+45052,550,unsp,Used,t,15978,2011,Gray,5.5 L,Gasoline,FL,SoA,Premium,Alloy,18,71,44999,15.978
+45053,550,unsp,Used,f,18620,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,0,46998,18.62
+45054,550,unsp,CPO,f,33833,2011,Silver,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,11,49770,33.833
+45151,550,unsp,CPO,t,28768,2011,Black,5.5 L,Gasoline,OH,ENC,unsp,Alloy,unsp,71,49990,28.768
+45157,550,unsp,CPO,t,35381,2011,Black,5.5 L,Gasoline,NY,Mid,Harman Kardon,Alloy,unsp,54,48900,35.381
+45158,550,unsp,CPO,t,31307,2011,Black,5.5 L,Gasoline,NV,Mtn,Harman Kardon,unsp,unsp,40,60998,31.307
+45164,550,unsp,Used,t,59378,2011,Silver,5.5 L,Gasoline,GA,SoA,Harman Kardon,Alloy,unsp,54,37999,59.378
+45165,550,unsp,CPO,t,26563,2011,Silver,5.5 L,Gasoline,MD,SoA,Premium,Alloy,unsp,72,61960,26.563
+45166,550,unsp,Used,f,14213,2011,Silver,5.5 L,Gasoline,NJ,Mid,Premium,unsp,unsp,18,63980,14.213
+45167,550,unsp,Used,t,22485,2011,Black,5.5 L,Gasoline,NY,Mid,Harman Kardon,unsp,unsp,60,53800,22.485
+45168,550,unsp,Used,t,15641,2011,Gray,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,59,49999,15.641
+45171,550,unsp,Used,t,42645,2011,Gray,5.5 L,Gasoline,NJ,Mid,Harman Kardon,Alloy,unsp,74,36959,42.645
+45172,550,unsp,CPO,f,20539,2011,Black,5.5 L,Gasoline,GA,SoA,Premium,Alloy,unsp,88,51994,20.539
+45173,550,unsp,CPO,t,36863,2011,Black,5.5 L,Gasoline,MA,New,unsp,Alloy,unsp,83,51991,36.863
+45178,550,unsp,Used,f,40463,2011,Gray,5.5 L,Gasoline,NY,Mid,unsp,Alloy,unsp,59,56895,40.463
+45180,550,unsp,Used,f,43255,2011,Black,5.5 L,Gasoline,NJ,Mid,unsp,unsp,unsp,7,42995,43.255
+45189,550,unsp,CPO,t,38996,2011,Silver,5.5 L,Gasoline,NY,Mid,Harman Kardon,Alloy,unsp,85,56991,38.996
+45193,550,unsp,CPO,f,39193,2011,Black,5.5 L,Gasoline,OH,ENC,unsp,unsp,unsp,8,44349,39.193
+45197,550,unsp,Used,t,51336,2011,Black,5.5 L,Gasoline,NY,Mid,Harman Kardon,unsp,unsp,19,38995,51.336
+45198,550,unsp,CPO,f,42764,2011,Silver,5.5 L,Gasoline,NC,SoA,unsp,unsp,unsp,9,43993,42.764
+45199,550,unsp,Used,f,58136,2011,Black,5.5 L,Gasoline,MD,SoA,unsp,Alloy,unsp,57,37635,58.136
+45201,550,unsp,Used,f,26029,2011,Black,5.5 L,Gasoline,NY,Mid,Premium,Alloy,unsp,74,46995,26.029
+45734,550,unsp,Used,t,44782,2011,Silver,5.5 L,Gasoline,AL,ESC,Harman Kardon,Alloy,unsp,38,43995,44.782
+45737,550,unsp,Used,t,33493,2011,White,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,5,56991,33.493
+45738,550,unsp,CPO,t,32303,2011,Silver,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,2,58900,32.303
+45740,550,unsp,CPO,f,50055,2011,Black,5.5 L,Gasoline,FL,SoA,Harman Kardon,unsp,unsp,22,49981,50.055
+45741,550,unsp,Used,f,31147,2011,Black,5.5 L,Gasoline,TX,WSC,Harman Kardon,unsp,unsp,22,56991,31.147
+45744,550,unsp,Used,t,36862,2011,White,5.5 L,Gasoline,GA,SoA,Harman Kardon,Alloy,unsp,83,51990,36.862
+45747,550,unsp,Used,f,6053,2011,Black,5.5 L,Gasoline,AZ,Mtn,Harman Kardon,Alloy,unsp,63,57500,6.053
+45749,550,unsp,Used,t,55057,2011,Black,5.5 L,Gasoline,FL,SoA,Premium,Alloy,unsp,22,40999,55.057
+45751,550,unsp,Used,f,55186,2011,Blue,5.5 L,Gasoline,CA,Pac,Bang Olufsen,Alloy,unsp,44,39990,55.186
+45790,63 AMG,unsp,CPO,t,36755,2011,White,5.5 L,Gasoline,LA,WSC,unsp,unsp,unsp,42,89821,36.755
+45838,550,unsp,Used,f,65751,2011,Black,5.5 L,Gasoline,MA,New,Premium,Alloy,unsp,62,40500,65.751
+45839,550,unsp,Used,f,52939,2011,White,5.5 L,Gasoline,NJ,Mid,Premium,unsp,unsp,88,44000,52.939
+45841,550,unsp,CPO,f,52663,2011,Black,5.5 L,Gasoline,OH,ENC,unsp,Alloy,unsp,58,57993,52.663
+45844,550,unsp,CPO,f,24015,2011,White,5.5 L,Gasoline,CA,Pac,Bang Olufsen,unsp,unsp,30,54981,24.015
+45848,550,unsp,CPO,f,53264,2011,Black,5.5 L,Gasoline,KS,WNC,Premium,Alloy,unsp,85,49950,53.264
+45851,550,unsp,Used,f,36000,2011,Black,5.5 L,Gasoline,NJ,Mid,unsp,Alloy,unsp,55,37995,36
+45852,550,unsp,CPO,f,37967,2011,Black,5.5 L,Gasoline,VA,SoA,unsp,unsp,unsp,5,46995,37.967
+45854,550,unsp,CPO,t,43040,2011,White,5.5 L,Gasoline,MA,New,unsp,Alloy,unsp,65,49991,43.04
+45858,550,unsp,Used,f,45980,2011,Silver,5.5 L,Gasoline,FL,SoA,Premium,Alloy,18,74,42999,45.98
+45859,550,unsp,CPO,f,36302,2011,Black,5.5 L,Gasoline,MA,New,unsp,unsp,unsp,10,54998,36.302
+45860,550,unsp,Used,t,35956,2011,White,5.5 L,Gasoline,GA,SoA,unsp,unsp,unsp,8,42990,35.956
+45861,550,unsp,CPO,f,40097,2011,Gray,5.5 L,Gasoline,NC,SoA,Premium,Alloy,unsp,40,49989,40.097
+46346,550,unsp,CPO,t,36084,2011,Silver,5.5 L,Gasoline,FL,SoA,unsp,Alloy,unsp,58,55995,36.084
+46347,550,unsp,CPO,t,19754,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,55,59981,19.754
+46348,550,unsp,CPO,t,36852,2011,Black,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,81,52888,36.852
+46349,550,unsp,Used,f,18467,2011,Black,5.5 L,Gasoline,FL,SoA,Harman Kardon,unsp,unsp,32,59991,18.467
+46352,550,unsp,Used,f,43041,2011,Black,5.5 L,Gasoline,GA,SoA,Harman Kardon,unsp,unsp,45,45391,43.041
+46358,550,unsp,CPO,f,24965,2011,White,5.5 L,Gasoline,FL,SoA,Harman Kardon,Alloy,unsp,58,53991,24.965
+46450,550,unsp,Used,f,41664,2011,Gray,5.5 L,Gasoline,VA,SoA,unsp,Alloy,unsp,55,45999,41.664
+46452,550,unsp,CPO,t,38295,2011,Black,5.5 L,Gasoline,IL,ENC,Premium,Alloy,unsp,74,49995,38.295
+46453,550,unsp,Used,f,14530,2011,Black,5.5 L,Gasoline,CT,New,Premium,Alloy,unsp,70,42900,14.53
+46456,550,unsp,Used,f,56671,2011,Black,5.5 L,Gasoline,GA,SoA,Premium,unsp,unsp,44,40999,56.671
+46460,550,unsp,Used,f,54041,2011,Silver,5.5 L,Gasoline,GA,SoA,Premium,unsp,unsp,46,38900,54.041
+46461,550,unsp,Used,f,70093,2011,Black,5.5 L,Gasoline,OH,ENC,Premium,unsp,unsp,84,37990,70.093
+46473,550,unsp,Used,f,32542,2011,White,5.5 L,Gasoline,NC,SoA,Premium,Alloy,unsp,62,61990,32.542
+46478,550,unsp,Used,f,24294,2011,Black,5.5 L,Gasoline,NY,Mid,Premium,Alloy,unsp,69,40000,24.294
+46479,550,unsp,CPO,t,27185,2011,Black,5.5 L,Gasoline,GA,SoA,unsp,Alloy,unsp,87,56991,27.185
+46980,550,unsp,CPO,f,35828,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,15,55443,35.828
+46986,550,unsp,Used,t,29286,2011,Black,5.5 L,Gasoline,FL,SoA,Premium,Alloy,18,72,34999,29.286
+46990,550,unsp,CPO,f,26004,2011,Gray,5.5 L,Gasoline,AL,ESC,unsp,Alloy,unsp,59,57894,26.004
+46993,550,unsp,Used,f,33305,2011,Silver,5.5 L,Gasoline,IL,ENC,Premium,unsp,unsp,48,44900,33.305
+46994,550,unsp,CPO,t,70986,2011,Gray,5.5 L,Gasoline,CA,Pac,Harman Kardon,Alloy,unsp,29,40992,70.986
+46995,550,unsp,Used,t,21179,2011,Black,5.5 L,Gasoline,TX,WSC,Premium,Alloy,unsp,75,59995,21.179
+46999,550,unsp,CPO,t,23422,2011,Black,5.5 L,Gasoline,TX,WSC,unsp,Alloy,unsp,45,52750,23.422
+47002,550,unsp,Used,f,17914,2011,Blue,5.5 L,Gasoline,CA,Pac,Bang Olufsen,Alloy,unsp,63,49995,17.914
+47003,550,unsp,Used,f,77086,2011,Black,5.5 L,Gasoline,VA,SoA,unsp,Alloy,unsp,81,41684,77.086
+47045,63 AMG,unsp,CPO,f,17200,2011,Black,5.5 L,Gasoline,NY,Mid,unsp,Alloy,unsp,91,79987,17.2
+47093,550,unsp,Used,f,41885,2011,Silver,5.5 L,Gasoline,NY,Mid,unsp,unsp,unsp,55,58705,41.885
+47099,550,unsp,CPO,f,30670,2011,Silver,5.5 L,Gasoline,PA,Mid,Premium,Alloy,unsp,49,54991,30.67
+47103,550,unsp,CPO,f,24768,2011,Black,5.5 L,Gasoline,NJ,Mid,Premium,Alloy,unsp,72,50995,24.768
+47104,550,unsp,CPO,f,38054,2011,Gray,5.5 L,Gasoline,IL,ENC,Premium,Alloy,unsp,72,45839,38.054
+47106,550,unsp,Used,f,31435,2011,Silver,5.5 L,Gasoline,FL,SoA,Premium,unsp,unsp,29,40985,31.435
+47110,550,unsp,Used,f,34217,2011,Black,5.5 L,Gasoline,TN,ESC,Harman Kardon,Alloy,unsp,79,44900,34.217
+47112,550,unsp,CPO,t,45754,2011,Black,5.5 L,Gasoline,MD,SoA,Premium,Alloy,unsp,66,55531,45.754
+47113,550,unsp,Used,t,15597,2011,Black,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,92,48950,15.597
+47117,550,unsp,Used,f,30524,2011,White,5.5 L,Gasoline,GA,SoA,Harman Kardon,Alloy,unsp,67,57110,30.524
+47610,550,unsp,CPO,f,24060,2011,unsp,5.5 L,Gasoline,CA,Pac,Harman Kardon,Premium,unsp,31,55981,24.06
+47614,550,unsp,CPO,f,33194,2011,Gray,5.5 L,Gasoline,CA,Pac,Harman Kardon,unsp,unsp,52,56981,33.194
+47618,550,unsp,CPO,f,25915,2011,Black,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,70,59991,25.915
+47620,550,unsp,CPO,f,40428,2011,Gray,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,72,54991,40.428
+47621,550,unsp,Used,f,51023,2011,Brown,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,0,41999,51.023
+47623,550,unsp,Used,t,22312,2011,Gray,5.5 L,Gasoline,NC,SoA,unsp,unsp,unsp,0,64988,22.312
+47624,550,unsp,Used,t,32980,2011,Silver,5.5 L,Gasoline,NC,SoA,unsp,unsp,unsp,54,56988,32.98
+47628,550,unsp,Used,f,35307,2011,White,5.5 L,Gasoline,FL,SoA,Harman Kardon,Alloy,18,72,43999,35.307
+47632,550,unsp,Used,t,48790,2011,Black,5.5 L,Gasoline,TX,WSC,Harman Kardon,unsp,unsp,22,52994,48.79
+47669,63 AMG,unsp,CPO,f,29483,2011,Black,5.5 L,Gasoline,MA,New,unsp,Alloy,unsp,59,77695,29.483
+47728,550,unsp,Used,f,32810,2011,Black,5.5 L,Gasoline,IL,ENC,unsp,unsp,unsp,0,50993,32.81
+47733,550,unsp,CPO,t,70709,2011,Black,5.5 L,Gasoline,MD,SoA,Bang Olufsen,Alloy,unsp,79,43840,70.709
+47734,550,unsp,Used,t,43173,2011,Blue,5.5 L,Gasoline,FL,SoA,Premium,Alloy,unsp,74,36999,43.173
+47737,550,unsp,Used,f,33768,2011,Gray,5.5 L,Gasoline,NJ,Mid,Premium,Alloy,unsp,67,64995,33.768
+47738,550,unsp,CPO,f,33506,2011,Silver,5.5 L,Gasoline,NC,SoA,Premium,Alloy,unsp,79,51995,33.506
+47739,550,unsp,CPO,t,30490,2011,White,5.5 L,Gasoline,GA,SoA,Harman Kardon,Alloy,unsp,71,56200,30.49
+47742,550,unsp,CPO,f,38026,2011,Gray,5.5 L,Gasoline,PA,Mid,Premium,Alloy,unsp,71,55481,38.026
+47746,550,unsp,CPO,f,20587,2011,Silver,5.5 L,Gasoline,NY,Mid,unsp,unsp,unsp,4,64900,20.587
+47748,550,unsp,CPO,t,49914,2011,Brown,5.5 L,Gasoline,NJ,Mid,Premium,Alloy,unsp,69,39000,49.914
+47749,550,unsp,Used,f,55580,2011,Black,5.5 L,Gasoline,VA,SoA,Premium,unsp,unsp,47,46950,55.58
+47751,550,unsp,Used,f,46196,2011,Black,5.5 L,Gasoline,AL,ESC,Premium,unsp,unsp,40,49995,46.196
+47752,550,unsp,Used,f,33466,2011,Blue,5.5 L,Gasoline,FL,SoA,Premium,Alloy,18,73,40999,33.466
+48254,550,unsp,Used,f,12616,2011,White,5.5 L,Gasoline,FL,SoA,unsp,Alloy,unsp,13,48882,12.616
+48255,550,unsp,Used,f,12061,2011,Silver,5.5 L,Gasoline,GA,SoA,unsp,unsp,unsp,6,48990,12.061
+48257,550,unsp,Used,f,12325,2011,Green,5.5 L,Gasoline,CA,Pac,Bang Olufsen,Alloy,unsp,61,57995,12.325
+48264,550,unsp,CPO,t,33918,2011,White,5.5 L,Gasoline,FL,SoA,unsp,Alloy,unsp,38,53900,33.918
+48269,550,unsp,Used,t,40607,2011,Black,5.5 L,Gasoline,LA,WSC,Harman Kardon,Alloy,unsp,77,51795,40.607
+48271,550,unsp,Used,f,15260,2011,Silver,5.5 L,Gasoline,FL,SoA,Premium,unsp,unsp,36,59990,15.26
+48272,550,unsp,Used,t,34325,2011,Black,5.5 L,Gasoline,FL,SoA,Harman Kardon,unsp,unsp,92,46900,34.325
+48273,550,unsp,Used,t,46075,2011,Silver,5.5 L,Gasoline,FL,SoA,Premium,unsp,unsp,46,38995,46.075
+48367,550,unsp,CPO,f,27852,2011,Black,5.5 L,Gasoline,CT,New,unsp,Alloy,unsp,63,57905,27.852
+48368,550,unsp,CPO,t,46674,2011,Black,5.5 L,Gasoline,OH,ENC,unsp,unsp,unsp,89,49500,46.674
+48370,550,unsp,Used,f,54471,2011,Black,5.5 L,Gasoline,OH,ENC,unsp,Alloy,unsp,84,44999,54.471
+48373,550,unsp,Used,f,72947,2011,Black,5.5 L,Gasoline,NY,Mid,unsp,Alloy,unsp,50,39995,72.947
+48374,550,unsp,Used,f,66531,2011,Blue,5.5 L,Gasoline,NJ,Mid,Premium,unsp,unsp,44,34996,66.531
+48376,550,unsp,Used,f,22032,2011,Silver,5.5 L,Gasoline,VA,SoA,unsp,unsp,unsp,6,47450,22.032
+48377,550,unsp,CPO,t,33607,2011,Black,5.5 L,Gasoline,OH,ENC,Premium,Alloy,unsp,67,55995,33.607
+48379,550,unsp,Used,t,38435,2011,White,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,69,46999,38.435
+48381,550,unsp,Used,t,44750,2011,Gray,5.5 L,Gasoline,ID,Mtn,Premium,Alloy,unsp,70,55990,44.75
+48383,550,unsp,Used,t,65623,2011,Black,5.5 L,Gasoline,NY,Mid,unsp,unsp,unsp,16,35495,65.623
+48384,550,unsp,Used,f,51561,2011,Black,5.5 L,Gasoline,GA,SoA,Premium,unsp,unsp,48,39499,51.561
+48386,550,unsp,CPO,f,29658,2011,White,5.5 L,Gasoline,PA,Mid,Premium,Alloy,unsp,66,57991,29.658
+48388,550,unsp,Used,f,55938,2011,Black,5.5 L,Gasoline,MD,SoA,unsp,Alloy,unsp,61,39990,55.938
+48389,550,unsp,Used,t,29200,2011,White,5.5 L,Gasoline,FL,SoA,Premium,Alloy,unsp,47,48900,29.2
+48392,550,unsp,CPO,t,49109,2011,Black,5.5 L,Gasoline,MD,SoA,Premium,Alloy,unsp,73,48998,49.109
+48393,550,unsp,CPO,f,43635,2011,Black,5.5 L,Gasoline,NC,SoA,Premium,Alloy,unsp,79,47763,43.635
+48396,550,unsp,Used,f,7991,2011,unsp,5.5 L,Gasoline,NJ,Mid,Harman Kardon,Alloy,unsp,78,54995,7.991
+48910,550,unsp,CPO,f,36936,2011,Silver,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,29,48993,36.936
+48911,550,unsp,Used,f,21736,2011,Gray,5.5 L,Gasoline,FL,SoA,Harman Kardon,unsp,unsp,63,52900,21.736
+48916,550,unsp,Used,f,53707,2011,Black,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,74,43998,53.707
+48918,550,unsp,Used,f,47999,2011,Black,5.5 L,Gasoline,LA,WSC,unsp,unsp,unsp,65,48981,47.999
+48919,550,unsp,CPO,f,19538,2011,Black,5.5 L,Gasoline,GA,SoA,unsp,Alloy,unsp,80,56992,19.538
+48927,550,unsp,CPO,f,41350,2011,unsp,5.5 L,Gasoline,MO,WNC,Harman Kardon,Alloy,18,53,54961,41.35
+48963,63 AMG,unsp,CPO,t,47941,2011,Black,5.5 L,Gasoline,CA,Pac,Bang Olufsen,unsp,unsp,31,73998,47.941
+49017,550,unsp,Used,f,29822,2011,Silver,5.5 L,Gasoline,PA,Mid,Harman Kardon,Alloy,unsp,63,59900,29.822
+49019,550,unsp,Used,t,41657,2011,Black,5.5 L,Gasoline,MD,SoA,Premium,Alloy,unsp,73,54950,41.657
+49024,550,unsp,Used,f,76347,2011,Gray,5.5 L,Gasoline,NH,New,unsp,unsp,unsp,76,42690,76.347
+49028,550,unsp,CPO,t,33197,2011,Black,5.5 L,Gasoline,GA,SoA,Harman Kardon,Alloy,unsp,43,57995,33.197
+49029,550,unsp,Used,t,24539,2011,Black,5.5 L,Gasoline,IL,ENC,Premium,Alloy,unsp,71,55900,24.539
+49030,550,unsp,Used,f,19126,2011,Silver,5.5 L,Gasoline,VA,SoA,Premium,Alloy,unsp,85,49471,19.126
+49031,550,unsp,Used,t,40231,2011,Black,5.5 L,Gasoline,GA,SoA,unsp,unsp,unsp,7,37500,40.231
+49033,550,unsp,Used,f,38588,2011,Silver,5.5 L,Gasoline,MD,SoA,unsp,unsp,unsp,9,60556,38.588
+49036,550,unsp,Used,f,12223,2011,Silver,5.5 L,Gasoline,CT,New,unsp,Alloy,unsp,39,56990,12.223
+49041,550,unsp,CPO,f,31942,2011,Silver,5.5 L,Gasoline,NJ,Mid,unsp,Alloy,unsp,14,57991,31.942
+49044,550,unsp,CPO,f,30358,2011,Blue,5.5 L,Gasoline,OH,ENC,Bang Olufsen,Alloy,unsp,84,48995,30.358
+49046,550,unsp,Used,f,30390,2011,Black,5.5 L,Gasoline,MA,New,Harman Kardon,unsp,unsp,35,57000,30.39
+49048,550,unsp,Used,f,47167,2011,Black,5.5 L,Gasoline,NY,Mid,unsp,Alloy,unsp,19,42995,47.167
+49528,550,unsp,Used,f,36448,2011,Black,5.5 L,Gasoline,FL,SoA,Harman Kardon,Alloy,18,73,42999,36.448
+49529,550,unsp,Used,t,19360,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,0,59986,19.36
+49533,550,unsp,Used,t,25535,2011,White,5.5 L,Gasoline,FL,SoA,unsp,Alloy,unsp,30,45999,25.535
+49534,550,unsp,Used,f,37321,2011,Silver,5.5 L,Gasoline,CA,Pac,Premium,Alloy,unsp,29,39995,37.321
+49548,550,unsp,Used,t,20779,2011,Black,5.5 L,Gasoline,CA,Pac,Harman Kardon,Alloy,unsp,61,52995,20.779
+49549,550,unsp,Used,t,14750,2011,White,5.5 L,Gasoline,CA,Pac,Premium,Alloy,unsp,66,59999,14.75
+49552,550,unsp,Used,f,36197,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,86,49999,36.197
+49604,63 AMG,unsp,Used,f,49024,2011,Black,5.5 L,Gasoline,NY,Mid,unsp,unsp,unsp,20,61900,49.024
+49655,550,unsp,Used,t,33524,2011,Black,5.5 L,Gasoline,NJ,Mid,Premium,Alloy,unsp,71,54743,33.524
+49656,550,unsp,CPO,t,26397,2011,Silver,5.5 L,Gasoline,MO,WNC,Harman Kardon,unsp,unsp,73,59850,26.397
+49657,550,unsp,Used,f,51993,2011,Black,5.5 L,Gasoline,MD,SoA,unsp,unsp,unsp,29,55050,51.993
+49659,550,unsp,Used,t,20060,2011,Black,5.5 L,Gasoline,VA,SoA,Harman Kardon,Alloy,unsp,59,51888,20.06
+49663,550,unsp,Used,f,45186,2011,Silver,5.5 L,Gasoline,OH,ENC,Premium,Alloy,unsp,78,49991,45.186
+49664,550,unsp,CPO,f,53890,2011,Gray,5.5 L,Gasoline,VA,SoA,Harman Kardon,Alloy,18,64,49000,53.89
+49665,550,unsp,Used,f,32343,2011,Black,5.5 L,Gasoline,IL,ENC,unsp,unsp,unsp,11,44980,32.343
+49666,550,unsp,CPO,f,21103,2011,Black,5.5 L,Gasoline,FL,SoA,unsp,Alloy,unsp,60,58991,21.103
+49669,550,unsp,CPO,t,33029,2011,Silver,5.5 L,Gasoline,NY,Mid,unsp,unsp,unsp,1,48900,33.029
+49682,550,unsp,CPO,f,48985,2011,Black,5.5 L,Gasoline,NJ,Mid,Premium,Alloy,18,71,42997,48.985
+49683,550,unsp,Used,f,47504,2011,Black,5.5 L,Gasoline,NY,Mid,unsp,Alloy,unsp,47,49800,47.504
+49686,550,unsp,CPO,t,39832,2011,Black,5.5 L,Gasoline,NY,Mid,Harman Kardon,Premium,unsp,49,57900,39.832
+49688,550,unsp,CPO,t,25398,2011,Silver,5.5 L,Gasoline,MD,SoA,Premium,Alloy,18,72,59950,25.398
+49691,550,unsp,Used,f,48903,2011,Gray,5.5 L,Gasoline,NJ,Mid,unsp,Alloy,unsp,49,37675,48.903
+50207,550,unsp,CPO,t,34017,2011,White,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,2,60782,34.017
+50210,550,unsp,Used,t,16479,2011,Black,5.5 L,Gasoline,GA,SoA,unsp,unsp,unsp,56,49999,16.479
+50217,550,unsp,Used,f,19098,2011,Red,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,73,47000,19.098
+50221,550,unsp,Used,t,28996,2011,unsp,5.5 L,Gasoline,NC,SoA,Harman Kardon,Alloy,unsp,77,44000,28.996
+50226,550,unsp,Used,t,69942,2011,Black,5.5 L,Gasoline,FL,SoA,Harman Kardon,Alloy,unsp,61,39992,69.942
+50263,63 AMG,unsp,Used,f,12631,2011,Black,5.5 L,Gasoline,AL,ESC,Premium,unsp,unsp,37,89995,12.631
+50264,63 AMG,unsp,Used,f,44263,2011,unsp,5.5 L,Gasoline,NC,SoA,unsp,unsp,unsp,0,59877,44.263
+50311,550,unsp,Used,t,33837,2011,Black,5.5 L,Gasoline,NY,Mid,Harman Kardon,Alloy,unsp,27,46993,33.837
+50312,550,unsp,Used,f,34505,2011,Black,5.5 L,Gasoline,PA,Mid,Harman Kardon,unsp,unsp,12,47900,34.505
+50314,550,unsp,Used,t,59193,2011,Black,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,80,44777,59.193
+50316,550,unsp,Used,f,51736,2011,Black,5.5 L,Gasoline,GA,SoA,Harman Kardon,Alloy,unsp,64,46994,51.736
+50320,550,unsp,CPO,f,31359,2011,White,5.5 L,Gasoline,NY,Mid,Harman Kardon,Alloy,unsp,69,57997,31.359
+50328,550,unsp,CPO,t,28573,2011,Black,5.5 L,Gasoline,NY,Mid,Harman Kardon,Alloy,unsp,53,49900,28.573
+50329,550,unsp,CPO,f,35496,2011,Black,5.5 L,Gasoline,NY,Mid,unsp,unsp,unsp,1,44350,35.496
+50335,550,unsp,Used,f,29717,2011,White,5.5 L,Gasoline,MD,SoA,unsp,unsp,unsp,15,51974,29.717
+50832,550,unsp,Used,f,49056,2011,White,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,9,47995,49.056
+50841,550,unsp,Used,f,41556,2011,White,5.5 L,Gasoline,CA,Pac,Premium,Alloy,unsp,53,43988,41.556
+50842,550,unsp,CPO,f,20838,2011,Silver,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,4,52981,20.838
+50843,550,unsp,CPO,f,42081,2011,White,5.5 L,Gasoline,FL,SoA,Bang Olufsen,Alloy,unsp,73,58991,42.081
+50849,550,unsp,Used,t,52565,2011,Black,5.5 L,Gasoline,CA,Pac,Harman Kardon,unsp,unsp,14,42990,52.565
+50851,550,unsp,CPO,f,32560,2011,White,5.5 L,Gasoline,OK,WSC,Premium,Alloy,unsp,75,58988,32.56
+50882,63 AMG,unsp,CPO,t,9046,2011,Silver,5.5 L,Gasoline,NY,Mid,unsp,unsp,unsp,2,86900,9.046
+50927,550,unsp,Used,t,19528,2011,Black,5.5 L,Gasoline,MA,New,unsp,unsp,unsp,64,44877,19.528
+50930,550,unsp,Used,f,42680,2011,White,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,0,47988,42.68
+50931,550,unsp,Used,f,32779,2011,Black,5.5 L,Gasoline,GA,SoA,Harman Kardon,Premium,unsp,45,51991,32.779
+50934,550,unsp,Used,f,44270,2011,unsp,5.5 L,Gasoline,NJ,Mid,unsp,unsp,unsp,53,59900,44.27
+50936,550,unsp,CPO,f,68251,2011,Gray,5.5 L,Gasoline,VA,SoA,Premium,Alloy,unsp,35,36795,68.251
+50939,550,unsp,Used,t,26031,2011,Black,5.5 L,Gasoline,NY,Mid,Premium,Alloy,unsp,56,62981,26.031
+50945,550,unsp,Used,f,37487,2011,Black,5.5 L,Gasoline,GA,SoA,Harman Kardon,Premium,unsp,47,41591,37.487
+50948,550,unsp,Used,t,43886,2011,White,5.5 L,Gasoline,GA,SoA,unsp,unsp,unsp,6,43990,43.886
+50953,550,unsp,Used,f,36013,2011,Brown,5.5 L,Gasoline,WA,Pac,Harman Kardon,unsp,unsp,53,46880,36.013
+50954,550,unsp,Used,t,48332,2011,Black,5.5 L,Gasoline,MO,WNC,Harman Kardon,Alloy,unsp,54,49765,48.332
+50961,550,unsp,Used,t,40656,2011,Black,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,78,47995,40.656
+50963,550,unsp,CPO,f,26054,2011,Black,5.5 L,Gasoline,MD,SoA,unsp,Alloy,unsp,14,62998,26.054
+51469,550,unsp,CPO,t,19267,2011,unsp,5.5 L,Gasoline,AZ,Mtn,Premium,Alloy,unsp,67,62888,19.267
+51471,550,unsp,CPO,t,30231,2011,Gray,5.5 L,Gasoline,CA,Pac,Harman Kardon,Alloy,unsp,32,52888,30.231
+51472,550,unsp,Used,f,79215,2011,White,5.5 L,Gasoline,AL,ESC,Harman Kardon,Alloy,unsp,74,41499,79.215
+51473,550,unsp,Used,t,17991,2011,Black,5.5 L,Gasoline,CA,Pac,Harman Kardon,Alloy,unsp,61,55995,17.991
+51479,550,unsp,CPO,t,42635,2011,Black,5.5 L,Gasoline,CA,Pac,unsp,Alloy,unsp,47,59988,42.635
+51483,550,unsp,Used,t,32752,2011,Black,5.5 L,Gasoline,CA,Pac,Premium,Alloy,unsp,69,48878,32.752
+51484,550,unsp,Used,f,61336,2011,Black,5.5 L,Gasoline,CA,Pac,Harman Kardon,unsp,unsp,6,37994,61.336
+51485,550,unsp,CPO,t,23780,2011,Gray,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,70,59991,23.78
+51487,550,unsp,CPO,t,18844,2011,Black,5.5 L,Gasoline,FL,SoA,Premium,Alloy,unsp,74,49882,18.844
+51489,550,unsp,CPO,t,31460,2011,Silver,5.5 L,Gasoline,NC,SoA,unsp,unsp,unsp,13,49993,31.46
+51495,550,unsp,Used,f,22228,2011,Black,5.5 L,Gasoline,GA,SoA,Harman Kardon,Premium,unsp,63,43991,22.228
+51496,550,unsp,Used,f,34078,2011,Black,5.5 L,Gasoline,CA,Pac,Harman Kardon,unsp,unsp,36,52997,34.078
+51497,550,unsp,Used,t,31849,2011,Black,5.5 L,Gasoline,FL,SoA,unsp,Alloy,unsp,55,53800,31.849
+51499,550,unsp,Used,f,44376,2011,White,5.5 L,Gasoline,TX,WSC,unsp,unsp,unsp,0,55000,44.376
+51500,550,unsp,CPO,f,63745,2011,White,5.5 L,Gasoline,TX,WSC,unsp,unsp,unsp,7,48991,63.745
+51533,63 AMG,unsp,Used,f,5274,2011,Black,5.5 L,Gasoline,NV,Mtn,unsp,unsp,unsp,3,109995,5.274
+51594,550,unsp,Used,f,16429,2011,Green,5.5 L,Gasoline,VA,SoA,unsp,unsp,unsp,0,49995,16.429
+51597,550,unsp,Used,f,50477,2011,Black,5.5 L,Gasoline,VA,SoA,Harman Kardon,Alloy,unsp,54,43777,50.477
+51601,550,unsp,Used,f,48303,2011,Black,5.5 L,Gasoline,IL,ENC,unsp,Alloy,unsp,27,54999,48.303
+51602,550,unsp,Used,t,61299,2011,Black,5.5 L,Gasoline,CA,Pac,Premium,unsp,unsp,7,42995,61.299
+51603,550,unsp,Used,t,15661,2011,Silver,5.5 L,Gasoline,MA,New,unsp,Alloy,unsp,17,56900,15.661
+51605,550,unsp,CPO,t,9367,2011,Silver,5.5 L,Gasoline,PA,Mid,Premium,Alloy,unsp,67,65899,9.367
+51606,550,unsp,Used,f,31057,2011,Black,5.5 L,Gasoline,NJ,Mid,Premium,Alloy,unsp,81,42981,31.057
+51608,550,unsp,Used,f,28935,2011,Black,5.5 L,Gasoline,CT,New,Premium,Alloy,unsp,82,50995,28.935
+51611,550,unsp,Used,f,29149,2011,Blue,5.5 L,Gasoline,NY,Mid,unsp,Alloy,unsp,73,42995,29.149
+51612,550,unsp,Used,t,53790,2011,Black,5.5 L,Gasoline,IL,ENC,Harman Kardon,Alloy,unsp,90,39995,53.79
+51614,550,unsp,Used,f,25524,2011,Silver,5.5 L,Gasoline,MD,SoA,unsp,Alloy,unsp,59,48995,25.524
+51619,550,unsp,CPO,t,36694,2011,Black,5.5 L,Gasoline,NY,Mid,Harman Kardon,Alloy,unsp,86,54991,36.694
+51620,550,unsp,Used,f,32162,2011,Silver,5.5 L,Gasoline,VA,SoA,unsp,Alloy,unsp,55,39900,32.162
+51621,550,unsp,Used,t,24648,2011,Black,5.5 L,Gasoline,NY,Mid,Premium,Alloy,unsp,84,47995,24.648
+51626,550,unsp,Used,t,37686,2011,Silver,5.5 L,Gasoline,NJ,Mid,Harman Kardon,Alloy,unsp,67,53475,37.686
+52117,550,unsp,Used,f,19571,2011,Gray,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,76,57995,19.571
+52121,550,unsp,Used,t,24550,2011,Black,5.5 L,Gasoline,GA,SoA,Harman Kardon,unsp,unsp,60,49990,24.55
+52124,550,unsp,CPO,f,30421,2011,Gray,5.5 L,Gasoline,CA,Pac,unsp,unsp,unsp,54,61850,30.421
+52125,550,unsp,Used,t,36185,2011,Gray,5.5 L,Gasoline,AL,ESC,unsp,unsp,20,39,42994,36.185
+52128,550,unsp,Used,t,44416,2011,White,5.5 L,Gasoline,AZ,Mtn,Premium,unsp,unsp,42,49955,44.416
+52131,550,unsp,CPO,f,9795,2011,Blue,5.5 L,Gasoline,TX,WSC,Harman Kardon,Alloy,unsp,28,58992,9.795
+52132,550,unsp,Used,f,11125,2011,Black,5.5 L,Gasoline,FL,SoA,unsp,unsp,unsp,8,58999,11.125
+52135,550,unsp,Used,t,53729,2011,Silver,5.5 L,Gasoline,FL,SoA,Premium,Alloy,unsp,62,36388,53.729
+52136,550,unsp,Used,t,22404,2011,Silver,5.5 L,Gasoline,FL,SoA,Harman Kardon,unsp,unsp,26,49994,22.404
+52172,63 AMG,unsp,Used,t,52211,2011,Gray,5.5 L,Gasoline,FL,SoA,Harman Kardon,Alloy,unsp,75,54999,52.211
+52224,550,unsp,Used,t,40421,2011,Black,5.5 L,Gasoline,NY,Mid,Premium,Alloy,unsp,68,49995,40.421
+52225,550,unsp,Used,f,37456,2011,Black,5.5 L,Gasoline,GA,SoA,Harman Kardon,Alloy,unsp,56,39499,37.456
+52228,550,unsp,Used,f,32650,2011,Silver,5.5 L,Gasoline,NJ,Mid,unsp,unsp,unsp,3,46995,32.65
+52229,550,unsp,Used,f,38304,2011,Silver,5.5 L,Gasoline,NJ,Mid,Harman Kardon,unsp,unsp,83,39977,38.304
+52230,550,unsp,CPO,t,16828,2011,Silver,5.5 L,Gasoline,MO,WNC,Harman Kardon,unsp,unsp,55,59950,16.828
+52231,550,unsp,CPO,f,34663,2011,Silver,5.5 L,Gasoline,NY,Mid,Premium,Alloy,unsp,19,42900,34.663
+52232,550,unsp,CPO,t,27000,2011,Black,5.5 L,Gasoline,NJ,Mid,Premium,Alloy,unsp,72,60999,27
+52238,550,unsp,Used,f,22731,2011,White,5.5 L,Gasoline,VA,SoA,unsp,Alloy,unsp,82,55564,22.731
+52239,550,unsp,Used,t,50436,2011,White,5.5 L,Gasoline,GA,SoA,unsp,unsp,unsp,7,40990,50.436
+52240,550,unsp,Used,t,24300,2011,Black,5.5 L,Gasoline,MA,New,Premium,unsp,unsp,43,55995,24.3
+52249,550,unsp,CPO,f,13239,2011,Black,5.5 L,Gasoline,VA,SoA,Harman Kardon,unsp,unsp,67,61777,13.239

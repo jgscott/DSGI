@@ -43,29 +43,31 @@ And that's a very general principle in regression: more complex models, with mor
 So how do we actually _know_ that these fitted parameters of 208 and 0.7 are the best choices?  Well, you _could_ just guess and check until you're convinced you can't do any better.  (You can't.)   But modern computers do this for us in a much more intelligent fashion, finding the best-fitting parameters by cleverly exploiting matrix algebra and calculus in ways that, [while fascinating](https://math.mit.edu/icg/resources/teaching/18.085-spring2015/LeastSquares.pdf), aren't worth going into here.  If you major in math or statistics or computer science, or if you program statistical software for a living, those details are super important.  (I was a math major and I still remember sweating them out line by line.)  Most people, on the other hand, are safe in simply trusting that their software has done the calculations correctly.  
 
 
-<!-- ####  An aside: multiple regression models {-} -->
+####  Quick preview: multiple regression models {-}
 
-<!-- We can also fit regression models with multiple explanatory variables.  Let's briefly see what one of these models looks like.  Suppose that you were a data scientist at Zillow, the online real-estate marketplace, and that you had to build a rule for predicting the price of a house.  You might start with two obvious features of a house, like the square footage and the number of bathrooms, together with weights for each feature.  For example: -->
+We can also fit regression models with multiple explanatory variables.  Although we won't cover them in detail quite yet, let's briefly see what one of these models looks like, as a preview of what's to come.
 
-<!-- $$ -->
-<!-- \mbox{Expected Price = 10,000 + 125 $\times$ (Square Footage) + 26,000 $\times$ (Num. Bathrooms)} -->
-<!-- $$ -->
+Suppose that you were a data scientist at Zillow, the online real-estate marketplace, and that you had to build a model for predicting the price of a house.  You might start with two obvious features of a house, like the square footage and the number of bathrooms, together with weights for each feature.  For example:
 
-<!-- In words, this says that to predict the price of a house, you should follow three steps: -->
+$$
+\mbox{Expected Price = 10,000 + 125 $\times$ (Square Footage) + 26,000 $\times$ (Num. Bathrooms)}
+$$
 
-<!-- 1)	Multiply the square footage of the house by 125 (parameter 1).   -->
-<!-- 2)	Multiply the number of bathrooms by 26,000 (parameter 2). -->
-<!-- 3)	Add the results from A and B to 10,000 (the baseline parameter).  This yields the predicted price. -->
+In words, this says that to predict the price of a house, you should follow three steps:
 
-<!-- This is called a _multiple regression model_, because it's an equation that uses multiple features (square footage, bathrooms) to predict price.  In real life, the weights or multipliers would be tuned to describe the prices in a particular housing market.  You'll always have one more parameter (here, 3) than you have features (here, 2): one parameter per feature, plus one extra parameter for the baseline.   -->
+1)	Multiply the square footage of the house by 125 (parameter 1).
+2)	Multiply the number of bathrooms by 26,000 (parameter 2).
+3)	Add the results from A and B to 10,000 (the baseline parameter).  This yields the predicted price.
 
-<!-- Of course, we don't need to stop at two features!  Houses have lots of other features that affect their price—for example, the distance to the city center, the size of the yard, the age of the roof, and the number of fireplaces.  With modern software, we can easily fit an equation that incorporates all of these features, and hundreds more.  Every feature gets its own weight; more important features end up getting bigger weights, because the data show that they have a bigger effect on the price.  Now, if you try to write out such a model in words---"add this," "multiply this," like we did for the two-feature rule above---it starts to look like the IRS forms they hand out in Hell.   But R just churns through all the calculations with no problem, even for models with hundreds of parameters. -->
+This is called a _multiple regression model_, because it's an equation that uses multiple features (square footage, bathrooms) to predict price.  In real life, the weights or multipliers would be tuned to describe the prices in a particular housing market.  You'll always have one more parameter (here, 3) than you have features (here, 2): one parameter per feature, plus one extra parameter for the baseline.
 
-<!-- In this lesson, we're going to focus on basic regression models with just one feature.  In a later lesson, we'll learn about _multiple regression models_, which incorporate lots of features (like our imaginary Zillow example above). But whether a model has 1 feature or 101 features, the underlying principles are the same: -->
+Of course, we don't need to stop at two features!  Houses have lots of other features that affect their price—for example, the distance to the city center, the size of the yard, the age of the roof, and the number of fireplaces.  With modern software, we can easily fit an equation that incorporates all of these features, and hundreds more.  Every feature gets its own weight; more important features end up getting bigger weights, because the data show that they have a bigger effect on the price.  Now, if you try to write out such a model in words---"add this," "multiply this," like we did for the two-feature rule above---it starts to look like the IRS forms they hand out in Hell.   But R just churns through all the calculations with no problem, even for models with hundreds of parameters.
 
-<!-- 1) A regression model is an equation that describes relationships in a data set.   -->
-<!-- 2) Regression models have free parameters: the baseline value, and the weights on each feature.   -->
-<!-- 3) We choose these parameters so that the regression model's predictions are as accurate as possible.   -->
+In this lesson, we're going to focus on basic regression models with just one feature.  In a later lesson, we'll learn about _multiple regression models_, which incorporate lots of features (like our imaginary Zillow example above). But whether a model has 1 feature or 101 features, the underlying principles are the same:
+
+1) A regression model is an equation that describes relationships in a data set.
+2) Regression models have free parameters: the baseline value, and the weights on each feature.
+3) We choose these parameters so that the regression model's predictions are as accurate as possible.
 
 
 
@@ -90,7 +92,7 @@ Given a data set with bunches of pairs $(x_i, y_i)$, we choose the intercept ($\
 heartrate = read.csv("data/heartrate.csv", header=TRUE)
 ```
 
-Let's see an example in R.  First, load the `tidyverse` and mosaic libraries, which we pretty much always need:
+Let's see an example in R.  First, load the `tidyverse` and `mosaic` libraries:
 
 ```{r, message=FALSE}
 library(tidyverse)
@@ -105,7 +107,24 @@ head(heartrate)
 
 This data is from an exercise study on maximum heart rates.  Each row is a person.  The two variables are the person's age in years and their maximum heart rate (`hrmax`) in beats per minute, as measured by a treadmill test.
 
-Let's fit a model for maximum heart rate versus age, and then ask R what the weights (or "coefficients") of the fitted model are:
+__Visualization__.  Let's visualize this data in a scatter plot and superimpose the trend line on the plot, which we can do using the `geom_smooth` function.  This displays a fitted regression line:  
+
+```{r heartrate-scatter, message=FALSE}
+ggplot(heartrate) + 
+  geom_point(aes(x=age, y=hrmax)) + 
+  geom_smooth(aes(x=age, y=hrmax), method='lm')
+```
+
+The first two lines of this code block should be familiar from our lesson on [Scatter plots].  But the third line, `geom_smooth`, is something new:    
+
+- To tell R to add a smooth trend line to a plot, use `geom_smooth`.  
+- `geom_smooth` has the same aesthetic mappings as the underlying scatter plot: an $x$ and $y$ variable that tell R what the predictor and response are in the regression.  
+- `method=lm` tells R to fit the trend line using a linear model (`lm`).  
+
+You might ask: what about the grey "bands" surrounding the blue line?  We'll cover this more in a future lesson, so don't worry too much about those bands.  But briefly: those bands are meant to visualize your "statistical uncertainty" about the trend line, in light of the inherent variability in the raw data.  
+
+
+__Fitting__.  So what is the actual equation of the blue trend line in the figure above?  For that, we need to explicitly call the `lm` function, and then print out the coefficients (intercept and slope) of the fitted model, like this:  
 
 ```{r}
 model_hr = lm(hrmax ~ age, data=heartrate)
@@ -134,6 +153,19 @@ The notation $\hat{y}$, read aloud as "y-hat," is short for "predicted $y$".  It
 fitted(model_hr) %>%
    head(5)
 ```
+
+
+__Optional stylistic note.__  When visualizing the trend line, it turns out that we can make our calls to `geom_point` and `geom_smooth` a little more concise, as in the code block below:
+
+```{r, heartrate-scatter-again, eval=FALSE}
+ggplot(heartrate, aes(x=age, y=hrmax)) + 
+  geom_point() + 
+  geom_smooth(method='lm')
+```
+
+The difference here is that we've put the aesthetic mapping (`aes`) in the first line, i.e. in the call to `ggplot`.  That way, we didn't have to repeat the same statement, `aes(x=age, y=hrmax)` inside _both_ the `geom_point` layer _and_ the `geom_smooth` layer.  The general rule here is that, if you place `aes` inside the call the `ggplot`, then _all_ subsequent layers will inherit that same aesthetic mapping.  If you're going to build up a plot in multiple layers that all have the same aesthetic mappings, you might find this useful.  
+
+Choosing where to put the call to `aes` is largely a matter of coding style and personal preference.  You get the same result either way.  But it's handy to know about the more concise option.  
 
 ## Using and interpreting regression models  
 
@@ -307,8 +339,8 @@ knitr::include_graphics('images/green_beige_people.png')
 
 Why, indeed?  Let's compare.  
 
-- The two dots circled in beige represent people whose max heart rates diff by 25 BPM.  This difference is _entirely predictable_: each has a max heart rate that is almost perfectly average for their age, but they differ in age by 36 years.  The difference of 25 BPM, in other words, is exactly what we'd expect based on their ages.  
-- The two dots circled in green _also_ represent people whose heart rates diff by 25 BPM.  But this difference is _entirely unpredictable_, because these two people are basically the same age.  Almost by definition, therefore, the difference in their maximum heart rates must have _nothing to do with_ their age. It must be down to something else.  
+- The two dots circled in beige represent people whose max heart rates differ by 25 BPM.  This difference is _entirely predictable_: each has a max heart rate that is almost perfectly average for their age, but they differ in age by 36 years.  The difference of 25 BPM, in other words, is exactly what we'd expect based on their ages.  
+- The two dots circled in green _also_ represent people whose heart rates differ by 25 BPM.  But this difference is _entirely unpredictable_, because these two people are basically the same age.  Almost by definition, therefore, the difference in their maximum heart rates must have _nothing to do with_ their age. It must be down to something else.  
 
 Now, to make things more interesting, let's consider a third pair of points:
 
@@ -421,7 +453,7 @@ This is a linear equation for $\log$ y versus x, with intercept $\log \alpha$ an
 
 #### Example 1: Ebola in West Africa {-}
 
-Beginning in March 2014, West Africa experienced the largest outbreak of the Ebola virus in history.  Guinea, Liberia, Niger, Sierra Leone, and Senegal were all hit hard by the epidemic.  In this example, we'll look at the number of cases of Ebola in these five countries over time, beginning on March 25, 2014 (which will be out "zero date" for the epidemic).
+Beginning in March 2014, West Africa experienced the largest outbreak of the Ebola virus in history.  Guinea, Liberia, Niger, Sierra Leone, and Senegal were all hit hard by the epidemic.  In this example, we'll look at the number of cases of Ebola in these five countries over time, beginning on March 25, 2014 (which will be our "zero date" for the epidemic).
 
 Please download and import the data in [ebola.csv](data/ebola.csv) into RStudio.  The first six lines of the file look like this:  
 
@@ -436,7 +468,7 @@ head(ebola)
 
 This file breaks things down by country, but we'll look at the `totalSus` column, for total suspected cases across all five countries.  Let's visualize this in a line graph, starting from day 0 (March 25):  
 
-```{r}
+```{r ebola-line}
 # total cases over time
 ggplot(ebola) + 
   geom_line(aes(x=Day, y = totalSus))
@@ -444,7 +476,7 @@ ggplot(ebola) +
 
 This is clearly non-linear.  But if we plot this on a logarithmic scale for the y axis, the result looks remarkably close to linear growth:
 
-```{r}
+```{r ebola-line-log}
 # total cases over time: logarithm scale for y variable
 ggplot(ebola) + 
   geom_line(aes(x=Day, y = log(totalSus)))
@@ -465,7 +497,7 @@ So our fitted parameters are:
 
 We can actually add this "reference" line to our log-scale plot, to visualize the fit:  
 
-```{r}
+```{r ebola-log-withfit}
 # total cases over time with reference line
 ggplot(ebola) + 
    geom_line(aes(x=Day, y = log(totalSus))) + 
@@ -492,14 +524,14 @@ head(austin_metro)
 
 And here's a plot of Austin's population over time:
 
-```{r}
+```{r austin-pop-line}
 ggplot(austin_metro) + 
    geom_line(aes(x=Year, y=Population))
 ```
 
 Let's fit an exponential growth model to this.  We'll first define a new variable that treats 1840 as our "zero" date, called `YearsSince1840`.  As you can see, the data looks relatively linear on a logarithmic scale:  
 
-```{r}
+```{r austin-pop-log-line}
 austin_metro = mutate(austin_metro, YearsSince1840 = Year - 1840)
 ggplot(austin_metro) + 
    geom_line(aes(x=YearsSince1840, y=log(Population)))
@@ -515,7 +547,7 @@ coef(lm_austin)
 Our average population growth rate is a little over 4.1% per year, every year back to 1840. Here's this reference line, superimposed on the log-scale plot of the data:  
 
 
-```{r}
+```{r austin-pop-withfit}
 ggplot(austin_metro) + 
    geom_line(aes(x=YearsSince1840, y=log(Population)))  + 
    geom_abline(intercept = 7.14, slope = 0.0412, color='red')
@@ -564,7 +596,7 @@ The two parameters of this model are:
 - $K$, which describes the _base value_ of $y$, when $x=1$.  
 - $\beta$, which is the elasticity, which describes relative proportional change in y versus x.  In a power law, when x changes by 1%, y changes by $\beta$%, on average.    
 
-A power law, like an exponential model, is also non-linear.  But via a similar trick to what we tried with exponential models, we can still _linear_ regression to fit it.  That simple trick is to _fitting our model using a logarithmic scale_ for both the x variable _and_ the y variable.  To see why, observe what happens if we take the (natural) logarithm of both sides of Equation \@ref(eq:power-law-model):
+A power law, like an exponential model, is also non-linear.  But via a similar trick to what we tried with exponential models, we can still use _linear_ regression to fit it.  That simple trick is to _fit our model using a logarithmic scale_ for both the x variable _and_ the y variable.  To see why, observe what happens if we take the (natural) logarithm of both sides of Equation \@ref(eq:power-law-model):
 
 \begin{equation}
 \begin{aligned}
@@ -611,14 +643,14 @@ We might expect that a primate like a rhesus monkey would have a relatively larg
 
 What's going on here is that a straight-up ratio is misleading, because body weight and brain weight follow a nonlinear relationship.  But this isn't necessarily obvious from a standard scatter plot.  The problem is that these weights vary over many, many orders of magnitude:  we have lots of small critters and a couple of elephants:
 
-```{r, out.width="100%", fig.align="center", fig.asp = 0.6}
+```{r animals-scatter, out.width="100%", fig.align="center", fig.asp = 0.6}
 ggplot(animals) + 
   geom_point(aes(x=body, y=brain))
 ```
 
 As a result, all the points look "squished" in the lower left corner of the plot.  However, things look much nicer when plotted on a log-log scale.  The log transformation of both axes has stretched the lower left corner of the box out in both x and y directions, allowing us to see the large number of data points that previously were all trying to occupy the same space.
 
-```{r, out.width="100%", fig.align="center", fig.asp = 0.6}
+```{r animals-scatter-log, out.width="100%", fig.align="center", fig.asp = 0.6}
 ggplot(animals) + 
   geom_point(aes(x=log(body), y=log(brain)))
 ```
@@ -632,7 +664,7 @@ coef(lm_critters)
 
 The fitted slope tells us the _elasticity_: when an animal's body weight changes by 1%, we expect its brain weight to change by 0.75%, regardless of the initial size of the animal.  As you can see, the fit of this line looks excellent when superimposed on the log-log-scale plot:
 
-```{r, out.width="100%", fig.align="center", fig.asp = 0.6}
+```{r animals-scatter-log-fit, out.width="100%", fig.align="center", fig.asp = 0.6}
 ggplot(animals) + 
    geom_point(aes(x=log(body), y=log(brain))) + 
    geom_abline(intercept=2.2, slope=0.75, color='red')

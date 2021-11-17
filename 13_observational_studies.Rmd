@@ -17,16 +17,16 @@ In this lesson you'll learn about:
 
 ## Natural experiments
 
-Some of the convincing observational studies involve what are called _natural experiments_, also known as _quasi-experiments._   A natural experiment is a lot like a real experiment, but without an actual experimental intervention performed by the researchers.  More specifically, in these studies, units (e.g. people, states, firms) are assigned to the "treatment" and "control" conditions by a mechanism that is:  
+Some of the most convincing observational studies involve what are called _natural experiments_, also known as _quasi-experiments._   A natural experiment is a lot like a real experiment, but without an actual experimental intervention performed by the researchers.  More specifically, in these studies, units (e.g. people, states, firms) are assigned to the "treatment" and "control" conditions by a mechanism that is:  
 
 1. Outside the control of either the investigators or the people actually in the study.  
 2. Plausibly resembles a random assignment.  
 
 How could that happen, you might wonder?  To illustrate the idea, let's look at some examples.  
 
-__Example 1: school class size.__  Do smaller classes improve student achievement in elementary school?  To study this question, you can't just compare students in small classes to those in large classes.  There are way too many nuisance variables!  Students in need of remediation are sometimes put in very small classes. Or sometimes high achieving students are also put in very small classes.  Richer school districts can afford both smaller classes and many other potential sources of instructional advantage.  Or maybe better teachers successfully convince their bosses to let them teach the smaller classes themselves.  The possible confounders could go on.  
+__Example 1: school class size.__  Do smaller classes improve student achievement in elementary school?  To study this question, you can't just compare students in small classes to those in large classes.  There are way too many nuisance variables!  Students in need of remediation are sometimes put in very small classes. Or sometimes high achieving students are also put in very small classes.  Richer school districts can afford both smaller classes and many other potential sources of instructional advantage.  Or maybe better teachers successfully convince their bosses to let them teach the smaller classes themselves.  The list of possible confounders could go on and on.  
 
-One examlpe of a _real_ experiment on class size was something called Project STAR, in Tennessee.  In Project STAR, kindergarten through 3rd-grade students and teachers were randomly assigned to two groups:  
+One example of a _real_ experiment on class size was something called Project STAR, in Tennessee.  In Project STAR, kindergarten through 3rd-grade students and teachers were randomly assigned to two groups:  
 
 - Small classes, with 13-17 students.  
 - Regular classes, with 22-25 students.  
@@ -35,7 +35,7 @@ All told, the experiment involved 6500 students in 330 classes at 80 schools.  T
 
 The downside of Project STAR, however, was that the experiment was very costly.  Moreover, it did not provide enough data to estimate context-specific effects (i.e. heterogeneity in students' responses to smaller classes).  This is often the case with experiments: because they're expensive, they're often too small to get the kind of highly granular results we'd like.  
 
-Now let's examine a _natural_ experiment on school class size.  In Israel, it turns out, primary school class size is capped at 40 students.  This has an important consequence:  
+Now let's examine a _natural_ experiment on school class size.  In Israel, it turns out, primary school class sizes are capped at 40 students.  This has an important consequence:  
 
 - A cohort of 40 tots will be educated in one class of 40.  
 - A cohort of 41 tots will be educated in two classes of 20 and 21.
@@ -84,6 +84,7 @@ The file [greenbuildings.csv](data/greenbuildings.csv) contains data on 7,894 co
 A group of real estate economists constructed the data set in the following way.  They first sampled 679 green-certified buildings listed on the LEED or EnergyStar websites, and cross-referenced those buildings with data from the CoStar Group (\url{www.costar.com}), a standard data vendor in commercial real estate.  In order to provide a control population, each of these 685 buildings was matched to a cluster of nearby commercial buildings in the CoStar database.  Each small cluster contains one green-certified building, and all non-rated buildings within a quarter-mile radius of the certified building.  On average, each of the 679 clusters contains roughly 12 buildings, for a total of 7,820 data points.
 
 If you want to follow along, please download the  [greenbuildings.csv](data/greenbuildings.csv) data and get it loaded into R.  You'll also need to load the `tidyverse` and `mosaic` libraries.  We'll start by looking at just two variables:  
+
 - rev_psf: rental revenue per square foot per year.  This will be our outcome variable.  
 - green_rating: a binary (0/1) variable indicating whether the building has a green certification (whether LEED or EnergyStar).  
 
@@ -122,10 +123,10 @@ But this is an unfair comparison.  That's because, upon further inspection, the 
 mean(age ~ green_rating, data=greenbuildings)
 ```
 
-Moreover, if we look at the `class` variable, it's also clear that green buildings are more likely to be fancy ["Class A" buildings](https://www.squarefoot.com/blog/class-a-buildings-class-c-buildings/), which are the most desirable properties in a given market:
+Moreover, if we look at the `class_a` variable, it's also clear that green buildings are more likely to be fancy ["Class A" buildings](https://www.squarefoot.com/blog/class-a-buildings-class-c-buildings/), which are the most desirable properties in a given market:
 
 ```{r}
-xtabs(~ class + green_rating, data=greenbuildings) %>%
+xtabs(~ class_a + green_rating, data=greenbuildings) %>%
   prop.table(margin=2)
 ```
 Nearly 80% of green buildings are Class A, versus only 36% of non-green buildings.  
@@ -150,7 +151,7 @@ library(MatchIt)
 Let's now follow the three steps of matching.  First, we look for matches, using the `matchit` function.  We'll then save these matches in a new "matched" data set, that we'll call `greenbuildings_matched`:    
 
 ```{r}
-greenbuildings_matched = matchit(green_rating ~ age + class,
+greenbuildings_matched = matchit(green_rating ~ age + class_a,
                                  data = greenbuildings, ratio=3) %>%
   match.data
 ```
@@ -158,7 +159,7 @@ greenbuildings_matched = matchit(green_rating ~ age + class,
 Let's unpack this command:  
 
 - The `matchit` function is what actually does the hard work of scanning the data set to look for matches.  
-- The formula `green_rating ~ age + class` tells R to find matches the balance the `age` and `class` variables for each level of the `green_rating` variable.  In your `matchit` statement, the treatment variable should go on the left-hand side, while the confounders should go on the right-hand side.  You'll notice that the _response_ variable (in this case, revenue per square foot, or `rev_psf`) doesn't appear at all.  That's important: the first step of matching doesn't look at the response variable, only the treatment variable and the confounders.    
+- The formula `green_rating ~ age + class_a` tells R to find matches the balance the `age` and `class_a` variables for each level of the `green_rating` variable.  In your `matchit` statement, the treatment variable should go on the left-hand side, while the confounders should go on the right-hand side.  You'll notice that the _response_ variable (in this case, revenue per square foot, or `rev_psf`) doesn't appear at all.  That's important: the first step of matching doesn't look at the response variable, only the treatment variable and the confounders.    
 - The flag `ratio=3` tells R to look for 3 non-green buildings (control cases) for every green building (treated case).  Why 3?  To be honest, it's a bit arbitrary.  There are two competing forces at work here.  The more matches you can find, the larger the sample size you'll have in your matched data, and the less statistical uncertainty you'll have about your answer.^[Up to a point, that is.  Assuming you have more controls than treated cases, which is typical, you're still inherently limited by the number of treated cases you have in your original data set.]  But the more matches you ask for, the less likely you are to be able to find really good matches for each green building.  The best `ratio` is going to balance these two criteria: as many matches as possible, but not so many that you compromise the quality of the matches.  I came up with 3 here by trying out different numbers. I found I could safely ask for 3 and still end with a balanced data set, but many more than that required settling for some less-than-ideal matches.  
 - after calling `matchit`, we pipe the result to `match.data` function, which extracts only the matched pairs, discarding the unmatched data.  
 
@@ -168,21 +169,31 @@ And that brings us to step 2: verify balance for our matched data set.  Here the
 mean(age ~ green_rating, data=greenbuildings_matched)
 ```
 
-The average age is now nearly identical in the green and non-green groups.  Now let's look at class:  
+The average age is now nearly identical in the green and non-green groups.  Now let's look at `class_a`:  
 
 ```{r}
-xtabs(~ class + green_rating, data=greenbuildings_matched) %>%
+xtabs(~ class_a + green_rating, data=greenbuildings_matched) %>%
   prop.table(margin=2)
 ```
-The green and non-green buildings have nearly identical proportions of class A, B, and C buildings.  
 
-So once we've constructed the data set of matched pairs, the confounder variables (`age` and `class`) are much more closely balanced between the treatment and control groups.  Now we come to step 3: compare outcomes in the treated (green) and untreated (non-green) buildings, using only the matched data.  This is straightforward.  We'll do so using `t.test`, to calculate a large-sample confidence interval for the difference in average `rev_psf` between the two groups:  
+The green and non-green buildings have nearly identical proportions of class A buildings.  
+
+So once we've constructed the data set of matched pairs, the confounder variables (`age` and `class_a`) are much more closely balanced between the treatment and control groups.
+
+Now we come to step 3: compare outcomes in the treated (green) and untreated (non-green) buildings, using only the matched data.  This is straightforward: `rev_psf` is a numerical outcome, so we'll look at the difference of means between the two groups:
+
+
+```{r}
+mean(rev_psf ~ green_rating, data=greenbuildings_matched)
+diffmean(rev_psf ~ green_rating, data=greenbuildings_matched)
+```
+
+
+A comparison of revenue for this matched data set makes the premium for green buildings look smaller: more like \$2 per square foot, versus more like \$3 for the unmatched data.  We can also quantify our uncertainty for this difference using `t.test`, which calculates a large-sample confidence interval for the difference in average `rev_psf` between the two groups:  
 
 ```{r}
 t.test(rev_psf ~ green_rating, data=greenbuildings_matched)
 ```
-
-A comparison of revenue for this matched data set makes the premium for green buildings look a lot smaller: more like 75 cents, versus \$3.15 for the unmatched data.  Moreover, the confidence interval ranges from about -\$1.90 to \$0.40, indicating that for the matched data, we're not actually confident which group has a larger mean.  
 
 
 __How do we actually find matches?__  The nitty-gritty algorithmic details of actually finding good matched pairs of cases are best left to the experts who write the software for these things.  The two most common types of matching are called [nearest-neighbor search](https://en.wikipedia.org/wiki/Nearest_neighbor_search) and [propensity-score matching](https://en.wikipedia.org/wiki/Propensity_score_matching); follow the links if you'd like to know more.  In R, the `MatchIt` library uses nearest-neighbor matching as a default; this is a very commonly used algorithm in real-world data analysis.  In addition, [the paper linked here](https://projecteuclid.org/euclid.ss/1280841730)^[Matching Methods for Causal Inference: A Review and a Look Forward.  Elizabeth A. Stuart, Statistical Science, 2010] has a much more detailed overview of different matching methods.  

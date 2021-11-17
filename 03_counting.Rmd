@@ -1,6 +1,6 @@
 # Counting {#contingency_tables}
 
-Counting is one of the simplest you can do with a data set.  But it can you get you surprisingly far.  I've heard it said that data science is mostly plotting and counting things.  After all, "How many?" is the [most basic quantitative question](https://www.youtube.com/watch?v=0Zi8KbgVhFc&ab_channel=SesameStreet) we can ask about the world.  Moreover, from counts, we can get proportions, and from proportions we can estimate probabilities---like, for example, one of the probabilities we'll estimate below: how likely is a band to play at Austin City Limits Music Festival, given that it played at Lollapalooza earlier that same year?  
+Counting is one of the simplest things you can do with a data set.  But it can you get you surprisingly far.  I've heard it said that data science is mostly plotting and counting things.  After all, "How many?" is the [most basic quantitative question](https://www.youtube.com/watch?v=0Zi8KbgVhFc&ab_channel=SesameStreet) we can ask about the world.  Moreover, from counts, we can get proportions, and from proportions we can estimate probabilities---like, for example, one of the probabilities we'll estimate below: how likely is a band to play at Austin City Limits Music Festival, given that it played at Lollapalooza earlier that same year?  
 
 This lesson is about getting R to do the work of counting for us, so that we can focus on the questions we care about and not the tedious mechanical details of how to answer them.  You'll learn to:  
 
@@ -205,6 +205,45 @@ xtabs(~bonnaroo + coachella, data=aclfest) %>%
   prop.table()
 ```
 
+So the joint probability P(Bonnaroo, Coachella) = 0.045.  This is one piece of the addition rule.  But what about the other two pieces: P(Bonnaroo) and P(Coachella)?  Well, we can get those using what we learned above, in our discussion of [Simple probabilities], by calling `xtabs` for each festival individually:
+
+```{r}
+xtabs(~bonnaroo, data=aclfest) %>%
+  prop.table()
+```
+
+So P(Bonnaroo) = 0.26.  And for Coachella:
+
+```{r}
+xtabs(~coachella, data=aclfest) %>%
+  prop.table()
+```
+
+This tells us that P(Coachella) = 0.446.  So putting these pieces together, we get:
+
+$$
+\begin{aligned}
+P(\mbox{Bonnaroo or Coachella}) &= P(\mbox{Bonnaroo}) + P(\mbox{Coachella}) - P(\mbox{Bonnaroo, Coachella}) \\
+&= 0.26 + 0.446 - 0.045 \\
+&= 0.661
+\end{aligned}
+$$
+
+I'll also note a handy labor-saving function called `addmargins`, which saves you the trouble of making three calls to `xtabs`:
+
+```{r}
+xtabs(~bonnaroo + coachella, data=aclfest) %>%
+  prop.table %>%
+  addmargins
+```
+
+`addmargins` adds the probabilities of the individual events (Bonnaroo and Coachella) in isolation to the margins of the table of joint probabilities:
+
+- the bottom _row_ labeled `Sum` tells us that P(`coachella`=0) = 0.554 and P(`coachella`=1) = 0.446.  
+- the right _column_ labeled `Sum` tells us that P(`bonnaroo`=0) = 0.740 and P(`coachella`=1) = 0.260.  
+
+So one block of code can get us all three pieces we need in order to do our addition-rule calculation.  
+
 
 ## Conditional probabilities
 
@@ -265,7 +304,7 @@ This equation means that A and B convey no information about each other: knowing
 
 For two independent events A and B, we can calculate the joint probability that both A and B occur by multiplying the individual probabilities of each event, e.g. P(heads 1 and heads 2) = 0.5*0.5 = 0.25.  But we can't always take this shortcut. For example, we shouldn’t multiply the probability of rain times the probability of high winds to get the probability of both, because rain and high winds convey information about each other: P(rain | high winds) $\neq$ P(rain | no high winds).  Likewise in the case of two siblings. The probability that sibling 2 is colorblind changes if we introduce the information that sibling 1 is colorblind, because colorblindness is a genetic trait.  
 
-In general, we might not know whether two events are independent.  In that case, we need data!  The solution is to check whether B happening seems to change the probability of A happening, or vice versa.  That is, we attempt to verify using data whether P(A | B) = P(A | not B) = P(A). These probabilities won't be _exactly_ alike because of statistical fluctuations, especially with small samples.  (We'll cover this point more in the future lesson on [Statistical uncertainty.])  But with enough data they should be pretty close if A and B are independent. 
+In general, we might not know whether two events are independent.  In that case, we need data!  The solution is to check whether B happening seems to change the probability of A happening, or vice versa.  That is, we attempt to verify using data whether P(A | B) = P(A | not B) = P(A). These probabilities won't be _exactly_ alike because of statistical fluctuations, especially with small samples.  (We'll cover this point more in the future lesson on [Statistical uncertainty].)  But with enough data they should be pretty close if A and B are independent. 
 
 For example, in our data on music festivals, suppose we want to check whether playing Coachella is independent of playing Bonnaroo.  To check this, we want to see if P(coachella = 1 | bonnaroo = 1) = P(coachella = 1 | bonnaroo = 0)---in other words, whether a band's playing Bonnaroo affects the probability that the same band plays Coachella.  So to check this, let's form a table of probabilities conditional on the `bonnaroo` variable:
 
@@ -291,8 +330,8 @@ xtabs(~acl + outsidelands, data=aclfest) %>%
 
 From this table, it looks like:  
 
-- P(acl = 1 | outsidelands = 1) = 0.126  
-- P(acl = 1 | outsidelands = 0) = 0.135
+- P(acl = 1 | outsidelands = 0) = 0.126  
+- P(acl = 1 | outsidelands = 1) = 0.135
 
 These numbers are not _identical_, but they're very close, to the point that we might plausibly explain the difference as a small-sample fluctuation.  (Again, we'll cover the topic of small-sample fluctuations in a future lesson.)  So for now, we'd either say that playing ACL and playing Outside Lands look independent of one another, _or_ at the very least that they look _nearly_ independent of one another.  Either way, no matter how we choose to phrase our conclusion, it's clear that whether a band plays Outside Lands conveys little to no information about how likely that band is to play ACL.  
 

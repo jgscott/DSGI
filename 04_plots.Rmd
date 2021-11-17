@@ -223,7 +223,7 @@ Faceting is a very general strategy, and it works for pretty much any kind of pl
 
 If you connect points, you get lines, the second most basic geometric object.  The resulting plot is called a __line graph.__  Line graphs are useful for __showing change over time__, or more generally for showing change in a numerical variable ($y$) as a function of some sequentially ordered explanatory variable ($x$).  To make a line graph, you play "connect the dots"---that is, you connect the $(x,y)$ coordinates of your data points sequentially, in order of the $x$ variable.  
 
-Begin by importing [power_christmas.csv](data/power_christmas.csv) into RStudio.  This data shows hourly electricity demand in Texas on December 25, 2015.  The two columns are:  
+Begin by importing [power_christmas2015.csv](data/power_christmas2015.csv) into RStudio.  This data shows hourly electricity demand in Texas on December 25, 2015.  The two columns are:  
 
 - `hour`, marking the beginning of a one-hour period, with 0 meaning midnight and 23 meaning 11:00 PM.  
 - `ERCOT`, the peak instantaneous demand for electricity (in megawatts) on the Texas power grid during that one-hour period.  
@@ -359,7 +359,28 @@ ggplot(rapidcity) +
   theme_grey(base_size = 16)
 ```
 
+#### A density histogram {-}
 
+An ordinary histogram has counts on the $y$ axis: the height of each bar corresponds to the number of cases falling into that bin.  But we can also re-scale the $y$ axis so that the histogram represents an approximate probability distribution, whose total "area under the curve" is 1.  This is called a _density histogram_, and it's very easy to do in `ggplot`.  This won't change the shape of the histogram at all; it just represents a different scaling convention for the $y$ axis.  
+
+To make a density histogram rather than a "raw" histogram of counts, just add `y=..density..` as an additional aesthetic mapping. You do this inside the call to `geom_histogram`, like so:  
+
+
+```{r, eval=FALSE}
+ggplot(rapidcity) + 
+  geom_histogram(aes(x=Temp, y=..density..), binwidth=3)
+```
+
+
+```{r, echo=FALSE, fig.asp = 0.65, out.width="80%", fig.align = "center"}
+ggplot(rapidcity) + 
+  geom_histogram(aes(x=Temp, y=..density..), binwidth=3) +
+  theme_grey(base_size = 16)
+```
+
+Note that the $y$-axis has different numbers on it and is labeled "Density."  The scale here isn't super intuitive, but it's chosen so that the total area of all the bars is equal to 1.  With that scaling convention, we can interpret the histogram as an approximate _probability_ distribution (because probabilities have to sum to 1 across all possible outcomes).  The double-dots in `y=..density..` are there to inform R that `density` is not actually a variable in the data set, but rather something that R has to calculate behind the scenes in order to correctly scale the $y$ axis.  
+
+Density scaling is most useful in situations where we want to compare histograms across multiple conditions, but where the conditions involve disparate sample sizes.  In that case, scaling all the histograms to have the same total area makes it more straightforward to compare the shape of the data distribution across conditions.  
 
 ### Boxplots {-}
 
@@ -458,7 +479,9 @@ kroger_dallas = kroger %>%
   filter(city == 'Dallas')
 ```
 
-Let's now make a jitter plot to show how the `disp` correlates with sales volume.  (This `disp` variable indicates whether the store had a marketing display for cheese that week.) 
+(We'll learn more about `filter` in the lesson on [Data wrangling] soon to come, but for now it's behavior should be readily apparent:we're restricting attention to only the cases in the data frame where `city == Dallas`.)  
+
+Let's now make a jitter plot to show how the `disp` correlates with sales volume for the Dallas store.  This `disp` variable indicates whether the store had a marketing display for cheese that week.  
 
 ```{r, out.width="100%", fig.align="center", fig.asp = 0.65}
 ggplot(kroger_dallas) + 
@@ -467,7 +490,7 @@ ggplot(kroger_dallas) +
 
 Now you see each individual case plotted above, but not _exactly_ above, its group label.  The points don't line up _exactly_ above the the "yes" or "no" labels because we added a bit of meaningless random "jitter" to the dots, which allows the eye to distinguish the individual cases more easily.  (The `width` parameter controls how much jitter is added.)  Don't worry; we haven't messed with the original data; the jitter is added _solely_ for plotting purposes.  
 
-Jitter plots are a nice alternative to boxplots when you want to show each data point individually, but when you want to avoid _overplotting_, which is what happens when the data points in a plot overlap (and therefore obscure) each other..  
+Jitter plots are a nice alternative to boxplots when you want to show each data point individually, but when you want to avoid _overplotting_, which is what happens when the data points in a plot overlap (and therefore obscure) each other.  
 
 ### Bar plots {-}
 

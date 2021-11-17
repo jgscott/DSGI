@@ -52,7 +52,7 @@ rapidcity %>%
 
 These summary statistics tell us what's happening across the entire year.  But what if we wanted to calculate these statistics separately for each month?  After all, as a simple boxplot confirms, Rapid City has a lot of seasonal variation in temperature.  In the summer months, temperatures are higher, but also less variable:
 
-```{r}
+```{r rapidcity-boxplot}
 ggplot(rapidcity) + 
   geom_boxplot(aes(x=factor(Month), y=Temp))
 ```
@@ -98,14 +98,14 @@ rapidcity_summary = rapidcity %>%
 
 Now let's make bar plots for each of our two summary statistics.  First, average temperature:  
 
-```{r}
+```{r, rapidcity-barplot1}
 ggplot(rapidcity_summary) + 
   geom_col(aes(x=factor(Month), y=avg_temp))
 ```
 
 Next, proportion of days that are sub-freezing, on average:
 
-```{r}
+```{r, rapidcity-barplot2}
 ggplot(rapidcity_summary) + 
   geom_col(aes(x=factor(Month), y=prop_freeze))
 ```

@@ -1,7 +1,7 @@
 # The bootstrap  
 
 ```{r, echo=FALSE}
-knitr::opts_chunk$set(cache = T)
+knitr::opts_chunk$set(cache = TRUE)
 ```
 
 
@@ -194,8 +194,8 @@ According to the survey, it's 6.88 hours per night, on average.  But remember, t
 
 How much?  To get a rough idea, let's take a single bootstrap sample to simulate the randomness of our data-generating process, like this:  
 
-```{r, eval = FALSE}
-NHANES_sleep_bootstrap = resample(NHANES_sleep)
+```{r NHANES-single-bootstrap, eval = FALSE}
+NHANES_sleep_bootstrap = mosaic::resample(NHANES_sleep)
 mean(~SleepHrsNight, data=NHANES_sleep_bootstrap)
 ```
 
@@ -205,7 +205,7 @@ mean(~SleepHrsNight, data=NHANES_sleep_bootstrap)
 
 Taking each line in turn:  
 
-- the first line says to `resample` the `NHANES_sleep` data set, and to store the result in an object called `NHANES_sleep_bootstrap`.  (By default, `resample` takes a sample with replacement of the same size as your original sample, which are the two key requirements of bootstrapping.)  
+- the first line says to `resample` the `NHANES_sleep` data set, and to store the result in an object called `NHANES_sleep_bootstrap`.  Why `mosaic::resample` rather than just `resample`?  Because `resample` is a common name used in multiple R packages.  By adding `mosaic::` in front of `resample`, we clarify to R that we want to use the version of that function defined in the `mosaic` library.^[We can often get away without adding the `mosaic::`, but it's better to be sure that R knows which version of `resample` we want.  In particular, if you load `tidyverse` first and `mosaic` second, R should assume automatically that you want the version of resample from `mosaic` and not from any of the `tidyverse` packages.]  (By default, mosaic's `resample` function takes a sample with replacement of the same size as your original sample, which are the two key requirements of bootstrapping.)  
 - the second line says to calculate the mean of the `SleepHrsNight` variable for the bootstrap sample (i.e. _not_ for the original sample).  
 
 The result is about 6.83 hours, on average.  This differs from 6.88, the mean of the original sample, by about 0.05 hours, or 3 minutes.  Remember, this difference represents a sampling error.  (Or more precisely, it represents a _bootstrap_ sampling error, which is an approximation to an _actual_ sampling error.)  So we've already learned something useful: our survey result of 6.88 hours per night could easily differ from the true population average by 3 minutes, just because of the uncertainty inherent to sampling.  We know this is possible because we saw a 3-minute error happen right before our eyes!
@@ -223,7 +223,7 @@ options(`mosaic:parallelMessage` = FALSE)
 ```
 
 ```{r}
-boot_sleep = do(10000)*mean(~SleepHrsNight, data=resample(NHANES_sleep))
+boot_sleep = do(10000)*mean(~SleepHrsNight, data=mosaic::resample(NHANES_sleep))
 ```
 
 This statement says to: 1) create 10,000 bootstrap samples from the original `NHANES_sleep` data frame, and 2) for each bootstrap sample, recompute the mean of the `SleepHrsNight` variable.  We store the resulting set of 10,000 sample means in an object called `boot_sleep`.  
@@ -304,7 +304,7 @@ It's basically like taking a little axe and chopping off 2.5% of the bootstrap s
 
 You might notice that this 95% interval ends up covering _two_ standard errors, or 0.06 hours, to either side of your sample estimate of 6.88.  This specific numerical correspondence (68% for 1 standard error, 95% for 2) happens frequently enough to warrant a rule of thumb:
 
-> __onfidence interval rule of thumb:__ a 95% confidence interval tends to be about two standard errors to either side of your best guess.  A 68% confidence interval tends to be about one standard error to either side of your best guess.
+> __Confidence interval rule of thumb:__ a 95% confidence interval tends to be about two standard errors to either side of your best guess.  A 68% confidence interval tends to be about one standard error to either side of your best guess.
 
 But when in doubt, you can always use `confint` at whatever level you choose.  
 
@@ -318,7 +318,7 @@ In fact, I've learned over the years that if the students in my data science cla
 Let's see an example "gotcha."  The setup here is going to feel familiar, because it's precisely the NHANES survey we've already been talking about.  Suppose we have a random sample of 1,991 Americans, and we ask each of them how many hours of sleep they get per night.  We calculate the average as 6.88 hours, and then we bootstrap the sample in order to form a bootstrap sampling distribution:
 
 ```{r, eval=FALSE}
-boot_sleep = do(10000)*mean(~SleepHrsNight, data=resample(NHANES_sleep))
+boot_sleep = do(10000)*mean(~SleepHrsNight, data=mosaic::resample(NHANES_sleep))
 ```
 
 We examine the sampling distribution and compute a 95% confidence interval, like this:
@@ -385,7 +385,7 @@ So about 20% of the sample.  Mental health professionals are often telling us th
 How precisely does this survey result characterize the frequency of depression among _all_ Americans?  Let's bootstrap the sample to get a sense of our statistical uncertainty.   This code might take ten seconds or so to run:    
 
 ```{r}
-boot_depression = do(10000)*prop(~DepressedAny, data=resample(NHANES_sleep))
+boot_depression = do(10000)*prop(~DepressedAny, data=mosaic::resample(NHANES_sleep))
 ```
 
 This statement says to: 1) create 10,000 bootstrap samples from the original `NHANES_sleep` data frame, and 2) for each bootstrap sample, recompute the proportion of those for which the `DepressedAny` variable is equal to `TRUE`.  We store the resulting set of 10,000 bootstrapped proportions in an object called `boot_depression`.  
@@ -446,7 +446,7 @@ So among survey respondents, women sleep around 0.23 hours (14 minutes) longer p
 But what about statistical uncertainty?  That is, how precisely can this difference for our sample characterize the corresponding difference for the wider American population?  Let's bootstrap our sample to find out:
 
 ```{r}
-boot_sleep_gender = do(10000)*diffmean(SleepHrsNight ~ Gender, data=resample(NHANES_sleep))
+boot_sleep_gender = do(10000)*diffmean(SleepHrsNight ~ Gender, data=mosaic::resample(NHANES_sleep))
 ```
 
 This statement says to: 1) create 10,000 bootstrap samples from the original `NHANES_sleep` data frame, and 2) for each bootstrap sample, recompute the difference in the means of the `SleepHrsNight` variable between males and females.  We store the resulting set of 10,000 bootstrapped differences in an object called `boot_sleep_gender`.  
@@ -545,7 +545,7 @@ diffprop(Smoke100 ~ DepressedAny, data=NHANES_sleep)
 Let's characterize the statistical uncertainty of this number.  That is, how precisely can this difference for our sample characterize the corresponding difference in smoking rates for the wider American population?  We can use the bootstrap to find out:
 
 ```{r}
-boot_smoke_depression = do(10000)*diffprop(Smoke100 ~ DepressedAny, data=resample(NHANES_sleep))
+boot_smoke_depression = do(10000)*diffprop(Smoke100 ~ DepressedAny, data=mosaic::resample(NHANES_sleep))
 ```
 
 This statement says to: 1) create 10,000 bootstrap samples from the original `NHANES_sleep` data frame, and 2) for each bootstrap sample, recompute the difference in the proportions of the `Smoke100` variable respondents with and without at least one depressed day per month.  We store the resulting set of 10,000 bootstrapped differences in an object called `boot_smoke_depression`. 
@@ -600,7 +600,7 @@ The coefficient on `Age` is actually positive: 0.006 extra hours of nightly slee
 Moreover, now that we know how to bootstrap, we can also measure the statistical uncertainty of our slope estimate, like this:  
 
 ```{r}
-boot_sleep_age = do(10000)*lm(SleepHrsNight ~ Age, data=resample(NHANES_sleep))
+boot_sleep_age = do(10000)*lm(SleepHrsNight ~ Age, data=mosaic::resample(NHANES_sleep))
 ```
 
 This statement says to: 1) create 10,000 bootstrap samples from the original `NHANES_sleep` data frame, and 2) for each bootstrap sample, refit a linear model (`lm`) for `SleepHrsNight` versus `Age`.  We store the resulting set of 10,000 fitted regression models in an object called `boot_sleep_age`.  
@@ -611,7 +611,7 @@ Now we can ask for a confidence interval based on this bootstrapped sampling dis
 confint(boot_sleep_age, level = 0.95)
 ```
 
-There's a lot of information in this table that we haven't yet learned to interpret.  But for now, focus only on the `Age` row.  This row is telling us the lower and upper bounds for our 95% confidence interval on the `Age` coefficient in our linear model.  To be specific, we're 95% confident that the true population-wide slope of sleeping hours versus age is somewhere between 0.003 and 0.010 extra hours per night, each passing year---or equivalently, between 1.8 and 6 extra minutes of sleep per night, each passing decade.
+There's a lot of information in this table that we haven't yet learned to interpret.  But for now, focus only on the `Age` row.  This row is telling us the lower and upper bounds for our 95% confidence interval on the `Age` coefficient in our linear model.  To be specific, we're 95% confident that the true population-wide slope of sleeping hours versus age is somewhere between 0.003 and 0.010 extra hours per night, each additional year of age---or equivalently, between 1.8 and 6 extra minutes of sleep per night per decade.
 
 To provide some context for this confidence interval, it helps to see the fitted line superimposed on top of the data, like this:
 
@@ -633,7 +633,7 @@ As we've already discussed, __statistical significance__ just means whether the 
 confint(boot_sleep_age, level = 0.95) %>% filter(name == 'Age')
 ```
 
-__Practical significance__, on the other hand, means whether the numerical magnitude of something is large enough to matter to actual human persons, as opposed to statisticians performing their day jobs.  This is necessarily a subjective judgment: "large enough to matter" is not a well-defined mathematical term.  But it's often pretty obvious in context.   After all, ask yourself: in subjective terms, does 3.6 minutes of extra nightly sleep with each passing decade sound like a lot to you?  It certainly doesn't to me.  And in more objective terms, 3.6 minutes also doesn't seem large in the context of the intrinsic variability in `SleepHrsNight` across the population, with a standard deviation of...
+__Practical significance__, on the other hand, means whether the numerical magnitude of something is large enough to matter to actual human persons, as opposed to statisticians performing their day jobs.  This is necessarily a subjective judgment: "large enough to matter" is not a well-defined mathematical term.  But it's often pretty obvious in context.   After all, ask yourself: in subjective terms, does 3.6 minutes of extra nightly sleep with each decade sound like a lot to you?  It certainly doesn't to me.  And in more objective terms, 3.6 minutes also doesn't seem large in the context of the intrinsic variability in `SleepHrsNight` across the population, with a standard deviation of...
 
 ```{r}
 sd(~SleepHrsNight, data=NHANES_sleep)
@@ -641,9 +641,9 @@ sd(~SleepHrsNight, data=NHANES_sleep)
 
 ...1.3 hours, or 78 minutes per night.  
 
-So yes, there is a "statistically significant" relationship between age and sleep hours.  This relationship is, contrary to the short-term experience of new parents, actually positive.  On average, people sleep a bit more as they age.^[This is a tad misleading.  A more detailed look at the NHANES data shows a small average dip in average sleep time from from ages 20-50, and then a small rise from ages 50-80.  But the rise at the back end is a bit steeper than the dip at the front end, for a small net-positive average effect from ages 20-80.]    
+So yes, there is a "statistically significant" relationship between age and sleep hours.  This relationship is, contrary to the short-term experience of new parents, actually positive.  On average, older adults sleep a bit more than younger adults.^[This is a tad misleading.  A more detailed look at the NHANES data shows a small average dip in average sleep time from from ages 20-50, and then a small rise from ages 50-80.  But the rise at the back end is a bit steeper than the dip at the front end, for a small net-positive average effect from ages 20-80.]    
 
-But only on average, and even then only a little bit!  Don't fall into the trap of assuming that, just because some effect is labeled "statistically significant," it must therefore matter in the real world.  It just isn't so.  The age--sleep relationship in the NHANES data is a perfect example of an effect that is statistically significant, but that we're _nearly sure_, based on the confidence interval, must be so small that it hardly matters at all in practical terms.  (Again, that's my opinion; if 3.6 minutes of extra sleep is make-or-break for you, you're certainly free to disagree, but sadly you'll need to wait a decade for those coming nights of somnolent bliss.)
+But only on average, and even then only a little bit!  Don't fall into the trap of assuming that, just because some effect is labeled "statistically significant," it must therefore matter in the real world.  It just isn't so.  The age--sleep relationship in the NHANES data is a perfect example of an effect that is statistically significant, but that we're _nearly sure_, based on the confidence interval, must be so small that it hardly matters at all in practical terms.  (Again, that's my opinion; if 3.6 minutes of extra sleep is make-or-break for you, you're certainly free to disagree, but sadly the data suggest that you'll need to wait a decade for those coming nights of somnolent bliss.)
 
 Now, don't get me wrong.  I'm not saying that statistical significance is an irrelevant concept.  Being able to speak the language of statistical significance is really important for communicating about data.  Rightly or wrongly, there are times and places where people just expect you to use the term, especially in certain allegedly rarefied academic contexts.  More to the point, there are _also_ cases, like in clinical trials, where it actually is super important to know whether an effect is statistically significant. (Does this new drug actually work better than the old one?  Does this new vaccine work at all?)
 
@@ -707,7 +707,7 @@ This suggests a drop-off in rent of about \$631 per mile from the Tower, on aver
 What about a confidence interval for that slope?  Let's bootstrap:
 
 ```{r}
-boot_distance = do(10000)*lm(twobed_rent ~ distance_from_tower, data=resample(apartments))
+boot_distance = do(10000)*lm(twobed_rent ~ distance_from_tower, data=mosaic::resample(apartments))
 confint(boot_distance, level = 0.95)
 ```
 
@@ -720,7 +720,7 @@ This is an example of a relationship that is both _statistically_ significant (b
 Let's turn now to a question that may have occurred to you already: how do I know this bootstrap thing actually works?  Take the specific example of this bootstrap confidence interval we calculated earlier, for the average number of hours per night that Americans sleep:
 
 ```{r, eval=FALSE}
-boot_sleep = do(10000)*mean(~SleepHrsNight, data=resample(NHANES_sleep))
+boot_sleep = do(10000)*mean(~SleepHrsNight, data=mosaic::resample(NHANES_sleep))
 confint(boot_sleep, level = 0.95)
 ```
 
@@ -824,7 +824,7 @@ options(`mosaic:parallelMessage` = FALSE)
 ```
 
 ```{r}
-rapidcity_sample_boot = do(1000)*mean(~Temp, data=resample(rapidcity_sample))
+rapidcity_sample_boot = do(1000)*mean(~Temp, data=mosaic::resample(rapidcity_sample))
 confint(rapidcity_sample_boot, level = 0.95)
 ```
 
@@ -849,7 +849,7 @@ options(`mosaic:parallelMessage` = FALSE)
 ```
 
 ```{r}
-rapidcity_sample_boot2 = do(1000)*mean(~Temp, data=resample(rapidcity_sample2))
+rapidcity_sample_boot2 = do(1000)*mean(~Temp, data=mosaic::resample(rapidcity_sample2))
 confint(rapidcity_sample_boot2, level = 0.95)
 ```
 
@@ -869,7 +869,7 @@ registerDoParallel(8)
 
 one_hundred_intervals = foreach(iter = 1:100, .combine='rbind') %dopar% {
   rapidcity_sample = sample_n(rapidcity, 50)
-  rapidcity_sample_boot = do(1000)*mean(~Temp, data=resample(rapidcity_sample))
+  rapidcity_sample_boot = do(1000)*mean(~Temp, data=mosaic::resample(rapidcity_sample))
   confint(rapidcity_sample_boot, level = 0.95) %>%
     mutate(Sample = iter)
 }
@@ -894,7 +894,7 @@ ggplot(one_hundred_intervals) +
   theme(legend.position="bottom")
 ```
 
-Bingo!  Each of the vertical bars represents a single confidence interval from a single sample.  The true value is shown as a horizontal line at 47.28 degrees; you'll recall this number was based on our "temperature census," i.e. the full 1995--2011 data set from which we drew the samples.  The blue intervals contain that true value.  The red intervals don't.  I count 6 red intervals out of 100, or equivalently, 94 blue intervals out of 100.  That's pretty close to 95%.  
+Bingo!  Each of the vertical bars represents a single confidence interval from a single sample.  The true value is shown as a horizontal line at 47.28 degrees; you'll recall this number was based on our "temperature census," i.e. the full 1995--2011 data set from which we drew the samples.  The blue intervals contain that true value.  The red intervals don't.  I count 7 red intervals out of 100, or equivalently, 93 blue intervals out of 100.  That's pretty close to 95%.  
 
 Incidentally, I've found over the years that Figure \@ref(fig:bootstrap-coverage1), with its 100 different confidence intervals, is an _excellent_ self-diagnostic.  If you understand this figure---I mean _really_ understand it, like how it was constructed, why it was constructed that way, and what it actually implies---then congratulations!  You should be proud of yourself, because to understand this figure, you have to understand a whole heck of a lot: 
 
@@ -931,7 +931,7 @@ min(~Temp, data=rapidcity_sample)
 Well, that's not very close.  Then again, _of course_ our sample answer is wrong, compared with the right answer of -19.  We should expect to see that by now for pretty much any statistical summary.  So let's bootstrap our sample and calculate a confidence interval:
 
 ```{r, message=FALSE}
-rapidcity_sample_boot_min = do(1000)*min(~Temp, data=resample(rapidcity_sample))
+rapidcity_sample_boot_min = do(1000)*min(~Temp, data=mosaic::resample(rapidcity_sample))
 confint(rapidcity_sample_boot_min, level = 0.95)
 ```
 
@@ -949,7 +949,7 @@ min(~Temp, data=rapidcity_sample2)
 Once again, we don't get the right answer of -19---but that's expected.  So let's bootstrap this second sample to get a confidence interval:  
 
 ```{r, message=FALSE}
-rapidcity_sample_boot_min2 = do(1000)*min(~Temp, data=resample(rapidcity_sample2))
+rapidcity_sample_boot_min2 = do(1000)*min(~Temp, data=mosaic::resample(rapidcity_sample2))
 confint(rapidcity_sample_boot_min2, level = 0.95)
 ```
 
@@ -968,7 +968,7 @@ options(`mosaic:parallelMessage` = FALSE)
 registerDoParallel(8)
 another_one_hundred_intervals = foreach(iter = 1:100, .combine='rbind') %dopar% {
   rapidcity_sample = sample_n(rapidcity, 50)
-  rapidcity_sample_boot = do(1000)*min(~Temp, data=resample(rapidcity_sample))
+  rapidcity_sample_boot = do(1000)*min(~Temp, data=mosaic::resample(rapidcity_sample))
   confint(rapidcity_sample_boot, level = 0.95) %>% 
     mutate(Sample = iter)
 }
@@ -1015,11 +1015,11 @@ However, I can give you some other examples of where the bootstrap breaks, and w
 
 - your sample is very small, say less than 20 or maybe 30.      
 - you want to estimate the extreme quantiles of a distribution (of which the min and max are the most extreme possible, as you've seen).    
-- your data points are highly correlated cross space or time.  
+- your data points are highly correlated across space or time.  
 - you're fitting a very fancy machine-learning model, with a cool name like "lasso" or "deep neural network."  
 - the underlying population distribution is very heavy-tailed.  
 
-Honestly, this is the kind of stuff you'd learn about in a more advanced statistics course.  Your best best in these cases is to actually take such a course, or else to work with a professional statistician.  Of course, if you'd like to dig in more yourself, the following book has a chapter (Ch.9) devoted to "When Bootstrapping Fails Along with Remedies for Failures":
+Honestly, this is the kind of stuff you'd learn about in a more advanced statistics course.  Your best bet in these cases is to actually take such a course, or else to work with a professional statistician.  Of course, if you'd like to dig in more yourself, the following book has a chapter (Ch.9) devoted to "When Bootstrapping Fails Along with Remedies for Failures":
 
 >M. R. Chernick, Bootstrap methods: A guide for practitioners and researchers, 2nd ed. Hoboken N.J.: Wiley-Interscience, 2008.
 
