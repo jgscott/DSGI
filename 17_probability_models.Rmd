@@ -601,7 +601,7 @@ $$
 W_{40} = W_0 \cdot (1+X_1) \cdot (1+X_2) \cdots (1+X_{40}) = W_0 \cdot \prod_{t=1}^{40} (1 + X_t) \, .
 $$
 
-In other words, we just keep compounding the interest year after year.  Here the symbol $\prod$ means we take the running product of all the terms, from $t=1$ to $t=40$, just like $\Sigma$ means we take a running sum.  This formula follows from the fact that $W_{t+1}$, your wealth in year $t$, is given by the simple interest formula: $W_{t+1} = W_t \cdot (1 + X_t)$.  Accumulating (i.e. compounding) returns year after year then gives us the above formula.
+In other words, we just keep compounding the interest year after year.  Here the symbol $\prod$ means we take the running product of all the terms, from $t=1$ to $t=40$, just like $\Sigma$ means we take a running sum.  This formula follows from the fact that $W_{t}$, your wealth in year $t$, is given by the simple interest formula: $W_{t} = W_{t-1} \cdot (1 + X_t)$.  Accumulating (i.e. compounding) returns year after year then gives us the above formula.
 
 Of course, we don't know these returns $X_1$ up to $X_{40}$, forty years out into the future.  But we do have a probability model for them, whose parameters we get to choose.  Let's make some conservative assumptions: say, that stocks will net a 6% real return per year on average ($\mu = 0.06$), with a standard deviation of 20% ($\sigma = 0.2$). Thus we're setting the mean a bit lower than the mean of $0.083$ that we calculated based on the historical data back to 1928.   Said concisely, our model will assume that each year's return, net of inflation, is a normal random variable, $X_t \sim N(\mu = 0.06, \sigma = 0.2)$.
 
