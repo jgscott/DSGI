@@ -894,7 +894,7 @@ ggplot(one_hundred_intervals) +
   theme(legend.position="bottom")
 ```
 
-Bingo!  Each of the vertical bars represents a single confidence interval from a single sample.  The true value is shown as a horizontal line at 47.28 degrees; you'll recall this number was based on our "temperature census," i.e. the full 1995--2011 data set from which we drew the samples.  The blue intervals contain that true value.  The red intervals don't.  I count 7 red intervals out of 100, or equivalently, 93 blue intervals out of 100.  That's pretty close to 95%.  
+Bingo!  Each of the vertical bars represents a single confidence interval from a single sample.  The true value is shown as a horizontal line at 47.28 degrees; you'll recall this number was based on our "temperature census," i.e. the full 1995--2011 data set from which we drew the samples.  The blue intervals contain that true value.  The red intervals don't.  If you count the blue intervals (or, with less effort, count the red intervals and subtract from 100), you'll get a figure that's reasonably close to---though not exactly---95%.  
 
 Incidentally, I've found over the years that Figure \@ref(fig:bootstrap-coverage1), with its 100 different confidence intervals, is an _excellent_ self-diagnostic.  If you understand this figure---I mean _really_ understand it, like how it was constructed, why it was constructed that way, and what it actually implies---then congratulations!  You should be proud of yourself, because to understand this figure, you have to understand a whole heck of a lot: 
 

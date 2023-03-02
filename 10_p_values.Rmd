@@ -24,12 +24,12 @@ But to the Patriots' detractors, this fact was more than weird.  It was infuriat
 
 But before turning to fraud or the Force as an explanation, let's take a closer look at the evidence.  Just how likely is it that one team could win the pre-game coin toss at least 19 out of 25 times, assuming that there's no cheating going on?
 
-This question calls for something called a __hypothesis test,__ which is another core tool of statistical inference.  The innocent explanation here is that the Patriots just got lucky; in the parlance of data science, that's called a _hypothesis._  The goal of our test is to check whether this hypothesis seems capable of explaining the data, or whether instead we need a new hypothesis (i.e. a different explanation for the data).  To do that, we'll calculate a number called a __p-value.__  
+This question calls for something called a __hypothesis test,__ which is another core tool of statistical inference.  The innocent explanation here is that the Patriots just got lucky; in the parlance of data science, that's called a _hypothesis_ or a _model_ of the data.  The goal of our test is to check whether this hypothesis seems capable of explaining the data, or whether instead we need a new hypothesis (i.e. a different explanation for the data).  To do that, we'll calculate a number called a __p-value.__  
 
 In this lesson, you'll learn:  
 
 - the four steps common to all hypothesis testing problems.    
-- how to conduct a hypothesis test via simulation.  
+- how to conduct a hypothesis test by simulating from an assumed (or "null") model  
 - what a p-value is, and why it confuses people so much.  
 
 
@@ -96,11 +96,15 @@ sum(patriots_sim >= 19)
 
 ...58 times out of 10,000.  Clearly 19 wins is an unusual, although not impossible, result: based on the Monte Carlo simulation, we estimate its probability to be about 58/10000 $\approx$ 0.006.      
 
+And this illustrates what we might call the Universal Principle of Hypothesis Testing:^[For the record, no one else calls it it this.  But it _is_ the basic idea behind every hypothesis test out there.]  
 
-So did the Patriots win 19 out of 25 coin tosses by chance?  Well, nobody knows for sure---you can examine the evidence and decide for yourself.  
+> Universal principle of testing: if you want to test whether a hypothesis or model looks sensible, simulate a bunch of data sets under conditions where the hypothesis is true by design.  Then examine how similar the actual data is to the simulated data.  If they're not similar, the hypothesis can't explain the data very well.  
 
-But despite the small probability of such an extreme result, it's hard to believe that the Patriots cheated on the coin toss, for a few reasons.  First, how could they?  The coin toss would be extremely hard to manipulate, even if you were inclined to do so.  Moreover, the Patriots are just _one_ team, and this is just _one_ 25-game stretch.  But the NFL has 32 teams, so the probability that _at least one_ of them would go on an unusual coin-toss winning streak over _at least one_ 25-game stretch over a long time period is a lot larger than the number we've calculated.  Finally, after this 25-game stretch, the Patriots reverted back to a more typical coin-toss winning percentage, closer to 50\%.  I conclude that the 25-game stretch was probably just luck.^[Out of curiosity, I actually dug deeper and ran a more involved simulation consisting of all NFL games over a ten-year period.  In about 23% of those simulations, at least one team went on a lucky streak where they won at least 19 out of 25 coin flips.  So overall, there's not much evidence to suggest that the Patriots were cheating at the coin toss.]
+No matter how complex the scenario, the rest is just details: _how_ you actually create the notional "simulated" data sets, and how you judge similarity between the real data and the simulated data.  
 
+So did the Patriots win 19 out of 25 coin tosses by chance?  Well, nobody knows for sure; you can examine the evidence and decide for yourself.  
+
+But despite the small probability of such an extreme result, I personally find it hard to believe that the Patriots cheated on the coin toss, for a few reasons.  First, how could they?  The coin toss would be extremely hard to manipulate, even if they were highly motivated to do so.  Moreover, the Patriots are just _one_ team, and this is just _one_ 25-game stretch.  But the NFL has 32 teams, so the probability that _at least one_ of them would go on an unusual coin-toss winning streak over _at least one_ 25-game stretch over a long time period is a lot larger than the number we've calculated.  Finally, after this 25-game stretch, the Patriots reverted back to a more typical coin-toss winning percentage, closer to 50\%.  I conclude that the 25-game stretch was probably just luck.^[Out of curiosity, I actually dug deeper and ran a more involved simulation consisting of all NFL games over a ten-year period.  In about 23% of those simulations, at least one team went on a lucky streak where they won at least 19 out of 25 coin flips.  So overall, there's not much evidence to suggest that the Patriots were cheating at the coin toss.]
 
 ## The four steps of hypothesis testing  
 
@@ -262,7 +266,7 @@ Because of how counter-intuitive p-values are, people make mistakes with them al
 - The p-value is _not_ the probability of having observed our statistic, given that the null hypothesis is true.  Rather, it is the probability of having observed our statistic, _or any more extreme statistic_, given that the null hypothesis is true.
 - The p-value is _not_ the probability that your procedure will falsely reject the null hypothesis, given that the null hypothesis is true.  To get a guarantee of this sort, you have to set up a pre-specified "rejection region" for your p-value (like $p \leq 0.05$), in which case the size of that rejection region---and not the observed p-value itself---can be interpreted as the probability that your procedure will reject the null hypothesis, given that the null hypothesis is true.^[As above: if you're interested, read about the Neyman--Pearson approach to testing.]  
 
-So here's my summary advice for this lesson.
+So here's my summary advice about p-values.
 
 First, be broadly conversant with p-values.  People will throw them at you and expect you to know what they mean (even if, as seems quite likely, the people doing the throwing don't even understand what they mean).  Moreover, many common "off the shelf" statistical analyses produce p-values as part of their standard summary output.  Therefore, you should reach a level-2 understanding of what p-values are.   Know the common misinterpretations and why they're wrong.  
 
@@ -283,5 +287,72 @@ knitr::include_graphics("images/xkcd_significant.png")
 ```
 
 Finally, you should appreciate that, while p-values might be interesting and useful for some purposes, they are still fundamentally impoverished, because they measure _only_ statistical significance, entirely ignoring any questions of practical significance.  In many circumstances, a much better question to ask than "what's the p-value?" is "what is a plausible range for the size of the effect I'm trying to measure?"  This question can be answered only with a confidence interval, not a p-value.   
+
+
+## Assessing goodness of fit (*)
+
+Let's know turn to another very common application of p-values, used in assessing what's called _goodness of fit_ of some assumed model.  We'll start with an example related to issues of fairness in jury selection.
+
+### Example 1: jury selection {-}
+
+In the United States, the right to a fair trial is guaranteed by the 6th Amendment to the Constitution, which reads, in part: "In all criminal prosecutions, the accused shall enjoy the right to a speedy and public trial, by an impartial jury of the state and district wherein the crime shall have been committed..."
+
+So how is this guarantee of impartiality actually enforced during jury selection?  Generally in two ways.  First, a prospective juror might make it abundantly clear that he or she can't or won't hear the case with an open mind.  These people are generally excluded "for cause" by the judge, at the request of one side's attorney.  But other potential jurors might not make their biases so obvious that the judge is willing to grant a "for cause" exclusion.  In that case, lawyers for either side may use one of their limited number of "peremptory challenges," thereby excluding someone from a jury without having to give a specific reason.  
+
+As many observers have pointed out, this process offers plenty of room for various forms of bias to creep in.  Consider, for example, the question of racial bias in jury composition.  As a 2021 [Washington Post article](https://www.washingtonpost.com/national/racial-discrimination-jury-selection/2021/12/18/2b6ec690-5382-11ec-8ad5-b5c50c1fb4d9_story.html) explains:
+
+> Nearly four decades after the Supreme Court established a precedent meant to eliminate racial discrimination in jury selection, the problem remains widespread, research shows. Most often the practice occurs through a legal tactic called a peremptory challenge, which allows an attorney to strike a potential juror without having to state a reason.
+
+> But critics say lawyers have found ways to get around the Supreme Court’s prohibition against discrimination in jury selection by asking potential Black jurors such questions as, “Have you ever had a bad encounter with the police?” If the potential juror says yes, they could be dismissed for perceived bias against police. One study in the Deep South found that Black jurors were being challenged and dismissed at double or triple the rates of other people.
+
+In light of this possibility, let's take up the question of how you would __quantitatively assess the evidence for racial bias in jury composition.__  To illustrate, let's suppose that you live in a county with the following racial/ethnic make-up:
+
+- Asian: 7.4%  
+- Black alone, not Hispanic: 8.9%  
+- Hispanic: 33.6%  
+- White alone, not Hispanic: 48.9%  
+- Everyone else: 1.2%  
+
+If you're wondering where the numbers (and categories) came from, I used the 2020 census data from Travis County, Texas, where I live.
+
+Now suppose you decide to examine the make-up of 10 randomly selected juries, which means 10 $\cdot$ 12 = 120 individual jurors.  If these jurors were truly a random sample of the wider community, you'd expect their racial makeup to reflect that of the population.  For example, since 8.9% of Travis County identify as Black, you'd "expect" 0.089 $\cdot$ 120 = 10.68 out of 120 jurors to identify as Black.  If you do a similar calculation for all groups, you find that the "expected" counts are as follows:
+
+- Asian: 0.074 * 120 =  8.88
+- Black alone, not Hispanic: 0.089 * 120 = 10.68
+- Hispanic: 0.336 * 120 = 40.32
+- White alone, not Hispanic: 0.489 * 120 = 58.68
+- Everyone else: 1.44 
+
+It's OK that these aren't whole numbers; they're expected values in the same sense that you mathematically "expect" each an average U.S. family to have 1.93 children, even though people come in whole numbers.  
+
+Now let's say that, upon inspecting those ten randomly sampled juries, comprising N=120 jurors, you observe the following _actual_ counts for each, shown in the fourth column next to the expected counts:  
+
+|Race/ethnicity | Proportion | Expected | Observed | Difference (O - E) |
+|:--------------|:----------|:-------|:-----|:-----|
+| Asian | 0.074 | 8.88 | 9 | 0.12 |
+| Black alone, not Hispanic | 0.089 | 10.68 | 4  | -6.68  |
+| Hispanic | 0.336 | 40.32 | 31 | -9.32 |
+| White alone, not Hispanic | 0.489 | 58.58 | 74 | 15.42 |
+| Everyone else | 0.012 | 1.44 | 2 | 0.56 |
+
+It looks as though Black and Latino residents are under-represented on these ten juries, while White residents are over-represented.  Specifically, there are 6.68 fewer Hispanic jurors, 9.32 fewer Black jurors, and 15.42 _more_ White jurors, compared to what you'd expect in an "average" random sample of N=120.  This difference between observed and expected counts, or "O $-$ E" for short, is shown in the last column of the table above.  
+
+### The chi-squared statistic {-}
+
+By now, though, you should know enough about [Statistical uncertainty] to appreciate a key point: _no_ random sample will precisely match the population in every particular.  To demonstrate a racial bias in jury selection, we need to account for random variation in our sample of jurors.  That is, we must test whether the differences between what we observe and what we expect (shown in the "O-E" column) are large enough to provide convincing evidence against our null hypothesis: that these 120 jurors are just a random sample from the wider population.  
+
+To test this hypothesis, we'll use something called the _chi-squared statistic._  Basically, the chi-squared statistic will take all the values in the $O-E$ column in our table above and combine them into a single number, called $\chi^2$, which will be our test statistic. (That's the Greek letter "chi" raised to the power of 2, hence "chi squared.")  If $\chi^2$ is large, it will suggest that our observed counts (O) are unusually far from their corresponding expected counts (E).  This in turn provides evidence against the null hypothesis.  On the other hand, if $\chi^2$ is small, it will suggest that the observed counts are consistent with what we'd expect under random sampling, and that any differences between O and E are just ordinary statistical fluctuations.  
+
+Calculating $\chi^2$ involves a few steps.  We first form a _standardized difference_ for each entry in the "O-E" column.  To do so, we'll use the formula $Z = (O-E)/\sqrt{E}$.  In words:  
+
+- we take O-E, the difference between the observed count and the expected count.  
+- we then standardize this difference, dividing it by the square root of the expected count.  
+
+
+
+
+### Example 2: surveys {-}
+
+In fall of 2020, when universities everywhere were struggling to deal with the educational consequences of the Covid-19 pandemic, my college commissioned a survey of students to understand their experiences of online education.  When the results were shared with faculty, some were expected (e.g. that students generally disliked Zoom classes but liked the convenience of Zoom office hours), while others were at least mildly surprising (e.g. that students generally had a much lower opinion of Zoom breakout rooms for discussion than faculty did).  
 
 
